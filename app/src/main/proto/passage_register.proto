@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "google/protobuf/timestamp.proto";
+
+message RegisterPassage {
+    //Identificação do Validador.
+    string device_id = 1;
+    //Identificação da operadora de transportes.
+    string operator_id = 2;
+    //Número de série do leitor.
+    string reader_serial_number = 3;
+    //Número de série do Validador.
+    string device_serial_number = 4;
+    //Código de autorização de registro
+    int32 register_code = 5;
+    //Data e hora da passagem
+    google.protobuf.Timestamp passage_date = 6;
+    //Data e hora da passagem
+    google.protobuf.Timestamp transaction_date = 7;
+    //Número sequencial único da transação no Validador
+    string device_suid = 8;
+    //Hash da PAN do cartão utilizado
+    bytes pan_hash = 9;
+    //PAR do cartão utilizado (presente se informado pelo leitor)
+    string par_card = 10;
+    //Dados de processamento da transação sem contato obtidos do leitor sem contato.
+    bytes transaction_data = 11;
+    //Request: Versão dos parâmetros EMV para configuração do leitor.
+    int32 emv_parameters_version = 12;
+    //Request: Versão das tabelas de BIN disponíveis no validador.
+    int32 bin_parameters_version = 13;
+    //Request: Versão da lista de exceção disponível no validador.
+    int32 restriction_list_version = 14;
+    //Valor da transação (presente se disponível)
+    int32 transaction_value = 15;
+    //Identificação da linha/viagem (presente se disponível no momento do registro).
+    string line_id = 16;
+    //Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
+    string vehicle_id = 17;
+    //Geolocalização do validador no momento da geração da passagem
+    string geolocation = 18;
+}
+
+message RegisterPassageResponse {
+    //Código de resposta da solicitação.
+    int32 response_code = 1;
+    //Número sequencial único da transação no Gateway de Mobilidade
+    string gateway_uid = 2;
+    //Response: Versão/ atual dos parâmetros
+    int32 emv_parameters_version = 3;
+    //Response: Versão atual das tabelas.
+    int32 bin_parameters_version = 4;
+    //Response: Versão atual da lista de exceção.
+    int32 restriction_list_version = 5;
+    //Número sequencial único da transação no Validador
+    string device_suid = 6;
+}
+
+service Transactions {
+    rpc MakeTransaction (RegisterPassage) returns (RegisterPassageResponse);
+}

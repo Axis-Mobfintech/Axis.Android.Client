@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/logContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/logTextview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:text="Logs"
+            />
+
+    </ScrollView>
+
+    <TableLayout
+        android:id="@+id/commandsTable"
+        android:weightSum="3"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/logContainer">
+        <TableRow>
+            <LinearLayout android:id="@+id/registrarBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_edit_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="REGISTRAR VALIDADOR"
+                    />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/paramBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_build_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="OBTER PARÂMETROS"
+                    />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/listaExcBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_subject_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="OBTER LISTA DE EXCEÇÃO"
+                    />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:layout_marginTop="6dp">
+            <LinearLayout android:id="@+id/passagemBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_attach_money_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="REGISTRAR PASSAGEM"
+                    />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/recuperarDebBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_new_releases_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="RECUPERAR DÉBITO"
+                    />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/conectarLeitorBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_usb_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="CONECTAR UM LEITOR"
+                    />
+            </LinearLayout>
+
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/statusTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="6dp"
+            android:textSize="16sp"
+            android:text="Status do Leitor: Desconectado"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
