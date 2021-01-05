@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "google/protobuf/timestamp.proto";
+
+message PrimaryAccountReferenceBlackList {
+    //Identificação da tabela PAR não aceitos (fixo 05)
+    int32 message_id = 1;
+    //índice do registro na tabela (0001 - 9999)
+    int32 index = 2;
+    //Motivo da inclusão do cartão na lista
+    int32 reason = 3;
+    //Data da inclusão
+    google.protobuf.Timestamp register_date = 4;
+    //Payment Account Reference (PAR)
+    string payment_account_reference = 5;
+
+}

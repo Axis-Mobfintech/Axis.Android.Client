@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "google/protobuf/timestamp.proto";
+import "Protos/accepted_bin.proto";
+import "Protos/application_identifier.proto";
+import "Protos/capk_table.proto";
+
+message Parameters {
+    //Identificação do Validador.
+    string device_id = 1;
+    //Identificação da operadora de transportes.
+    string operator_id = 2;
+    //Número de série do leitor.
+    string reader_serial_number = 3;
+    //Número de série do Validador.
+    string device_serial_number = 4;
+    //KSN – Key Serial Number – do leitor de cartões.
+    bytes ksn_data = 5;
+    //Código de autorização de registro.
+    int32 register_code = 6;
+    //Identificação da linha/viagem (presente se disponível no momento do registro).
+    string line_id = 7;
+    //Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
+    string vehicle_id = 8;
+    //Data e hora de envio da transação ao Gateway 
+    google.protobuf.Timestamp register_date = 9;
+    //versão do validador de parametros EMV
+    int32 emv_parameters_version = 10;
+    //versão do validador da tabela de BIN
+    int32 bin_parameters_version = 11;
+    //versão do validador da tabela de CAPK
+    int32 capk_parameters_version = 12;
+}
+
+message ParametersResponse {
+    int32 response_code = 1;
+    //Curent EMV parameters version
+    int32 emv_parameters_version = 2;
+    //Current BIN parameters version
+    int32 bin_parameters_version = 3;
+    //Current CAPK parameters version
+    int32 capk_parameters_version = 4;
+    //EMV parameters table
+    repeated ApplicationIdentifier emv_table = 5;
+    //BIN parameters table
+    repeated AcceptedBankIdentificationNumber aid_table = 6;
+    //CAPK parameter table
+    repeated CertificateAuthorityPublicKeyTable capk_table = 7;
+    //Response Date Time
+    google.protobuf.Timestamp response_date = 8;
+}
+
+service DevicesParameters {
+    rpc GetDeviceParameters (Parameters) returns (ParametersResponse);
+}

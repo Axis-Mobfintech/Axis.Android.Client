@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+message AcceptedBankIdentificationNumber {
+    //Identificação da tabela AID (fixo �03�)
+    int32 message_id = 1;
+    //índice do registro na tabela (0001 - 9999)
+    int32 index = 2;
+    //Código de identifica��o do emissor.
+    int32 issuer_code = 3;
+    //Número inicial da faixa
+    uint64 initial_range = 4;
+    //Número final da faixa
+    uint64 final_range = 5;
+    //Quantidade de transações sequenciais (com o mesmo hash do PAN e PAN Sequence Number ou mesmo PAR) permitidas
+    uint32 total_sequential_transactions_allowed = 6;
+
+}

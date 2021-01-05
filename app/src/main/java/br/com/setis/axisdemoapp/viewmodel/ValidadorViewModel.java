@@ -4,16 +4,15 @@ import android.content.Context;
 import android.net.TrafficStats;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.axismobfintech.gpb.transactions.PassageRegister;
 import com.axismobfintech.gpb.transactions.TransactionsGrpc;
-import com.google.api.LogDescriptor;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Timestamp;
+
 import com.idtechproducts.device.Common;
 import com.idtechproducts.device.ErrorCode;
 import com.idtechproducts.device.IDTEMVData;
@@ -25,9 +24,6 @@ import com.idtechproducts.device.ResDataStruct;
 import com.idtechproducts.device.StructConfigParameters;
 import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
@@ -42,15 +38,13 @@ import br.com.setis.axisdemoapp.room.Bin;
 import br.com.setis.axisdemoapp.room.Pan;
 import br.com.setis.axisdemoapp.room.ValidadorDatabase;
 import br.com.setis.axisdemoapp.room.ValidadorInfo;
-import io.grpc.Channel;
-import io.grpc.ManagedChannel;
+
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.okhttp.OkHttpChannelBuilder;
-import io.grpc.stub.StreamObserver;
 
 import static br.com.setis.axisdemoapp.data.Util.getTimestamp;
 import static br.com.setis.axisdemoapp.data.Util.getValueByTag;
 import static com.idtechproducts.device.Common.isFileExist;
+
 
 public class ValidadorViewModel extends ViewModel {
     public static final String mTAG = "AxisLog";
@@ -246,34 +240,16 @@ public class ValidadorViewModel extends ViewModel {
                                 .setGeolocation("23.563,-46.186")
                                 .build();
 
-                        //todo enviar ao axis.
-                        /*
-                        ExecutorService executor = Executors.newSingleThreadExecutor();
-                        executor.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    InetAddress inetAddress = InetAddress.getByName("transaction-dev.axis-mobfintech.com");
-                                    String ip = inetAddress.getHostAddress();
+                        try {
+                            io.grpc.Channel channel = ManagedChannelBuilder.forAddress("4ioiybj5xk.execute-api.sa-east-1.amazonaws.com", 443).build();
+                            TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
 
-                                    //io.grpc.Channel channel = ManagedChannelBuilder.forAddress(ip, 443).usePlaintext().build();
-                                    Channel channel = OkHttpChannelBuilder.forAddress(ip, 433)
-                                            //.transportExecutor(new NetworkTaggingExecutor(0xFDD))
-                                            .usePlaintext()
-                                            .build();
-                                    TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
+                            PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
+                            int ret = response.getResponseCode();
 
-                                    PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
-                                    int ret = response.getResponseCode();
-                                    //todo sem resposta do servidor... verificar
-                                } catch (UnknownHostException e) {
-                                    e.printStackTrace();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-                        */
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                         //todo verificar se foi aprovada. Em caso positivo, realizar as chamadas abaixo.
                         sendTransactionStatus("APROVADA");

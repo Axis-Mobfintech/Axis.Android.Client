@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+message ApplicationIdentifier {
+    //AID - Application Identifier
+    bytes application_identifier = 1;
+    //Flags gerais (8 bits - ver tabela a seguir).
+    GeneralFlags general_flags = 2;
+    //Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
+    uint64 authorized_amount = 3;
+    //Código do país (Terminal Country Code)
+    uint32 country_code = 4;
+    //Código da moeda (Transaction Currency Code)
+    uint32 currency_code = 5;
+    //Número de casas decimais do valor (Transaction Currency Exponent)
+    uint32 currency_exponent = 6;
+    //Tipo de terminal (Terminal Type)
+    uint32 terminal_type = 7;
+    //MCC - Merchant Category Code 
+    uint32 merchant_category_code = 8;
+    //TTQ (Terminal Transaction Qualifiers)
+    bytes terminal_transaction_qualifiers = 9;
+    //Reader/Terminal Contactless Floor Limit
+    uint64 contactless_floor_limit = 10;
+    //Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
+    bytes reader_floor_limit = 11;
+    //Reader/Terminal Contactless Transaction Limit (No On-device CVM)
+    uint64 limit_no_on_device = 12;
+    //Reader/Terminal Contactless Transaction Limit (On-device CVM)
+    uint64 limit_on_device = 13;
+    //Reader/Terminal CVM Required Limit
+    uint64 cvm_required_limit = 14;
+    //Terminal Capabilities 
+    bytes terminal_capabilities = 15;
+    //Additional Terminal Capabilities
+    bytes addictional_terminal_capabilities = 16;
+    //Application Version Number - EMV
+    bytes application_version_number = 17;
+    //Card Data Input Capability
+    bytes card_data_input_capability = 18;
+    //CVM Capability - CVM Required
+    bytes cvm_capability_required = 19;
+    //CVM Capability - No CVM Required
+    bytes cvm_capability_not_required = 20;
+    //Security Capability 
+    bytes security_capability = 21;
+    //Terminal Action Code - Default
+    bytes terminal_action_code_default = 22;
+    //Terminal Action Code - Denial
+    bytes terminal_action_code_denial = 23;
+    //Terminal Action Code - Online
+    bytes terminal_action_code_online = 24;
+    //Terminal Risk Management Data
+    bytes risk_management_data = 25;
+    //Transaction Category Code 
+    bytes category_code  = 26;
+}
+
+message GeneralFlags {
+    //Flags gerais (objeto DFFF01h)
+    FlagType flag_type = 1;
+    //Deve ser conferida a data de validade do cartão
+    bool validate_card_date = 2;
+}
+
+enum FlagType {
+    UNDEFINED = 0;
+    MASTERCARD_PAYPASS = 2;
+    VISA_PAYWAVE = 3;
+    AMEX = 4;
+    JCB_QUICKPAY = 5;
+    DISCOVER = 6;
+}
+

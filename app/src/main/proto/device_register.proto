@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "google/protobuf/timestamp.proto";
+
+message DeviceRegister {
+    //Identificação da operadora de transportes.
+    string operator_id = 1;
+    //Número de série do leitor.
+    string reader_serial_number = 2;
+    //Número de série do Validador.
+    string device_serial_number = 3;
+    //KSN - Key Serial Number - do leitor de cartões.
+    bytes ksn_data = 4;
+    //Identificação da linha/viagem (presente se disponível no momento do registro).
+    string line_id = 5;
+    //Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
+    string vehicle_id = 6;
+    //Data e hora de envio da transação ao Gateway
+    google.protobuf.Timestamp register_date = 7;
+}
+
+message DeviceRegisterResponse {
+    //Código de resposta da solicitação
+    int32 response_code = 1;
+    //Código de autorização de registro
+    string register_code = 2;
+    //Identificação do Validador (presente se a solicitação de registro foi autorizada).
+    string device_id = 3;
+    //Data e hora de processamento da mensagem
+    google.protobuf.Timestamp register_date = 4;
+}
+
+service DevicesManager {
+    rpc RegisterDevice (DeviceRegister) returns (DeviceRegisterResponse);
+}
