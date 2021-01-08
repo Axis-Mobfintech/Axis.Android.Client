@@ -6,11 +6,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass;
+import com.axismobfintech.gpb.transactions.DevicesManagerGrpc;
 import com.axismobfintech.gpb.transactions.PassageRegister;
 import com.axismobfintech.gpb.transactions.TransactionsGrpc;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import com.google.protobuf.ByteString;
+//import static com.google.protobuf.util.Timestamps.fromMillis;
+import static java.lang.System.currentTimeMillis;
+
 import com.google.protobuf.Timestamp;
 
 import com.idtechproducts.device.Common;
@@ -24,6 +29,7 @@ import com.idtechproducts.device.ResDataStruct;
 import com.idtechproducts.device.StructConfigParameters;
 import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 
+import java.time.Instant;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
@@ -56,6 +62,8 @@ public class ValidadorViewModel extends ViewModel {
     private String idValidador = "0123456789ABCDE"; //A15
     private byte[] codRegistro = "0123456789".getBytes(); //B20
 
+    private final String axisProd = "4ioiybj5xk.execute-api.sa-east-1.amazonaws.com";
+
     private Context context;
     private ValidadorDatabase db;
 
@@ -83,7 +91,7 @@ public class ValidadorViewModel extends ViewModel {
 
     /**
      * Inicializa a biblioteca e realiza a conexão com o leitor Kioski IV.
-     * */
+     */
     private void initializeReader(final Context context) {
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             releaseSDK();
@@ -106,7 +114,7 @@ public class ValidadorViewModel extends ViewModel {
                         displayLog("Cartão lido com sucesso.");
 
                         String res = device.device_getResponseCodeString(idtmsrData.result);
-                        Log.d(mTAG, "res:"+res);
+                        Log.d(mTAG, "res:" + res);
 
                         String detail = Common.parse_MSRData(Common.getDeviceType(), idtmsrData);
                         displayLog(String.format("%s\n%s\n", detail, res));
@@ -185,7 +193,7 @@ public class ValidadorViewModel extends ViewModel {
                                                     return;
                                                 } else {
                                                     //incrementa o contador do pan
-                                                    db.panDAO().updatePanSeqNum(pan.panSeqNo+1, strHashPan.toUpperCase());
+                                                    db.panDAO().updatePanSeqNum(pan.panSeqNo + 1, strHashPan.toUpperCase());
                                                     displayLog("Contador de transações sequenciais incrementado.");
                                                 }
                                             }
@@ -196,8 +204,7 @@ public class ValidadorViewModel extends ViewModel {
                                         }
                                     }
                                 }
-                            }
-                            else {
+                            } else {
                                 //displayLog(String.format("Transação Recusada: PAN %s ausente na lista de PAN aceitos.", strHashPan));
                                 //sendTransactionStatus("Transação Recusada: PAN ausente na lista de PAN aceitos.");
                                 //return;
@@ -240,21 +247,33 @@ public class ValidadorViewModel extends ViewModel {
                                 .setGeolocation("23.563,-46.186")
                                 .build();
 
+                        PassageRegister.RegisterPassageResponse response;
                         try {
-                            io.grpc.Channel channel = ManagedChannelBuilder.forAddress("4ioiybj5xk.execute-api.sa-east-1.amazonaws.com", 443).build();
+                            io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
                             TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
 
-                            PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
-                            int ret = response.getResponseCode();
+                            response = stub.makeTransaction(request);
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        } catch (io.grpc.StatusRuntimeException e) {
+                            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                            liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                            return;
                         }
 
-                        //todo verificar se foi aprovada. Em caso positivo, realizar as chamadas abaixo.
-                        sendTransactionStatus("APROVADA");
+                        if (response.getResponseCode() != 0) {
+                            sendTransactionStatus("Erro no Registro da Passagem:" + response.getResponseCode());
+                            return;
+                        }
 
-                        db.validadorInfoDAO().updateNsu(info.nsuValidador+1);
+                        displayLog("Versão da Tabela de BIN:" + response.getBinParametersVersion());
+                        displayLog("Versão da Tabela EMV:" + response.getEmvParametersVersion());
+                        displayLog("Versão da lista de restrição:" + response.getRestrictionListVersion());
+                        displayLog("NSU do validador:" + response.getDeviceSuid());
+                        displayLog("NSU do gateway:" + response.getGatewayUid());
+
+                        sendTransactionStatus("Registro da Passagem Aprovado!");
+
+                        db.validadorInfoDAO().updateNsu(info.nsuValidador + 1);
                         db.validadorInfoDAO().updateLastPanHash(Common.bytesToHex(panHash).substring(0, 24));
                     }
                 });
@@ -339,7 +358,7 @@ public class ValidadorViewModel extends ViewModel {
             }
         }, context);
         String filepath = Util.getXMLFileFromRaw(context);
-        if(!isFileExist(filepath)) {
+        if (!isFileExist(filepath)) {
             filepath = null;
         }
         device.config_setXMLFileNameWithPath(filepath);
@@ -351,12 +370,12 @@ public class ValidadorViewModel extends ViewModel {
         device.registerListen();
 
         desativaPolling();
-        Log.d(mTAG, "FW version:"+getFirmwareVersion());
+        Log.d(mTAG, "FW version:" + getFirmwareVersion());
     }
 
     /**
      * Libera a conexão com o leitor Kioski IV.
-     * */
+     */
     public void releaseSDK() {
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             device.ctls_cancelTransaction();
@@ -367,7 +386,7 @@ public class ValidadorViewModel extends ViewModel {
 
     /**
      * Obtem a versão do firmware do leitor Kioski IV.
-     * */
+     */
     public String getFirmwareVersion() {
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             StringBuilder sb = new StringBuilder();
@@ -400,14 +419,13 @@ public class ValidadorViewModel extends ViewModel {
     }
 
 
-
     /**
      * O Validador deve utilizar esta transação para realizar o seu registro no
      * sistema da Axis Go Cloud e assim obter autorização e receber os dados de
      * funcionamento, lista de cartões negados e registro de passagem.
-     * */
+     */
     public void registrarValidador() {
-         /**
+        /**
          * Nesta demonstração, iremos utilizar valores pre-fixados (Não haverá requisição
          * a Axis Go Cloud).*/
         resetLog();
@@ -415,8 +433,10 @@ public class ValidadorViewModel extends ViewModel {
         executor.execute(new Runnable() {
             @Override
             public void run() {
+
                 db.validadorInfoDAO().deleteAll();
 
+                //TODO obter dados do leitor / usuário
                 ValidadorInfo info = new ValidadorInfo();
                 info.idValidador = "1";
                 info.idOperador = "1";
@@ -430,15 +450,48 @@ public class ValidadorViewModel extends ViewModel {
 
                 db.validadorInfoDAO().insertBaseValues(info);
 
+                final DeviceRegisterOuterClass.DeviceRegister request = DeviceRegisterOuterClass.DeviceRegister.newBuilder()
+                        .setOperatorId(info.idOperador)
+                        .setReaderSerialNumber(info.nsLeitor)
+                        .setVehicleId(info.idVeiculo)
+                        .setDeviceSerialNumber("123456")
+                        .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("1234"))
+                        .setLineId("123456")
+                        //.setRegisterDate(fromMillis(currentTimeMillis()))
+                        .build();
+
+                DeviceRegisterOuterClass.DeviceRegisterResponse response;
+                try {
+                    io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
+                    DevicesManagerGrpc.DevicesManagerBlockingStub stub = DevicesManagerGrpc.newBlockingStub(channel);
+
+                    response = stub.registerDevice(request);
+
+                } catch (io.grpc.StatusRuntimeException e) {
+                    displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                    liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                    return;
+                }
+
+                if (response.getResponseCode() != 0) {
+                    liveData.postValue("Erro no Registro do Validador:" + response.getResponseCode());
+                    return;
+                }
+
+                displayLog("ID do Dispositivo:" + response.getDeviceId());
+                displayLog("Código de registro:" + response.getRegisterCode());
+                displayLog("Data de registro:" + response.getRegisterDate());
+
+                sendTransactionStatus("Registro do Dispositivo Aprovado!");
+
                 liveData.postValue("Registro OK");
-                
             }
         });
     }
 
     /**
      * Método utilizado para se obter ou atualizar os parâmetros EMV e BINs aceitos
-     * */
+     */
     public void obterParametro() {
         /**
          * Nesta demonstração, iremos utilizar valores pre-fixados (Não haverá requisição
@@ -529,7 +582,7 @@ public class ValidadorViewModel extends ViewModel {
     /**
      * Método utilizado para se obter ou atualizar a lista de PANs e PAR que não devem
      * ser aceitos.
-     * */
+     */
     public void obterListaExcecao() {
         /**
          * Nesta demonstração, iremos utilizar valores pre-fixados (Não haverá requisição
@@ -579,7 +632,7 @@ public class ValidadorViewModel extends ViewModel {
     /**
      * Esta transação deve ser utilizada pelo Validador para realizar o registro de uma
      * passagem.
-     * */
+     */
     public void registrarPassagem() {
         resetLog();
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
@@ -597,7 +650,7 @@ public class ValidadorViewModel extends ViewModel {
                     byte[] tags = null;
                     int res = device.ctls_startTransaction(4.30, 0.00, 0, 255, tags);
 
-                    Log.d(mTAG, "Iniciando transação:"+device.device_getResponseCodeString(res));
+                    Log.d(mTAG, "Iniciando transação:" + device.device_getResponseCodeString(res));
                 }
             });
         } else {
@@ -636,7 +689,7 @@ public class ValidadorViewModel extends ViewModel {
     /**
      * Esta transação deve ser utilizada pelo Validador para solicitar a remoção de um
      * cartão das tabelas de cartão não aceito da lista de exceção.
-     * */
+     */
     public void recuperarDebito() {
         resetLog();
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
@@ -656,7 +709,7 @@ public class ValidadorViewModel extends ViewModel {
         return true;
     }
 
-    public void reconectarLeitor(){
+    public void reconectarLeitor() {
         resetLog();
         initializeReader(context);
     }
@@ -664,10 +717,10 @@ public class ValidadorViewModel extends ViewModel {
 
     private void desativaPolling() {
         int res = device.device_setPollMode((byte) 1);
-        Log.d(mTAG, "Removing poll-mode: "+device.device_getResponseCodeString(res));
+        Log.d(mTAG, "Removing poll-mode: " + device.device_getResponseCodeString(res));
 
-        res = device.device_setBurstMode((byte)1);
-        Log.d(mTAG, "Burst Mode: "+device.device_getResponseCodeString(res));
+        res = device.device_setBurstMode((byte) 1);
+        Log.d(mTAG, "Burst Mode: " + device.device_getResponseCodeString(res));
     }
 
     private void resetLog() {
@@ -680,7 +733,7 @@ public class ValidadorViewModel extends ViewModel {
 
     private void displayLog(final String log) {
         Log.d(mTAG, log);
-        dspLogs.append(log+"\n");
+        dspLogs.append(log + "\n");
         handler.post(new Runnable() {
             @Override
             public void run() {
