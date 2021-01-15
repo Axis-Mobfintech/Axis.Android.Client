@@ -44,16 +44,14 @@ message ParametersResponse {
     int32 emv_parameters_version = 2;
     //Current BIN parameters version
     int32 bin_parameters_version = 3;
-    //Current CAPK parameters version
-    int32 capk_parameters_version = 4;
     //EMV parameters table
-    repeated ApplicationIdentifier emv_table = 5;
+    repeated ApplicationIdentifier aid_table = 4;
     //BIN parameters table
-    repeated AcceptedBankIdentificationNumber aid_table = 6;
+    repeated AcceptedBankIdentificationNumber bin_table = 5;
     //CAPK parameter table
-    repeated CertificateAuthorityPublicKeyTable capk_table = 7;
+    repeated CertificateAuthorityPublicKeyTable capk_table = 6;
     //Response Date Time
-    google.protobuf.Timestamp response_date = 8;
+    google.protobuf.Timestamp response_date = 7;
 }
 
 service DevicesParameters {

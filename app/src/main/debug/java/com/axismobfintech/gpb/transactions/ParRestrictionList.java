@@ -14,20 +14,10 @@ public final class ParRestrictionList {
 
     /**
      * <pre>
-     *Identificação da tabela PAR não aceitos (fixo 05)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 message_id = 1;</code>
-     * @return The messageId.
-     */
-    int getMessageId();
-
-    /**
-     * <pre>
-     *índice do registro na tabela (0001 - 9999)
-     * </pre>
-     *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      * @return The index.
      */
     int getIndex();
@@ -37,7 +27,7 @@ public final class ParRestrictionList {
      *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      * @return The reason.
      */
     int getReason();
@@ -47,7 +37,7 @@ public final class ParRestrictionList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      * @return Whether the registerDate field is set.
      */
     boolean hasRegisterDate();
@@ -56,7 +46,7 @@ public final class ParRestrictionList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      * @return The registerDate.
      */
     com.google.protobuf.Timestamp getRegisterDate();
@@ -66,7 +56,7 @@ public final class ParRestrictionList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @return The paymentAccountReference.
      */
     java.lang.String getPaymentAccountReference();
@@ -75,7 +65,7 @@ public final class ParRestrictionList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @return The bytes for paymentAccountReference.
      */
     com.google.protobuf.ByteString
@@ -92,52 +82,14 @@ public final class ParRestrictionList {
     private PrimaryAccountReferenceBlackList() {
       paymentAccountReference_ = "";
     }
-    public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private int messageId_;
-    /**
-     * <pre>
-     *Identificação da tabela PAR não aceitos (fixo 05)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @return The messageId.
-     */
-    @java.lang.Override
-    public int getMessageId() {
-      return messageId_;
-    }
-    /**
-     * <pre>
-     *Identificação da tabela PAR não aceitos (fixo 05)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @param value The messageId to set.
-     */
-    private void setMessageId(int value) {
-      
-      messageId_ = value;
-    }
-    /**
-     * <pre>
-     *Identificação da tabela PAR não aceitos (fixo 05)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     */
-    private void clearMessageId() {
-      
-      messageId_ = 0;
-    }
-
-    public static final int INDEX_FIELD_NUMBER = 2;
+    public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
     /**
      * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      * @return The index.
      */
     @java.lang.Override
@@ -146,10 +98,10 @@ public final class ParRestrictionList {
     }
     /**
      * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      * @param value The index to set.
      */
     private void setIndex(int value) {
@@ -158,24 +110,24 @@ public final class ParRestrictionList {
     }
     /**
      * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      */
     private void clearIndex() {
       
       index_ = 0;
     }
 
-    public static final int REASON_FIELD_NUMBER = 3;
+    public static final int REASON_FIELD_NUMBER = 2;
     private int reason_;
     /**
      * <pre>
      *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      * @return The reason.
      */
     @java.lang.Override
@@ -187,7 +139,7 @@ public final class ParRestrictionList {
      *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      * @param value The reason to set.
      */
     private void setReason(int value) {
@@ -199,21 +151,21 @@ public final class ParRestrictionList {
      *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      */
     private void clearReason() {
       
       reason_ = 0;
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 4;
+    public static final int REGISTER_DATE_FIELD_NUMBER = 3;
     private com.google.protobuf.Timestamp registerDate_;
     /**
      * <pre>
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     @java.lang.Override
     public boolean hasRegisterDate() {
@@ -224,7 +176,7 @@ public final class ParRestrictionList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     @java.lang.Override
     public com.google.protobuf.Timestamp getRegisterDate() {
@@ -235,7 +187,7 @@ public final class ParRestrictionList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     private void setRegisterDate(com.google.protobuf.Timestamp value) {
       value.getClass();
@@ -247,7 +199,7 @@ public final class ParRestrictionList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
@@ -266,20 +218,20 @@ public final class ParRestrictionList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     private void clearRegisterDate() {  registerDate_ = null;
       
     }
 
-    public static final int PAYMENT_ACCOUNT_REFERENCE_FIELD_NUMBER = 5;
+    public static final int PAYMENT_ACCOUNT_REFERENCE_FIELD_NUMBER = 4;
     private java.lang.String paymentAccountReference_;
     /**
      * <pre>
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @return The paymentAccountReference.
      */
     @java.lang.Override
@@ -291,7 +243,7 @@ public final class ParRestrictionList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @return The bytes for paymentAccountReference.
      */
     @java.lang.Override
@@ -304,7 +256,7 @@ public final class ParRestrictionList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @param value The paymentAccountReference to set.
      */
     private void setPaymentAccountReference(
@@ -318,7 +270,7 @@ public final class ParRestrictionList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      */
     private void clearPaymentAccountReference() {
       
@@ -329,7 +281,7 @@ public final class ParRestrictionList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>string payment_account_reference = 5;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @param value The bytes for paymentAccountReference to set.
      */
     private void setPaymentAccountReferenceBytes(
@@ -436,50 +388,10 @@ public final class ParRestrictionList {
 
       /**
        * <pre>
-       *Identificação da tabela PAR não aceitos (fixo 05)
+       *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
-       * <code>int32 message_id = 1;</code>
-       * @return The messageId.
-       */
-      @java.lang.Override
-      public int getMessageId() {
-        return instance.getMessageId();
-      }
-      /**
-       * <pre>
-       *Identificação da tabela PAR não aceitos (fixo 05)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @param value The messageId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageId(int value) {
-        copyOnWrite();
-        instance.setMessageId(value);
-        return this;
-      }
-      /**
-       * <pre>
-       *Identificação da tabela PAR não aceitos (fixo 05)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessageId() {
-        copyOnWrite();
-        instance.clearMessageId();
-        return this;
-      }
-
-      /**
-       * <pre>
-       *índice do registro na tabela (0001 - 9999)
-       * </pre>
-       *
-       * <code>int32 index = 2;</code>
+       * <code>int32 index = 1;</code>
        * @return The index.
        */
       @java.lang.Override
@@ -488,10 +400,10 @@ public final class ParRestrictionList {
       }
       /**
        * <pre>
-       *índice do registro na tabela (0001 - 9999)
+       *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
-       * <code>int32 index = 2;</code>
+       * <code>int32 index = 1;</code>
        * @param value The index to set.
        * @return This builder for chaining.
        */
@@ -502,10 +414,10 @@ public final class ParRestrictionList {
       }
       /**
        * <pre>
-       *índice do registro na tabela (0001 - 9999)
+       *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
-       * <code>int32 index = 2;</code>
+       * <code>int32 index = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
@@ -519,7 +431,7 @@ public final class ParRestrictionList {
        *Motivo da inclusão do cartão na lista
        * </pre>
        *
-       * <code>int32 reason = 3;</code>
+       * <code>int32 reason = 2;</code>
        * @return The reason.
        */
       @java.lang.Override
@@ -531,7 +443,7 @@ public final class ParRestrictionList {
        *Motivo da inclusão do cartão na lista
        * </pre>
        *
-       * <code>int32 reason = 3;</code>
+       * <code>int32 reason = 2;</code>
        * @param value The reason to set.
        * @return This builder for chaining.
        */
@@ -545,7 +457,7 @@ public final class ParRestrictionList {
        *Motivo da inclusão do cartão na lista
        * </pre>
        *
-       * <code>int32 reason = 3;</code>
+       * <code>int32 reason = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearReason() {
@@ -559,7 +471,7 @@ public final class ParRestrictionList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       @java.lang.Override
       public boolean hasRegisterDate() {
@@ -570,7 +482,7 @@ public final class ParRestrictionList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       @java.lang.Override
       public com.google.protobuf.Timestamp getRegisterDate() {
@@ -581,7 +493,7 @@ public final class ParRestrictionList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
@@ -593,7 +505,7 @@ public final class ParRestrictionList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder setRegisterDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -606,7 +518,7 @@ public final class ParRestrictionList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
@@ -618,7 +530,7 @@ public final class ParRestrictionList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder clearRegisterDate() {  copyOnWrite();
         instance.clearRegisterDate();
@@ -630,7 +542,7 @@ public final class ParRestrictionList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>string payment_account_reference = 5;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @return The paymentAccountReference.
        */
       @java.lang.Override
@@ -642,7 +554,7 @@ public final class ParRestrictionList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>string payment_account_reference = 5;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @return The bytes for paymentAccountReference.
        */
       @java.lang.Override
@@ -655,7 +567,7 @@ public final class ParRestrictionList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>string payment_account_reference = 5;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @param value The paymentAccountReference to set.
        * @return This builder for chaining.
        */
@@ -670,7 +582,7 @@ public final class ParRestrictionList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>string payment_account_reference = 5;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPaymentAccountReference() {
@@ -683,7 +595,7 @@ public final class ParRestrictionList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>string payment_account_reference = 5;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @param value The bytes for paymentAccountReference to set.
        * @return This builder for chaining.
        */
@@ -710,15 +622,14 @@ public final class ParRestrictionList {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "messageId_",
               "index_",
               "reason_",
               "registerDate_",
               "paymentAccountReference_",
             };
             java.lang.String info =
-                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
-                "\u0003\u0004\u0004\t\u0005\u0208";
+                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
+                "\u0003\t\u0004\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

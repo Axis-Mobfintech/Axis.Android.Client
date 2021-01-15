@@ -15,7 +15,7 @@ message DeviceRegister {
     string reader_serial_number = 2;
     //Número de série do Validador.
     string device_serial_number = 3;
-    //KSN - Key Serial Number - do leitor de cartões.
+    //KSN – Key Serial Number – do leitor de cartões.
     bytes ksn_data = 4;
     //Identificação da linha/viagem (presente se disponível no momento do registro).
     string line_id = 5;

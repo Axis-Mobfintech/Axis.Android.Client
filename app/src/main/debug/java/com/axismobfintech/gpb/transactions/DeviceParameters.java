@@ -1776,72 +1776,62 @@ public final class DeviceParameters {
 
     /**
      * <pre>
-     *Current CAPK parameters version
-     * </pre>
-     *
-     * <code>int32 capk_parameters_version = 4;</code>
-     * @return The capkParametersVersion.
-     */
-    int getCapkParametersVersion();
-
-    /**
-     * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> 
-        getEmvTableList();
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getEmvTable(int index);
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    int getEmvTableCount();
-
-    /**
-     * <pre>
-     *BIN parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
-     */
-    java.util.List<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> 
         getAidTableList();
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
-    com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber getAidTable(int index);
+    com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getAidTable(int index);
+    /**
+     * <pre>
+     *EMV parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     */
+    int getAidTableCount();
+
     /**
      * <pre>
      *BIN parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
      */
-    int getAidTableCount();
+    java.util.List<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> 
+        getBinTableList();
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber getBinTable(int index);
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    int getBinTableCount();
 
     /**
      * <pre>
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     java.util.List<com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable> 
         getCapkTableList();
@@ -1850,7 +1840,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable getCapkTable(int index);
     /**
@@ -1858,7 +1848,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     int getCapkTableCount();
 
@@ -1867,7 +1857,7 @@ public final class DeviceParameters {
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      * @return Whether the responseDate field is set.
      */
     boolean hasResponseDate();
@@ -1876,7 +1866,7 @@ public final class DeviceParameters {
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      * @return The responseDate.
      */
     com.google.protobuf.Timestamp getResponseDate();
@@ -1890,8 +1880,8 @@ public final class DeviceParameters {
       // @@protoc_insertion_point(message_implements:axis.transactions.ParametersResponse)
       ParametersResponseOrBuilder {
     private ParametersResponse() {
-      emvTable_ = emptyProtobufList();
       aidTable_ = emptyProtobufList();
+      binTable_ = emptyProtobufList();
       capkTable_ = emptyProtobufList();
     }
     public static final int RESPONSE_CODE_FIELD_NUMBER = 1;
@@ -1996,212 +1986,36 @@ public final class DeviceParameters {
       binParametersVersion_ = 0;
     }
 
-    public static final int CAPK_PARAMETERS_VERSION_FIELD_NUMBER = 4;
-    private int capkParametersVersion_;
+    public static final int AID_TABLE_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> aidTable_;
     /**
      * <pre>
-     *Current CAPK parameters version
+     *EMV parameters table
      * </pre>
      *
-     * <code>int32 capk_parameters_version = 4;</code>
-     * @return The capkParametersVersion.
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     @java.lang.Override
-    public int getCapkParametersVersion() {
-      return capkParametersVersion_;
-    }
-    /**
-     * <pre>
-     *Current CAPK parameters version
-     * </pre>
-     *
-     * <code>int32 capk_parameters_version = 4;</code>
-     * @param value The capkParametersVersion to set.
-     */
-    private void setCapkParametersVersion(int value) {
-      
-      capkParametersVersion_ = value;
-    }
-    /**
-     * <pre>
-     *Current CAPK parameters version
-     * </pre>
-     *
-     * <code>int32 capk_parameters_version = 4;</code>
-     */
-    private void clearCapkParametersVersion() {
-      
-      capkParametersVersion_ = 0;
-    }
-
-    public static final int EMV_TABLE_FIELD_NUMBER = 5;
-    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> emvTable_;
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    @java.lang.Override
-    public java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> getEmvTableList() {
-      return emvTable_;
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    public java.util.List<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifierOrBuilder> 
-        getEmvTableOrBuilderList() {
-      return emvTable_;
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    @java.lang.Override
-    public int getEmvTableCount() {
-      return emvTable_.size();
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    @java.lang.Override
-    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getEmvTable(int index) {
-      return emvTable_.get(index);
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifierOrBuilder getEmvTableOrBuilder(
-        int index) {
-      return emvTable_.get(index);
-    }
-    private void ensureEmvTableIsMutable() {
-      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> tmp = emvTable_;
-      if (!tmp.isModifiable()) {
-        emvTable_ =
-            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
-       }
-    }
-
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    private void setEmvTable(
-        int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
-      value.getClass();
-  ensureEmvTableIsMutable();
-      emvTable_.set(index, value);
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    private void addEmvTable(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
-      value.getClass();
-  ensureEmvTableIsMutable();
-      emvTable_.add(value);
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    private void addEmvTable(
-        int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
-      value.getClass();
-  ensureEmvTableIsMutable();
-      emvTable_.add(index, value);
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    private void addAllEmvTable(
-        java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> values) {
-      ensureEmvTableIsMutable();
-      com.google.protobuf.AbstractMessageLite.addAll(
-          values, emvTable_);
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    private void clearEmvTable() {
-      emvTable_ = emptyProtobufList();
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-     */
-    private void removeEmvTable(int index) {
-      ensureEmvTableIsMutable();
-      emvTable_.remove(index);
-    }
-
-    public static final int AID_TABLE_FIELD_NUMBER = 6;
-    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> aidTable_;
-    /**
-     * <pre>
-     *BIN parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
-     */
-    @java.lang.Override
-    public java.util.List<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> getAidTableList() {
+    public java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> getAidTableList() {
       return aidTable_;
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
-    public java.util.List<? extends com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumberOrBuilder> 
+    public java.util.List<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifierOrBuilder> 
         getAidTableOrBuilderList() {
       return aidTable_;
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     @java.lang.Override
     public int getAidTableCount() {
@@ -2209,28 +2023,28 @@ public final class DeviceParameters {
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     @java.lang.Override
-    public com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber getAidTable(int index) {
+    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getAidTable(int index) {
       return aidTable_.get(index);
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
-    public com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumberOrBuilder getAidTableOrBuilder(
+    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifierOrBuilder getAidTableOrBuilder(
         int index) {
       return aidTable_.get(index);
     }
     private void ensureAidTableIsMutable() {
-      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> tmp = aidTable_;
+      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> tmp = aidTable_;
       if (!tmp.isModifiable()) {
         aidTable_ =
             com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
@@ -2239,85 +2053,223 @@ public final class DeviceParameters {
 
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     private void setAidTable(
-        int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+        int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
       value.getClass();
   ensureAidTableIsMutable();
       aidTable_.set(index, value);
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
-    private void addAidTable(com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+    private void addAidTable(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
       value.getClass();
   ensureAidTableIsMutable();
       aidTable_.add(value);
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     private void addAidTable(
-        int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+        int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
       value.getClass();
   ensureAidTableIsMutable();
       aidTable_.add(index, value);
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     private void addAllAidTable(
-        java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> values) {
+        java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> values) {
       ensureAidTableIsMutable();
       com.google.protobuf.AbstractMessageLite.addAll(
           values, aidTable_);
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     private void clearAidTable() {
       aidTable_ = emptyProtobufList();
     }
     /**
      * <pre>
-     *BIN parameters table
+     *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
      */
     private void removeAidTable(int index) {
       ensureAidTableIsMutable();
       aidTable_.remove(index);
     }
 
-    public static final int CAPK_TABLE_FIELD_NUMBER = 7;
+    public static final int BIN_TABLE_FIELD_NUMBER = 5;
+    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> binTable_;
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> getBinTableList() {
+      return binTable_;
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    public java.util.List<? extends com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumberOrBuilder> 
+        getBinTableOrBuilderList() {
+      return binTable_;
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    @java.lang.Override
+    public int getBinTableCount() {
+      return binTable_.size();
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    @java.lang.Override
+    public com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber getBinTable(int index) {
+      return binTable_.get(index);
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    public com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumberOrBuilder getBinTableOrBuilder(
+        int index) {
+      return binTable_.get(index);
+    }
+    private void ensureBinTableIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> tmp = binTable_;
+      if (!tmp.isModifiable()) {
+        binTable_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    private void setBinTable(
+        int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+      value.getClass();
+  ensureBinTableIsMutable();
+      binTable_.set(index, value);
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    private void addBinTable(com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+      value.getClass();
+  ensureBinTableIsMutable();
+      binTable_.add(value);
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    private void addBinTable(
+        int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+      value.getClass();
+  ensureBinTableIsMutable();
+      binTable_.add(index, value);
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    private void addAllBinTable(
+        java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> values) {
+      ensureBinTableIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, binTable_);
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    private void clearBinTable() {
+      binTable_ = emptyProtobufList();
+    }
+    /**
+     * <pre>
+     *BIN parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+     */
+    private void removeBinTable(int index) {
+      ensureBinTableIsMutable();
+      binTable_.remove(index);
+    }
+
+    public static final int CAPK_TABLE_FIELD_NUMBER = 6;
     private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable> capkTable_;
     /**
      * <pre>
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     @java.lang.Override
     public java.util.List<com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable> getCapkTableList() {
@@ -2328,7 +2280,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     public java.util.List<? extends com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTableOrBuilder> 
         getCapkTableOrBuilderList() {
@@ -2339,7 +2291,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     @java.lang.Override
     public int getCapkTableCount() {
@@ -2350,7 +2302,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     @java.lang.Override
     public com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable getCapkTable(int index) {
@@ -2361,7 +2313,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     public com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTableOrBuilder getCapkTableOrBuilder(
         int index) {
@@ -2380,7 +2332,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     private void setCapkTable(
         int index, com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable value) {
@@ -2393,7 +2345,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     private void addCapkTable(com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable value) {
       value.getClass();
@@ -2405,7 +2357,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     private void addCapkTable(
         int index, com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable value) {
@@ -2418,7 +2370,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     private void addAllCapkTable(
         java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable> values) {
@@ -2431,7 +2383,7 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     private void clearCapkTable() {
       capkTable_ = emptyProtobufList();
@@ -2441,21 +2393,21 @@ public final class DeviceParameters {
      *CAPK parameter table
      * </pre>
      *
-     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+     * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
      */
     private void removeCapkTable(int index) {
       ensureCapkTableIsMutable();
       capkTable_.remove(index);
     }
 
-    public static final int RESPONSE_DATE_FIELD_NUMBER = 8;
+    public static final int RESPONSE_DATE_FIELD_NUMBER = 7;
     private com.google.protobuf.Timestamp responseDate_;
     /**
      * <pre>
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      */
     @java.lang.Override
     public boolean hasResponseDate() {
@@ -2466,7 +2418,7 @@ public final class DeviceParameters {
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      */
     @java.lang.Override
     public com.google.protobuf.Timestamp getResponseDate() {
@@ -2477,7 +2429,7 @@ public final class DeviceParameters {
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      */
     private void setResponseDate(com.google.protobuf.Timestamp value) {
       value.getClass();
@@ -2489,7 +2441,7 @@ public final class DeviceParameters {
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeResponseDate(com.google.protobuf.Timestamp value) {
@@ -2508,7 +2460,7 @@ public final class DeviceParameters {
      *Response Date Time
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 8;</code>
+     * <code>.google.protobuf.Timestamp response_date = 7;</code>
      */
     private void clearResponseDate() {  responseDate_ = null;
       
@@ -2719,249 +2671,59 @@ public final class DeviceParameters {
 
       /**
        * <pre>
-       *Current CAPK parameters version
+       *EMV parameters table
        * </pre>
        *
-       * <code>int32 capk_parameters_version = 4;</code>
-       * @return The capkParametersVersion.
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       @java.lang.Override
-      public int getCapkParametersVersion() {
-        return instance.getCapkParametersVersion();
-      }
-      /**
-       * <pre>
-       *Current CAPK parameters version
-       * </pre>
-       *
-       * <code>int32 capk_parameters_version = 4;</code>
-       * @param value The capkParametersVersion to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCapkParametersVersion(int value) {
-        copyOnWrite();
-        instance.setCapkParametersVersion(value);
-        return this;
-      }
-      /**
-       * <pre>
-       *Current CAPK parameters version
-       * </pre>
-       *
-       * <code>int32 capk_parameters_version = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCapkParametersVersion() {
-        copyOnWrite();
-        instance.clearCapkParametersVersion();
-        return this;
-      }
-
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      @java.lang.Override
-      public java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> getEmvTableList() {
-        return java.util.Collections.unmodifiableList(
-            instance.getEmvTableList());
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      @java.lang.Override
-      public int getEmvTableCount() {
-        return instance.getEmvTableCount();
-      }/**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      @java.lang.Override
-      public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getEmvTable(int index) {
-        return instance.getEmvTable(index);
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder setEmvTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
-        copyOnWrite();
-        instance.setEmvTable(index, value);
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder setEmvTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
-        copyOnWrite();
-        instance.setEmvTable(index,
-            builderForValue.build());
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder addEmvTable(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
-        copyOnWrite();
-        instance.addEmvTable(value);
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder addEmvTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
-        copyOnWrite();
-        instance.addEmvTable(index, value);
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder addEmvTable(
-          com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
-        copyOnWrite();
-        instance.addEmvTable(builderForValue.build());
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder addEmvTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
-        copyOnWrite();
-        instance.addEmvTable(index,
-            builderForValue.build());
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder addAllEmvTable(
-          java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> values) {
-        copyOnWrite();
-        instance.addAllEmvTable(values);
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder clearEmvTable() {
-        copyOnWrite();
-        instance.clearEmvTable();
-        return this;
-      }
-      /**
-       * <pre>
-       *EMV parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.ApplicationIdentifier emv_table = 5;</code>
-       */
-      public Builder removeEmvTable(int index) {
-        copyOnWrite();
-        instance.removeEmvTable(index);
-        return this;
-      }
-
-      /**
-       * <pre>
-       *BIN parameters table
-       * </pre>
-       *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
-       */
-      @java.lang.Override
-      public java.util.List<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> getAidTableList() {
+      public java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> getAidTableList() {
         return java.util.Collections.unmodifiableList(
             instance.getAidTableList());
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       @java.lang.Override
       public int getAidTableCount() {
         return instance.getAidTableCount();
       }/**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       @java.lang.Override
-      public com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber getAidTable(int index) {
+      public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getAidTable(int index) {
         return instance.getAidTable(index);
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder setAidTable(
-          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
         copyOnWrite();
         instance.setAidTable(index, value);
         return this;
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder setAidTable(
-          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.Builder builderForValue) {
+          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
         copyOnWrite();
         instance.setAidTable(index,
             builderForValue.build());
@@ -2969,51 +2731,51 @@ public final class DeviceParameters {
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
-      public Builder addAidTable(com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+      public Builder addAidTable(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
         copyOnWrite();
         instance.addAidTable(value);
         return this;
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder addAidTable(
-          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
         copyOnWrite();
         instance.addAidTable(index, value);
         return this;
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder addAidTable(
-          com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.Builder builderForValue) {
+          com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
         copyOnWrite();
         instance.addAidTable(builderForValue.build());
         return this;
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder addAidTable(
-          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.Builder builderForValue) {
+          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
         copyOnWrite();
         instance.addAidTable(index,
             builderForValue.build());
@@ -3021,23 +2783,23 @@ public final class DeviceParameters {
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder addAllAidTable(
-          java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> values) {
+          java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> values) {
         copyOnWrite();
         instance.addAllAidTable(values);
         return this;
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder clearAidTable() {
         copyOnWrite();
@@ -3046,10 +2808,10 @@ public final class DeviceParameters {
       }
       /**
        * <pre>
-       *BIN parameters table
+       *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber aid_table = 6;</code>
+       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
        */
       public Builder removeAidTable(int index) {
         copyOnWrite();
@@ -3059,10 +2821,160 @@ public final class DeviceParameters {
 
       /**
        * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> getBinTableList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getBinTableList());
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      @java.lang.Override
+      public int getBinTableCount() {
+        return instance.getBinTableCount();
+      }/**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      @java.lang.Override
+      public com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber getBinTable(int index) {
+        return instance.getBinTable(index);
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder setBinTable(
+          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+        copyOnWrite();
+        instance.setBinTable(index, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder setBinTable(
+          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.Builder builderForValue) {
+        copyOnWrite();
+        instance.setBinTable(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder addBinTable(com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+        copyOnWrite();
+        instance.addBinTable(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder addBinTable(
+          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber value) {
+        copyOnWrite();
+        instance.addBinTable(index, value);
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder addBinTable(
+          com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.Builder builderForValue) {
+        copyOnWrite();
+        instance.addBinTable(builderForValue.build());
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder addBinTable(
+          int index, com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.Builder builderForValue) {
+        copyOnWrite();
+        instance.addBinTable(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder addAllBinTable(
+          java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber> values) {
+        copyOnWrite();
+        instance.addAllBinTable(values);
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder clearBinTable() {
+        copyOnWrite();
+        instance.clearBinTable();
+        return this;
+      }
+      /**
+       * <pre>
+       *BIN parameters table
+       * </pre>
+       *
+       * <code>repeated .axis.transactions.AcceptedBankIdentificationNumber bin_table = 5;</code>
+       */
+      public Builder removeBinTable(int index) {
+        copyOnWrite();
+        instance.removeBinTable(index);
+        return this;
+      }
+
+      /**
+       * <pre>
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       @java.lang.Override
       public java.util.List<com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable> getCapkTableList() {
@@ -3074,7 +2986,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       @java.lang.Override
       public int getCapkTableCount() {
@@ -3084,7 +2996,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       @java.lang.Override
       public com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable getCapkTable(int index) {
@@ -3095,7 +3007,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder setCapkTable(
           int index, com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable value) {
@@ -3108,7 +3020,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder setCapkTable(
           int index, com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable.Builder builderForValue) {
@@ -3122,7 +3034,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder addCapkTable(com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable value) {
         copyOnWrite();
@@ -3134,7 +3046,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder addCapkTable(
           int index, com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable value) {
@@ -3147,7 +3059,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder addCapkTable(
           com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable.Builder builderForValue) {
@@ -3160,7 +3072,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder addCapkTable(
           int index, com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable.Builder builderForValue) {
@@ -3174,7 +3086,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder addAllCapkTable(
           java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable> values) {
@@ -3187,7 +3099,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder clearCapkTable() {
         copyOnWrite();
@@ -3199,7 +3111,7 @@ public final class DeviceParameters {
        *CAPK parameter table
        * </pre>
        *
-       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 7;</code>
+       * <code>repeated .axis.transactions.CertificateAuthorityPublicKeyTable capk_table = 6;</code>
        */
       public Builder removeCapkTable(int index) {
         copyOnWrite();
@@ -3212,7 +3124,7 @@ public final class DeviceParameters {
        *Response Date Time
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 8;</code>
+       * <code>.google.protobuf.Timestamp response_date = 7;</code>
        */
       @java.lang.Override
       public boolean hasResponseDate() {
@@ -3223,7 +3135,7 @@ public final class DeviceParameters {
        *Response Date Time
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 8;</code>
+       * <code>.google.protobuf.Timestamp response_date = 7;</code>
        */
       @java.lang.Override
       public com.google.protobuf.Timestamp getResponseDate() {
@@ -3234,7 +3146,7 @@ public final class DeviceParameters {
        *Response Date Time
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 8;</code>
+       * <code>.google.protobuf.Timestamp response_date = 7;</code>
        */
       public Builder setResponseDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
@@ -3246,7 +3158,7 @@ public final class DeviceParameters {
        *Response Date Time
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 8;</code>
+       * <code>.google.protobuf.Timestamp response_date = 7;</code>
        */
       public Builder setResponseDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3259,7 +3171,7 @@ public final class DeviceParameters {
        *Response Date Time
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 8;</code>
+       * <code>.google.protobuf.Timestamp response_date = 7;</code>
        */
       public Builder mergeResponseDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
@@ -3271,7 +3183,7 @@ public final class DeviceParameters {
        *Response Date Time
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 8;</code>
+       * <code>.google.protobuf.Timestamp response_date = 7;</code>
        */
       public Builder clearResponseDate() {  copyOnWrite();
         instance.clearResponseDate();
@@ -3297,18 +3209,17 @@ public final class DeviceParameters {
               "responseCode_",
               "emvParametersVersion_",
               "binParametersVersion_",
-              "capkParametersVersion_",
-              "emvTable_",
-              com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.class,
               "aidTable_",
+              com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.class,
+              "binTable_",
               com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.class,
               "capkTable_",
               com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable.class,
               "responseDate_",
             };
             java.lang.String info =
-                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0003\u0000\u0001\u0004\u0002\u0004\u0003\u0004" +
-                "\u0004\u0004\u0005\u001b\u0006\u001b\u0007\u001b\b\t";
+                "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0003\u0000\u0001\u0004\u0002\u0004" +
+                "\u0003\u0004\u0004\u001b\u0005\u001b\u0006\u001b\u0007\t";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

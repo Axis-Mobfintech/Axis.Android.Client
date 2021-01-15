@@ -9,16 +9,14 @@ option csharp_namespace = "Axis.GPB.Transactions";
 import "google/protobuf/timestamp.proto";
 
 message PrimaryAccountNumberWhiteList {
-//Identificação da tabela PANs aceitos (fixo 06)
-    int32 message_id = 1;
     //Índice do registro na tabela (0001 - 9999)
-    int32 index = 2;
-    //Motivo da inclus�o do cartão na lista
-    int32 reason = 3;
+    int32 index = 1;
+    //Motivo da inclusão do cartão na lista
+    int32 reason = 2;
     //Data da inclusão
-    google.protobuf.Timestamp register_date = 4;
+    google.protobuf.Timestamp register_date = 3;
     //Parte inicial do SHA-256 do PAN do cartão
-    bytes initial_pan_crypt = 5;
+    bytes initial_pan_crypt = 4;
     //PAN Sequence Number (objeto de tag 5F34h)
-    string pan_sequence_number = 6;
+    string pan_sequence_number = 5;
 }

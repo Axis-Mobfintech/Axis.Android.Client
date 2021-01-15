@@ -14,30 +14,20 @@ public final class PanAcceptanceList {
 
     /**
      * <pre>
-     *Identificação da tabela PANs aceitos (fixo 06)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @return The messageId.
-     */
-    int getMessageId();
-
-    /**
-     * <pre>
      *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      * @return The index.
      */
     int getIndex();
 
     /**
      * <pre>
-     *Motivo da inclus�o do cartão na lista
+     *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      * @return The reason.
      */
     int getReason();
@@ -47,7 +37,7 @@ public final class PanAcceptanceList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      * @return Whether the registerDate field is set.
      */
     boolean hasRegisterDate();
@@ -56,7 +46,7 @@ public final class PanAcceptanceList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      * @return The registerDate.
      */
     com.google.protobuf.Timestamp getRegisterDate();
@@ -66,7 +56,7 @@ public final class PanAcceptanceList {
      *Parte inicial do SHA-256 do PAN do cartão
      * </pre>
      *
-     * <code>bytes initial_pan_crypt = 5;</code>
+     * <code>bytes initial_pan_crypt = 4;</code>
      * @return The initialPanCrypt.
      */
     com.google.protobuf.ByteString getInitialPanCrypt();
@@ -76,7 +66,7 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      * @return The panSequenceNumber.
      */
     java.lang.String getPanSequenceNumber();
@@ -85,7 +75,7 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      * @return The bytes for panSequenceNumber.
      */
     com.google.protobuf.ByteString
@@ -103,52 +93,14 @@ public final class PanAcceptanceList {
       initialPanCrypt_ = com.google.protobuf.ByteString.EMPTY;
       panSequenceNumber_ = "";
     }
-    public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private int messageId_;
-    /**
-     * <pre>
-     *Identificação da tabela PANs aceitos (fixo 06)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @return The messageId.
-     */
-    @java.lang.Override
-    public int getMessageId() {
-      return messageId_;
-    }
-    /**
-     * <pre>
-     *Identificação da tabela PANs aceitos (fixo 06)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @param value The messageId to set.
-     */
-    private void setMessageId(int value) {
-      
-      messageId_ = value;
-    }
-    /**
-     * <pre>
-     *Identificação da tabela PANs aceitos (fixo 06)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     */
-    private void clearMessageId() {
-      
-      messageId_ = 0;
-    }
-
-    public static final int INDEX_FIELD_NUMBER = 2;
+    public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
     /**
      * <pre>
      *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      * @return The index.
      */
     @java.lang.Override
@@ -160,7 +112,7 @@ public final class PanAcceptanceList {
      *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      * @param value The index to set.
      */
     private void setIndex(int value) {
@@ -172,21 +124,21 @@ public final class PanAcceptanceList {
      *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
-     * <code>int32 index = 2;</code>
+     * <code>int32 index = 1;</code>
      */
     private void clearIndex() {
       
       index_ = 0;
     }
 
-    public static final int REASON_FIELD_NUMBER = 3;
+    public static final int REASON_FIELD_NUMBER = 2;
     private int reason_;
     /**
      * <pre>
-     *Motivo da inclus�o do cartão na lista
+     *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      * @return The reason.
      */
     @java.lang.Override
@@ -195,10 +147,10 @@ public final class PanAcceptanceList {
     }
     /**
      * <pre>
-     *Motivo da inclus�o do cartão na lista
+     *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      * @param value The reason to set.
      */
     private void setReason(int value) {
@@ -207,24 +159,24 @@ public final class PanAcceptanceList {
     }
     /**
      * <pre>
-     *Motivo da inclus�o do cartão na lista
+     *Motivo da inclusão do cartão na lista
      * </pre>
      *
-     * <code>int32 reason = 3;</code>
+     * <code>int32 reason = 2;</code>
      */
     private void clearReason() {
       
       reason_ = 0;
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 4;
+    public static final int REGISTER_DATE_FIELD_NUMBER = 3;
     private com.google.protobuf.Timestamp registerDate_;
     /**
      * <pre>
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     @java.lang.Override
     public boolean hasRegisterDate() {
@@ -235,7 +187,7 @@ public final class PanAcceptanceList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     @java.lang.Override
     public com.google.protobuf.Timestamp getRegisterDate() {
@@ -246,7 +198,7 @@ public final class PanAcceptanceList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     private void setRegisterDate(com.google.protobuf.Timestamp value) {
       value.getClass();
@@ -258,7 +210,7 @@ public final class PanAcceptanceList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
@@ -277,20 +229,20 @@ public final class PanAcceptanceList {
      *Data da inclusão
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp register_date = 3;</code>
      */
     private void clearRegisterDate() {  registerDate_ = null;
       
     }
 
-    public static final int INITIAL_PAN_CRYPT_FIELD_NUMBER = 5;
+    public static final int INITIAL_PAN_CRYPT_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString initialPanCrypt_;
     /**
      * <pre>
      *Parte inicial do SHA-256 do PAN do cartão
      * </pre>
      *
-     * <code>bytes initial_pan_crypt = 5;</code>
+     * <code>bytes initial_pan_crypt = 4;</code>
      * @return The initialPanCrypt.
      */
     @java.lang.Override
@@ -302,7 +254,7 @@ public final class PanAcceptanceList {
      *Parte inicial do SHA-256 do PAN do cartão
      * </pre>
      *
-     * <code>bytes initial_pan_crypt = 5;</code>
+     * <code>bytes initial_pan_crypt = 4;</code>
      * @param value The initialPanCrypt to set.
      */
     private void setInitialPanCrypt(com.google.protobuf.ByteString value) {
@@ -315,21 +267,21 @@ public final class PanAcceptanceList {
      *Parte inicial do SHA-256 do PAN do cartão
      * </pre>
      *
-     * <code>bytes initial_pan_crypt = 5;</code>
+     * <code>bytes initial_pan_crypt = 4;</code>
      */
     private void clearInitialPanCrypt() {
       
       initialPanCrypt_ = getDefaultInstance().getInitialPanCrypt();
     }
 
-    public static final int PAN_SEQUENCE_NUMBER_FIELD_NUMBER = 6;
+    public static final int PAN_SEQUENCE_NUMBER_FIELD_NUMBER = 5;
     private java.lang.String panSequenceNumber_;
     /**
      * <pre>
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      * @return The panSequenceNumber.
      */
     @java.lang.Override
@@ -341,7 +293,7 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      * @return The bytes for panSequenceNumber.
      */
     @java.lang.Override
@@ -354,7 +306,7 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      * @param value The panSequenceNumber to set.
      */
     private void setPanSequenceNumber(
@@ -368,7 +320,7 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      */
     private void clearPanSequenceNumber() {
       
@@ -379,7 +331,7 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 6;</code>
+     * <code>string pan_sequence_number = 5;</code>
      * @param value The bytes for panSequenceNumber to set.
      */
     private void setPanSequenceNumberBytes(
@@ -486,50 +438,10 @@ public final class PanAcceptanceList {
 
       /**
        * <pre>
-       *Identificação da tabela PANs aceitos (fixo 06)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @return The messageId.
-       */
-      @java.lang.Override
-      public int getMessageId() {
-        return instance.getMessageId();
-      }
-      /**
-       * <pre>
-       *Identificação da tabela PANs aceitos (fixo 06)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @param value The messageId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageId(int value) {
-        copyOnWrite();
-        instance.setMessageId(value);
-        return this;
-      }
-      /**
-       * <pre>
-       *Identificação da tabela PANs aceitos (fixo 06)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessageId() {
-        copyOnWrite();
-        instance.clearMessageId();
-        return this;
-      }
-
-      /**
-       * <pre>
        *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
-       * <code>int32 index = 2;</code>
+       * <code>int32 index = 1;</code>
        * @return The index.
        */
       @java.lang.Override
@@ -541,7 +453,7 @@ public final class PanAcceptanceList {
        *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
-       * <code>int32 index = 2;</code>
+       * <code>int32 index = 1;</code>
        * @param value The index to set.
        * @return This builder for chaining.
        */
@@ -555,7 +467,7 @@ public final class PanAcceptanceList {
        *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
-       * <code>int32 index = 2;</code>
+       * <code>int32 index = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
@@ -566,10 +478,10 @@ public final class PanAcceptanceList {
 
       /**
        * <pre>
-       *Motivo da inclus�o do cartão na lista
+       *Motivo da inclusão do cartão na lista
        * </pre>
        *
-       * <code>int32 reason = 3;</code>
+       * <code>int32 reason = 2;</code>
        * @return The reason.
        */
       @java.lang.Override
@@ -578,10 +490,10 @@ public final class PanAcceptanceList {
       }
       /**
        * <pre>
-       *Motivo da inclus�o do cartão na lista
+       *Motivo da inclusão do cartão na lista
        * </pre>
        *
-       * <code>int32 reason = 3;</code>
+       * <code>int32 reason = 2;</code>
        * @param value The reason to set.
        * @return This builder for chaining.
        */
@@ -592,10 +504,10 @@ public final class PanAcceptanceList {
       }
       /**
        * <pre>
-       *Motivo da inclus�o do cartão na lista
+       *Motivo da inclusão do cartão na lista
        * </pre>
        *
-       * <code>int32 reason = 3;</code>
+       * <code>int32 reason = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearReason() {
@@ -609,7 +521,7 @@ public final class PanAcceptanceList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       @java.lang.Override
       public boolean hasRegisterDate() {
@@ -620,7 +532,7 @@ public final class PanAcceptanceList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       @java.lang.Override
       public com.google.protobuf.Timestamp getRegisterDate() {
@@ -631,7 +543,7 @@ public final class PanAcceptanceList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
@@ -643,7 +555,7 @@ public final class PanAcceptanceList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder setRegisterDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -656,7 +568,7 @@ public final class PanAcceptanceList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
@@ -668,7 +580,7 @@ public final class PanAcceptanceList {
        *Data da inclusão
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp register_date = 3;</code>
        */
       public Builder clearRegisterDate() {  copyOnWrite();
         instance.clearRegisterDate();
@@ -680,7 +592,7 @@ public final class PanAcceptanceList {
        *Parte inicial do SHA-256 do PAN do cartão
        * </pre>
        *
-       * <code>bytes initial_pan_crypt = 5;</code>
+       * <code>bytes initial_pan_crypt = 4;</code>
        * @return The initialPanCrypt.
        */
       @java.lang.Override
@@ -692,7 +604,7 @@ public final class PanAcceptanceList {
        *Parte inicial do SHA-256 do PAN do cartão
        * </pre>
        *
-       * <code>bytes initial_pan_crypt = 5;</code>
+       * <code>bytes initial_pan_crypt = 4;</code>
        * @param value The initialPanCrypt to set.
        * @return This builder for chaining.
        */
@@ -706,7 +618,7 @@ public final class PanAcceptanceList {
        *Parte inicial do SHA-256 do PAN do cartão
        * </pre>
        *
-       * <code>bytes initial_pan_crypt = 5;</code>
+       * <code>bytes initial_pan_crypt = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearInitialPanCrypt() {
@@ -720,7 +632,7 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 6;</code>
+       * <code>string pan_sequence_number = 5;</code>
        * @return The panSequenceNumber.
        */
       @java.lang.Override
@@ -732,7 +644,7 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 6;</code>
+       * <code>string pan_sequence_number = 5;</code>
        * @return The bytes for panSequenceNumber.
        */
       @java.lang.Override
@@ -745,7 +657,7 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 6;</code>
+       * <code>string pan_sequence_number = 5;</code>
        * @param value The panSequenceNumber to set.
        * @return This builder for chaining.
        */
@@ -760,7 +672,7 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 6;</code>
+       * <code>string pan_sequence_number = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearPanSequenceNumber() {
@@ -773,7 +685,7 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 6;</code>
+       * <code>string pan_sequence_number = 5;</code>
        * @param value The bytes for panSequenceNumber to set.
        * @return This builder for chaining.
        */
@@ -800,7 +712,6 @@ public final class PanAcceptanceList {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "messageId_",
               "index_",
               "reason_",
               "registerDate_",
@@ -808,8 +719,8 @@ public final class PanAcceptanceList {
               "panSequenceNumber_",
             };
             java.lang.String info =
-                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
-                "\u0003\u0004\u0004\t\u0005\n\u0006\u0208";
+                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
+                "\u0003\t\u0004\n\u0005\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

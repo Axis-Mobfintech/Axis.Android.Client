@@ -101,57 +101,63 @@ public class ValidadorViewModel extends ViewModel {
 
         displayLog("Date:" + response.getResponseDate());
 
-        displayLog("Versão da Tabela de AID:" + response.getEmvParametersVersion());
-        for (i = 0; i < response.getEmvTableCount(); i++) {
-            ApplicationIdentifierOuterClass.ApplicationIdentifier emv = response.getEmvTable(i);
+        displayLog("Versão das Tabelas EMV:" + response.getEmvParametersVersion());
 
-            displayLog(" Terminal Type:" + emv.getTerminalType());
-            displayLog(" Terminal Capabilities:" + getHexStringFromBytes(emv.getTerminalCapabilities().toByteArray()));
-            displayLog(" Addictional Terminal Capabilities:" + getHexStringFromBytes(emv.getAddictionalTerminalCapabilities().toByteArray()));
-            displayLog(" Application Identifier:" + getHexStringFromBytes(emv.getApplicationIdentifier().toByteArray()));
-            displayLog(" Application Version Number:" + getHexStringFromBytes(emv.getApplicationVersionNumber().toByteArray()));
-            displayLog(" Authorized Amount:" + emv.getAuthorizedAmount());
-            displayLog(" Card Data Input Capability:" + getHexStringFromBytes(emv.getCardDataInputCapability().toByteArray()));
-            displayLog(" Category Code:" + getHexStringFromBytes(emv.getCategoryCode().toByteArray()));
-            displayLog(" Country Code:" + emv.getCountryCode());
-            displayLog(" Currency Code:" + emv.getCurrencyCode());
-            displayLog(" Currency Exponent:" + emv.getCurrencyExponent());
-            displayLog(" Contactless Floor Limit:" + emv.getContactlessFloorLimit());
-            displayLog(" Cvm Required Limit:" + emv.getCvmRequiredLimit());
-            displayLog(" Cvm Capability Required:" + getHexStringFromBytes(emv.getCvmCapabilityRequired().toByteArray()));
-            displayLog(" Cvm Capability Not Required:" + getHexStringFromBytes(emv.getCvmCapabilityNotRequired().toByteArray()));
-            displayLog(" General Flags:" + getHexStringFromBytes(emv.getGeneralFlags().toByteArray()));
-            displayLog(" Limit No On Device:" + emv.getLimitNoOnDevice());
-            displayLog(" Limit On Device:" + emv.getLimitOnDevice());
-            displayLog(" Reader Floor Limit:" + emv.getReaderFloorLimit());
-            displayLog(" Merchant Category Code:" + emv.getMerchantCategoryCode());
-            displayLog(" Risk Management Data:" + getHexStringFromBytes(emv.getRiskManagementData().toByteArray()));
-            displayLog(" Security Capability:" + getHexStringFromBytes(emv.getSecurityCapability().toByteArray()));
-            displayLog(" Terminal Action Code Default:" + getHexStringFromBytes(emv.getTerminalActionCodeDefault().toByteArray()));
-            displayLog(" Terminal Action Code Online:" + getHexStringFromBytes(emv.getTerminalActionCodeOnline().toByteArray()));
-            displayLog(" Terminal Action Code Denial:" + getHexStringFromBytes(emv.getTerminalActionCodeDenial().toByteArray()));
-            displayLog(" Terminal Transaction Qualifiers:" + getHexStringFromBytes(emv.getTerminalTransactionQualifiers().toByteArray()));
+        for (i = 0; i < response.getAidTableCount(); i++) {
+            ApplicationIdentifierOuterClass.ApplicationIdentifier emv = response.getAidTable(i);
+
+            displayLog(" Index:" + emv.getIndex());
+            displayLog(" Action:" + emv.getCardAction());
+
+            displayLog("   Terminal Type:" + emv.getTerminalType());
+            displayLog("   Terminal Capabilities:" + getHexStringFromBytes(emv.getTerminalCapabilities().toByteArray()));
+            displayLog("   Addictional Terminal Capabilities:" + getHexStringFromBytes(emv.getAddictionalTerminalCapabilities().toByteArray()));
+            displayLog("   Application Identifier:" + getHexStringFromBytes(emv.getApplicationIdentifier().toByteArray()));
+            displayLog("   Application Version Number:" + getHexStringFromBytes(emv.getApplicationVersionNumber().toByteArray()));
+            displayLog("   Authorized Amount:" + emv.getAuthorizedAmount());
+            displayLog("   Card Data Input Capability:" + getHexStringFromBytes(emv.getCardDataInputCapability().toByteArray()));
+            displayLog("   Category Code:" + getHexStringFromBytes(emv.getCategoryCode().toByteArray()));
+            displayLog("   Country Code:" + emv.getCountryCode());
+            displayLog("   Currency Code:" + emv.getCurrencyCode());
+            displayLog("   Currency Exponent:" + emv.getCurrencyExponent());
+            displayLog("   Contactless Floor Limit:" + emv.getContactlessFloorLimit());
+            displayLog("   Cvm Required Limit:" + emv.getCvmRequiredLimit());
+            displayLog("   Cvm Capability Required:" + getHexStringFromBytes(emv.getCvmCapabilityRequired().toByteArray()));
+            displayLog("   Cvm Capability Not Required:" + getHexStringFromBytes(emv.getCvmCapabilityNotRequired().toByteArray()));
+            displayLog("   General Flags:" + getHexStringFromBytes(emv.getGeneralFlags().toByteArray()));
+            displayLog("   Limit No On Device:" + emv.getLimitNoOnDevice());
+            displayLog("   Limit On Device:" + emv.getLimitOnDevice());
+            displayLog("   Reader Floor Limit:" + emv.getReaderFloorLimit());
+            displayLog("   Merchant Category Code:" + emv.getMerchantCategoryCode());
+            displayLog("   Risk Management Data:" + getHexStringFromBytes(emv.getRiskManagementData().toByteArray()));
+            displayLog("   Security Capability:" + getHexStringFromBytes(emv.getSecurityCapability().toByteArray()));
+            displayLog("   Terminal Action Code Default:" + getHexStringFromBytes(emv.getTerminalActionCodeDefault().toByteArray()));
+            displayLog("   Terminal Action Code Online:" + getHexStringFromBytes(emv.getTerminalActionCodeOnline().toByteArray()));
+            displayLog("   Terminal Action Code Denial:" + getHexStringFromBytes(emv.getTerminalActionCodeDenial().toByteArray()));
+            displayLog("   Terminal Transaction Qualifiers:" + getHexStringFromBytes(emv.getTerminalTransactionQualifiers().toByteArray()));
         }
         for (i = 0; i < response.getCapkTableCount(); i++) {
             CapkTable.CertificateAuthorityPublicKeyTable capk = response.getCapkTable(i);
 
             displayLog(" Index:" + capk.getIndex());
-            displayLog(" RID:" + getHexStringFromBytes(capk.getRegisteredIdentifier().toByteArray()));
-            displayLog(" Rsa Key Exponent:" + getHexStringFromBytes(capk.getRsaKeyExponent().toByteArray()));
-            displayLog(" Rsa Key Modulus:" + getHexStringFromBytes(capk.getRsaKeyModulus().toByteArray()));
-            displayLog(" Checksum:" + getHexStringFromBytes(capk.getChecksum().toByteArray()));
+            displayLog(" Action:" + capk.getCardAction());
+            displayLog("   RID:" + getHexStringFromBytes(capk.getRegisteredIdentifier().toByteArray()));
+            displayLog("   Rsa Key Exponent:" + getHexStringFromBytes(capk.getRsaKeyExponent().toByteArray()));
+            displayLog("   Rsa Key Modulus:" + getHexStringFromBytes(capk.getRsaKeyModulus().toByteArray()));
+            displayLog("   Checksum:" + getHexStringFromBytes(capk.getChecksum().toByteArray()));
         }
 
+
         displayLog("Versão da Tabela de BIN:" + response.getBinParametersVersion());
-        for (i = 0; i < response.getAidTableCount(); i++) {
-            AcceptedBin.AcceptedBankIdentificationNumber bin = response.getAidTable(i);
+        for (i = 0; i < response.getBinTableCount(); i++) {
+            AcceptedBin.AcceptedBankIdentificationNumber bin = response.getBinTable(i);
 
             displayLog(" Index:" + bin.getIndex());
-            displayLog(" Issuer Code:" + bin.getIssuerCode());
-            displayLog(" Initial Range:" + bin.getInitialRange());
-            displayLog(" Final Range:" + bin.getFinalRange());
-            displayLog(" Message Id:" + bin.getMessageId());
-            displayLog(" Total Sequential Transactions Allowed " + bin.getTotalSequentialTransactionsAllowed());
+            displayLog(" Action:" + bin.getCardAction());
+            displayLog("   Issuer Code:" + bin.getIssuerCode());
+            displayLog("   Initial Range:" + bin.getInitialRange());
+            displayLog("   Final Range:" + bin.getFinalRange());
+            displayLog("   Total Sequential Transactions Allowed " + bin.getTotalSequentialTransactionsAllowed());
         }
     }
 

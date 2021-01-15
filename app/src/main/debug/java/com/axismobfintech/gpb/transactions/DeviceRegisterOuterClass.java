@@ -74,7 +74,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *KSN - Key Serial Number - do leitor de cartões.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -362,7 +362,7 @@ public final class DeviceRegisterOuterClass {
     private com.google.protobuf.ByteString ksnData_;
     /**
      * <pre>
-     *KSN - Key Serial Number - do leitor de cartões.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -374,7 +374,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *KSN - Key Serial Number - do leitor de cartões.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -387,7 +387,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *KSN - Key Serial Number - do leitor de cartões.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -901,7 +901,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *KSN - Key Serial Number - do leitor de cartões.
+       *KSN – Key Serial Number – do leitor de cartões.
        * </pre>
        *
        * <code>bytes ksn_data = 4;</code>
@@ -913,7 +913,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *KSN - Key Serial Number - do leitor de cartões.
+       *KSN – Key Serial Number – do leitor de cartões.
        * </pre>
        *
        * <code>bytes ksn_data = 4;</code>
@@ -927,7 +927,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *KSN - Key Serial Number - do leitor de cartões.
+       *KSN – Key Serial Number – do leitor de cartões.
        * </pre>
        *
        * <code>bytes ksn_data = 4;</code>

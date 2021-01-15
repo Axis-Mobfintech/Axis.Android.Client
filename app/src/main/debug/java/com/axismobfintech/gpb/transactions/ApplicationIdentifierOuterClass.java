@@ -139,10 +139,20 @@ public final class ApplicationIdentifierOuterClass {
 
     /**
      * <pre>
+     * Index
+     * </pre>
+     *
+     * <code>uint32 index = 1;</code>
+     * @return The index.
+     */
+    int getIndex();
+
+    /**
+     * <pre>
      *AID - Application Identifier
      * </pre>
      *
-     * <code>bytes application_identifier = 1;</code>
+     * <code>bytes application_identifier = 2;</code>
      * @return The applicationIdentifier.
      */
     com.google.protobuf.ByteString getApplicationIdentifier();
@@ -152,7 +162,7 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      * @return Whether the generalFlags field is set.
      */
     boolean hasGeneralFlags();
@@ -161,7 +171,7 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      * @return The generalFlags.
      */
     com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags getGeneralFlags();
@@ -171,7 +181,7 @@ public final class ApplicationIdentifierOuterClass {
      *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
      * </pre>
      *
-     * <code>uint64 authorized_amount = 3;</code>
+     * <code>uint64 authorized_amount = 4;</code>
      * @return The authorizedAmount.
      */
     long getAuthorizedAmount();
@@ -181,7 +191,7 @@ public final class ApplicationIdentifierOuterClass {
      *Código do país (Terminal Country Code)
      * </pre>
      *
-     * <code>uint32 country_code = 4;</code>
+     * <code>uint32 country_code = 5;</code>
      * @return The countryCode.
      */
     int getCountryCode();
@@ -191,7 +201,7 @@ public final class ApplicationIdentifierOuterClass {
      *Código da moeda (Transaction Currency Code)
      * </pre>
      *
-     * <code>uint32 currency_code = 5;</code>
+     * <code>uint32 currency_code = 6;</code>
      * @return The currencyCode.
      */
     int getCurrencyCode();
@@ -201,7 +211,7 @@ public final class ApplicationIdentifierOuterClass {
      *Número de casas decimais do valor (Transaction Currency Exponent)
      * </pre>
      *
-     * <code>uint32 currency_exponent = 6;</code>
+     * <code>uint32 currency_exponent = 7;</code>
      * @return The currencyExponent.
      */
     int getCurrencyExponent();
@@ -211,7 +221,7 @@ public final class ApplicationIdentifierOuterClass {
      *Tipo de terminal (Terminal Type)
      * </pre>
      *
-     * <code>uint32 terminal_type = 7;</code>
+     * <code>uint32 terminal_type = 8;</code>
      * @return The terminalType.
      */
     int getTerminalType();
@@ -221,7 +231,7 @@ public final class ApplicationIdentifierOuterClass {
      *MCC - Merchant Category Code 
      * </pre>
      *
-     * <code>uint32 merchant_category_code = 8;</code>
+     * <code>uint32 merchant_category_code = 9;</code>
      * @return The merchantCategoryCode.
      */
     int getMerchantCategoryCode();
@@ -231,7 +241,7 @@ public final class ApplicationIdentifierOuterClass {
      *TTQ (Terminal Transaction Qualifiers)
      * </pre>
      *
-     * <code>bytes terminal_transaction_qualifiers = 9;</code>
+     * <code>bytes terminal_transaction_qualifiers = 10;</code>
      * @return The terminalTransactionQualifiers.
      */
     com.google.protobuf.ByteString getTerminalTransactionQualifiers();
@@ -241,7 +251,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Floor Limit
      * </pre>
      *
-     * <code>uint64 contactless_floor_limit = 10;</code>
+     * <code>uint64 contactless_floor_limit = 11;</code>
      * @return The contactlessFloorLimit.
      */
     long getContactlessFloorLimit();
@@ -251,7 +261,7 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
      * </pre>
      *
-     * <code>bytes reader_floor_limit = 11;</code>
+     * <code>bytes reader_floor_limit = 12;</code>
      * @return The readerFloorLimit.
      */
     com.google.protobuf.ByteString getReaderFloorLimit();
@@ -261,7 +271,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_no_on_device = 12;</code>
+     * <code>uint64 limit_no_on_device = 13;</code>
      * @return The limitNoOnDevice.
      */
     long getLimitNoOnDevice();
@@ -271,7 +281,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Transaction Limit (On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_on_device = 13;</code>
+     * <code>uint64 limit_on_device = 14;</code>
      * @return The limitOnDevice.
      */
     long getLimitOnDevice();
@@ -281,7 +291,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal CVM Required Limit
      * </pre>
      *
-     * <code>uint64 cvm_required_limit = 14;</code>
+     * <code>uint64 cvm_required_limit = 15;</code>
      * @return The cvmRequiredLimit.
      */
     long getCvmRequiredLimit();
@@ -291,7 +301,7 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Capabilities 
      * </pre>
      *
-     * <code>bytes terminal_capabilities = 15;</code>
+     * <code>bytes terminal_capabilities = 16;</code>
      * @return The terminalCapabilities.
      */
     com.google.protobuf.ByteString getTerminalCapabilities();
@@ -301,7 +311,7 @@ public final class ApplicationIdentifierOuterClass {
      *Additional Terminal Capabilities
      * </pre>
      *
-     * <code>bytes addictional_terminal_capabilities = 16;</code>
+     * <code>bytes addictional_terminal_capabilities = 17;</code>
      * @return The addictionalTerminalCapabilities.
      */
     com.google.protobuf.ByteString getAddictionalTerminalCapabilities();
@@ -311,7 +321,7 @@ public final class ApplicationIdentifierOuterClass {
      *Application Version Number - EMV
      * </pre>
      *
-     * <code>bytes application_version_number = 17;</code>
+     * <code>bytes application_version_number = 18;</code>
      * @return The applicationVersionNumber.
      */
     com.google.protobuf.ByteString getApplicationVersionNumber();
@@ -321,27 +331,27 @@ public final class ApplicationIdentifierOuterClass {
      *Card Data Input Capability
      * </pre>
      *
-     * <code>bytes card_data_input_capability = 18;</code>
+     * <code>bytes card_data_input_capability = 19;</code>
      * @return The cardDataInputCapability.
      */
     com.google.protobuf.ByteString getCardDataInputCapability();
 
     /**
      * <pre>
-     *CVM Capability - CVM Required
+     *CVM Capability – CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_required = 19;</code>
+     * <code>bytes cvm_capability_required = 20;</code>
      * @return The cvmCapabilityRequired.
      */
     com.google.protobuf.ByteString getCvmCapabilityRequired();
 
     /**
      * <pre>
-     *CVM Capability - No CVM Required
+     *CVM Capability – No CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_not_required = 20;</code>
+     * <code>bytes cvm_capability_not_required = 21;</code>
      * @return The cvmCapabilityNotRequired.
      */
     com.google.protobuf.ByteString getCvmCapabilityNotRequired();
@@ -351,37 +361,37 @@ public final class ApplicationIdentifierOuterClass {
      *Security Capability 
      * </pre>
      *
-     * <code>bytes security_capability = 21;</code>
+     * <code>bytes security_capability = 22;</code>
      * @return The securityCapability.
      */
     com.google.protobuf.ByteString getSecurityCapability();
 
     /**
      * <pre>
-     *Terminal Action Code - Default
+     *Terminal Action Code – Default
      * </pre>
      *
-     * <code>bytes terminal_action_code_default = 22;</code>
+     * <code>bytes terminal_action_code_default = 23;</code>
      * @return The terminalActionCodeDefault.
      */
     com.google.protobuf.ByteString getTerminalActionCodeDefault();
 
     /**
      * <pre>
-     *Terminal Action Code - Denial
+     *Terminal Action Code – Denial
      * </pre>
      *
-     * <code>bytes terminal_action_code_denial = 23;</code>
+     * <code>bytes terminal_action_code_denial = 24;</code>
      * @return The terminalActionCodeDenial.
      */
     com.google.protobuf.ByteString getTerminalActionCodeDenial();
 
     /**
      * <pre>
-     *Terminal Action Code - Online
+     *Terminal Action Code – Online
      * </pre>
      *
-     * <code>bytes terminal_action_code_online = 24;</code>
+     * <code>bytes terminal_action_code_online = 25;</code>
      * @return The terminalActionCodeOnline.
      */
     com.google.protobuf.ByteString getTerminalActionCodeOnline();
@@ -391,7 +401,7 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Risk Management Data
      * </pre>
      *
-     * <code>bytes risk_management_data = 25;</code>
+     * <code>bytes risk_management_data = 26;</code>
      * @return The riskManagementData.
      */
     com.google.protobuf.ByteString getRiskManagementData();
@@ -401,10 +411,29 @@ public final class ApplicationIdentifierOuterClass {
      *Transaction Category Code 
      * </pre>
      *
-     * <code>bytes category_code = 26;</code>
+     * <code>bytes category_code = 27;</code>
      * @return The categoryCode.
      */
     com.google.protobuf.ByteString getCategoryCode();
+
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     * @return The enum numeric value on the wire for cardAction.
+     */
+    int getCardActionValue();
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     * @return The cardAction.
+     */
+    com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction();
   }
   /**
    * Protobuf type {@code axis.transactions.ApplicationIdentifier}
@@ -431,14 +460,52 @@ public final class ApplicationIdentifierOuterClass {
       riskManagementData_ = com.google.protobuf.ByteString.EMPTY;
       categoryCode_ = com.google.protobuf.ByteString.EMPTY;
     }
-    public static final int APPLICATION_IDENTIFIER_FIELD_NUMBER = 1;
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private int index_;
+    /**
+     * <pre>
+     * Index
+     * </pre>
+     *
+     * <code>uint32 index = 1;</code>
+     * @return The index.
+     */
+    @java.lang.Override
+    public int getIndex() {
+      return index_;
+    }
+    /**
+     * <pre>
+     * Index
+     * </pre>
+     *
+     * <code>uint32 index = 1;</code>
+     * @param value The index to set.
+     */
+    private void setIndex(int value) {
+      
+      index_ = value;
+    }
+    /**
+     * <pre>
+     * Index
+     * </pre>
+     *
+     * <code>uint32 index = 1;</code>
+     */
+    private void clearIndex() {
+      
+      index_ = 0;
+    }
+
+    public static final int APPLICATION_IDENTIFIER_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString applicationIdentifier_;
     /**
      * <pre>
      *AID - Application Identifier
      * </pre>
      *
-     * <code>bytes application_identifier = 1;</code>
+     * <code>bytes application_identifier = 2;</code>
      * @return The applicationIdentifier.
      */
     @java.lang.Override
@@ -450,7 +517,7 @@ public final class ApplicationIdentifierOuterClass {
      *AID - Application Identifier
      * </pre>
      *
-     * <code>bytes application_identifier = 1;</code>
+     * <code>bytes application_identifier = 2;</code>
      * @param value The applicationIdentifier to set.
      */
     private void setApplicationIdentifier(com.google.protobuf.ByteString value) {
@@ -463,21 +530,21 @@ public final class ApplicationIdentifierOuterClass {
      *AID - Application Identifier
      * </pre>
      *
-     * <code>bytes application_identifier = 1;</code>
+     * <code>bytes application_identifier = 2;</code>
      */
     private void clearApplicationIdentifier() {
       
       applicationIdentifier_ = getDefaultInstance().getApplicationIdentifier();
     }
 
-    public static final int GENERAL_FLAGS_FIELD_NUMBER = 2;
+    public static final int GENERAL_FLAGS_FIELD_NUMBER = 3;
     private com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags generalFlags_;
     /**
      * <pre>
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      */
     @java.lang.Override
     public boolean hasGeneralFlags() {
@@ -488,7 +555,7 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      */
     @java.lang.Override
     public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags getGeneralFlags() {
@@ -499,7 +566,7 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      */
     private void setGeneralFlags(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags value) {
       value.getClass();
@@ -511,7 +578,7 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
     private void mergeGeneralFlags(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags value) {
@@ -530,20 +597,20 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (8 bits - ver tabela a seguir).
      * </pre>
      *
-     * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+     * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
      */
     private void clearGeneralFlags() {  generalFlags_ = null;
       
     }
 
-    public static final int AUTHORIZED_AMOUNT_FIELD_NUMBER = 3;
+    public static final int AUTHORIZED_AMOUNT_FIELD_NUMBER = 4;
     private long authorizedAmount_;
     /**
      * <pre>
      *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
      * </pre>
      *
-     * <code>uint64 authorized_amount = 3;</code>
+     * <code>uint64 authorized_amount = 4;</code>
      * @return The authorizedAmount.
      */
     @java.lang.Override
@@ -555,7 +622,7 @@ public final class ApplicationIdentifierOuterClass {
      *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
      * </pre>
      *
-     * <code>uint64 authorized_amount = 3;</code>
+     * <code>uint64 authorized_amount = 4;</code>
      * @param value The authorizedAmount to set.
      */
     private void setAuthorizedAmount(long value) {
@@ -567,21 +634,21 @@ public final class ApplicationIdentifierOuterClass {
      *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
      * </pre>
      *
-     * <code>uint64 authorized_amount = 3;</code>
+     * <code>uint64 authorized_amount = 4;</code>
      */
     private void clearAuthorizedAmount() {
       
       authorizedAmount_ = 0L;
     }
 
-    public static final int COUNTRY_CODE_FIELD_NUMBER = 4;
+    public static final int COUNTRY_CODE_FIELD_NUMBER = 5;
     private int countryCode_;
     /**
      * <pre>
      *Código do país (Terminal Country Code)
      * </pre>
      *
-     * <code>uint32 country_code = 4;</code>
+     * <code>uint32 country_code = 5;</code>
      * @return The countryCode.
      */
     @java.lang.Override
@@ -593,7 +660,7 @@ public final class ApplicationIdentifierOuterClass {
      *Código do país (Terminal Country Code)
      * </pre>
      *
-     * <code>uint32 country_code = 4;</code>
+     * <code>uint32 country_code = 5;</code>
      * @param value The countryCode to set.
      */
     private void setCountryCode(int value) {
@@ -605,21 +672,21 @@ public final class ApplicationIdentifierOuterClass {
      *Código do país (Terminal Country Code)
      * </pre>
      *
-     * <code>uint32 country_code = 4;</code>
+     * <code>uint32 country_code = 5;</code>
      */
     private void clearCountryCode() {
       
       countryCode_ = 0;
     }
 
-    public static final int CURRENCY_CODE_FIELD_NUMBER = 5;
+    public static final int CURRENCY_CODE_FIELD_NUMBER = 6;
     private int currencyCode_;
     /**
      * <pre>
      *Código da moeda (Transaction Currency Code)
      * </pre>
      *
-     * <code>uint32 currency_code = 5;</code>
+     * <code>uint32 currency_code = 6;</code>
      * @return The currencyCode.
      */
     @java.lang.Override
@@ -631,7 +698,7 @@ public final class ApplicationIdentifierOuterClass {
      *Código da moeda (Transaction Currency Code)
      * </pre>
      *
-     * <code>uint32 currency_code = 5;</code>
+     * <code>uint32 currency_code = 6;</code>
      * @param value The currencyCode to set.
      */
     private void setCurrencyCode(int value) {
@@ -643,21 +710,21 @@ public final class ApplicationIdentifierOuterClass {
      *Código da moeda (Transaction Currency Code)
      * </pre>
      *
-     * <code>uint32 currency_code = 5;</code>
+     * <code>uint32 currency_code = 6;</code>
      */
     private void clearCurrencyCode() {
       
       currencyCode_ = 0;
     }
 
-    public static final int CURRENCY_EXPONENT_FIELD_NUMBER = 6;
+    public static final int CURRENCY_EXPONENT_FIELD_NUMBER = 7;
     private int currencyExponent_;
     /**
      * <pre>
      *Número de casas decimais do valor (Transaction Currency Exponent)
      * </pre>
      *
-     * <code>uint32 currency_exponent = 6;</code>
+     * <code>uint32 currency_exponent = 7;</code>
      * @return The currencyExponent.
      */
     @java.lang.Override
@@ -669,7 +736,7 @@ public final class ApplicationIdentifierOuterClass {
      *Número de casas decimais do valor (Transaction Currency Exponent)
      * </pre>
      *
-     * <code>uint32 currency_exponent = 6;</code>
+     * <code>uint32 currency_exponent = 7;</code>
      * @param value The currencyExponent to set.
      */
     private void setCurrencyExponent(int value) {
@@ -681,21 +748,21 @@ public final class ApplicationIdentifierOuterClass {
      *Número de casas decimais do valor (Transaction Currency Exponent)
      * </pre>
      *
-     * <code>uint32 currency_exponent = 6;</code>
+     * <code>uint32 currency_exponent = 7;</code>
      */
     private void clearCurrencyExponent() {
       
       currencyExponent_ = 0;
     }
 
-    public static final int TERMINAL_TYPE_FIELD_NUMBER = 7;
+    public static final int TERMINAL_TYPE_FIELD_NUMBER = 8;
     private int terminalType_;
     /**
      * <pre>
      *Tipo de terminal (Terminal Type)
      * </pre>
      *
-     * <code>uint32 terminal_type = 7;</code>
+     * <code>uint32 terminal_type = 8;</code>
      * @return The terminalType.
      */
     @java.lang.Override
@@ -707,7 +774,7 @@ public final class ApplicationIdentifierOuterClass {
      *Tipo de terminal (Terminal Type)
      * </pre>
      *
-     * <code>uint32 terminal_type = 7;</code>
+     * <code>uint32 terminal_type = 8;</code>
      * @param value The terminalType to set.
      */
     private void setTerminalType(int value) {
@@ -719,21 +786,21 @@ public final class ApplicationIdentifierOuterClass {
      *Tipo de terminal (Terminal Type)
      * </pre>
      *
-     * <code>uint32 terminal_type = 7;</code>
+     * <code>uint32 terminal_type = 8;</code>
      */
     private void clearTerminalType() {
       
       terminalType_ = 0;
     }
 
-    public static final int MERCHANT_CATEGORY_CODE_FIELD_NUMBER = 8;
+    public static final int MERCHANT_CATEGORY_CODE_FIELD_NUMBER = 9;
     private int merchantCategoryCode_;
     /**
      * <pre>
      *MCC - Merchant Category Code 
      * </pre>
      *
-     * <code>uint32 merchant_category_code = 8;</code>
+     * <code>uint32 merchant_category_code = 9;</code>
      * @return The merchantCategoryCode.
      */
     @java.lang.Override
@@ -745,7 +812,7 @@ public final class ApplicationIdentifierOuterClass {
      *MCC - Merchant Category Code 
      * </pre>
      *
-     * <code>uint32 merchant_category_code = 8;</code>
+     * <code>uint32 merchant_category_code = 9;</code>
      * @param value The merchantCategoryCode to set.
      */
     private void setMerchantCategoryCode(int value) {
@@ -757,21 +824,21 @@ public final class ApplicationIdentifierOuterClass {
      *MCC - Merchant Category Code 
      * </pre>
      *
-     * <code>uint32 merchant_category_code = 8;</code>
+     * <code>uint32 merchant_category_code = 9;</code>
      */
     private void clearMerchantCategoryCode() {
       
       merchantCategoryCode_ = 0;
     }
 
-    public static final int TERMINAL_TRANSACTION_QUALIFIERS_FIELD_NUMBER = 9;
+    public static final int TERMINAL_TRANSACTION_QUALIFIERS_FIELD_NUMBER = 10;
     private com.google.protobuf.ByteString terminalTransactionQualifiers_;
     /**
      * <pre>
      *TTQ (Terminal Transaction Qualifiers)
      * </pre>
      *
-     * <code>bytes terminal_transaction_qualifiers = 9;</code>
+     * <code>bytes terminal_transaction_qualifiers = 10;</code>
      * @return The terminalTransactionQualifiers.
      */
     @java.lang.Override
@@ -783,7 +850,7 @@ public final class ApplicationIdentifierOuterClass {
      *TTQ (Terminal Transaction Qualifiers)
      * </pre>
      *
-     * <code>bytes terminal_transaction_qualifiers = 9;</code>
+     * <code>bytes terminal_transaction_qualifiers = 10;</code>
      * @param value The terminalTransactionQualifiers to set.
      */
     private void setTerminalTransactionQualifiers(com.google.protobuf.ByteString value) {
@@ -796,21 +863,21 @@ public final class ApplicationIdentifierOuterClass {
      *TTQ (Terminal Transaction Qualifiers)
      * </pre>
      *
-     * <code>bytes terminal_transaction_qualifiers = 9;</code>
+     * <code>bytes terminal_transaction_qualifiers = 10;</code>
      */
     private void clearTerminalTransactionQualifiers() {
       
       terminalTransactionQualifiers_ = getDefaultInstance().getTerminalTransactionQualifiers();
     }
 
-    public static final int CONTACTLESS_FLOOR_LIMIT_FIELD_NUMBER = 10;
+    public static final int CONTACTLESS_FLOOR_LIMIT_FIELD_NUMBER = 11;
     private long contactlessFloorLimit_;
     /**
      * <pre>
      *Reader/Terminal Contactless Floor Limit
      * </pre>
      *
-     * <code>uint64 contactless_floor_limit = 10;</code>
+     * <code>uint64 contactless_floor_limit = 11;</code>
      * @return The contactlessFloorLimit.
      */
     @java.lang.Override
@@ -822,7 +889,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Floor Limit
      * </pre>
      *
-     * <code>uint64 contactless_floor_limit = 10;</code>
+     * <code>uint64 contactless_floor_limit = 11;</code>
      * @param value The contactlessFloorLimit to set.
      */
     private void setContactlessFloorLimit(long value) {
@@ -834,21 +901,21 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Floor Limit
      * </pre>
      *
-     * <code>uint64 contactless_floor_limit = 10;</code>
+     * <code>uint64 contactless_floor_limit = 11;</code>
      */
     private void clearContactlessFloorLimit() {
       
       contactlessFloorLimit_ = 0L;
     }
 
-    public static final int READER_FLOOR_LIMIT_FIELD_NUMBER = 11;
+    public static final int READER_FLOOR_LIMIT_FIELD_NUMBER = 12;
     private com.google.protobuf.ByteString readerFloorLimit_;
     /**
      * <pre>
      *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
      * </pre>
      *
-     * <code>bytes reader_floor_limit = 11;</code>
+     * <code>bytes reader_floor_limit = 12;</code>
      * @return The readerFloorLimit.
      */
     @java.lang.Override
@@ -860,7 +927,7 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
      * </pre>
      *
-     * <code>bytes reader_floor_limit = 11;</code>
+     * <code>bytes reader_floor_limit = 12;</code>
      * @param value The readerFloorLimit to set.
      */
     private void setReaderFloorLimit(com.google.protobuf.ByteString value) {
@@ -873,21 +940,21 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
      * </pre>
      *
-     * <code>bytes reader_floor_limit = 11;</code>
+     * <code>bytes reader_floor_limit = 12;</code>
      */
     private void clearReaderFloorLimit() {
       
       readerFloorLimit_ = getDefaultInstance().getReaderFloorLimit();
     }
 
-    public static final int LIMIT_NO_ON_DEVICE_FIELD_NUMBER = 12;
+    public static final int LIMIT_NO_ON_DEVICE_FIELD_NUMBER = 13;
     private long limitNoOnDevice_;
     /**
      * <pre>
      *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_no_on_device = 12;</code>
+     * <code>uint64 limit_no_on_device = 13;</code>
      * @return The limitNoOnDevice.
      */
     @java.lang.Override
@@ -899,7 +966,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_no_on_device = 12;</code>
+     * <code>uint64 limit_no_on_device = 13;</code>
      * @param value The limitNoOnDevice to set.
      */
     private void setLimitNoOnDevice(long value) {
@@ -911,21 +978,21 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_no_on_device = 12;</code>
+     * <code>uint64 limit_no_on_device = 13;</code>
      */
     private void clearLimitNoOnDevice() {
       
       limitNoOnDevice_ = 0L;
     }
 
-    public static final int LIMIT_ON_DEVICE_FIELD_NUMBER = 13;
+    public static final int LIMIT_ON_DEVICE_FIELD_NUMBER = 14;
     private long limitOnDevice_;
     /**
      * <pre>
      *Reader/Terminal Contactless Transaction Limit (On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_on_device = 13;</code>
+     * <code>uint64 limit_on_device = 14;</code>
      * @return The limitOnDevice.
      */
     @java.lang.Override
@@ -937,7 +1004,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Transaction Limit (On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_on_device = 13;</code>
+     * <code>uint64 limit_on_device = 14;</code>
      * @param value The limitOnDevice to set.
      */
     private void setLimitOnDevice(long value) {
@@ -949,21 +1016,21 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal Contactless Transaction Limit (On-device CVM)
      * </pre>
      *
-     * <code>uint64 limit_on_device = 13;</code>
+     * <code>uint64 limit_on_device = 14;</code>
      */
     private void clearLimitOnDevice() {
       
       limitOnDevice_ = 0L;
     }
 
-    public static final int CVM_REQUIRED_LIMIT_FIELD_NUMBER = 14;
+    public static final int CVM_REQUIRED_LIMIT_FIELD_NUMBER = 15;
     private long cvmRequiredLimit_;
     /**
      * <pre>
      *Reader/Terminal CVM Required Limit
      * </pre>
      *
-     * <code>uint64 cvm_required_limit = 14;</code>
+     * <code>uint64 cvm_required_limit = 15;</code>
      * @return The cvmRequiredLimit.
      */
     @java.lang.Override
@@ -975,7 +1042,7 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal CVM Required Limit
      * </pre>
      *
-     * <code>uint64 cvm_required_limit = 14;</code>
+     * <code>uint64 cvm_required_limit = 15;</code>
      * @param value The cvmRequiredLimit to set.
      */
     private void setCvmRequiredLimit(long value) {
@@ -987,21 +1054,21 @@ public final class ApplicationIdentifierOuterClass {
      *Reader/Terminal CVM Required Limit
      * </pre>
      *
-     * <code>uint64 cvm_required_limit = 14;</code>
+     * <code>uint64 cvm_required_limit = 15;</code>
      */
     private void clearCvmRequiredLimit() {
       
       cvmRequiredLimit_ = 0L;
     }
 
-    public static final int TERMINAL_CAPABILITIES_FIELD_NUMBER = 15;
+    public static final int TERMINAL_CAPABILITIES_FIELD_NUMBER = 16;
     private com.google.protobuf.ByteString terminalCapabilities_;
     /**
      * <pre>
      *Terminal Capabilities 
      * </pre>
      *
-     * <code>bytes terminal_capabilities = 15;</code>
+     * <code>bytes terminal_capabilities = 16;</code>
      * @return The terminalCapabilities.
      */
     @java.lang.Override
@@ -1013,7 +1080,7 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Capabilities 
      * </pre>
      *
-     * <code>bytes terminal_capabilities = 15;</code>
+     * <code>bytes terminal_capabilities = 16;</code>
      * @param value The terminalCapabilities to set.
      */
     private void setTerminalCapabilities(com.google.protobuf.ByteString value) {
@@ -1026,21 +1093,21 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Capabilities 
      * </pre>
      *
-     * <code>bytes terminal_capabilities = 15;</code>
+     * <code>bytes terminal_capabilities = 16;</code>
      */
     private void clearTerminalCapabilities() {
       
       terminalCapabilities_ = getDefaultInstance().getTerminalCapabilities();
     }
 
-    public static final int ADDICTIONAL_TERMINAL_CAPABILITIES_FIELD_NUMBER = 16;
+    public static final int ADDICTIONAL_TERMINAL_CAPABILITIES_FIELD_NUMBER = 17;
     private com.google.protobuf.ByteString addictionalTerminalCapabilities_;
     /**
      * <pre>
      *Additional Terminal Capabilities
      * </pre>
      *
-     * <code>bytes addictional_terminal_capabilities = 16;</code>
+     * <code>bytes addictional_terminal_capabilities = 17;</code>
      * @return The addictionalTerminalCapabilities.
      */
     @java.lang.Override
@@ -1052,7 +1119,7 @@ public final class ApplicationIdentifierOuterClass {
      *Additional Terminal Capabilities
      * </pre>
      *
-     * <code>bytes addictional_terminal_capabilities = 16;</code>
+     * <code>bytes addictional_terminal_capabilities = 17;</code>
      * @param value The addictionalTerminalCapabilities to set.
      */
     private void setAddictionalTerminalCapabilities(com.google.protobuf.ByteString value) {
@@ -1065,21 +1132,21 @@ public final class ApplicationIdentifierOuterClass {
      *Additional Terminal Capabilities
      * </pre>
      *
-     * <code>bytes addictional_terminal_capabilities = 16;</code>
+     * <code>bytes addictional_terminal_capabilities = 17;</code>
      */
     private void clearAddictionalTerminalCapabilities() {
       
       addictionalTerminalCapabilities_ = getDefaultInstance().getAddictionalTerminalCapabilities();
     }
 
-    public static final int APPLICATION_VERSION_NUMBER_FIELD_NUMBER = 17;
+    public static final int APPLICATION_VERSION_NUMBER_FIELD_NUMBER = 18;
     private com.google.protobuf.ByteString applicationVersionNumber_;
     /**
      * <pre>
      *Application Version Number - EMV
      * </pre>
      *
-     * <code>bytes application_version_number = 17;</code>
+     * <code>bytes application_version_number = 18;</code>
      * @return The applicationVersionNumber.
      */
     @java.lang.Override
@@ -1091,7 +1158,7 @@ public final class ApplicationIdentifierOuterClass {
      *Application Version Number - EMV
      * </pre>
      *
-     * <code>bytes application_version_number = 17;</code>
+     * <code>bytes application_version_number = 18;</code>
      * @param value The applicationVersionNumber to set.
      */
     private void setApplicationVersionNumber(com.google.protobuf.ByteString value) {
@@ -1104,21 +1171,21 @@ public final class ApplicationIdentifierOuterClass {
      *Application Version Number - EMV
      * </pre>
      *
-     * <code>bytes application_version_number = 17;</code>
+     * <code>bytes application_version_number = 18;</code>
      */
     private void clearApplicationVersionNumber() {
       
       applicationVersionNumber_ = getDefaultInstance().getApplicationVersionNumber();
     }
 
-    public static final int CARD_DATA_INPUT_CAPABILITY_FIELD_NUMBER = 18;
+    public static final int CARD_DATA_INPUT_CAPABILITY_FIELD_NUMBER = 19;
     private com.google.protobuf.ByteString cardDataInputCapability_;
     /**
      * <pre>
      *Card Data Input Capability
      * </pre>
      *
-     * <code>bytes card_data_input_capability = 18;</code>
+     * <code>bytes card_data_input_capability = 19;</code>
      * @return The cardDataInputCapability.
      */
     @java.lang.Override
@@ -1130,7 +1197,7 @@ public final class ApplicationIdentifierOuterClass {
      *Card Data Input Capability
      * </pre>
      *
-     * <code>bytes card_data_input_capability = 18;</code>
+     * <code>bytes card_data_input_capability = 19;</code>
      * @param value The cardDataInputCapability to set.
      */
     private void setCardDataInputCapability(com.google.protobuf.ByteString value) {
@@ -1143,21 +1210,21 @@ public final class ApplicationIdentifierOuterClass {
      *Card Data Input Capability
      * </pre>
      *
-     * <code>bytes card_data_input_capability = 18;</code>
+     * <code>bytes card_data_input_capability = 19;</code>
      */
     private void clearCardDataInputCapability() {
       
       cardDataInputCapability_ = getDefaultInstance().getCardDataInputCapability();
     }
 
-    public static final int CVM_CAPABILITY_REQUIRED_FIELD_NUMBER = 19;
+    public static final int CVM_CAPABILITY_REQUIRED_FIELD_NUMBER = 20;
     private com.google.protobuf.ByteString cvmCapabilityRequired_;
     /**
      * <pre>
-     *CVM Capability - CVM Required
+     *CVM Capability – CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_required = 19;</code>
+     * <code>bytes cvm_capability_required = 20;</code>
      * @return The cvmCapabilityRequired.
      */
     @java.lang.Override
@@ -1166,10 +1233,10 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *CVM Capability - CVM Required
+     *CVM Capability – CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_required = 19;</code>
+     * <code>bytes cvm_capability_required = 20;</code>
      * @param value The cvmCapabilityRequired to set.
      */
     private void setCvmCapabilityRequired(com.google.protobuf.ByteString value) {
@@ -1179,24 +1246,24 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *CVM Capability - CVM Required
+     *CVM Capability – CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_required = 19;</code>
+     * <code>bytes cvm_capability_required = 20;</code>
      */
     private void clearCvmCapabilityRequired() {
       
       cvmCapabilityRequired_ = getDefaultInstance().getCvmCapabilityRequired();
     }
 
-    public static final int CVM_CAPABILITY_NOT_REQUIRED_FIELD_NUMBER = 20;
+    public static final int CVM_CAPABILITY_NOT_REQUIRED_FIELD_NUMBER = 21;
     private com.google.protobuf.ByteString cvmCapabilityNotRequired_;
     /**
      * <pre>
-     *CVM Capability - No CVM Required
+     *CVM Capability – No CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_not_required = 20;</code>
+     * <code>bytes cvm_capability_not_required = 21;</code>
      * @return The cvmCapabilityNotRequired.
      */
     @java.lang.Override
@@ -1205,10 +1272,10 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *CVM Capability - No CVM Required
+     *CVM Capability – No CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_not_required = 20;</code>
+     * <code>bytes cvm_capability_not_required = 21;</code>
      * @param value The cvmCapabilityNotRequired to set.
      */
     private void setCvmCapabilityNotRequired(com.google.protobuf.ByteString value) {
@@ -1218,24 +1285,24 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *CVM Capability - No CVM Required
+     *CVM Capability – No CVM Required
      * </pre>
      *
-     * <code>bytes cvm_capability_not_required = 20;</code>
+     * <code>bytes cvm_capability_not_required = 21;</code>
      */
     private void clearCvmCapabilityNotRequired() {
       
       cvmCapabilityNotRequired_ = getDefaultInstance().getCvmCapabilityNotRequired();
     }
 
-    public static final int SECURITY_CAPABILITY_FIELD_NUMBER = 21;
+    public static final int SECURITY_CAPABILITY_FIELD_NUMBER = 22;
     private com.google.protobuf.ByteString securityCapability_;
     /**
      * <pre>
      *Security Capability 
      * </pre>
      *
-     * <code>bytes security_capability = 21;</code>
+     * <code>bytes security_capability = 22;</code>
      * @return The securityCapability.
      */
     @java.lang.Override
@@ -1247,7 +1314,7 @@ public final class ApplicationIdentifierOuterClass {
      *Security Capability 
      * </pre>
      *
-     * <code>bytes security_capability = 21;</code>
+     * <code>bytes security_capability = 22;</code>
      * @param value The securityCapability to set.
      */
     private void setSecurityCapability(com.google.protobuf.ByteString value) {
@@ -1260,21 +1327,21 @@ public final class ApplicationIdentifierOuterClass {
      *Security Capability 
      * </pre>
      *
-     * <code>bytes security_capability = 21;</code>
+     * <code>bytes security_capability = 22;</code>
      */
     private void clearSecurityCapability() {
       
       securityCapability_ = getDefaultInstance().getSecurityCapability();
     }
 
-    public static final int TERMINAL_ACTION_CODE_DEFAULT_FIELD_NUMBER = 22;
+    public static final int TERMINAL_ACTION_CODE_DEFAULT_FIELD_NUMBER = 23;
     private com.google.protobuf.ByteString terminalActionCodeDefault_;
     /**
      * <pre>
-     *Terminal Action Code - Default
+     *Terminal Action Code – Default
      * </pre>
      *
-     * <code>bytes terminal_action_code_default = 22;</code>
+     * <code>bytes terminal_action_code_default = 23;</code>
      * @return The terminalActionCodeDefault.
      */
     @java.lang.Override
@@ -1283,10 +1350,10 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *Terminal Action Code - Default
+     *Terminal Action Code – Default
      * </pre>
      *
-     * <code>bytes terminal_action_code_default = 22;</code>
+     * <code>bytes terminal_action_code_default = 23;</code>
      * @param value The terminalActionCodeDefault to set.
      */
     private void setTerminalActionCodeDefault(com.google.protobuf.ByteString value) {
@@ -1296,24 +1363,24 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *Terminal Action Code - Default
+     *Terminal Action Code – Default
      * </pre>
      *
-     * <code>bytes terminal_action_code_default = 22;</code>
+     * <code>bytes terminal_action_code_default = 23;</code>
      */
     private void clearTerminalActionCodeDefault() {
       
       terminalActionCodeDefault_ = getDefaultInstance().getTerminalActionCodeDefault();
     }
 
-    public static final int TERMINAL_ACTION_CODE_DENIAL_FIELD_NUMBER = 23;
+    public static final int TERMINAL_ACTION_CODE_DENIAL_FIELD_NUMBER = 24;
     private com.google.protobuf.ByteString terminalActionCodeDenial_;
     /**
      * <pre>
-     *Terminal Action Code - Denial
+     *Terminal Action Code – Denial
      * </pre>
      *
-     * <code>bytes terminal_action_code_denial = 23;</code>
+     * <code>bytes terminal_action_code_denial = 24;</code>
      * @return The terminalActionCodeDenial.
      */
     @java.lang.Override
@@ -1322,10 +1389,10 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *Terminal Action Code - Denial
+     *Terminal Action Code – Denial
      * </pre>
      *
-     * <code>bytes terminal_action_code_denial = 23;</code>
+     * <code>bytes terminal_action_code_denial = 24;</code>
      * @param value The terminalActionCodeDenial to set.
      */
     private void setTerminalActionCodeDenial(com.google.protobuf.ByteString value) {
@@ -1335,24 +1402,24 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *Terminal Action Code - Denial
+     *Terminal Action Code – Denial
      * </pre>
      *
-     * <code>bytes terminal_action_code_denial = 23;</code>
+     * <code>bytes terminal_action_code_denial = 24;</code>
      */
     private void clearTerminalActionCodeDenial() {
       
       terminalActionCodeDenial_ = getDefaultInstance().getTerminalActionCodeDenial();
     }
 
-    public static final int TERMINAL_ACTION_CODE_ONLINE_FIELD_NUMBER = 24;
+    public static final int TERMINAL_ACTION_CODE_ONLINE_FIELD_NUMBER = 25;
     private com.google.protobuf.ByteString terminalActionCodeOnline_;
     /**
      * <pre>
-     *Terminal Action Code - Online
+     *Terminal Action Code – Online
      * </pre>
      *
-     * <code>bytes terminal_action_code_online = 24;</code>
+     * <code>bytes terminal_action_code_online = 25;</code>
      * @return The terminalActionCodeOnline.
      */
     @java.lang.Override
@@ -1361,10 +1428,10 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *Terminal Action Code - Online
+     *Terminal Action Code – Online
      * </pre>
      *
-     * <code>bytes terminal_action_code_online = 24;</code>
+     * <code>bytes terminal_action_code_online = 25;</code>
      * @param value The terminalActionCodeOnline to set.
      */
     private void setTerminalActionCodeOnline(com.google.protobuf.ByteString value) {
@@ -1374,24 +1441,24 @@ public final class ApplicationIdentifierOuterClass {
     }
     /**
      * <pre>
-     *Terminal Action Code - Online
+     *Terminal Action Code – Online
      * </pre>
      *
-     * <code>bytes terminal_action_code_online = 24;</code>
+     * <code>bytes terminal_action_code_online = 25;</code>
      */
     private void clearTerminalActionCodeOnline() {
       
       terminalActionCodeOnline_ = getDefaultInstance().getTerminalActionCodeOnline();
     }
 
-    public static final int RISK_MANAGEMENT_DATA_FIELD_NUMBER = 25;
+    public static final int RISK_MANAGEMENT_DATA_FIELD_NUMBER = 26;
     private com.google.protobuf.ByteString riskManagementData_;
     /**
      * <pre>
      *Terminal Risk Management Data
      * </pre>
      *
-     * <code>bytes risk_management_data = 25;</code>
+     * <code>bytes risk_management_data = 26;</code>
      * @return The riskManagementData.
      */
     @java.lang.Override
@@ -1403,7 +1470,7 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Risk Management Data
      * </pre>
      *
-     * <code>bytes risk_management_data = 25;</code>
+     * <code>bytes risk_management_data = 26;</code>
      * @param value The riskManagementData to set.
      */
     private void setRiskManagementData(com.google.protobuf.ByteString value) {
@@ -1416,21 +1483,21 @@ public final class ApplicationIdentifierOuterClass {
      *Terminal Risk Management Data
      * </pre>
      *
-     * <code>bytes risk_management_data = 25;</code>
+     * <code>bytes risk_management_data = 26;</code>
      */
     private void clearRiskManagementData() {
       
       riskManagementData_ = getDefaultInstance().getRiskManagementData();
     }
 
-    public static final int CATEGORY_CODE_FIELD_NUMBER = 26;
+    public static final int CATEGORY_CODE_FIELD_NUMBER = 27;
     private com.google.protobuf.ByteString categoryCode_;
     /**
      * <pre>
      *Transaction Category Code 
      * </pre>
      *
-     * <code>bytes category_code = 26;</code>
+     * <code>bytes category_code = 27;</code>
      * @return The categoryCode.
      */
     @java.lang.Override
@@ -1442,7 +1509,7 @@ public final class ApplicationIdentifierOuterClass {
      *Transaction Category Code 
      * </pre>
      *
-     * <code>bytes category_code = 26;</code>
+     * <code>bytes category_code = 27;</code>
      * @param value The categoryCode to set.
      */
     private void setCategoryCode(com.google.protobuf.ByteString value) {
@@ -1455,11 +1522,73 @@ public final class ApplicationIdentifierOuterClass {
      *Transaction Category Code 
      * </pre>
      *
-     * <code>bytes category_code = 26;</code>
+     * <code>bytes category_code = 27;</code>
      */
     private void clearCategoryCode() {
       
       categoryCode_ = getDefaultInstance().getCategoryCode();
+    }
+
+    public static final int CARD_ACTION_FIELD_NUMBER = 28;
+    private int cardAction_;
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     * @return The enum numeric value on the wire for cardAction.
+     */
+    @java.lang.Override
+    public int getCardActionValue() {
+      return cardAction_;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     * @return The cardAction.
+     */
+    @java.lang.Override
+    public com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction() {
+      com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction result = com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction.forNumber(cardAction_);
+      return result == null ? com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     * @param value The enum numeric value on the wire for cardAction to set.
+     */
+    private void setCardActionValue(int value) {
+        cardAction_ = value;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     * @param value The cardAction to set.
+     */
+    private void setCardAction(com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction value) {
+      cardAction_ = value.getNumber();
+      
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 28;</code>
+     */
+    private void clearCardAction() {
+      
+      cardAction_ = 0;
     }
 
     public static com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier parseFrom(
@@ -1559,10 +1688,50 @@ public final class ApplicationIdentifierOuterClass {
 
       /**
        * <pre>
+       * Index
+       * </pre>
+       *
+       * <code>uint32 index = 1;</code>
+       * @return The index.
+       */
+      @java.lang.Override
+      public int getIndex() {
+        return instance.getIndex();
+      }
+      /**
+       * <pre>
+       * Index
+       * </pre>
+       *
+       * <code>uint32 index = 1;</code>
+       * @param value The index to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndex(int value) {
+        copyOnWrite();
+        instance.setIndex(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Index
+       * </pre>
+       *
+       * <code>uint32 index = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIndex() {
+        copyOnWrite();
+        instance.clearIndex();
+        return this;
+      }
+
+      /**
+       * <pre>
        *AID - Application Identifier
        * </pre>
        *
-       * <code>bytes application_identifier = 1;</code>
+       * <code>bytes application_identifier = 2;</code>
        * @return The applicationIdentifier.
        */
       @java.lang.Override
@@ -1574,7 +1743,7 @@ public final class ApplicationIdentifierOuterClass {
        *AID - Application Identifier
        * </pre>
        *
-       * <code>bytes application_identifier = 1;</code>
+       * <code>bytes application_identifier = 2;</code>
        * @param value The applicationIdentifier to set.
        * @return This builder for chaining.
        */
@@ -1588,7 +1757,7 @@ public final class ApplicationIdentifierOuterClass {
        *AID - Application Identifier
        * </pre>
        *
-       * <code>bytes application_identifier = 1;</code>
+       * <code>bytes application_identifier = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearApplicationIdentifier() {
@@ -1602,7 +1771,7 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (8 bits - ver tabela a seguir).
        * </pre>
        *
-       * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+       * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
        */
       @java.lang.Override
       public boolean hasGeneralFlags() {
@@ -1613,7 +1782,7 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (8 bits - ver tabela a seguir).
        * </pre>
        *
-       * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+       * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
        */
       @java.lang.Override
       public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags getGeneralFlags() {
@@ -1624,7 +1793,7 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (8 bits - ver tabela a seguir).
        * </pre>
        *
-       * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+       * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
        */
       public Builder setGeneralFlags(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags value) {
         copyOnWrite();
@@ -1636,7 +1805,7 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (8 bits - ver tabela a seguir).
        * </pre>
        *
-       * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+       * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
        */
       public Builder setGeneralFlags(
           com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags.Builder builderForValue) {
@@ -1649,7 +1818,7 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (8 bits - ver tabela a seguir).
        * </pre>
        *
-       * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+       * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
        */
       public Builder mergeGeneralFlags(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.GeneralFlags value) {
         copyOnWrite();
@@ -1661,7 +1830,7 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (8 bits - ver tabela a seguir).
        * </pre>
        *
-       * <code>.axis.transactions.GeneralFlags general_flags = 2;</code>
+       * <code>.axis.transactions.GeneralFlags general_flags = 3;</code>
        */
       public Builder clearGeneralFlags() {  copyOnWrite();
         instance.clearGeneralFlags();
@@ -1673,7 +1842,7 @@ public final class ApplicationIdentifierOuterClass {
        *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
        * </pre>
        *
-       * <code>uint64 authorized_amount = 3;</code>
+       * <code>uint64 authorized_amount = 4;</code>
        * @return The authorizedAmount.
        */
       @java.lang.Override
@@ -1685,7 +1854,7 @@ public final class ApplicationIdentifierOuterClass {
        *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
        * </pre>
        *
-       * <code>uint64 authorized_amount = 3;</code>
+       * <code>uint64 authorized_amount = 4;</code>
        * @param value The authorizedAmount to set.
        * @return This builder for chaining.
        */
@@ -1699,7 +1868,7 @@ public final class ApplicationIdentifierOuterClass {
        *Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
        * </pre>
        *
-       * <code>uint64 authorized_amount = 3;</code>
+       * <code>uint64 authorized_amount = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearAuthorizedAmount() {
@@ -1713,7 +1882,7 @@ public final class ApplicationIdentifierOuterClass {
        *Código do país (Terminal Country Code)
        * </pre>
        *
-       * <code>uint32 country_code = 4;</code>
+       * <code>uint32 country_code = 5;</code>
        * @return The countryCode.
        */
       @java.lang.Override
@@ -1725,7 +1894,7 @@ public final class ApplicationIdentifierOuterClass {
        *Código do país (Terminal Country Code)
        * </pre>
        *
-       * <code>uint32 country_code = 4;</code>
+       * <code>uint32 country_code = 5;</code>
        * @param value The countryCode to set.
        * @return This builder for chaining.
        */
@@ -1739,7 +1908,7 @@ public final class ApplicationIdentifierOuterClass {
        *Código do país (Terminal Country Code)
        * </pre>
        *
-       * <code>uint32 country_code = 4;</code>
+       * <code>uint32 country_code = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearCountryCode() {
@@ -1753,7 +1922,7 @@ public final class ApplicationIdentifierOuterClass {
        *Código da moeda (Transaction Currency Code)
        * </pre>
        *
-       * <code>uint32 currency_code = 5;</code>
+       * <code>uint32 currency_code = 6;</code>
        * @return The currencyCode.
        */
       @java.lang.Override
@@ -1765,7 +1934,7 @@ public final class ApplicationIdentifierOuterClass {
        *Código da moeda (Transaction Currency Code)
        * </pre>
        *
-       * <code>uint32 currency_code = 5;</code>
+       * <code>uint32 currency_code = 6;</code>
        * @param value The currencyCode to set.
        * @return This builder for chaining.
        */
@@ -1779,7 +1948,7 @@ public final class ApplicationIdentifierOuterClass {
        *Código da moeda (Transaction Currency Code)
        * </pre>
        *
-       * <code>uint32 currency_code = 5;</code>
+       * <code>uint32 currency_code = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearCurrencyCode() {
@@ -1793,7 +1962,7 @@ public final class ApplicationIdentifierOuterClass {
        *Número de casas decimais do valor (Transaction Currency Exponent)
        * </pre>
        *
-       * <code>uint32 currency_exponent = 6;</code>
+       * <code>uint32 currency_exponent = 7;</code>
        * @return The currencyExponent.
        */
       @java.lang.Override
@@ -1805,7 +1974,7 @@ public final class ApplicationIdentifierOuterClass {
        *Número de casas decimais do valor (Transaction Currency Exponent)
        * </pre>
        *
-       * <code>uint32 currency_exponent = 6;</code>
+       * <code>uint32 currency_exponent = 7;</code>
        * @param value The currencyExponent to set.
        * @return This builder for chaining.
        */
@@ -1819,7 +1988,7 @@ public final class ApplicationIdentifierOuterClass {
        *Número de casas decimais do valor (Transaction Currency Exponent)
        * </pre>
        *
-       * <code>uint32 currency_exponent = 6;</code>
+       * <code>uint32 currency_exponent = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearCurrencyExponent() {
@@ -1833,7 +2002,7 @@ public final class ApplicationIdentifierOuterClass {
        *Tipo de terminal (Terminal Type)
        * </pre>
        *
-       * <code>uint32 terminal_type = 7;</code>
+       * <code>uint32 terminal_type = 8;</code>
        * @return The terminalType.
        */
       @java.lang.Override
@@ -1845,7 +2014,7 @@ public final class ApplicationIdentifierOuterClass {
        *Tipo de terminal (Terminal Type)
        * </pre>
        *
-       * <code>uint32 terminal_type = 7;</code>
+       * <code>uint32 terminal_type = 8;</code>
        * @param value The terminalType to set.
        * @return This builder for chaining.
        */
@@ -1859,7 +2028,7 @@ public final class ApplicationIdentifierOuterClass {
        *Tipo de terminal (Terminal Type)
        * </pre>
        *
-       * <code>uint32 terminal_type = 7;</code>
+       * <code>uint32 terminal_type = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerminalType() {
@@ -1873,7 +2042,7 @@ public final class ApplicationIdentifierOuterClass {
        *MCC - Merchant Category Code 
        * </pre>
        *
-       * <code>uint32 merchant_category_code = 8;</code>
+       * <code>uint32 merchant_category_code = 9;</code>
        * @return The merchantCategoryCode.
        */
       @java.lang.Override
@@ -1885,7 +2054,7 @@ public final class ApplicationIdentifierOuterClass {
        *MCC - Merchant Category Code 
        * </pre>
        *
-       * <code>uint32 merchant_category_code = 8;</code>
+       * <code>uint32 merchant_category_code = 9;</code>
        * @param value The merchantCategoryCode to set.
        * @return This builder for chaining.
        */
@@ -1899,7 +2068,7 @@ public final class ApplicationIdentifierOuterClass {
        *MCC - Merchant Category Code 
        * </pre>
        *
-       * <code>uint32 merchant_category_code = 8;</code>
+       * <code>uint32 merchant_category_code = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearMerchantCategoryCode() {
@@ -1913,7 +2082,7 @@ public final class ApplicationIdentifierOuterClass {
        *TTQ (Terminal Transaction Qualifiers)
        * </pre>
        *
-       * <code>bytes terminal_transaction_qualifiers = 9;</code>
+       * <code>bytes terminal_transaction_qualifiers = 10;</code>
        * @return The terminalTransactionQualifiers.
        */
       @java.lang.Override
@@ -1925,7 +2094,7 @@ public final class ApplicationIdentifierOuterClass {
        *TTQ (Terminal Transaction Qualifiers)
        * </pre>
        *
-       * <code>bytes terminal_transaction_qualifiers = 9;</code>
+       * <code>bytes terminal_transaction_qualifiers = 10;</code>
        * @param value The terminalTransactionQualifiers to set.
        * @return This builder for chaining.
        */
@@ -1939,7 +2108,7 @@ public final class ApplicationIdentifierOuterClass {
        *TTQ (Terminal Transaction Qualifiers)
        * </pre>
        *
-       * <code>bytes terminal_transaction_qualifiers = 9;</code>
+       * <code>bytes terminal_transaction_qualifiers = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerminalTransactionQualifiers() {
@@ -1953,7 +2122,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Floor Limit
        * </pre>
        *
-       * <code>uint64 contactless_floor_limit = 10;</code>
+       * <code>uint64 contactless_floor_limit = 11;</code>
        * @return The contactlessFloorLimit.
        */
       @java.lang.Override
@@ -1965,7 +2134,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Floor Limit
        * </pre>
        *
-       * <code>uint64 contactless_floor_limit = 10;</code>
+       * <code>uint64 contactless_floor_limit = 11;</code>
        * @param value The contactlessFloorLimit to set.
        * @return This builder for chaining.
        */
@@ -1979,7 +2148,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Floor Limit
        * </pre>
        *
-       * <code>uint64 contactless_floor_limit = 10;</code>
+       * <code>uint64 contactless_floor_limit = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearContactlessFloorLimit() {
@@ -1993,7 +2162,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
        * </pre>
        *
-       * <code>bytes reader_floor_limit = 11;</code>
+       * <code>bytes reader_floor_limit = 12;</code>
        * @return The readerFloorLimit.
        */
       @java.lang.Override
@@ -2005,7 +2174,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
        * </pre>
        *
-       * <code>bytes reader_floor_limit = 11;</code>
+       * <code>bytes reader_floor_limit = 12;</code>
        * @param value The readerFloorLimit to set.
        * @return This builder for chaining.
        */
@@ -2019,7 +2188,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
        * </pre>
        *
-       * <code>bytes reader_floor_limit = 11;</code>
+       * <code>bytes reader_floor_limit = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearReaderFloorLimit() {
@@ -2033,7 +2202,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
        * </pre>
        *
-       * <code>uint64 limit_no_on_device = 12;</code>
+       * <code>uint64 limit_no_on_device = 13;</code>
        * @return The limitNoOnDevice.
        */
       @java.lang.Override
@@ -2045,7 +2214,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
        * </pre>
        *
-       * <code>uint64 limit_no_on_device = 12;</code>
+       * <code>uint64 limit_no_on_device = 13;</code>
        * @param value The limitNoOnDevice to set.
        * @return This builder for chaining.
        */
@@ -2059,7 +2228,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Transaction Limit (No On-device CVM)
        * </pre>
        *
-       * <code>uint64 limit_no_on_device = 12;</code>
+       * <code>uint64 limit_no_on_device = 13;</code>
        * @return This builder for chaining.
        */
       public Builder clearLimitNoOnDevice() {
@@ -2073,7 +2242,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Transaction Limit (On-device CVM)
        * </pre>
        *
-       * <code>uint64 limit_on_device = 13;</code>
+       * <code>uint64 limit_on_device = 14;</code>
        * @return The limitOnDevice.
        */
       @java.lang.Override
@@ -2085,7 +2254,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Transaction Limit (On-device CVM)
        * </pre>
        *
-       * <code>uint64 limit_on_device = 13;</code>
+       * <code>uint64 limit_on_device = 14;</code>
        * @param value The limitOnDevice to set.
        * @return This builder for chaining.
        */
@@ -2099,7 +2268,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal Contactless Transaction Limit (On-device CVM)
        * </pre>
        *
-       * <code>uint64 limit_on_device = 13;</code>
+       * <code>uint64 limit_on_device = 14;</code>
        * @return This builder for chaining.
        */
       public Builder clearLimitOnDevice() {
@@ -2113,7 +2282,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal CVM Required Limit
        * </pre>
        *
-       * <code>uint64 cvm_required_limit = 14;</code>
+       * <code>uint64 cvm_required_limit = 15;</code>
        * @return The cvmRequiredLimit.
        */
       @java.lang.Override
@@ -2125,7 +2294,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal CVM Required Limit
        * </pre>
        *
-       * <code>uint64 cvm_required_limit = 14;</code>
+       * <code>uint64 cvm_required_limit = 15;</code>
        * @param value The cvmRequiredLimit to set.
        * @return This builder for chaining.
        */
@@ -2139,7 +2308,7 @@ public final class ApplicationIdentifierOuterClass {
        *Reader/Terminal CVM Required Limit
        * </pre>
        *
-       * <code>uint64 cvm_required_limit = 14;</code>
+       * <code>uint64 cvm_required_limit = 15;</code>
        * @return This builder for chaining.
        */
       public Builder clearCvmRequiredLimit() {
@@ -2153,7 +2322,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Capabilities 
        * </pre>
        *
-       * <code>bytes terminal_capabilities = 15;</code>
+       * <code>bytes terminal_capabilities = 16;</code>
        * @return The terminalCapabilities.
        */
       @java.lang.Override
@@ -2165,7 +2334,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Capabilities 
        * </pre>
        *
-       * <code>bytes terminal_capabilities = 15;</code>
+       * <code>bytes terminal_capabilities = 16;</code>
        * @param value The terminalCapabilities to set.
        * @return This builder for chaining.
        */
@@ -2179,7 +2348,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Capabilities 
        * </pre>
        *
-       * <code>bytes terminal_capabilities = 15;</code>
+       * <code>bytes terminal_capabilities = 16;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerminalCapabilities() {
@@ -2193,7 +2362,7 @@ public final class ApplicationIdentifierOuterClass {
        *Additional Terminal Capabilities
        * </pre>
        *
-       * <code>bytes addictional_terminal_capabilities = 16;</code>
+       * <code>bytes addictional_terminal_capabilities = 17;</code>
        * @return The addictionalTerminalCapabilities.
        */
       @java.lang.Override
@@ -2205,7 +2374,7 @@ public final class ApplicationIdentifierOuterClass {
        *Additional Terminal Capabilities
        * </pre>
        *
-       * <code>bytes addictional_terminal_capabilities = 16;</code>
+       * <code>bytes addictional_terminal_capabilities = 17;</code>
        * @param value The addictionalTerminalCapabilities to set.
        * @return This builder for chaining.
        */
@@ -2219,7 +2388,7 @@ public final class ApplicationIdentifierOuterClass {
        *Additional Terminal Capabilities
        * </pre>
        *
-       * <code>bytes addictional_terminal_capabilities = 16;</code>
+       * <code>bytes addictional_terminal_capabilities = 17;</code>
        * @return This builder for chaining.
        */
       public Builder clearAddictionalTerminalCapabilities() {
@@ -2233,7 +2402,7 @@ public final class ApplicationIdentifierOuterClass {
        *Application Version Number - EMV
        * </pre>
        *
-       * <code>bytes application_version_number = 17;</code>
+       * <code>bytes application_version_number = 18;</code>
        * @return The applicationVersionNumber.
        */
       @java.lang.Override
@@ -2245,7 +2414,7 @@ public final class ApplicationIdentifierOuterClass {
        *Application Version Number - EMV
        * </pre>
        *
-       * <code>bytes application_version_number = 17;</code>
+       * <code>bytes application_version_number = 18;</code>
        * @param value The applicationVersionNumber to set.
        * @return This builder for chaining.
        */
@@ -2259,7 +2428,7 @@ public final class ApplicationIdentifierOuterClass {
        *Application Version Number - EMV
        * </pre>
        *
-       * <code>bytes application_version_number = 17;</code>
+       * <code>bytes application_version_number = 18;</code>
        * @return This builder for chaining.
        */
       public Builder clearApplicationVersionNumber() {
@@ -2273,7 +2442,7 @@ public final class ApplicationIdentifierOuterClass {
        *Card Data Input Capability
        * </pre>
        *
-       * <code>bytes card_data_input_capability = 18;</code>
+       * <code>bytes card_data_input_capability = 19;</code>
        * @return The cardDataInputCapability.
        */
       @java.lang.Override
@@ -2285,7 +2454,7 @@ public final class ApplicationIdentifierOuterClass {
        *Card Data Input Capability
        * </pre>
        *
-       * <code>bytes card_data_input_capability = 18;</code>
+       * <code>bytes card_data_input_capability = 19;</code>
        * @param value The cardDataInputCapability to set.
        * @return This builder for chaining.
        */
@@ -2299,7 +2468,7 @@ public final class ApplicationIdentifierOuterClass {
        *Card Data Input Capability
        * </pre>
        *
-       * <code>bytes card_data_input_capability = 18;</code>
+       * <code>bytes card_data_input_capability = 19;</code>
        * @return This builder for chaining.
        */
       public Builder clearCardDataInputCapability() {
@@ -2310,10 +2479,10 @@ public final class ApplicationIdentifierOuterClass {
 
       /**
        * <pre>
-       *CVM Capability - CVM Required
+       *CVM Capability – CVM Required
        * </pre>
        *
-       * <code>bytes cvm_capability_required = 19;</code>
+       * <code>bytes cvm_capability_required = 20;</code>
        * @return The cvmCapabilityRequired.
        */
       @java.lang.Override
@@ -2322,10 +2491,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *CVM Capability - CVM Required
+       *CVM Capability – CVM Required
        * </pre>
        *
-       * <code>bytes cvm_capability_required = 19;</code>
+       * <code>bytes cvm_capability_required = 20;</code>
        * @param value The cvmCapabilityRequired to set.
        * @return This builder for chaining.
        */
@@ -2336,10 +2505,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *CVM Capability - CVM Required
+       *CVM Capability – CVM Required
        * </pre>
        *
-       * <code>bytes cvm_capability_required = 19;</code>
+       * <code>bytes cvm_capability_required = 20;</code>
        * @return This builder for chaining.
        */
       public Builder clearCvmCapabilityRequired() {
@@ -2350,10 +2519,10 @@ public final class ApplicationIdentifierOuterClass {
 
       /**
        * <pre>
-       *CVM Capability - No CVM Required
+       *CVM Capability – No CVM Required
        * </pre>
        *
-       * <code>bytes cvm_capability_not_required = 20;</code>
+       * <code>bytes cvm_capability_not_required = 21;</code>
        * @return The cvmCapabilityNotRequired.
        */
       @java.lang.Override
@@ -2362,10 +2531,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *CVM Capability - No CVM Required
+       *CVM Capability – No CVM Required
        * </pre>
        *
-       * <code>bytes cvm_capability_not_required = 20;</code>
+       * <code>bytes cvm_capability_not_required = 21;</code>
        * @param value The cvmCapabilityNotRequired to set.
        * @return This builder for chaining.
        */
@@ -2376,10 +2545,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *CVM Capability - No CVM Required
+       *CVM Capability – No CVM Required
        * </pre>
        *
-       * <code>bytes cvm_capability_not_required = 20;</code>
+       * <code>bytes cvm_capability_not_required = 21;</code>
        * @return This builder for chaining.
        */
       public Builder clearCvmCapabilityNotRequired() {
@@ -2393,7 +2562,7 @@ public final class ApplicationIdentifierOuterClass {
        *Security Capability 
        * </pre>
        *
-       * <code>bytes security_capability = 21;</code>
+       * <code>bytes security_capability = 22;</code>
        * @return The securityCapability.
        */
       @java.lang.Override
@@ -2405,7 +2574,7 @@ public final class ApplicationIdentifierOuterClass {
        *Security Capability 
        * </pre>
        *
-       * <code>bytes security_capability = 21;</code>
+       * <code>bytes security_capability = 22;</code>
        * @param value The securityCapability to set.
        * @return This builder for chaining.
        */
@@ -2419,7 +2588,7 @@ public final class ApplicationIdentifierOuterClass {
        *Security Capability 
        * </pre>
        *
-       * <code>bytes security_capability = 21;</code>
+       * <code>bytes security_capability = 22;</code>
        * @return This builder for chaining.
        */
       public Builder clearSecurityCapability() {
@@ -2430,10 +2599,10 @@ public final class ApplicationIdentifierOuterClass {
 
       /**
        * <pre>
-       *Terminal Action Code - Default
+       *Terminal Action Code – Default
        * </pre>
        *
-       * <code>bytes terminal_action_code_default = 22;</code>
+       * <code>bytes terminal_action_code_default = 23;</code>
        * @return The terminalActionCodeDefault.
        */
       @java.lang.Override
@@ -2442,10 +2611,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *Terminal Action Code - Default
+       *Terminal Action Code – Default
        * </pre>
        *
-       * <code>bytes terminal_action_code_default = 22;</code>
+       * <code>bytes terminal_action_code_default = 23;</code>
        * @param value The terminalActionCodeDefault to set.
        * @return This builder for chaining.
        */
@@ -2456,10 +2625,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *Terminal Action Code - Default
+       *Terminal Action Code – Default
        * </pre>
        *
-       * <code>bytes terminal_action_code_default = 22;</code>
+       * <code>bytes terminal_action_code_default = 23;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerminalActionCodeDefault() {
@@ -2470,10 +2639,10 @@ public final class ApplicationIdentifierOuterClass {
 
       /**
        * <pre>
-       *Terminal Action Code - Denial
+       *Terminal Action Code – Denial
        * </pre>
        *
-       * <code>bytes terminal_action_code_denial = 23;</code>
+       * <code>bytes terminal_action_code_denial = 24;</code>
        * @return The terminalActionCodeDenial.
        */
       @java.lang.Override
@@ -2482,10 +2651,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *Terminal Action Code - Denial
+       *Terminal Action Code – Denial
        * </pre>
        *
-       * <code>bytes terminal_action_code_denial = 23;</code>
+       * <code>bytes terminal_action_code_denial = 24;</code>
        * @param value The terminalActionCodeDenial to set.
        * @return This builder for chaining.
        */
@@ -2496,10 +2665,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *Terminal Action Code - Denial
+       *Terminal Action Code – Denial
        * </pre>
        *
-       * <code>bytes terminal_action_code_denial = 23;</code>
+       * <code>bytes terminal_action_code_denial = 24;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerminalActionCodeDenial() {
@@ -2510,10 +2679,10 @@ public final class ApplicationIdentifierOuterClass {
 
       /**
        * <pre>
-       *Terminal Action Code - Online
+       *Terminal Action Code – Online
        * </pre>
        *
-       * <code>bytes terminal_action_code_online = 24;</code>
+       * <code>bytes terminal_action_code_online = 25;</code>
        * @return The terminalActionCodeOnline.
        */
       @java.lang.Override
@@ -2522,10 +2691,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *Terminal Action Code - Online
+       *Terminal Action Code – Online
        * </pre>
        *
-       * <code>bytes terminal_action_code_online = 24;</code>
+       * <code>bytes terminal_action_code_online = 25;</code>
        * @param value The terminalActionCodeOnline to set.
        * @return This builder for chaining.
        */
@@ -2536,10 +2705,10 @@ public final class ApplicationIdentifierOuterClass {
       }
       /**
        * <pre>
-       *Terminal Action Code - Online
+       *Terminal Action Code – Online
        * </pre>
        *
-       * <code>bytes terminal_action_code_online = 24;</code>
+       * <code>bytes terminal_action_code_online = 25;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerminalActionCodeOnline() {
@@ -2553,7 +2722,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Risk Management Data
        * </pre>
        *
-       * <code>bytes risk_management_data = 25;</code>
+       * <code>bytes risk_management_data = 26;</code>
        * @return The riskManagementData.
        */
       @java.lang.Override
@@ -2565,7 +2734,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Risk Management Data
        * </pre>
        *
-       * <code>bytes risk_management_data = 25;</code>
+       * <code>bytes risk_management_data = 26;</code>
        * @param value The riskManagementData to set.
        * @return This builder for chaining.
        */
@@ -2579,7 +2748,7 @@ public final class ApplicationIdentifierOuterClass {
        *Terminal Risk Management Data
        * </pre>
        *
-       * <code>bytes risk_management_data = 25;</code>
+       * <code>bytes risk_management_data = 26;</code>
        * @return This builder for chaining.
        */
       public Builder clearRiskManagementData() {
@@ -2593,7 +2762,7 @@ public final class ApplicationIdentifierOuterClass {
        *Transaction Category Code 
        * </pre>
        *
-       * <code>bytes category_code = 26;</code>
+       * <code>bytes category_code = 27;</code>
        * @return The categoryCode.
        */
       @java.lang.Override
@@ -2605,7 +2774,7 @@ public final class ApplicationIdentifierOuterClass {
        *Transaction Category Code 
        * </pre>
        *
-       * <code>bytes category_code = 26;</code>
+       * <code>bytes category_code = 27;</code>
        * @param value The categoryCode to set.
        * @return This builder for chaining.
        */
@@ -2619,12 +2788,78 @@ public final class ApplicationIdentifierOuterClass {
        *Transaction Category Code 
        * </pre>
        *
-       * <code>bytes category_code = 26;</code>
+       * <code>bytes category_code = 27;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategoryCode() {
         copyOnWrite();
         instance.clearCategoryCode();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 28;</code>
+       * @return The enum numeric value on the wire for cardAction.
+       */
+      @java.lang.Override
+      public int getCardActionValue() {
+        return instance.getCardActionValue();
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 28;</code>
+       * @param value The cardAction to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCardActionValue(int value) {
+        copyOnWrite();
+        instance.setCardActionValue(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 28;</code>
+       * @return The cardAction.
+       */
+      @java.lang.Override
+      public com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction() {
+        return instance.getCardAction();
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 28;</code>
+       * @param value The enum numeric value on the wire for cardAction to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCardAction(com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction value) {
+        copyOnWrite();
+        instance.setCardAction(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 28;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCardAction() {
+        copyOnWrite();
+        instance.clearCardAction();
         return this;
       }
 
@@ -2644,6 +2879,7 @@ public final class ApplicationIdentifierOuterClass {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
+              "index_",
               "applicationIdentifier_",
               "generalFlags_",
               "authorizedAmount_",
@@ -2670,12 +2906,13 @@ public final class ApplicationIdentifierOuterClass {
               "terminalActionCodeOnline_",
               "riskManagementData_",
               "categoryCode_",
+              "cardAction_",
             };
             java.lang.String info =
-                "\u0000\u001a\u0000\u0000\u0001\u001a\u001a\u0000\u0000\u0000\u0001\n\u0002\t\u0003" +
-                "\u0003\u0004\u000b\u0005\u000b\u0006\u000b\u0007\u000b\b\u000b\t\n\n\u0003\u000b" +
-                "\n\f\u0003\r\u0003\u000e\u0003\u000f\n\u0010\n\u0011\n\u0012\n\u0013\n\u0014\n\u0015" +
-                "\n\u0016\n\u0017\n\u0018\n\u0019\n\u001a\n";
+                "\u0000\u001c\u0000\u0000\u0001\u001c\u001c\u0000\u0000\u0000\u0001\u000b\u0002\n" +
+                "\u0003\t\u0004\u0003\u0005\u000b\u0006\u000b\u0007\u000b\b\u000b\t\u000b\n\n\u000b" +
+                "\u0003\f\n\r\u0003\u000e\u0003\u000f\u0003\u0010\n\u0011\n\u0012\n\u0013\n\u0014" +
+                "\n\u0015\n\u0016\n\u0017\n\u0018\n\u0019\n\u001a\n\u001b\n\u001c\f";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2739,19 +2976,19 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
-     * @return The enum numeric value on the wire for flagType.
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+     * @return The enum numeric value on the wire for kernelCtls.
      */
-    int getFlagTypeValue();
+    int getKernelCtlsValue();
     /**
      * <pre>
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
-     * @return The flagType.
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+     * @return The kernelCtls.
      */
-    com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType getFlagType();
+    com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType getKernelCtls();
 
     /**
      * <pre>
@@ -2773,31 +3010,31 @@ public final class ApplicationIdentifierOuterClass {
       GeneralFlagsOrBuilder {
     private GeneralFlags() {
     }
-    public static final int FLAG_TYPE_FIELD_NUMBER = 1;
-    private int flagType_;
+    public static final int KERNEL_CTLS_FIELD_NUMBER = 1;
+    private int kernelCtls_;
     /**
      * <pre>
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
-     * @return The enum numeric value on the wire for flagType.
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+     * @return The enum numeric value on the wire for kernelCtls.
      */
     @java.lang.Override
-    public int getFlagTypeValue() {
-      return flagType_;
+    public int getKernelCtlsValue() {
+      return kernelCtls_;
     }
     /**
      * <pre>
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
-     * @return The flagType.
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+     * @return The kernelCtls.
      */
     @java.lang.Override
-    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType getFlagType() {
-      com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType result = com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType.forNumber(flagType_);
+    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType getKernelCtls() {
+      com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType result = com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType.forNumber(kernelCtls_);
       return result == null ? com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType.UNRECOGNIZED : result;
     }
     /**
@@ -2805,22 +3042,22 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
-     * @param value The enum numeric value on the wire for flagType to set.
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+     * @param value The enum numeric value on the wire for kernelCtls to set.
      */
-    private void setFlagTypeValue(int value) {
-        flagType_ = value;
+    private void setKernelCtlsValue(int value) {
+        kernelCtls_ = value;
     }
     /**
      * <pre>
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
-     * @param value The flagType to set.
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+     * @param value The kernelCtls to set.
      */
-    private void setFlagType(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType value) {
-      flagType_ = value.getNumber();
+    private void setKernelCtls(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType value) {
+      kernelCtls_ = value.getNumber();
       
     }
     /**
@@ -2828,11 +3065,11 @@ public final class ApplicationIdentifierOuterClass {
      *Flags gerais (objeto DFFF01h)
      * </pre>
      *
-     * <code>.axis.transactions.FlagType flag_type = 1;</code>
+     * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
      */
-    private void clearFlagType() {
+    private void clearKernelCtls() {
       
-      flagType_ = 0;
+      kernelCtls_ = 0;
     }
 
     public static final int VALIDATE_CARD_DATE_FIELD_NUMBER = 2;
@@ -2973,25 +3210,25 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (objeto DFFF01h)
        * </pre>
        *
-       * <code>.axis.transactions.FlagType flag_type = 1;</code>
-       * @return The enum numeric value on the wire for flagType.
+       * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+       * @return The enum numeric value on the wire for kernelCtls.
        */
       @java.lang.Override
-      public int getFlagTypeValue() {
-        return instance.getFlagTypeValue();
+      public int getKernelCtlsValue() {
+        return instance.getKernelCtlsValue();
       }
       /**
        * <pre>
        *Flags gerais (objeto DFFF01h)
        * </pre>
        *
-       * <code>.axis.transactions.FlagType flag_type = 1;</code>
-       * @param value The flagType to set.
+       * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+       * @param value The kernelCtls to set.
        * @return This builder for chaining.
        */
-      public Builder setFlagTypeValue(int value) {
+      public Builder setKernelCtlsValue(int value) {
         copyOnWrite();
-        instance.setFlagTypeValue(value);
+        instance.setKernelCtlsValue(value);
         return this;
       }
       /**
@@ -2999,25 +3236,25 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (objeto DFFF01h)
        * </pre>
        *
-       * <code>.axis.transactions.FlagType flag_type = 1;</code>
-       * @return The flagType.
+       * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+       * @return The kernelCtls.
        */
       @java.lang.Override
-      public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType getFlagType() {
-        return instance.getFlagType();
+      public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType getKernelCtls() {
+        return instance.getKernelCtls();
       }
       /**
        * <pre>
        *Flags gerais (objeto DFFF01h)
        * </pre>
        *
-       * <code>.axis.transactions.FlagType flag_type = 1;</code>
-       * @param value The enum numeric value on the wire for flagType to set.
+       * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
+       * @param value The enum numeric value on the wire for kernelCtls to set.
        * @return This builder for chaining.
        */
-      public Builder setFlagType(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType value) {
+      public Builder setKernelCtls(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.FlagType value) {
         copyOnWrite();
-        instance.setFlagType(value);
+        instance.setKernelCtls(value);
         return this;
       }
       /**
@@ -3025,12 +3262,12 @@ public final class ApplicationIdentifierOuterClass {
        *Flags gerais (objeto DFFF01h)
        * </pre>
        *
-       * <code>.axis.transactions.FlagType flag_type = 1;</code>
+       * <code>.axis.transactions.FlagType kernel_ctls = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFlagType() {
+      public Builder clearKernelCtls() {
         copyOnWrite();
-        instance.clearFlagType();
+        instance.clearKernelCtls();
         return this;
       }
 
@@ -3090,7 +3327,7 @@ public final class ApplicationIdentifierOuterClass {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "flagType_",
+              "kernelCtls_",
               "validateCardDate_",
             };
             java.lang.String info =

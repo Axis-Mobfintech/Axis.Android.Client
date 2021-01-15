@@ -14,17 +14,7 @@ public final class AcceptedBin {
 
     /**
      * <pre>
-     *Identificação da tabela AID (fixo �03�)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @return The messageId.
-     */
-    int getMessageId();
-
-    /**
-     * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
      * <code>int32 index = 2;</code>
@@ -34,7 +24,7 @@ public final class AcceptedBin {
 
     /**
      * <pre>
-     *Código de identifica��o do emissor.
+     *Código de identificação do emissor.
      * </pre>
      *
      * <code>int32 issuer_code = 3;</code>
@@ -71,6 +61,25 @@ public final class AcceptedBin {
      * @return The totalSequentialTransactionsAllowed.
      */
     int getTotalSequentialTransactionsAllowed();
+
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     * @return The enum numeric value on the wire for cardAction.
+     */
+    int getCardActionValue();
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     * @return The cardAction.
+     */
+    com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction();
   }
   /**
    * Protobuf type {@code axis.transactions.AcceptedBankIdentificationNumber}
@@ -82,49 +91,11 @@ public final class AcceptedBin {
       AcceptedBankIdentificationNumberOrBuilder {
     private AcceptedBankIdentificationNumber() {
     }
-    public static final int MESSAGE_ID_FIELD_NUMBER = 1;
-    private int messageId_;
-    /**
-     * <pre>
-     *Identificação da tabela AID (fixo �03�)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @return The messageId.
-     */
-    @java.lang.Override
-    public int getMessageId() {
-      return messageId_;
-    }
-    /**
-     * <pre>
-     *Identificação da tabela AID (fixo �03�)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     * @param value The messageId to set.
-     */
-    private void setMessageId(int value) {
-      
-      messageId_ = value;
-    }
-    /**
-     * <pre>
-     *Identificação da tabela AID (fixo �03�)
-     * </pre>
-     *
-     * <code>int32 message_id = 1;</code>
-     */
-    private void clearMessageId() {
-      
-      messageId_ = 0;
-    }
-
     public static final int INDEX_FIELD_NUMBER = 2;
     private int index_;
     /**
      * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
      * <code>int32 index = 2;</code>
@@ -136,7 +107,7 @@ public final class AcceptedBin {
     }
     /**
      * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
      * <code>int32 index = 2;</code>
@@ -148,7 +119,7 @@ public final class AcceptedBin {
     }
     /**
      * <pre>
-     *índice do registro na tabela (0001 - 9999)
+     *Índice do registro na tabela (0001 - 9999)
      * </pre>
      *
      * <code>int32 index = 2;</code>
@@ -162,7 +133,7 @@ public final class AcceptedBin {
     private int issuerCode_;
     /**
      * <pre>
-     *Código de identifica��o do emissor.
+     *Código de identificação do emissor.
      * </pre>
      *
      * <code>int32 issuer_code = 3;</code>
@@ -174,7 +145,7 @@ public final class AcceptedBin {
     }
     /**
      * <pre>
-     *Código de identifica��o do emissor.
+     *Código de identificação do emissor.
      * </pre>
      *
      * <code>int32 issuer_code = 3;</code>
@@ -186,7 +157,7 @@ public final class AcceptedBin {
     }
     /**
      * <pre>
-     *Código de identifica��o do emissor.
+     *Código de identificação do emissor.
      * </pre>
      *
      * <code>int32 issuer_code = 3;</code>
@@ -310,6 +281,68 @@ public final class AcceptedBin {
       totalSequentialTransactionsAllowed_ = 0;
     }
 
+    public static final int CARD_ACTION_FIELD_NUMBER = 7;
+    private int cardAction_;
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     * @return The enum numeric value on the wire for cardAction.
+     */
+    @java.lang.Override
+    public int getCardActionValue() {
+      return cardAction_;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     * @return The cardAction.
+     */
+    @java.lang.Override
+    public com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction() {
+      com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction result = com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction.forNumber(cardAction_);
+      return result == null ? com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     * @param value The enum numeric value on the wire for cardAction to set.
+     */
+    private void setCardActionValue(int value) {
+        cardAction_ = value;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     * @param value The cardAction to set.
+     */
+    private void setCardAction(com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction value) {
+      cardAction_ = value.getNumber();
+      
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 7;</code>
+     */
+    private void clearCardAction() {
+      
+      cardAction_ = 0;
+    }
+
     public static com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -407,47 +440,7 @@ public final class AcceptedBin {
 
       /**
        * <pre>
-       *Identificação da tabela AID (fixo �03�)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @return The messageId.
-       */
-      @java.lang.Override
-      public int getMessageId() {
-        return instance.getMessageId();
-      }
-      /**
-       * <pre>
-       *Identificação da tabela AID (fixo �03�)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @param value The messageId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMessageId(int value) {
-        copyOnWrite();
-        instance.setMessageId(value);
-        return this;
-      }
-      /**
-       * <pre>
-       *Identificação da tabela AID (fixo �03�)
-       * </pre>
-       *
-       * <code>int32 message_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMessageId() {
-        copyOnWrite();
-        instance.clearMessageId();
-        return this;
-      }
-
-      /**
-       * <pre>
-       *índice do registro na tabela (0001 - 9999)
+       *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
        * <code>int32 index = 2;</code>
@@ -459,7 +452,7 @@ public final class AcceptedBin {
       }
       /**
        * <pre>
-       *índice do registro na tabela (0001 - 9999)
+       *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
        * <code>int32 index = 2;</code>
@@ -473,7 +466,7 @@ public final class AcceptedBin {
       }
       /**
        * <pre>
-       *índice do registro na tabela (0001 - 9999)
+       *Índice do registro na tabela (0001 - 9999)
        * </pre>
        *
        * <code>int32 index = 2;</code>
@@ -487,7 +480,7 @@ public final class AcceptedBin {
 
       /**
        * <pre>
-       *Código de identifica��o do emissor.
+       *Código de identificação do emissor.
        * </pre>
        *
        * <code>int32 issuer_code = 3;</code>
@@ -499,7 +492,7 @@ public final class AcceptedBin {
       }
       /**
        * <pre>
-       *Código de identifica��o do emissor.
+       *Código de identificação do emissor.
        * </pre>
        *
        * <code>int32 issuer_code = 3;</code>
@@ -513,7 +506,7 @@ public final class AcceptedBin {
       }
       /**
        * <pre>
-       *Código de identifica��o do emissor.
+       *Código de identificação do emissor.
        * </pre>
        *
        * <code>int32 issuer_code = 3;</code>
@@ -645,6 +638,72 @@ public final class AcceptedBin {
         return this;
       }
 
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 7;</code>
+       * @return The enum numeric value on the wire for cardAction.
+       */
+      @java.lang.Override
+      public int getCardActionValue() {
+        return instance.getCardActionValue();
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 7;</code>
+       * @param value The cardAction to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCardActionValue(int value) {
+        copyOnWrite();
+        instance.setCardActionValue(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 7;</code>
+       * @return The cardAction.
+       */
+      @java.lang.Override
+      public com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction() {
+        return instance.getCardAction();
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 7;</code>
+       * @param value The enum numeric value on the wire for cardAction to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCardAction(com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction value) {
+        copyOnWrite();
+        instance.setCardAction(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCardAction() {
+        copyOnWrite();
+        instance.clearCardAction();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:axis.transactions.AcceptedBankIdentificationNumber)
     }
     @java.lang.Override
@@ -661,16 +720,16 @@ public final class AcceptedBin {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "messageId_",
               "index_",
               "issuerCode_",
               "initialRange_",
               "finalRange_",
               "totalSequentialTransactionsAllowed_",
+              "cardAction_",
             };
             java.lang.String info =
-                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
-                "\u0003\u0004\u0004\u0003\u0005\u0003\u0006\u000b";
+                "\u0000\u0006\u0000\u0000\u0002\u0007\u0006\u0000\u0000\u0000\u0002\u0004\u0003\u0004" +
+                "\u0004\u0003\u0005\u0003\u0006\u000b\u0007\f";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

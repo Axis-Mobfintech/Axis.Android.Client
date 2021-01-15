@@ -25,7 +25,7 @@ public final class CapkTable {
     /**
      * <pre>
      *Dados da CAPK
-     *RID (Registered Identifier) e Índice da chave
+     *RID (Registered Identifier) e índice da chave
      * </pre>
      *
      * <code>bytes registered_identifier = 2;</code>
@@ -62,6 +62,25 @@ public final class CapkTable {
      * @return The checksum.
      */
     com.google.protobuf.ByteString getChecksum();
+
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     * @return The enum numeric value on the wire for cardAction.
+     */
+    int getCardActionValue();
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     * @return The cardAction.
+     */
+    com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction();
   }
   /**
    * Protobuf type {@code axis.transactions.CertificateAuthorityPublicKeyTable}
@@ -120,7 +139,7 @@ public final class CapkTable {
     /**
      * <pre>
      *Dados da CAPK
-     *RID (Registered Identifier) e Índice da chave
+     *RID (Registered Identifier) e índice da chave
      * </pre>
      *
      * <code>bytes registered_identifier = 2;</code>
@@ -133,7 +152,7 @@ public final class CapkTable {
     /**
      * <pre>
      *Dados da CAPK
-     *RID (Registered Identifier) e Índice da chave
+     *RID (Registered Identifier) e índice da chave
      * </pre>
      *
      * <code>bytes registered_identifier = 2;</code>
@@ -147,7 +166,7 @@ public final class CapkTable {
     /**
      * <pre>
      *Dados da CAPK
-     *RID (Registered Identifier) e Índice da chave
+     *RID (Registered Identifier) e índice da chave
      * </pre>
      *
      * <code>bytes registered_identifier = 2;</code>
@@ -272,6 +291,68 @@ public final class CapkTable {
     private void clearChecksum() {
       
       checksum_ = getDefaultInstance().getChecksum();
+    }
+
+    public static final int CARD_ACTION_FIELD_NUMBER = 6;
+    private int cardAction_;
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     * @return The enum numeric value on the wire for cardAction.
+     */
+    @java.lang.Override
+    public int getCardActionValue() {
+      return cardAction_;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     * @return The cardAction.
+     */
+    @java.lang.Override
+    public com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction() {
+      com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction result = com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction.forNumber(cardAction_);
+      return result == null ? com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     * @param value The enum numeric value on the wire for cardAction to set.
+     */
+    private void setCardActionValue(int value) {
+        cardAction_ = value;
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     * @param value The cardAction to set.
+     */
+    private void setCardAction(com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction value) {
+      cardAction_ = value.getNumber();
+      
+    }
+    /**
+     * <pre>
+     *Action
+     * </pre>
+     *
+     * <code>.axis.transactions.CardAction card_action = 6;</code>
+     */
+    private void clearCardAction() {
+      
+      cardAction_ = 0;
     }
 
     public static com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable parseFrom(
@@ -412,7 +493,7 @@ public final class CapkTable {
       /**
        * <pre>
        *Dados da CAPK
-       *RID (Registered Identifier) e Índice da chave
+       *RID (Registered Identifier) e índice da chave
        * </pre>
        *
        * <code>bytes registered_identifier = 2;</code>
@@ -425,7 +506,7 @@ public final class CapkTable {
       /**
        * <pre>
        *Dados da CAPK
-       *RID (Registered Identifier) e Índice da chave
+       *RID (Registered Identifier) e índice da chave
        * </pre>
        *
        * <code>bytes registered_identifier = 2;</code>
@@ -440,7 +521,7 @@ public final class CapkTable {
       /**
        * <pre>
        *Dados da CAPK
-       *RID (Registered Identifier) e Índice da chave
+       *RID (Registered Identifier) e índice da chave
        * </pre>
        *
        * <code>bytes registered_identifier = 2;</code>
@@ -572,6 +653,72 @@ public final class CapkTable {
         return this;
       }
 
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 6;</code>
+       * @return The enum numeric value on the wire for cardAction.
+       */
+      @java.lang.Override
+      public int getCardActionValue() {
+        return instance.getCardActionValue();
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 6;</code>
+       * @param value The cardAction to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCardActionValue(int value) {
+        copyOnWrite();
+        instance.setCardActionValue(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 6;</code>
+       * @return The cardAction.
+       */
+      @java.lang.Override
+      public com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction getCardAction() {
+        return instance.getCardAction();
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 6;</code>
+       * @param value The enum numeric value on the wire for cardAction to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCardAction(com.axismobfintech.gpb.transactions.CardActionOuterClass.CardAction value) {
+        copyOnWrite();
+        instance.setCardAction(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Action
+       * </pre>
+       *
+       * <code>.axis.transactions.CardAction card_action = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCardAction() {
+        copyOnWrite();
+        instance.clearCardAction();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:axis.transactions.CertificateAuthorityPublicKeyTable)
     }
     @java.lang.Override
@@ -593,10 +740,11 @@ public final class CapkTable {
               "rsaKeyModulus_",
               "rsaKeyExponent_",
               "checksum_",
+              "cardAction_",
             };
             java.lang.String info =
-                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0004\u0002\n" +
-                "\u0003\n\u0004\n\u0005\n";
+                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0004\u0002\n" +
+                "\u0003\n\u0004\n\u0005\n\u0006\f";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
