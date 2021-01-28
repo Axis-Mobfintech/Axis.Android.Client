@@ -91,20 +91,25 @@ public class MenuFragment extends Fragment {
         passagemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ExecutorService executor = Executors.newSingleThreadExecutor();
-                executor.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (validadorViewModel.verificaRegistro()) {
-                            FragmentManager fragmentManager = getFragmentManager();
-                            FragmentTransaction transaction = fragmentManager.beginTransaction();
-                            PassageFragment passage = new PassageFragment();
-                            transaction.replace(R.id.fragment_container, passage);
-                            transaction.addToBackStack("menu");
-                            transaction.commit();
+                //verifica se o leitor esta conectado.
+                if (validadorViewModel.getFirmwareVersion().length() > 0) {
+                    ExecutorService executor = Executors.newSingleThreadExecutor();
+                    executor.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (validadorViewModel.verificaRegistro()) {
+                                FragmentManager fragmentManager = getFragmentManager();
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                PassageFragment passage = new PassageFragment();
+                                transaction.replace(R.id.fragment_container, passage);
+                                transaction.addToBackStack("menu");
+                                transaction.commit();
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    validadorViewModel.displayLog("Erro: Leitor não encontrado.");
+                }
             }
         });
 

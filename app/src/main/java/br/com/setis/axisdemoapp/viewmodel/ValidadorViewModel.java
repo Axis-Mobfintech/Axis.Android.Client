@@ -68,7 +68,7 @@ public class ValidadorViewModel extends ViewModel {
     private StringBuilder dspLogs;
 
     private Handler handler;
-    public final Boolean DEFAULT_TABS = true; //utiliza as tabelas default do terminal.
+    public final Boolean DEFAULT_TABS = false; //utiliza as tabelas default do terminal.
 
     public ValidadorViewModel(Context context) {
         initializeReader(context);
@@ -123,6 +123,7 @@ public class ValidadorViewModel extends ViewModel {
                         String aux = Util.getValueByTag(idtmsrData, "9f02");
                         if (aux != null) valorTrn = Integer.valueOf(aux);
 
+
                         byte[] panHash = null;
                         aux = Util.getValueByTag(idtmsrData, "dfed4b");
                         if (aux != null) {
@@ -131,12 +132,17 @@ public class ValidadorViewModel extends ViewModel {
                             panHash = Common.getByteArray(aux);
                         }
 
+                        ///*
+                        //todo comentado para demonstração
                         if (!parAvailable && !hashAvailable) {
                             displayLog("Transação Recusada: Tags DFED4B e 9F24 ausentes.");
                             sendTransactionStatus("Transação Recusada: Tags DFED4B e 9F24 ausentes.");
                             return;
                         }
+                        //*/
 
+                        ///*
+                        //todo comentado para demonstracao
                         int bin = 0;
                         aux = getValueByTag(idtmsrData, "5a");
                         if (aux != null) {
@@ -146,26 +152,28 @@ public class ValidadorViewModel extends ViewModel {
                                 bin = Integer.parseInt(aux.substring(0, 4)) * 100;
                             }
                         } else {
-                            displayLog("Transação Recusada: Tags 5A não encontrada.");
-                            sendTransactionStatus("Transação Recusada: Tags 5A não encontrada.");
-                            return;
+                            //displayLog("Transação Recusada: Tags 5A não encontrada.");
+                            //sendTransactionStatus("Transação Recusada: Tags 5A não encontrada.");
+                            //return;
                         }
-
 
                         //Passo 1: Validação do BIN.
                         Bin binDt = db.binDAO().checkBin(bin);
                         if (binDt == null) {
                             displayLog("Transação Recusada: BIN do cartão não se encontra na faixa de BIN's cadastradas.");
-                            sendTransactionStatus("Transação Recusada: BON do cartão não se encontra na faixa cadastrada.");
+                            sendTransactionStatus("Transação Recusada: BIN do cartão não se encontra na faixa cadastrada.");
                             return;
                         } else {
                             displayLog("Bin do cartão se encontra na faixa de BIN's cadastradas.");
                         }
+                        //*/
 
                         //Passo 2:pulando validação PAR
 
 
                         //Passo 3: Validação do hashPAN
+                        ///*
+                        //todo comentado para demonstração.
                         if (panHash != null) {
                             String strHashPan = Common.bytesToHex(panHash).substring(0, 24);
                             Pan pan = db.panDAO().checkPan(strHashPan.toUpperCase());
@@ -209,6 +217,8 @@ public class ValidadorViewModel extends ViewModel {
                                 //return;
                             }
                         }
+                        //*/
+
                         //Todo validar passo 5: Conferir data de validade
                         /*
                         aux = getValueByTag(idtmsrData, "9f06");
@@ -224,7 +234,8 @@ public class ValidadorViewModel extends ViewModel {
                          */
 
                         displayLog("Validação finalizada.");
-
+                        /*
+                        //todo comentado para demonstração
                         final PassageRegister.RegisterPassage request = PassageRegister.RegisterPassage.newBuilder()
                                 .setDeviceId(info.idValidador)
                                 .setOperatorId(info.idOperador)
@@ -245,6 +256,7 @@ public class ValidadorViewModel extends ViewModel {
                                 .setVehicleId(info.idVeiculo)
                                 .setGeolocation("23.563,-46.186")
                                 .build();
+                         */
 
                         //todo enviar ao axis.
                         /*
@@ -275,7 +287,7 @@ public class ValidadorViewModel extends ViewModel {
                         });
                         */
 
-                        //todo verificar se foi aprovada. Em caso positivo, realizar as chamadas abaixo.
+                        //todo versao de demonstracao. Toda a transação é aprovada.
                         sendTransactionStatus("APROVADA");
 
                         db.validadorInfoDAO().updateNsu(info.nsuValidador+1);
@@ -488,18 +500,43 @@ public class ValidadorViewModel extends ViewModel {
                         if (ret != 0) return;
 
                         //Configura grupo
-                        String groupString = "FFE401329F02060000000001009F03060000000000009F1A0200765F2A0209865F3601029C01009F3501259F1B0400001F40FFF506000000001000DF812306000000008000DF812406000000030000DF8125060000000500009F150212349F400500000000009F09020002DF81170100DF81180160DF81190108DF811F0108FFFC0106FFFE050000000000FFFF050000000000FFFD0500000000009F1D086CFF000000000000FFF3020001DF2601009F5301522E9E";
+                        //String groupString = "FFE401329F02060000000001009F03060000000000009F1A0200765F2A0209865F3601029C01009F3501259F1B0400001F40FFF506000000001000DF812306000000008000DF812406000000030000DF8125060000000500009F150212349F400500000000009F09020002DF81170100DF81180160DF81190108DF811F0108FFFC0106FFFE050000000000FFFF050000000000FFFD0500000000009F1D086CFF000000000000FFF3020001DF2601009F5301522E9E";
+                        String groupString = "FFE401089F02060000000000009F03060000000000009F1A0200765F2A0209865F3601029C01009F3501259F1B04000003E8FFF106000000010000FFF506000000003000DF812306000000001000DF812406000000010000DF8125060000000030009F150241319F400520000000019F09020002DF81170100DF81180100DF81190108DF811F0108FFFC0104FFFE05F850ACF800FFFF05FC00000000FFFD05FC50ACA0009F1D080C00800000000000DF2601019F5301589F33030008085F5701009F6D020001DF110100DF270100DF811A039F6A04DF811C020000DF811D0100DF811E0110DF812C0100FFF2083030303030303030";
+                        String groupString2 = "FFE401009F02060000000000019F1A0200765F2A0209869F3501259F660421004000FFF5060000000030009F15024131FFF30202859F530158FFEE1D0506042A0C31DFED4801FF";
+                        String groupVisa = "FFE401049F02060000000000009F03060000000000009F1A0200765F2A0209865F3601029C01009F3501259F660421004000FFF0030200009F1B0400000000FFF106000000010000FFF403000703FFF506000000003000DF812306000000000000";
+
                         ResDataStruct groupResData = new ResDataStruct();
                         ret = device.ctls_setConfigurationGroup(Common.getByteArray(groupString), groupResData);
                         displayLog(String.format("Criando Grupo: %s", device.device_getResponseCodeString(ret)));
                         if (ret != 0) return;
 
+                        groupResData = new ResDataStruct();
+                        ret = device.ctls_setConfigurationGroup(Common.getByteArray(groupString2), groupResData);
+                        displayLog(String.format("Criando Grupo: %s", device.device_getResponseCodeString(ret)));
+                        if (ret != 0) return;
+
+                        groupResData = new ResDataStruct();
+                        ret = device.ctls_setConfigurationGroup(Common.getByteArray(groupVisa), groupResData);
+                        displayLog(String.format("Criando Grupo: %s", device.device_getResponseCodeString(ret)));
+                        if (ret != 0) return;
+
                         //relaciona aid ao grupo recem criado.
-                        String hexString = "FFE401329F0607A0000000041010FFE10101FFE50110FFE30114FFE903030032FFE60100";
-                        byte[] data = Common.getByteArray(hexString);
+                        String aidMaster = "FFE401329F0607A0000000041010FFE10101FFE50110FFE30114FFE903030032FFE60100";
+                        String aidAxis = "FFE401089F0607A0000008611010FFE10101FFE50110FFE30174FFE903020008FFE20103FFEA0102";
+                        String aidVisa = "FFE401049F0607A0000000031010FFE10101FFE50110FFE30114FFE903030004FFE60100";
+
                         ResDataStruct resData = new ResDataStruct();
-                        ret = device.ctls_setApplicationData(data, resData);
+                        ret = device.ctls_setApplicationData( Common.getByteArray(aidMaster), resData);
                         displayLog(String.format("Criando AID: %s", device.device_getResponseCodeString(ret)));
+
+                        resData = new ResDataStruct();
+                        ret = device.ctls_setApplicationData(Common.getByteArray(aidAxis), resData);
+                        displayLog(String.format("Criando AID: %s", device.device_getResponseCodeString(ret)));
+
+                        resData = new ResDataStruct();
+                        ret = device.ctls_setApplicationData(Common.getByteArray(aidVisa), resData);
+                        displayLog(String.format("Criando AID: %s", device.device_getResponseCodeString(ret)));
+
                         if (ret == ErrorCode.SUCCESS && resData.statusCode == 0x00) {
                             db.validadorInfoDAO().updateVersionEmv(1);
                             displayLog("Tabelas AID atualizadas. Versão: 1");
@@ -507,18 +544,45 @@ public class ValidadorViewModel extends ViewModel {
                             displayLog("Erro na atualização de tabelas. Verifique os logs.");
                         }
 
+
                         //ResDataStruct aidInfo = new ResDataStruct();
                         //ret = device.ctls_retrieveApplicationData("A0000000041010", aidInfo);
 
                         //Configuração de CAPK
-                        String capk = "A00000000308010120D213126955DE205ADC2FD2822BD22DE21CF9A80000000300B0D9FD6ED75D51D0E30664BD157023EAA1FFA871E4DA65672B863D255E81E137A51DE4F72BCC9E44ACE12127F87E263D3AF9DD9CF35CA4A7B01E907000BA85D24954C2FCA3074825DDD4C0C8F186CB020F683E02F2DEAD3969133F06F7845166ACEB57CA0FC2603445469811D293BFEFBAFAB57631B3DD91E796BF850A25012F1AE38F05AA5C4D6D03B1DC2E568612785938BBC9B3CD3A910C1DA55A5A9218ACE0F7A21287752682F15832A678D6E1ED0B";
+                        String capkMaster1 = "A000000004050101EBFA0D5D06D8CE702DA3EAE890701D45E274C8450000000300B0B8048ABC30C90D976336543E3FD7091C8FE4800DF820ED55E7E94813ED00555B573FECA3D84AF6131A651D66CFF4284FB13B635EDD0EE40176D8BF04B7FD1C7BACF9AC7327DFAA8AA72D10DB3B8E70B2DDD811CB4196525EA386ACC33C0D9D4575916469C4E4F53E8E1C912CC618CB22DDE7C3568E90022E6BBA770202E4522A2DD623D180E215BD1D1507FE3DC90CA310D27B3EFCCD8F83DE3052CAD1E48938C68D095AAC91B5F37E28BB49EC7ED597";
+                        String capkMaster2 = "A000000004060101F910A1504D5FFB793D94F3B500765E1ABCAD72D90000000300F8CB26FC830B43785B2BCE37C81ED334622F9622F4C89AAE641046B2353433883F307FB7C974162DA72F7A4EC75D9D657336865B8D3023D3D645667625C9A07A6B7A137CF0C64198AE38FC238006FB2603F41F4F3BB9DA1347270F2F5D8C606E420958C5F7D50A71DE30142F70DE468889B5E3A08695B938A50FC980393A9CBCE44AD2D64F630BB33AD3F5F5FD495D31F37818C1D94071342E07F1BEC2194F6035BA5DED3936500EB82DFDA6E8AFB655B1EF3D0D7EBF86B66DD9F29F6B1D324FE8B26CE38AB2013DD13F611E7A594D675C4432350EA244CC34F3873CBA06592987A1D7E852ADC22EF5A2EE28132031E48F74037E3B34AB747F";
+                        String capkMaster3 = "A0000000040901011D90595C2EF9FC6E71B0C721118333DF8A71FE21000000030060967B6264436C96AA9305776A5919C70DA796340F9997A6C6EF7BEF1D4DBF9CB4289FB7990ABFF1F3AE692F12844B2452A50AE075FB327976A40E8028F279B1E3CCB623957D696FC1225CA2EC950E2D415E9AA931FF18B13168D661FBD06F0ABB ";
+                        String capkAxis = "A000000861FF010120A86FF00F00E9ED15DF4E83D6FEACDA076DD6290000000300F88CA018522F99BB3552544D66E2886F978F7AB5065A80545FCAB1584A50E31CB6302FAD7EEDB6A6A71315E51D4C21D8A9AA8799305B8124226A8F26C2847FA9798944C983FC7342688AAC11ED1842AACEAF9624DD38FFE983360C95FE966ACE97223DFCDEED66B25A0C8283381BAE2D5B5F72BDBB4119DE355BE24AD8ADCF3B18C5EF2682932FDDA7BB519DBFAFE09CA59A9B724CC27283D5075886B9FA9B30E183B44D1455F186E183F6AF1DCEDF9B6879C19542B9914921E262B8552CF8E65708934ECCD4AC23FED32B4E7D1A6190EB85D819DFF9F976C30330C829AE6CEDBCCAFC292D9F3E2E92EA046597AB482760E0B8A345C4A7EB21";
+                        String capkVisa1 = "A00000000308010120D213126955DE205ADC2FD2822BD22DE21CF9A80000000300B0D9FD6ED75D51D0E30664BD157023EAA1FFA871E4DA65672B863D255E81E137A51DE4F72BCC9E44ACE12127F87E263D3AF9DD9CF35CA4A7B01E907000BA85D24954C2FCA3074825DDD4C0C8F186CB020F683E02F2DEAD3969133F06F7845166ACEB57CA0FC2603445469811D293BFEFBAFAB57631B3DD91E796BF850A25012F1AE38F05AA5C4D6D03B1DC2E568612785938BBC9B3CD3A910C1DA55A5A9218ACE0F7A21287752682F15832A678D6E1ED0B";
+                        String capkVisa2 = "A0000000030901011FF80A40173F52D7D27E0F26A146A1C8CCB290460000000300F89D912248DE0A4E39C1A7DDE3F6D2588992C1A4095AFBD1824D1BA74847F2BC4926D2EFD904B4B54954CD189A54C5D1179654F8F9B0D2AB5F0357EB642FEDA95D3912C6576945FAB897E7062CAA44A4AA06B8FE6E3DBA18AF6AE3738E30429EE9BE03427C9D64F695FA8CAB4BFE376853EA34AD1D76BFCAD15908C077FFE6DC5521ECEF5D278A96E26F57359FFAEDA19434B937F1AD999DC5C41EB11935B44C18100E857F431A4A5A6BB65114F174C2D7B59FDF237D6BB1DD0916E644D709DED56481477C75D95CDD68254615F7740EC07F330AC5D67BCD75BF23D28A140826C026DBDE971A37CD3EF9B8DF644AC385010501EFC6509D7A41";
                         ret = device.ctls_removeAllCAPK();
                         displayLog(String.format("Removendo CAPK's: %s", device.device_getResponseCodeString(ret)));
 
-                        byte[] capk_b = Common.getByteArray(capk);
+                        byte[] capk_b = Common.getByteArray(capkMaster1);
                         ResDataStruct resCapk = new ResDataStruct();
                         ret = device.ctls_setCAPK(capk_b, resCapk);
                         displayLog(String.format("Criando CAPK: %s", device.device_getResponseCodeString(ret)));
+
+                        resCapk = new ResDataStruct();
+                        ret = device.ctls_setCAPK(Common.getByteArray(capkMaster2), resCapk);
+                        displayLog(String.format("Criando CAPK: %s", device.device_getResponseCodeString(ret)));
+
+                        resCapk = new ResDataStruct();
+                        ret = device.ctls_setCAPK(Common.getByteArray(capkMaster3), resCapk);
+                        displayLog(String.format("Criando CAPK: %s", device.device_getResponseCodeString(ret)));
+
+                        resCapk = new ResDataStruct();
+                        ret = device.ctls_setCAPK(Common.getByteArray(capkAxis), resCapk);
+                        displayLog(String.format("Criando CAPK: %s", device.device_getResponseCodeString(ret)));
+
+                        resCapk = new ResDataStruct();
+                        ret = device.ctls_setCAPK(Common.getByteArray(capkVisa1), resCapk);
+                        displayLog(String.format("Criando CAPK: %s", device.device_getResponseCodeString(ret)));
+
+                        resCapk = new ResDataStruct();
+                        ret = device.ctls_setCAPK(Common.getByteArray(capkVisa2), resCapk);
+                        displayLog(String.format("Criando CAPK: %s", device.device_getResponseCodeString(ret)));
+
                     } else {
                         //utiliza as tabelas default do leitor.
                         ResDataStruct res = new ResDataStruct();
@@ -702,7 +766,7 @@ public class ValidadorViewModel extends ViewModel {
         dspLogs.setLength(0);
     }
 
-    private void displayLog(final String log) {
+    public void displayLog(final String log) {
         Log.d(mTAG, log);
         dspLogs.append(log+"\n");
         handler.post(new Runnable() {
