@@ -1,6 +1,7 @@
 package br.com.setis.axisdemoapp.viewmodel;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.TrafficStats;
 import android.os.Handler;
 import android.os.Looper;
@@ -37,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.room.Room;
+import br.com.setis.axisdemoapp.R;
 import br.com.setis.axisdemoapp.data.Util;
 import br.com.setis.axisdemoapp.room.Bin;
 import br.com.setis.axisdemoapp.room.Pan;
@@ -68,12 +70,14 @@ public class ValidadorViewModel extends ViewModel {
     private StringBuilder dspLogs;
 
     private Handler handler;
+    private MediaPlayer mastercardSound;
     public final Boolean DEFAULT_TABS = false; //utiliza as tabelas default do terminal.
 
     public ValidadorViewModel(Context context) {
         initializeReader(context);
         this.context = context;
         liveData = new MutableLiveData<>();
+        mastercardSound = MediaPlayer.create(context, R.raw.mastercard_sound);
         handler = new Handler(Looper.getMainLooper());
     }
 
@@ -287,8 +291,18 @@ public class ValidadorViewModel extends ViewModel {
                         });
                         */
 
-                        //todo versao de demonstracao. Toda a transação é aprovada.
+                        //todo versao de demonstracao.
+                        //todo verificar se a transacao foi aprovada (futuramente)
                         sendTransactionStatus("APROVADA");
+
+                        //executa som ao aprovar um cartão mastercard.
+                        aux = getValueByTag(idtmsrData, "9f06");
+                        if (aux != null) {
+                            //rid master
+                            if (aux.contains("A000000004")) {
+                                mastercardSound.start();
+                            }
+                        }
 
                         db.validadorInfoDAO().updateNsu(info.nsuValidador+1);
                         db.validadorInfoDAO().updateLastPanHash(Common.bytesToHex(panHash).substring(0, 24));
@@ -727,6 +741,17 @@ public class ValidadorViewModel extends ViewModel {
      * */
     public void recuperarDebito() {
         resetLog();
+
+        /*
+        String aux = "A0000000041010";
+        if (aux != null) {
+            //rid master
+            if (aux.contains("A000000004")) {
+                mastercardSound.start();
+            }
+        }
+         */
+
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             checkAid();
             //deleteAllAid();
