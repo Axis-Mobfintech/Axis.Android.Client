@@ -29,6 +29,7 @@ import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
@@ -47,6 +48,7 @@ import br.com.setis.axisdemoapp.room.ValidadorInfo;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.netty.GrpcSslContexts;
 import io.grpc.okhttp.OkHttpChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
@@ -60,6 +62,8 @@ public class ValidadorViewModel extends ViewModel {
     private FirmwareUpdateTool fwTool;
     private MutableLiveData<String> liveData;
     private MutableLiveData<String> transactionLiveData;
+
+    private MutableLiveData<String> simulData;
 
     private String idValidador = "0123456789ABCDE"; //A15
     private byte[] codRegistro = "0123456789".getBytes(); //B20
@@ -139,8 +143,16 @@ public class ValidadorViewModel extends ViewModel {
                         ///*
                         //todo comentado para demonstração
                         if (!parAvailable && !hashAvailable) {
-                            displayLog("Transação Recusada: Tags DFED4B e 9F24 ausentes.");
-                            sendTransactionStatus("Transação Recusada: Tags DFED4B e 9F24 ausentes.");
+                            String errorMsg = "Transação Recusada: Tags DFED4B e 9F24 ausentes.";
+
+                            aux = Util.getValueByTag(idtmsrData, "9f06");
+                            if (aux != null) {
+                                errorMsg += String.format("\nAid: %s", aux);
+                            }
+                            displayLog(errorMsg);
+
+                            //sendTransactionStatus("Transação Recusada: Tags DFED4B e 9F24 ausentes.");
+                            sendTransactionStatus(errorMsg);
                             return;
                         }
                         //*/
@@ -299,7 +311,7 @@ public class ValidadorViewModel extends ViewModel {
                         aux = getValueByTag(idtmsrData, "9f06");
                         if (aux != null) {
                             //rid master
-                            if (aux.contains("A000000004")) {
+                            if (aux.contains("A000000004") || aux.contains("A000000861")) {
                                 mastercardSound.start();
                             }
                         }
@@ -444,9 +456,17 @@ public class ValidadorViewModel extends ViewModel {
         return transactionLiveData;
     }
 
+    public MutableLiveData<String> getSimulData() {
+        if (simulData == null) {
+            simulData = new MutableLiveData<String>();
+        }
+        return simulData;
+    }
+
     public void clearLivedata() {
         liveData = new MutableLiveData<>();
         transactionLiveData = new MutableLiveData<>();
+        simulData = new MutableLiveData<>();
     }
 
 
@@ -842,4 +862,73 @@ public class ValidadorViewModel extends ViewModel {
             super.afterExecute(r, t);
         }
     }
+
+    /*
+    * Envia dados simulados ao ambiente. Não deve ser utilizado em produção.
+    * */
+    public void commTest() {
+        byte[] panHash = {(byte)0xe2, (byte)0x23, (byte)0xa7, 0x67, 0x75, 0x71, 0x54, (byte)0x9b,
+                0x39, 0x56, 0x00};
+
+        byte[] transactionData = {(byte)0x9f, 0x06, 0x00, 0x07, (byte)0xa0,
+                0x00, 0x00, 0x00, 0x04, 0x10, 0x10};
+
+        final PassageRegister.RegisterPassage request = PassageRegister.RegisterPassage.newBuilder()
+                .setDeviceId("1")
+                .setOperatorId("1")
+                .setReaderSerialNumber("1")
+                .setDeviceSerialNumber("1")
+                .setRegisterCode(12345)
+                .setPassageDate(getTimestamp())
+                .setTransactionDate(getTimestamp())
+                .setDeviceSuid(Integer.toString(1))
+                .setPanHash(ByteString.copyFrom(panHash))
+                //.setParCard()
+                .setTransactionData(ByteString.copyFrom(transactionData))
+                .setEmvParametersVersion(1)
+                .setBinParametersVersion(1)
+                .setRestrictionListVersion(1)
+                .setTransactionValue(400)
+                .setLineId("1")
+                .setVehicleId("1")
+                .setGeolocation("23.563,-46.186")
+                .build();
+
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            //With Server authentication
+                            //ManagedChannel channel = ManagedChannelBuilder.forAddress("transaction.axis-mobfintech.com", 443).build();
+                            simulData.postValue("Processando...");
+                            final CountDownLatch latch = new CountDownLatch(1);
+                            ExecutorService executor = Executors.newSingleThreadExecutor();
+                            executor.execute(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        ManagedChannel channel = ManagedChannelBuilder.forAddress("transaction.axis-mobfintech.com", 5001).build();
+                                        TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
+                                        PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
+                                        int ret = response.getResponseCode();
+                                        simulData.postValue("Retorno do host: " + ret);
+                                        latch.countDown();
+                                    } catch (Exception ex) {
+                                        ex.printStackTrace();
+                                    }
+                                }
+                            });
+                            latch.await(10, TimeUnit.SECONDS);
+                            executor.shutdown();
+                            if (latch.getCount() == 1) {
+                                simulData.postValue("Erro: O host nao retornou nenhuma resposta.");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+    }
+
 }

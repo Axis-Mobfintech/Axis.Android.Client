@@ -135,7 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="REGISTRAR PASSAGEM"
                     />
             </LinearLayout>
@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="RECUPERAR DÉBITO"
                     />
             </LinearLayout>
@@ -171,6 +171,7 @@
                 android:layout_height="100dp"
                 android:padding="6dp"
                 android:gravity="center"
+                android:layout_marginRight="6dp"
                 android:background="@drawable/border"
                 android:orientation="vertical">
                 <ImageView
@@ -184,8 +185,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="CONECTAR UM LEITOR"
+                    />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/testarComunicacaoBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_cloud_upload_24"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:text="TESTAR COMUNICACAO"
                     />
             </LinearLayout>
 

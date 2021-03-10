@@ -32,6 +32,7 @@ public class MenuFragment extends Fragment {
     private LinearLayout passagemBtn;
     private LinearLayout recuperarDebBtn;
     private LinearLayout conectarLeitorBtn;
+    private LinearLayout testarComunicacaoBtn;
 
     private TextView logsTv;
     private TextView statusTv;
@@ -48,6 +49,7 @@ public class MenuFragment extends Fragment {
         passagemBtn = view.findViewById(R.id.passagemBtn);
         recuperarDebBtn = view.findViewById(R.id.recuperarDebBtn);
         conectarLeitorBtn = view.findViewById(R.id.conectarLeitorBtn);
+        testarComunicacaoBtn = view.findViewById(R.id.testarComunicacaoBtn);
 
         logsTv = view.findViewById(R.id.logTextview);
         statusTv = view.findViewById(R.id.statusTextview);
@@ -135,6 +137,13 @@ public class MenuFragment extends Fragment {
             }
         });
 
+        testarComunicacaoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validadorViewModel.commTest();
+            }
+        });
+
         final Observer<String> obs = new Observer<String>() {
             @Override
             public void onChanged(@Nullable final String msg) {
@@ -143,6 +152,17 @@ public class MenuFragment extends Fragment {
             }
         };
         validadorViewModel.getLiveData().observe(getViewLifecycleOwner(), obs);
+
+
+        final Observer<String> obs1 = new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable final String msg) {
+                // Update the UI, in this case, a TextView.
+                logsTv.setText(msg);
+                Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+            }
+        };
+        validadorViewModel.getSimulData().observe(getViewLifecycleOwner(), obs1);
 
         return view;
     }
