@@ -23,8 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+
         MenuFragment menu = new MenuFragment();
         transaction.add(R.id.fragment_container, menu);
+
+        //MastercardPassageFragment master = new MastercardPassageFragment();
+        //transaction.add(R.id.fragment_container, master);
 
         //PassageFragment passage = new PassageFragment();
         //transaction.add(R.id.fragment_container, passage);

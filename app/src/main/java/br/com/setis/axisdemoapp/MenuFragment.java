@@ -2,6 +2,7 @@ package br.com.setis.axisdemoapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,24 +95,28 @@ public class MenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //verifica se o leitor esta conectado.
-                if (validadorViewModel.getFirmwareVersion().length() > 0) {
+                //if (validadorViewModel.getFirmwareVersion().length() > 0) {
                     ExecutorService executor = Executors.newSingleThreadExecutor();
                     executor.execute(new Runnable() {
                         @Override
                         public void run() {
                             if (validadorViewModel.verificaRegistro()) {
-                                FragmentManager fragmentManager = getFragmentManager();
+                                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                PassageFragment passage = new PassageFragment();
-                                transaction.replace(R.id.fragment_container, passage);
+
+                                MastercardPassageFragment master = new MastercardPassageFragment();
+                                transaction.replace(R.id.fragment_container, master);
+
+                                //PassageFragment passage = new PassageFragment();
+                                //transaction.replace(R.id.fragment_container, passage);
                                 transaction.addToBackStack("menu");
                                 transaction.commit();
                             }
                         }
                     });
-                } else {
-                    validadorViewModel.displayLog("Erro: Leitor não encontrado.");
-                }
+                //} else {
+                //    validadorViewModel.displayLog("Erro: Leitor não encontrado.");
+                //}
             }
         });
 
@@ -163,6 +168,22 @@ public class MenuFragment extends Fragment {
             }
         };
         validadorViewModel.getSimulData().observe(getViewLifecycleOwner(), obs1);
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener( new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey( View v, int keyCode, KeyEvent event )
+            {
+                if( keyCode == KeyEvent.KEYCODE_BACK )
+                {
+                    getActivity().finish();
+                    return true;
+                }
+                return false;
+            }
+        } );
 
         return view;
     }

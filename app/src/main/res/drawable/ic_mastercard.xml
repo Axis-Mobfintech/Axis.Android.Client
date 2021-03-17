@@ -1,0 +1,37 @@
+<!--
+  ~ ic_mastercard.xml
+  ~
+  ~ Created by Mastercard on 28/5/20 2:07 PM
+  ~ Copyright (c) 2020 Mastercard. All rights reserved
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="37dp"
+    android:height="22dp"
+    android:viewportWidth="80"
+    android:viewportHeight="50">
+  <path
+      android:pathData="M29.8523,7.192h21.4977v34.833h-21.4977z"
+      android:strokeWidth="1"
+      android:fillColor="#FF5F00"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+  <path
+      android:pathData="M32.0666,24.6115C32.0612,17.8154 35.206,11.3942 40.595,7.1981C31.44,0.0605 18.2931,1.1001 10.3936,9.5864C2.4941,18.0727 2.4941,31.1565 10.3936,39.6427C18.2931,48.129 31.44,49.1687 40.595,42.0311C35.2043,37.8337 32.0593,31.4098 32.0666,24.6115Z"
+      android:strokeWidth="1"
+      android:fillColor="#EB001B"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+  <path
+      android:pathData="M74.5906,39.0397L74.5906,37.7455L74.9007,37.7455L74.9007,37.4777L74.1626,37.4777L74.1626,37.7455L74.4541,37.7455L74.4541,39.0397L74.5906,39.0397ZM76.0234,39.0397L76.0234,37.4777L75.8001,37.4777L75.5396,38.5934L75.2791,37.4777L75.0558,37.4777L75.0558,39.0397L75.217,39.0397L75.217,37.8571L75.4589,38.8723L75.6264,38.8723L75.8683,37.8571L75.8683,39.0397L76.0234,39.0397Z"
+      android:strokeWidth="1"
+      android:fillColor="#F79E1B"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+  <path
+      android:pathData="M76.7242,24.6115C76.7242,33.0926 71.8425,40.8291 64.153,44.5353C56.4634,48.2415 47.3157,47.2667 40.595,42.0249C45.9815,37.8253 49.1266,31.405 49.1266,24.6084C49.1266,17.8119 45.9815,11.3916 40.595,7.192C47.3157,1.9502 56.4634,0.9754 64.153,4.6815C71.8425,8.3877 76.7242,16.1242 76.7242,24.6054L76.7242,24.6115Z"
+      android:strokeWidth="1"
+      android:fillColor="#F79E1B"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+</vector>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="100">
+    <LinearLayout
+        android:id="@+id/master_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:weightSum="100">
+        <!--Header-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:background="@color/mastercard_grey"
+            >
+
+            <TableRow android:layout_weight="15">
+                <!--placeholder-->
+                <ImageView
+                    android:id="@+id/menu_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_baseline_menu_24"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="18"
+                    android:textSize="23sp"
+                    android:gravity="center_vertical"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_mastercard_logo"
+                    />
+
+                <LinearLayout
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:src="@drawable/axis_logo"
+                    />
+
+                <!--Colocar uma linear layout de imagens-->
+                <TextClock
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:format24Hour="hh:mm"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    android:gravity="center_vertical|right"
+                    />
+            </TableRow>
+
+        </TableLayout>
+
+        <!--Line Status-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12">
+
+            <TableRow android:layout_weight="12">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.45"
+                    android:textColor="@color/mastercard_grey"
+                    android:textSize="28sp"
+                    android:gravity="center_vertical|right"
+                    android:text="VIAGEM ABERTA"
+                    />
+
+                <LinearLayout
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/mastercard_grey"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.45"
+                    android:textColor="@color/mastercard_grey"
+                    android:textSize="28sp"
+                    android:gravity="center_vertical"
+                    android:text="LINHA 5430"
+                    />
+
+
+            </TableRow>
+
+        </TableLayout>
+
+        <!--Welcome message-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="24">
+
+            <TextView
+                android:id="@+id/welcome_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="64dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="SEJA BEM-VINDO!"
+                />
+
+        </TableLayout>
+
+        <!--Fee text-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/mastercard_grey"
+                android:textSize="34dp"
+                android:gravity="center"
+                android:text="TARIFA"
+                />
+
+        </TableLayout>
+
+        <!--Fee value-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="24">
+
+            <TextView
+                android:id="@+id/value_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="64dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="R$ 4,00"
+                />
+
+        </TableLayout>
+
+        <!--Footer-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:background="@color/mastercard_grey">
+
+            <TableRow android:layout_weight="12">
+                <TextView
+                    android:id="@+id/data_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="23sp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:text="27/01/2021"
+                    />
+
+                <TextView
+                    android:id="@+id/version_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:textSize="23sp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/white"
+                    android:text="v0.0.1"
+                    />
+
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sonic_content"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mastercard.sonic.widget.SonicView
+            android:id="@+id/sonic_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/failed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#d62020">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            >
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_baseline_highlight_off_24"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/motivo_tv"
+                android:text="TRANSAÇÃO\nRECUSADA"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/roboto_slab"
+                android:textSize="24sp"
+                android:lineSpacingExtra="6dp"
+                android:textColor="#fff"
+                android:textAlignment="center"
+                />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

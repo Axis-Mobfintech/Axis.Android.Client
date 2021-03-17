@@ -250,8 +250,8 @@ public class ValidadorViewModel extends ViewModel {
                          */
 
                         displayLog("Validação finalizada.");
-                        /*
-                        //todo comentado para demonstração
+
+                        //monta o objeto para envio ao Axis baseado na leitura dos dados do cartão.
                         final PassageRegister.RegisterPassage request = PassageRegister.RegisterPassage.newBuilder()
                                 .setDeviceId(info.idValidador)
                                 .setOperatorId(info.idOperador)
@@ -272,36 +272,36 @@ public class ValidadorViewModel extends ViewModel {
                                 .setVehicleId(info.idVeiculo)
                                 .setGeolocation("23.563,-46.186")
                                 .build();
-                         */
 
-                        //todo enviar ao axis.
-                        /*
                         ExecutorService executor = Executors.newSingleThreadExecutor();
                         executor.execute(new Runnable() {
                             @Override
                             public void run() {
+                                ExecutorService executor = Executors.newSingleThreadExecutor();
                                 try {
-                                    InetAddress inetAddress = InetAddress.getByName("transaction-dev.axis-mobfintech.com");
-                                    String ip = inetAddress.getHostAddress();
-
-                                    //io.grpc.Channel channel = ManagedChannelBuilder.forAddress(ip, 443).usePlaintext().build();
-                                    Channel channel = OkHttpChannelBuilder.forAddress(ip, 433)
-                                            //.transportExecutor(new NetworkTaggingExecutor(0xFDD))
-                                            .usePlaintext()
-                                            .build();
-                                    TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
-
-                                    PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
-                                    int ret = response.getResponseCode();
-                                    //todo sem resposta do servidor... verificar
-                                } catch (UnknownHostException e) {
-                                    e.printStackTrace();
+                                    //With Server authentication
+                                    executor.execute(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                ManagedChannel channel = ManagedChannelBuilder.forAddress("transaction.axis-mobfintech.com", 5001).build();
+                                                TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
+                                                PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
+                                                int ret = response.getResponseCode();
+                                                Log.d("AxisLog", "Codigo de resposta do ambiente Axis: "+ret);
+                                            } catch (Exception ex) {
+                                                Log.d("AxisLog", "Falha ao enviar registro de passagem ao ambiente Axis.");
+                                                ex.printStackTrace();
+                                            }
+                                        }
+                                    });
                                 } catch (Exception e) {
                                     e.printStackTrace();
+                                } finally {
+                                    executor.shutdown();
                                 }
                             }
                         });
-                        */
 
                         //todo versao de demonstracao.
                         //todo verificar se a transacao foi aprovada (futuramente)
