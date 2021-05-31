@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "Protos/card_action.proto";
+
+message CertificateAuthorityPublicKeyTable {
+    //Índice do registro na tabela (0001 - 9999)
+    int32 index = 1;
+    //Dados da CAPK
+    //RID (Registered Identifier) e índice da chave
+    bytes registered_identifier = 2;
+    //CAPK Modulus - módulo da chave RSA
+    bytes rsa_key_modulus = 3;
+    //CAPK Exponent - expoente público da chave RSA
+    bytes rsa_key_exponent = 4;
+    //Checksum - SHA-1 dos valores acima (sem tags nem tamanhos)
+    bytes checksum = 5;
+    //Action
+    CardAction card_action = 6;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+enum CardAction {
+    Unknown = 0;
+    Include = 1;
+    Exclude = 2;
+}

@@ -5,16 +5,27 @@ import android.media.MediaPlayer;
 import android.net.TrafficStats;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.axismobfintech.gpb.transactions.AcceptedBin;
+import com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass;
+import com.axismobfintech.gpb.transactions.CapkTable;
+import com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass;
+import com.axismobfintech.gpb.transactions.DeviceParameters;
+import com.axismobfintech.gpb.transactions.DevicesParametersGrpc;
+import com.axismobfintech.gpb.transactions.DevicesManagerGrpc;
 import com.axismobfintech.gpb.transactions.PassageRegister;
 import com.axismobfintech.gpb.transactions.TransactionsGrpc;
-import com.google.api.LogDescriptor;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber;
+
 import com.google.protobuf.ByteString;
+//import static com.google.protobuf.util.Timestamps.fromMillis;
+import static com.idtechproducts.device.Common.getHexStringFromBytes;
+import static java.lang.System.currentTimeMillis;
+
 import com.google.protobuf.Timestamp;
+
 import com.idtechproducts.device.Common;
 import com.idtechproducts.device.ErrorCode;
 import com.idtechproducts.device.IDTEMVData;
@@ -26,6 +37,7 @@ import com.idtechproducts.device.ResDataStruct;
 import com.idtechproducts.device.StructConfigParameters;
 import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 
+import java.time.Instant;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
@@ -45,8 +57,7 @@ import br.com.setis.axisdemoapp.room.Bin;
 import br.com.setis.axisdemoapp.room.Pan;
 import br.com.setis.axisdemoapp.room.ValidadorDatabase;
 import br.com.setis.axisdemoapp.room.ValidadorInfo;
-import io.grpc.Channel;
-import io.grpc.ManagedChannel;
+
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.netty.GrpcSslContexts;
 import io.grpc.okhttp.OkHttpChannelBuilder;
@@ -55,6 +66,7 @@ import io.grpc.stub.StreamObserver;
 import static br.com.setis.axisdemoapp.data.Util.getTimestamp;
 import static br.com.setis.axisdemoapp.data.Util.getValueByTag;
 import static com.idtechproducts.device.Common.isFileExist;
+
 
 public class ValidadorViewModel extends ViewModel {
     public static final String mTAG = "AxisLog";
@@ -67,6 +79,8 @@ public class ValidadorViewModel extends ViewModel {
 
     private String idValidador = "0123456789ABCDE"; //A15
     private byte[] codRegistro = "0123456789".getBytes(); //B20
+
+    private final String axisProd = "4ioiybj5xk.execute-api.sa-east-1.amazonaws.com";
 
     private Context context;
     private ValidadorDatabase db;
@@ -95,9 +109,74 @@ public class ValidadorViewModel extends ViewModel {
         return false;
     }
 
+    private void logDeviceParameters(DeviceParameters.ParametersResponse response) {
+        int i;
+
+        displayLog("Date:" + response.getResponseDate());
+
+        displayLog("Versão das Tabelas EMV:" + response.getEmvParametersVersion());
+
+        for (i = 0; i < response.getAidTableCount(); i++) {
+            ApplicationIdentifierOuterClass.ApplicationIdentifier emv = response.getAidTable(i);
+
+            displayLog(" Index:" + emv.getIndex());
+            displayLog(" Action:" + emv.getCardAction());
+
+            displayLog("   Terminal Type:" + emv.getTerminalType());
+            displayLog("   Terminal Capabilities:" + getHexStringFromBytes(emv.getTerminalCapabilities().toByteArray()));
+            displayLog("   Addictional Terminal Capabilities:" + getHexStringFromBytes(emv.getAddictionalTerminalCapabilities().toByteArray()));
+            displayLog("   Application Identifier:" + getHexStringFromBytes(emv.getApplicationIdentifier().toByteArray()));
+            displayLog("   Application Version Number:" + getHexStringFromBytes(emv.getApplicationVersionNumber().toByteArray()));
+            displayLog("   Authorized Amount:" + emv.getAuthorizedAmount());
+            displayLog("   Card Data Input Capability:" + getHexStringFromBytes(emv.getCardDataInputCapability().toByteArray()));
+            displayLog("   Category Code:" + getHexStringFromBytes(emv.getCategoryCode().toByteArray()));
+            displayLog("   Country Code:" + emv.getCountryCode());
+            displayLog("   Currency Code:" + emv.getCurrencyCode());
+            displayLog("   Currency Exponent:" + emv.getCurrencyExponent());
+            displayLog("   Contactless Floor Limit:" + emv.getContactlessFloorLimit());
+            displayLog("   Cvm Required Limit:" + emv.getCvmRequiredLimit());
+            displayLog("   Cvm Capability Required:" + getHexStringFromBytes(emv.getCvmCapabilityRequired().toByteArray()));
+            displayLog("   Cvm Capability Not Required:" + getHexStringFromBytes(emv.getCvmCapabilityNotRequired().toByteArray()));
+            displayLog("   General Flags:" + getHexStringFromBytes(emv.getGeneralFlags().toByteArray()));
+            displayLog("   Limit No On Device:" + emv.getLimitNoOnDevice());
+            displayLog("   Limit On Device:" + emv.getLimitOnDevice());
+            displayLog("   Reader Floor Limit:" + emv.getReaderFloorLimit());
+            displayLog("   Merchant Category Code:" + emv.getMerchantCategoryCode());
+            displayLog("   Risk Management Data:" + getHexStringFromBytes(emv.getRiskManagementData().toByteArray()));
+            displayLog("   Security Capability:" + getHexStringFromBytes(emv.getSecurityCapability().toByteArray()));
+            displayLog("   Terminal Action Code Default:" + getHexStringFromBytes(emv.getTerminalActionCodeDefault().toByteArray()));
+            displayLog("   Terminal Action Code Online:" + getHexStringFromBytes(emv.getTerminalActionCodeOnline().toByteArray()));
+            displayLog("   Terminal Action Code Denial:" + getHexStringFromBytes(emv.getTerminalActionCodeDenial().toByteArray()));
+            displayLog("   Terminal Transaction Qualifiers:" + getHexStringFromBytes(emv.getTerminalTransactionQualifiers().toByteArray()));
+        }
+        for (i = 0; i < response.getCapkTableCount(); i++) {
+            CapkTable.CertificateAuthorityPublicKeyTable capk = response.getCapkTable(i);
+
+            displayLog(" Index:" + capk.getIndex());
+            displayLog(" Action:" + capk.getCardAction());
+            displayLog("   RID:" + getHexStringFromBytes(capk.getRegisteredIdentifier().toByteArray()));
+            displayLog("   Rsa Key Exponent:" + getHexStringFromBytes(capk.getRsaKeyExponent().toByteArray()));
+            displayLog("   Rsa Key Modulus:" + getHexStringFromBytes(capk.getRsaKeyModulus().toByteArray()));
+            displayLog("   Checksum:" + getHexStringFromBytes(capk.getChecksum().toByteArray()));
+        }
+
+
+        displayLog("Versão da Tabela de BIN:" + response.getBinParametersVersion());
+        for (i = 0; i < response.getBinTableCount(); i++) {
+            AcceptedBin.AcceptedBankIdentificationNumber bin = response.getBinTable(i);
+
+            displayLog(" Index:" + bin.getIndex());
+            displayLog(" Action:" + bin.getCardAction());
+            displayLog("   Issuer Code:" + bin.getIssuerCode());
+            displayLog("   Initial Range:" + bin.getInitialRange());
+            displayLog("   Final Range:" + bin.getFinalRange());
+            displayLog("   Total Sequential Transactions Allowed " + bin.getTotalSequentialTransactionsAllowed());
+        }
+    }
+
     /**
      * Inicializa a biblioteca e realiza a conexão com o leitor Kioski IV.
-     * */
+     */
     private void initializeReader(final Context context) {
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             releaseSDK();
@@ -120,7 +199,7 @@ public class ValidadorViewModel extends ViewModel {
                         displayLog("Cartão lido com sucesso.");
 
                         String res = device.device_getResponseCodeString(idtmsrData.result);
-                        Log.d(mTAG, "res:"+res);
+                        Log.d(mTAG, "res:" + res);
 
                         String detail = Common.parse_MSRData(Common.getDeviceType(), idtmsrData);
                         displayLog(String.format("%s\n%s\n", detail, res));
@@ -215,7 +294,7 @@ public class ValidadorViewModel extends ViewModel {
                                                     return;
                                                 } else {
                                                     //incrementa o contador do pan
-                                                    db.panDAO().updatePanSeqNum(pan.panSeqNo+1, strHashPan.toUpperCase());
+                                                    db.panDAO().updatePanSeqNum(pan.panSeqNo + 1, strHashPan.toUpperCase());
                                                     displayLog("Contador de transações sequenciais incrementado.");
                                                 }
                                             }
@@ -226,8 +305,7 @@ public class ValidadorViewModel extends ViewModel {
                                         }
                                     }
                                 }
-                            }
-                            else {
+                            } else {
                                 //displayLog(String.format("Transação Recusada: PAN %s ausente na lista de PAN aceitos.", strHashPan));
                                 //sendTransactionStatus("Transação Recusada: PAN ausente na lista de PAN aceitos.");
                                 //return;
@@ -273,40 +351,33 @@ public class ValidadorViewModel extends ViewModel {
                                 .setGeolocation("23.563,-46.186")
                                 .build();
 
-                        ExecutorService executor = Executors.newSingleThreadExecutor();
-                        executor.execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                ExecutorService executor = Executors.newSingleThreadExecutor();
-                                try {
-                                    //With Server authentication
-                                    executor.execute(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                ManagedChannel channel = ManagedChannelBuilder.forAddress("transaction.axis-mobfintech.com", 5001).build();
-                                                TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
-                                                PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
-                                                int ret = response.getResponseCode();
-                                                Log.d("AxisLog", "Codigo de resposta do ambiente Axis: "+ret);
-                                            } catch (Exception ex) {
-                                                Log.d("AxisLog", "Falha ao enviar registro de passagem ao ambiente Axis.");
-                                                ex.printStackTrace();
-                                            }
-                                        }
-                                    });
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                } finally {
-                                    executor.shutdown();
-                                }
-                            }
-                        });
+                        PassageRegister.RegisterPassageResponse response;
+                        try {
+                            io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
+                            TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
 
-                        //todo versao de demonstracao.
-                        //todo verificar se a transacao foi aprovada (futuramente)
-                        sendTransactionStatus("APROVADA");
+                            response = stub.makeTransaction(request);
 
+                        } catch (io.grpc.StatusRuntimeException e) {
+                            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                            liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                            return;
+                        }
+
+                        if (response.getResponseCode() != 0) {
+                            sendTransactionStatus("Erro no Registro da Passagem:" + response.getResponseCode());
+                            return;
+                        }
+
+                        displayLog("Versão da Tabela de BIN:" + response.getBinParametersVersion());
+                        displayLog("Versão da Tabela EMV:" + response.getEmvParametersVersion());
+                        displayLog("Versão da lista de restrição:" + response.getRestrictionListVersion());
+                        displayLog("NSU do validador:" + response.getDeviceSuid());
+                        displayLog("NSU do gateway:" + response.getGatewayUid());
+
+                        sendTransactionStatus("Registro da Passagem Aprovado!");
+
+                        db.validadorInfoDAO().updateNsu(info.nsuValidador + 1);
                         //executa som ao aprovar um cartão mastercard.
                         aux = getValueByTag(idtmsrData, "9f06");
                         if (aux != null) {
@@ -429,7 +500,7 @@ public class ValidadorViewModel extends ViewModel {
 
     /**
      * Obtem a versão do firmware do leitor Kioski IV.
-     * */
+     */
     public String getFirmwareVersion() {
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             StringBuilder sb = new StringBuilder();
@@ -470,23 +541,22 @@ public class ValidadorViewModel extends ViewModel {
     }
 
 
-
     /**
      * O Validador deve utilizar esta transação para realizar o seu registro no
      * sistema da Axis Go Cloud e assim obter autorização e receber os dados de
      * funcionamento, lista de cartões negados e registro de passagem.
-     * */
+     */
     public void registrarValidador() {
-         /**
-         * Nesta demonstração, iremos utilizar valores pre-fixados (Não haverá requisição
-         * a Axis Go Cloud).*/
+
         resetLog();
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {
             @Override
             public void run() {
+
                 db.validadorInfoDAO().deleteAll();
 
+                //TODO obter dados do leitor / usuário
                 ValidadorInfo info = new ValidadorInfo();
                 info.idValidador = "1";
                 info.idOperador = "1";
@@ -500,6 +570,40 @@ public class ValidadorViewModel extends ViewModel {
 
                 db.validadorInfoDAO().insertBaseValues(info);
 
+                final DeviceRegisterOuterClass.DeviceRegister request = DeviceRegisterOuterClass.DeviceRegister.newBuilder()
+                        .setOperatorId(info.idOperador)
+                        .setReaderSerialNumber(info.nsLeitor)
+                        .setVehicleId(info.idVeiculo)
+                        .setDeviceSerialNumber("123456")
+                        .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("1234"))
+                        .setLineId("123456")
+                        //.setRegisterDate(fromMillis(currentTimeMillis()))
+                        .build();
+
+                DeviceRegisterOuterClass.DeviceRegisterResponse response;
+                try {
+                    io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
+                    DevicesManagerGrpc.DevicesManagerBlockingStub stub = DevicesManagerGrpc.newBlockingStub(channel);
+
+                    response = stub.registerDevice(request);
+
+                } catch (io.grpc.StatusRuntimeException e) {
+                    displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                    liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                    return;
+                }
+
+                if (response.getResponseCode() != 0) {
+                    liveData.postValue("Erro no Registro do Validador:" + response.getResponseCode());
+                    return;
+                }
+
+                displayLog("ID do Dispositivo:" + response.getDeviceId());
+                displayLog("Código de registro:" + response.getRegisterCode());
+                displayLog("Data de registro:" + response.getRegisterDate());
+
+                sendTransactionStatus("Registro do Dispositivo Aprovado!");
+
                 liveData.postValue("Registro OK");
                 
             }
@@ -508,13 +612,10 @@ public class ValidadorViewModel extends ViewModel {
 
     /**
      * Método utilizado para se obter ou atualizar os parâmetros EMV e BINs aceitos
-     * */
+     */
     public void obterParametro() {
-        /**
-         * Nesta demonstração, iremos utilizar valores pre-fixados (Não haverá requisição
-         * a Axis Go Cloud).
-         * */
         resetLog();
+
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(new Runnable() {
@@ -623,6 +724,42 @@ public class ValidadorViewModel extends ViewModel {
                         ret = device.device_sendDataCommand("0409", false, null, res);
                         displayLog("Utilizando configurações padrão do leitor.");
                     }
+
+                    final DeviceParameters.Parameters request = DeviceParameters.Parameters.newBuilder()
+                            .setBinParametersVersion(info.vrsPrmBIN)
+                            .setEmvParametersVersion(info.vrsPrmEMV)
+                            .setDeviceId(info.idValidador)
+                            .setOperatorId(info.idOperador)
+                            .setDeviceSerialNumber(info.nsValidador)
+                            .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("1234"))
+                            .setLineId(info.idLinha)
+                            .setReaderSerialNumber(info.nsLeitor)
+                            .setRegisterCode(12345)
+                            .setRegisterDate(getTimestamp())
+                            .setVehicleId(info.idVeiculo)
+                            .build();
+
+                    DeviceParameters.ParametersResponse response;
+                    try {
+                        io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
+                        DevicesParametersGrpc.DevicesParametersBlockingStub stub = DevicesParametersGrpc.newBlockingStub(channel);
+
+                        response = stub.getDeviceParameters(request);
+
+                    } catch (io.grpc.StatusRuntimeException e) {
+                        displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                        liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                        return;
+                    }
+
+                    if (response.getResponseCode() != 0) {
+                        sendTransactionStatus("Erro na Requisição de Parâmetros:" + response.getResponseCode());
+                        return;
+                    }
+
+                    logDeviceParameters(response);
+
+                    //TODO salvar os parâmetros recebidos do Servidor AXIS!
 
                     //Configuração de BIN
                     displayLog("Removendo BIN's cadastrados.");
@@ -758,7 +895,7 @@ public class ValidadorViewModel extends ViewModel {
     /**
      * Esta transação deve ser utilizada pelo Validador para solicitar a remoção de um
      * cartão das tabelas de cartão não aceito da lista de exceção.
-     * */
+     */
     public void recuperarDebito() {
         resetLog();
 
@@ -797,10 +934,10 @@ public class ValidadorViewModel extends ViewModel {
 
     private void desativaPolling() {
         int res = device.device_setPollMode((byte) 1);
-        Log.d(mTAG, "Removing poll-mode: "+device.device_getResponseCodeString(res));
+        Log.d(mTAG, "Removing poll-mode: " + device.device_getResponseCodeString(res));
 
-        res = device.device_setBurstMode((byte)1);
-        Log.d(mTAG, "Burst Mode: "+device.device_getResponseCodeString(res));
+        res = device.device_setBurstMode((byte) 1);
+        Log.d(mTAG, "Burst Mode: " + device.device_getResponseCodeString(res));
     }
 
     private void resetLog() {
@@ -813,7 +950,7 @@ public class ValidadorViewModel extends ViewModel {
 
     public void displayLog(final String log) {
         Log.d(mTAG, log);
-        dspLogs.append(log+"\n");
+        dspLogs.append(log + "\n");
         handler.post(new Runnable() {
             @Override
             public void run() {

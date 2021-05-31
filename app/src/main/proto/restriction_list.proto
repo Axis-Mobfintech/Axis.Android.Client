@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "google/protobuf/timestamp.proto";
+import "Protos/pan_restriction_list.proto";
+import "Protos/par_restriction_list.proto";
+import "Protos/card_action.proto";
+
+
+message RestrictionListRequest {
+    //Identificação do Validador.
+    string device_id = 1;
+    //Identificação da operadora de transportes.
+    string operator_id = 2;
+    //Número de série do leitor.
+    string reader_serial_number = 3;
+    //Número de série do Validador.
+    string device_serial_number = 4;
+    //KSN – Key Serial Number – do leitor de cartões.
+    bytes ksn_data = 5;
+    //Código de autorização de registro.
+    int32 register_code = 6;
+    //Identificação da linha/viagem (presente se disponível no momento do registro).
+    string line_id = 7;
+    //Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
+    string vehicle_id = 8;
+    //Data e hora de envio da transação ao Gateway 
+    google.protobuf.Timestamp register_date = 9;
+    //Versão da lista de PANs e PARs disponíveis no validador 
+    int32 restriction_list_version = 10;
+}
+
+message RestrictionListResponse {
+    //Código de resposta da solicitação.
+    int32 response_code = 1;
+    //Versão atual da lista de PANs e PARs.
+    int32 restriction_list_version = 2;
+    // informação do cartão
+    repeated RestrictionListCardInformation card_information = 3;
+    //Data e hora de envio da transação ao Gateway 
+    google.protobuf.Timestamp register_date = 4;
+}
+
+message RestrictionListCardInformation {
+    //((Presente se houver atualização e a solicitação foi autorizada).
+    PrimaryAccountNumberBlackList pan_list = 1;
+    //((Presente se houver atualização e a solicitação foi autorizada).
+    PrimaryAccountReferenceBlackList par_list = 2;
+    //Acao
+    CardAction action = 3;
+}
+
+service RestrictionLists {
+    rpc GetRestrictionList (RestrictionListRequest) returns (RestrictionListResponse);
+}
