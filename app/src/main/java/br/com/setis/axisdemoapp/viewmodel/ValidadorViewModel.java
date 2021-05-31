@@ -58,6 +58,7 @@ import br.com.setis.axisdemoapp.room.Pan;
 import br.com.setis.axisdemoapp.room.ValidadorDatabase;
 import br.com.setis.axisdemoapp.room.ValidadorInfo;
 
+import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.netty.GrpcSslContexts;
 import io.grpc.okhttp.OkHttpChannelBuilder;
@@ -1031,7 +1032,21 @@ public class ValidadorViewModel extends ViewModel {
                 .setGeolocation("23.563,-46.186")
                 .build();
 
-                ExecutorService executor = Executors.newSingleThreadExecutor();
+        PassageRegister.RegisterPassageResponse response;
+        try {
+            io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
+            TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
+
+            response = stub.makeTransaction(request);
+
+        } catch (io.grpc.StatusRuntimeException e) {
+            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+            liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+            return;
+        }
+
+        /*
+        ExecutorService executor = Executors.newSingleThreadExecutor();
                 executor.execute(new Runnable() {
                     @Override
                     public void run() {
@@ -1066,6 +1081,7 @@ public class ValidadorViewModel extends ViewModel {
                         }
                     }
                 });
+         */
     }
 
 }
