@@ -20,34 +20,34 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.33.1)",
     comments = "Source: device_parameters.proto")
-public final class DevicesParametersGrpc {
+public final class DeviceParametersServiceGrpc {
 
-  private DevicesParametersGrpc() {}
+  private DeviceParametersServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "axis.transactions.DevicesParameters";
+  public static final String SERVICE_NAME = "axis.transactions.DeviceParametersService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.DeviceParameters.Parameters,
+  private static volatile io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest,
       com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> getGetDeviceParametersMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetDeviceParameters",
-      requestType = com.axismobfintech.gpb.transactions.DeviceParameters.Parameters.class,
+      requestType = com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest.class,
       responseType = com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.DeviceParameters.Parameters,
+  public static io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest,
       com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> getGetDeviceParametersMethod() {
-    io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.DeviceParameters.Parameters, com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> getGetDeviceParametersMethod;
-    if ((getGetDeviceParametersMethod = DevicesParametersGrpc.getGetDeviceParametersMethod) == null) {
-      synchronized (DevicesParametersGrpc.class) {
-        if ((getGetDeviceParametersMethod = DevicesParametersGrpc.getGetDeviceParametersMethod) == null) {
-          DevicesParametersGrpc.getGetDeviceParametersMethod = getGetDeviceParametersMethod =
-              io.grpc.MethodDescriptor.<com.axismobfintech.gpb.transactions.DeviceParameters.Parameters, com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse>newBuilder()
+    io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest, com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> getGetDeviceParametersMethod;
+    if ((getGetDeviceParametersMethod = DeviceParametersServiceGrpc.getGetDeviceParametersMethod) == null) {
+      synchronized (DeviceParametersServiceGrpc.class) {
+        if ((getGetDeviceParametersMethod = DeviceParametersServiceGrpc.getGetDeviceParametersMethod) == null) {
+          DeviceParametersServiceGrpc.getGetDeviceParametersMethod = getGetDeviceParametersMethod =
+              io.grpc.MethodDescriptor.<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest, com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetDeviceParameters"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  com.axismobfintech.gpb.transactions.DeviceParameters.Parameters.getDefaultInstance()))
+                  com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
                   com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse.getDefaultInstance()))
               .build();
@@ -60,54 +60,54 @@ public final class DevicesParametersGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static DevicesParametersStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<DevicesParametersStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<DevicesParametersStub>() {
+  public static DeviceParametersServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<DeviceParametersServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<DeviceParametersServiceStub>() {
         @java.lang.Override
-        public DevicesParametersStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new DevicesParametersStub(channel, callOptions);
+        public DeviceParametersServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new DeviceParametersServiceStub(channel, callOptions);
         }
       };
-    return DevicesParametersStub.newStub(factory, channel);
+    return DeviceParametersServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static DevicesParametersBlockingStub newBlockingStub(
+  public static DeviceParametersServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<DevicesParametersBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<DevicesParametersBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<DeviceParametersServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<DeviceParametersServiceBlockingStub>() {
         @java.lang.Override
-        public DevicesParametersBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new DevicesParametersBlockingStub(channel, callOptions);
+        public DeviceParametersServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new DeviceParametersServiceBlockingStub(channel, callOptions);
         }
       };
-    return DevicesParametersBlockingStub.newStub(factory, channel);
+    return DeviceParametersServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static DevicesParametersFutureStub newFutureStub(
+  public static DeviceParametersServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<DevicesParametersFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<DevicesParametersFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<DeviceParametersServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<DeviceParametersServiceFutureStub>() {
         @java.lang.Override
-        public DevicesParametersFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new DevicesParametersFutureStub(channel, callOptions);
+        public DeviceParametersServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new DeviceParametersServiceFutureStub(channel, callOptions);
         }
       };
-    return DevicesParametersFutureStub.newStub(factory, channel);
+    return DeviceParametersServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class DevicesParametersImplBase implements io.grpc.BindableService {
+  public static abstract class DeviceParametersServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
-    public void getDeviceParameters(com.axismobfintech.gpb.transactions.DeviceParameters.Parameters request,
+    public void getDeviceParameters(com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest request,
         io.grpc.stub.StreamObserver<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetDeviceParametersMethod(), responseObserver);
     }
@@ -118,7 +118,7 @@ public final class DevicesParametersGrpc {
             getGetDeviceParametersMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.axismobfintech.gpb.transactions.DeviceParameters.Parameters,
+                com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest,
                 com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse>(
                   this, METHODID_GET_DEVICE_PARAMETERS)))
           .build();
@@ -127,21 +127,21 @@ public final class DevicesParametersGrpc {
 
   /**
    */
-  public static final class DevicesParametersStub extends io.grpc.stub.AbstractAsyncStub<DevicesParametersStub> {
-    private DevicesParametersStub(
+  public static final class DeviceParametersServiceStub extends io.grpc.stub.AbstractAsyncStub<DeviceParametersServiceStub> {
+    private DeviceParametersServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected DevicesParametersStub build(
+    protected DeviceParametersServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new DevicesParametersStub(channel, callOptions);
+      return new DeviceParametersServiceStub(channel, callOptions);
     }
 
     /**
      */
-    public void getDeviceParameters(com.axismobfintech.gpb.transactions.DeviceParameters.Parameters request,
+    public void getDeviceParameters(com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest request,
         io.grpc.stub.StreamObserver<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetDeviceParametersMethod(), getCallOptions()), request, responseObserver);
@@ -150,21 +150,21 @@ public final class DevicesParametersGrpc {
 
   /**
    */
-  public static final class DevicesParametersBlockingStub extends io.grpc.stub.AbstractBlockingStub<DevicesParametersBlockingStub> {
-    private DevicesParametersBlockingStub(
+  public static final class DeviceParametersServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<DeviceParametersServiceBlockingStub> {
+    private DeviceParametersServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected DevicesParametersBlockingStub build(
+    protected DeviceParametersServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new DevicesParametersBlockingStub(channel, callOptions);
+      return new DeviceParametersServiceBlockingStub(channel, callOptions);
     }
 
     /**
      */
-    public com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse getDeviceParameters(com.axismobfintech.gpb.transactions.DeviceParameters.Parameters request) {
+    public com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse getDeviceParameters(com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetDeviceParametersMethod(), getCallOptions(), request);
     }
@@ -172,22 +172,22 @@ public final class DevicesParametersGrpc {
 
   /**
    */
-  public static final class DevicesParametersFutureStub extends io.grpc.stub.AbstractFutureStub<DevicesParametersFutureStub> {
-    private DevicesParametersFutureStub(
+  public static final class DeviceParametersServiceFutureStub extends io.grpc.stub.AbstractFutureStub<DeviceParametersServiceFutureStub> {
+    private DeviceParametersServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected DevicesParametersFutureStub build(
+    protected DeviceParametersServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new DevicesParametersFutureStub(channel, callOptions);
+      return new DeviceParametersServiceFutureStub(channel, callOptions);
     }
 
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse> getDeviceParameters(
-        com.axismobfintech.gpb.transactions.DeviceParameters.Parameters request) {
+        com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetDeviceParametersMethod(), getCallOptions()), request);
     }
@@ -200,10 +200,10 @@ public final class DevicesParametersGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final DevicesParametersImplBase serviceImpl;
+    private final DeviceParametersServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(DevicesParametersImplBase serviceImpl, int methodId) {
+    MethodHandlers(DeviceParametersServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -213,7 +213,7 @@ public final class DevicesParametersGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_DEVICE_PARAMETERS:
-          serviceImpl.getDeviceParameters((com.axismobfintech.gpb.transactions.DeviceParameters.Parameters) request,
+          serviceImpl.getDeviceParameters((com.axismobfintech.gpb.transactions.DeviceParameters.ParametersRequest) request,
               (io.grpc.stub.StreamObserver<com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse>) responseObserver);
           break;
         default:
@@ -237,7 +237,7 @@ public final class DevicesParametersGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (DevicesParametersGrpc.class) {
+      synchronized (DeviceParametersServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

@@ -20,11 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.33.1)",
     comments = "Source: acceptance_list.proto")
-public final class AcceptanceListsGrpc {
+public final class AcceptanceListServiceGrpc {
 
-  private AcceptanceListsGrpc() {}
+  private AcceptanceListServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "axis.transactions.AcceptanceLists";
+  public static final String SERVICE_NAME = "axis.transactions.AcceptanceListService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListRequest,
@@ -38,10 +38,10 @@ public final class AcceptanceListsGrpc {
   public static io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListRequest,
       com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListResponse> getGetAcceptanceListMethod() {
     io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListRequest, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListResponse> getGetAcceptanceListMethod;
-    if ((getGetAcceptanceListMethod = AcceptanceListsGrpc.getGetAcceptanceListMethod) == null) {
-      synchronized (AcceptanceListsGrpc.class) {
-        if ((getGetAcceptanceListMethod = AcceptanceListsGrpc.getGetAcceptanceListMethod) == null) {
-          AcceptanceListsGrpc.getGetAcceptanceListMethod = getGetAcceptanceListMethod =
+    if ((getGetAcceptanceListMethod = AcceptanceListServiceGrpc.getGetAcceptanceListMethod) == null) {
+      synchronized (AcceptanceListServiceGrpc.class) {
+        if ((getGetAcceptanceListMethod = AcceptanceListServiceGrpc.getGetAcceptanceListMethod) == null) {
+          AcceptanceListServiceGrpc.getGetAcceptanceListMethod = getGetAcceptanceListMethod =
               io.grpc.MethodDescriptor.<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListRequest, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAcceptanceList"))
@@ -60,50 +60,50 @@ public final class AcceptanceListsGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static AcceptanceListsStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<AcceptanceListsStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<AcceptanceListsStub>() {
+  public static AcceptanceListServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<AcceptanceListServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<AcceptanceListServiceStub>() {
         @java.lang.Override
-        public AcceptanceListsStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new AcceptanceListsStub(channel, callOptions);
+        public AcceptanceListServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new AcceptanceListServiceStub(channel, callOptions);
         }
       };
-    return AcceptanceListsStub.newStub(factory, channel);
+    return AcceptanceListServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static AcceptanceListsBlockingStub newBlockingStub(
+  public static AcceptanceListServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<AcceptanceListsBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<AcceptanceListsBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<AcceptanceListServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<AcceptanceListServiceBlockingStub>() {
         @java.lang.Override
-        public AcceptanceListsBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new AcceptanceListsBlockingStub(channel, callOptions);
+        public AcceptanceListServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new AcceptanceListServiceBlockingStub(channel, callOptions);
         }
       };
-    return AcceptanceListsBlockingStub.newStub(factory, channel);
+    return AcceptanceListServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static AcceptanceListsFutureStub newFutureStub(
+  public static AcceptanceListServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<AcceptanceListsFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<AcceptanceListsFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<AcceptanceListServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<AcceptanceListServiceFutureStub>() {
         @java.lang.Override
-        public AcceptanceListsFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new AcceptanceListsFutureStub(channel, callOptions);
+        public AcceptanceListServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new AcceptanceListServiceFutureStub(channel, callOptions);
         }
       };
-    return AcceptanceListsFutureStub.newStub(factory, channel);
+    return AcceptanceListServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class AcceptanceListsImplBase implements io.grpc.BindableService {
+  public static abstract class AcceptanceListServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -127,16 +127,16 @@ public final class AcceptanceListsGrpc {
 
   /**
    */
-  public static final class AcceptanceListsStub extends io.grpc.stub.AbstractAsyncStub<AcceptanceListsStub> {
-    private AcceptanceListsStub(
+  public static final class AcceptanceListServiceStub extends io.grpc.stub.AbstractAsyncStub<AcceptanceListServiceStub> {
+    private AcceptanceListServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected AcceptanceListsStub build(
+    protected AcceptanceListServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new AcceptanceListsStub(channel, callOptions);
+      return new AcceptanceListServiceStub(channel, callOptions);
     }
 
     /**
@@ -150,16 +150,16 @@ public final class AcceptanceListsGrpc {
 
   /**
    */
-  public static final class AcceptanceListsBlockingStub extends io.grpc.stub.AbstractBlockingStub<AcceptanceListsBlockingStub> {
-    private AcceptanceListsBlockingStub(
+  public static final class AcceptanceListServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<AcceptanceListServiceBlockingStub> {
+    private AcceptanceListServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected AcceptanceListsBlockingStub build(
+    protected AcceptanceListServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new AcceptanceListsBlockingStub(channel, callOptions);
+      return new AcceptanceListServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -172,16 +172,16 @@ public final class AcceptanceListsGrpc {
 
   /**
    */
-  public static final class AcceptanceListsFutureStub extends io.grpc.stub.AbstractFutureStub<AcceptanceListsFutureStub> {
-    private AcceptanceListsFutureStub(
+  public static final class AcceptanceListServiceFutureStub extends io.grpc.stub.AbstractFutureStub<AcceptanceListServiceFutureStub> {
+    private AcceptanceListServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected AcceptanceListsFutureStub build(
+    protected AcceptanceListServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new AcceptanceListsFutureStub(channel, callOptions);
+      return new AcceptanceListServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -200,10 +200,10 @@ public final class AcceptanceListsGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final AcceptanceListsImplBase serviceImpl;
+    private final AcceptanceListServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(AcceptanceListsImplBase serviceImpl, int methodId) {
+    MethodHandlers(AcceptanceListServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -237,7 +237,7 @@ public final class AcceptanceListsGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (AcceptanceListsGrpc.class) {
+      synchronized (AcceptanceListServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

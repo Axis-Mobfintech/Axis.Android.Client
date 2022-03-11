@@ -115,7 +115,7 @@ public class MenuFragment extends Fragment {
                         }
                     });
                 //} else {
-                //    validadorViewModel.displayLog("Erro: Leitor não encontrado.");
+                //    validadorViewModel.displayLog("Erro: Leitor nao encontrado.");
                 //}
             }
         });
@@ -137,7 +137,7 @@ public class MenuFragment extends Fragment {
                     Toast.makeText(getActivity(), "LEITOR CONECTADO.", Toast.LENGTH_SHORT).show();
                 } else {
                     statusTv.setText("Status do Leitor: Desconectado.");
-                    Toast.makeText(getActivity(), "LEITOR NÃO ENCONTRADO.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "LEITOR NAO ENCONTRADO.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

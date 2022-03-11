@@ -11,7 +11,7 @@ import "Protos/accepted_bin.proto";
 import "Protos/application_identifier.proto";
 import "Protos/capk_table.proto";
 
-message Parameters {
+message ParametersRequest {
     //Identificação do Validador.
     string device_id = 1;
     //Identificação da operadora de transportes.
@@ -54,6 +54,6 @@ message ParametersResponse {
     google.protobuf.Timestamp response_date = 7;
 }
 
-service DevicesParameters {
-    rpc GetDeviceParameters (Parameters) returns (ParametersResponse);
+service DeviceParametersService {
+    rpc GetDeviceParameters (ParametersRequest) returns (ParametersResponse);
 }

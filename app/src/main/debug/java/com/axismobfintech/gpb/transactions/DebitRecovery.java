@@ -3,13 +3,13 @@
 
 package com.axismobfintech.gpb.transactions;
 
-public final class DebitRecoveryOuterClass {
-  private DebitRecoveryOuterClass() {}
+public final class DebitRecovery {
+  private DebitRecovery() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
-  public interface DebitRecoveryOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:axis.transactions.DebitRecovery)
+  public interface DebitRecoveryRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:axis.transactions.DebitRecoveryRequest)
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
@@ -232,10 +232,20 @@ public final class DebitRecoveryOuterClass {
 
     /**
      * <pre>
+     *Request: Versão da lista de exceção disponível no validador.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 15;</code>
+     * @return The acceptanceListVersion.
+     */
+    int getAcceptanceListVersion();
+
+    /**
+     * <pre>
      *Valor da transação (presente se disponível)
      * </pre>
      *
-     * <code>int32 transaction_value = 15;</code>
+     * <code>int32 transaction_value = 16;</code>
      * @return The transactionValue.
      */
     int getTransactionValue();
@@ -245,7 +255,7 @@ public final class DebitRecoveryOuterClass {
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      * @return The lineId.
      */
     java.lang.String getLineId();
@@ -254,7 +264,7 @@ public final class DebitRecoveryOuterClass {
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      * @return The bytes for lineId.
      */
     com.google.protobuf.ByteString
@@ -265,7 +275,7 @@ public final class DebitRecoveryOuterClass {
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      * @return The vehicleId.
      */
     java.lang.String getVehicleId();
@@ -274,7 +284,7 @@ public final class DebitRecoveryOuterClass {
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      * @return The bytes for vehicleId.
      */
     com.google.protobuf.ByteString
@@ -285,7 +295,7 @@ public final class DebitRecoveryOuterClass {
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      * @return The geolocation.
      */
     java.lang.String getGeolocation();
@@ -294,21 +304,21 @@ public final class DebitRecoveryOuterClass {
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      * @return The bytes for geolocation.
      */
     com.google.protobuf.ByteString
         getGeolocationBytes();
   }
   /**
-   * Protobuf type {@code axis.transactions.DebitRecovery}
+   * Protobuf type {@code axis.transactions.DebitRecoveryRequest}
    */
-  public  static final class DebitRecovery extends
+  public  static final class DebitRecoveryRequest extends
       com.google.protobuf.GeneratedMessageLite<
-          DebitRecovery, DebitRecovery.Builder> implements
-      // @@protoc_insertion_point(message_implements:axis.transactions.DebitRecovery)
-      DebitRecoveryOrBuilder {
-    private DebitRecovery() {
+          DebitRecoveryRequest, DebitRecoveryRequest.Builder> implements
+      // @@protoc_insertion_point(message_implements:axis.transactions.DebitRecoveryRequest)
+      DebitRecoveryRequestOrBuilder {
+    private DebitRecoveryRequest() {
       deviceId_ = "";
       operatorId_ = "";
       readerSerialNumber_ = "";
@@ -1085,14 +1095,52 @@ public final class DebitRecoveryOuterClass {
       restrictionListVersion_ = 0;
     }
 
-    public static final int TRANSACTION_VALUE_FIELD_NUMBER = 15;
+    public static final int ACCEPTANCE_LIST_VERSION_FIELD_NUMBER = 15;
+    private int acceptanceListVersion_;
+    /**
+     * <pre>
+     *Request: Versão da lista de exceção disponível no validador.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 15;</code>
+     * @return The acceptanceListVersion.
+     */
+    @java.lang.Override
+    public int getAcceptanceListVersion() {
+      return acceptanceListVersion_;
+    }
+    /**
+     * <pre>
+     *Request: Versão da lista de exceção disponível no validador.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 15;</code>
+     * @param value The acceptanceListVersion to set.
+     */
+    private void setAcceptanceListVersion(int value) {
+      
+      acceptanceListVersion_ = value;
+    }
+    /**
+     * <pre>
+     *Request: Versão da lista de exceção disponível no validador.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 15;</code>
+     */
+    private void clearAcceptanceListVersion() {
+      
+      acceptanceListVersion_ = 0;
+    }
+
+    public static final int TRANSACTION_VALUE_FIELD_NUMBER = 16;
     private int transactionValue_;
     /**
      * <pre>
      *Valor da transação (presente se disponível)
      * </pre>
      *
-     * <code>int32 transaction_value = 15;</code>
+     * <code>int32 transaction_value = 16;</code>
      * @return The transactionValue.
      */
     @java.lang.Override
@@ -1104,7 +1152,7 @@ public final class DebitRecoveryOuterClass {
      *Valor da transação (presente se disponível)
      * </pre>
      *
-     * <code>int32 transaction_value = 15;</code>
+     * <code>int32 transaction_value = 16;</code>
      * @param value The transactionValue to set.
      */
     private void setTransactionValue(int value) {
@@ -1116,21 +1164,21 @@ public final class DebitRecoveryOuterClass {
      *Valor da transação (presente se disponível)
      * </pre>
      *
-     * <code>int32 transaction_value = 15;</code>
+     * <code>int32 transaction_value = 16;</code>
      */
     private void clearTransactionValue() {
       
       transactionValue_ = 0;
     }
 
-    public static final int LINE_ID_FIELD_NUMBER = 16;
+    public static final int LINE_ID_FIELD_NUMBER = 17;
     private java.lang.String lineId_;
     /**
      * <pre>
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      * @return The lineId.
      */
     @java.lang.Override
@@ -1142,7 +1190,7 @@ public final class DebitRecoveryOuterClass {
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      * @return The bytes for lineId.
      */
     @java.lang.Override
@@ -1155,7 +1203,7 @@ public final class DebitRecoveryOuterClass {
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      * @param value The lineId to set.
      */
     private void setLineId(
@@ -1169,7 +1217,7 @@ public final class DebitRecoveryOuterClass {
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      */
     private void clearLineId() {
       
@@ -1180,7 +1228,7 @@ public final class DebitRecoveryOuterClass {
      *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
-     * <code>string line_id = 16;</code>
+     * <code>string line_id = 17;</code>
      * @param value The bytes for lineId to set.
      */
     private void setLineIdBytes(
@@ -1190,14 +1238,14 @@ public final class DebitRecoveryOuterClass {
       
     }
 
-    public static final int VEHICLE_ID_FIELD_NUMBER = 17;
+    public static final int VEHICLE_ID_FIELD_NUMBER = 18;
     private java.lang.String vehicleId_;
     /**
      * <pre>
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      * @return The vehicleId.
      */
     @java.lang.Override
@@ -1209,7 +1257,7 @@ public final class DebitRecoveryOuterClass {
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      * @return The bytes for vehicleId.
      */
     @java.lang.Override
@@ -1222,7 +1270,7 @@ public final class DebitRecoveryOuterClass {
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      * @param value The vehicleId to set.
      */
     private void setVehicleId(
@@ -1236,7 +1284,7 @@ public final class DebitRecoveryOuterClass {
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      */
     private void clearVehicleId() {
       
@@ -1247,7 +1295,7 @@ public final class DebitRecoveryOuterClass {
      *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
      * </pre>
      *
-     * <code>string vehicle_id = 17;</code>
+     * <code>string vehicle_id = 18;</code>
      * @param value The bytes for vehicleId to set.
      */
     private void setVehicleIdBytes(
@@ -1257,14 +1305,14 @@ public final class DebitRecoveryOuterClass {
       
     }
 
-    public static final int GEOLOCATION_FIELD_NUMBER = 18;
+    public static final int GEOLOCATION_FIELD_NUMBER = 19;
     private java.lang.String geolocation_;
     /**
      * <pre>
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      * @return The geolocation.
      */
     @java.lang.Override
@@ -1276,7 +1324,7 @@ public final class DebitRecoveryOuterClass {
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      * @return The bytes for geolocation.
      */
     @java.lang.Override
@@ -1289,7 +1337,7 @@ public final class DebitRecoveryOuterClass {
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      * @param value The geolocation to set.
      */
     private void setGeolocation(
@@ -1303,7 +1351,7 @@ public final class DebitRecoveryOuterClass {
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      */
     private void clearGeolocation() {
       
@@ -1314,7 +1362,7 @@ public final class DebitRecoveryOuterClass {
      *Geolocalização do validador no momento da geração da passagem
      * </pre>
      *
-     * <code>string geolocation = 18;</code>
+     * <code>string geolocation = 19;</code>
      * @param value The bytes for geolocation to set.
      */
     private void setGeolocationBytes(
@@ -1324,73 +1372,73 @@ public final class DebitRecoveryOuterClass {
       
     }
 
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(byte[] data)
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseDelimitedFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseDelimitedFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1401,19 +1449,19 @@ public final class DebitRecoveryOuterClass {
     public static Builder newBuilder() {
       return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
-    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery prototype) {
+    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest prototype) {
       return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
-     * Protobuf type {@code axis.transactions.DebitRecovery}
+     * Protobuf type {@code axis.transactions.DebitRecoveryRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
-          com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery, Builder> implements
-        // @@protoc_insertion_point(builder_implements:axis.transactions.DebitRecovery)
-        com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryOrBuilder {
-      // Construct using com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery.newBuilder()
+          com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest, Builder> implements
+        // @@protoc_insertion_point(builder_implements:axis.transactions.DebitRecoveryRequest)
+        com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequestOrBuilder {
+      // Construct using com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest.newBuilder()
       private Builder() {
         super(DEFAULT_INSTANCE);
       }
@@ -2217,10 +2265,50 @@ public final class DebitRecoveryOuterClass {
 
       /**
        * <pre>
+       *Request: Versão da lista de exceção disponível no validador.
+       * </pre>
+       *
+       * <code>int32 acceptance_list_version = 15;</code>
+       * @return The acceptanceListVersion.
+       */
+      @java.lang.Override
+      public int getAcceptanceListVersion() {
+        return instance.getAcceptanceListVersion();
+      }
+      /**
+       * <pre>
+       *Request: Versão da lista de exceção disponível no validador.
+       * </pre>
+       *
+       * <code>int32 acceptance_list_version = 15;</code>
+       * @param value The acceptanceListVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAcceptanceListVersion(int value) {
+        copyOnWrite();
+        instance.setAcceptanceListVersion(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Request: Versão da lista de exceção disponível no validador.
+       * </pre>
+       *
+       * <code>int32 acceptance_list_version = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAcceptanceListVersion() {
+        copyOnWrite();
+        instance.clearAcceptanceListVersion();
+        return this;
+      }
+
+      /**
+       * <pre>
        *Valor da transação (presente se disponível)
        * </pre>
        *
-       * <code>int32 transaction_value = 15;</code>
+       * <code>int32 transaction_value = 16;</code>
        * @return The transactionValue.
        */
       @java.lang.Override
@@ -2232,7 +2320,7 @@ public final class DebitRecoveryOuterClass {
        *Valor da transação (presente se disponível)
        * </pre>
        *
-       * <code>int32 transaction_value = 15;</code>
+       * <code>int32 transaction_value = 16;</code>
        * @param value The transactionValue to set.
        * @return This builder for chaining.
        */
@@ -2246,7 +2334,7 @@ public final class DebitRecoveryOuterClass {
        *Valor da transação (presente se disponível)
        * </pre>
        *
-       * <code>int32 transaction_value = 15;</code>
+       * <code>int32 transaction_value = 16;</code>
        * @return This builder for chaining.
        */
       public Builder clearTransactionValue() {
@@ -2260,7 +2348,7 @@ public final class DebitRecoveryOuterClass {
        *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
-       * <code>string line_id = 16;</code>
+       * <code>string line_id = 17;</code>
        * @return The lineId.
        */
       @java.lang.Override
@@ -2272,7 +2360,7 @@ public final class DebitRecoveryOuterClass {
        *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
-       * <code>string line_id = 16;</code>
+       * <code>string line_id = 17;</code>
        * @return The bytes for lineId.
        */
       @java.lang.Override
@@ -2285,7 +2373,7 @@ public final class DebitRecoveryOuterClass {
        *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
-       * <code>string line_id = 16;</code>
+       * <code>string line_id = 17;</code>
        * @param value The lineId to set.
        * @return This builder for chaining.
        */
@@ -2300,7 +2388,7 @@ public final class DebitRecoveryOuterClass {
        *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
-       * <code>string line_id = 16;</code>
+       * <code>string line_id = 17;</code>
        * @return This builder for chaining.
        */
       public Builder clearLineId() {
@@ -2313,7 +2401,7 @@ public final class DebitRecoveryOuterClass {
        *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
-       * <code>string line_id = 16;</code>
+       * <code>string line_id = 17;</code>
        * @param value The bytes for lineId to set.
        * @return This builder for chaining.
        */
@@ -2329,7 +2417,7 @@ public final class DebitRecoveryOuterClass {
        *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
        * </pre>
        *
-       * <code>string vehicle_id = 17;</code>
+       * <code>string vehicle_id = 18;</code>
        * @return The vehicleId.
        */
       @java.lang.Override
@@ -2341,7 +2429,7 @@ public final class DebitRecoveryOuterClass {
        *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
        * </pre>
        *
-       * <code>string vehicle_id = 17;</code>
+       * <code>string vehicle_id = 18;</code>
        * @return The bytes for vehicleId.
        */
       @java.lang.Override
@@ -2354,7 +2442,7 @@ public final class DebitRecoveryOuterClass {
        *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
        * </pre>
        *
-       * <code>string vehicle_id = 17;</code>
+       * <code>string vehicle_id = 18;</code>
        * @param value The vehicleId to set.
        * @return This builder for chaining.
        */
@@ -2369,7 +2457,7 @@ public final class DebitRecoveryOuterClass {
        *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
        * </pre>
        *
-       * <code>string vehicle_id = 17;</code>
+       * <code>string vehicle_id = 18;</code>
        * @return This builder for chaining.
        */
       public Builder clearVehicleId() {
@@ -2382,7 +2470,7 @@ public final class DebitRecoveryOuterClass {
        *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
        * </pre>
        *
-       * <code>string vehicle_id = 17;</code>
+       * <code>string vehicle_id = 18;</code>
        * @param value The bytes for vehicleId to set.
        * @return This builder for chaining.
        */
@@ -2398,7 +2486,7 @@ public final class DebitRecoveryOuterClass {
        *Geolocalização do validador no momento da geração da passagem
        * </pre>
        *
-       * <code>string geolocation = 18;</code>
+       * <code>string geolocation = 19;</code>
        * @return The geolocation.
        */
       @java.lang.Override
@@ -2410,7 +2498,7 @@ public final class DebitRecoveryOuterClass {
        *Geolocalização do validador no momento da geração da passagem
        * </pre>
        *
-       * <code>string geolocation = 18;</code>
+       * <code>string geolocation = 19;</code>
        * @return The bytes for geolocation.
        */
       @java.lang.Override
@@ -2423,7 +2511,7 @@ public final class DebitRecoveryOuterClass {
        *Geolocalização do validador no momento da geração da passagem
        * </pre>
        *
-       * <code>string geolocation = 18;</code>
+       * <code>string geolocation = 19;</code>
        * @param value The geolocation to set.
        * @return This builder for chaining.
        */
@@ -2438,7 +2526,7 @@ public final class DebitRecoveryOuterClass {
        *Geolocalização do validador no momento da geração da passagem
        * </pre>
        *
-       * <code>string geolocation = 18;</code>
+       * <code>string geolocation = 19;</code>
        * @return This builder for chaining.
        */
       public Builder clearGeolocation() {
@@ -2451,7 +2539,7 @@ public final class DebitRecoveryOuterClass {
        *Geolocalização do validador no momento da geração da passagem
        * </pre>
        *
-       * <code>string geolocation = 18;</code>
+       * <code>string geolocation = 19;</code>
        * @param value The bytes for geolocation to set.
        * @return This builder for chaining.
        */
@@ -2462,7 +2550,7 @@ public final class DebitRecoveryOuterClass {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:axis.transactions.DebitRecovery)
+      // @@protoc_insertion_point(builder_scope:axis.transactions.DebitRecoveryRequest)
     }
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -2471,7 +2559,7 @@ public final class DebitRecoveryOuterClass {
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
-          return new com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery();
+          return new com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest();
         }
         case NEW_BUILDER: {
           return new Builder();
@@ -2492,15 +2580,17 @@ public final class DebitRecoveryOuterClass {
               "emvParametersVersion_",
               "binParametersVersion_",
               "restrictionListVersion_",
+              "acceptanceListVersion_",
               "transactionValue_",
               "lineId_",
               "vehicleId_",
               "geolocation_",
             };
             java.lang.String info =
-                "\u0000\u0012\u0000\u0000\u0001\u0012\u0012\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
+                "\u0000\u0013\u0000\u0000\u0001\u0013\u0013\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
                 "\u0003\u0208\u0004\u0208\u0005\u0004\u0006\t\u0007\t\b\u0208\t\n\n\u0208\u000b\n" +
-                "\f\u0004\r\u0004\u000e\u0004\u000f\u0004\u0010\u0208\u0011\u0208\u0012\u0208";
+                "\f\u0004\r\u0004\u000e\u0004\u000f\u0004\u0010\u0004\u0011\u0208\u0012\u0208\u0013" +
+                "\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2508,13 +2598,13 @@ public final class DebitRecoveryOuterClass {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery> parser = PARSER;
+          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest> parser = PARSER;
           if (parser == null) {
-            synchronized (com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery.class) {
+            synchronized (com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest.class) {
               parser = PARSER;
               if (parser == null) {
                 parser =
-                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery>(
+                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest>(
                         DEFAULT_INSTANCE);
                 PARSER = parser;
               }
@@ -2533,24 +2623,24 @@ public final class DebitRecoveryOuterClass {
     }
 
 
-    // @@protoc_insertion_point(class_scope:axis.transactions.DebitRecovery)
-    private static final com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:axis.transactions.DebitRecoveryRequest)
+    private static final com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest DEFAULT_INSTANCE;
     static {
-      DebitRecovery defaultInstance = new DebitRecovery();
+      DebitRecoveryRequest defaultInstance = new DebitRecoveryRequest();
       // New instances are implicitly immutable so no need to make
       // immutable.
       DEFAULT_INSTANCE = defaultInstance;
       com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        DebitRecovery.class, defaultInstance);
+        DebitRecoveryRequest.class, defaultInstance);
     }
 
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecovery getDefaultInstance() {
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static volatile com.google.protobuf.Parser<DebitRecovery> PARSER;
+    private static volatile com.google.protobuf.Parser<DebitRecoveryRequest> PARSER;
 
-    public static com.google.protobuf.Parser<DebitRecovery> parser() {
+    public static com.google.protobuf.Parser<DebitRecoveryRequest> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -2937,73 +3027,73 @@ public final class DebitRecoveryOuterClass {
       
     }
 
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(byte[] data)
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseDelimitedFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3014,7 +3104,7 @@ public final class DebitRecoveryOuterClass {
     public static Builder newBuilder() {
       return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
-    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse prototype) {
+    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse prototype) {
       return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
@@ -3023,10 +3113,10 @@ public final class DebitRecoveryOuterClass {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
-          com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse, Builder> implements
+          com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse, Builder> implements
         // @@protoc_insertion_point(builder_implements:axis.transactions.DebitRecoveryResponse)
-        com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponseOrBuilder {
-      // Construct using com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse.newBuilder()
+        com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponseOrBuilder {
+      // Construct using com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse.newBuilder()
       private Builder() {
         super(DEFAULT_INSTANCE);
       }
@@ -3339,7 +3429,7 @@ public final class DebitRecoveryOuterClass {
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
-          return new com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse();
+          return new com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse();
         }
         case NEW_BUILDER: {
           return new Builder();
@@ -3363,13 +3453,13 @@ public final class DebitRecoveryOuterClass {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse> parser = PARSER;
+          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse> parser = PARSER;
           if (parser == null) {
-            synchronized (com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse.class) {
+            synchronized (com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse.class) {
               parser = PARSER;
               if (parser == null) {
                 parser =
-                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse>(
+                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse>(
                         DEFAULT_INSTANCE);
                 PARSER = parser;
               }
@@ -3389,7 +3479,7 @@ public final class DebitRecoveryOuterClass {
 
 
     // @@protoc_insertion_point(class_scope:axis.transactions.DebitRecoveryResponse)
-    private static final com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse DEFAULT_INSTANCE;
+    private static final com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse DEFAULT_INSTANCE;
     static {
       DebitRecoveryResponse defaultInstance = new DebitRecoveryResponse();
       // New instances are implicitly immutable so no need to make
@@ -3399,7 +3489,7 @@ public final class DebitRecoveryOuterClass {
         DebitRecoveryResponse.class, defaultInstance);
     }
 
-    public static com.axismobfintech.gpb.transactions.DebitRecoveryOuterClass.DebitRecoveryResponse getDefaultInstance() {
+    public static com.axismobfintech.gpb.transactions.DebitRecovery.DebitRecoveryResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 

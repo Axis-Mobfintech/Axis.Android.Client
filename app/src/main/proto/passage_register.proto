@@ -8,7 +8,7 @@ option csharp_namespace = "Axis.GPB.Transactions";
 
 import "google/protobuf/timestamp.proto";
 
-message RegisterPassage {
+message RegisterPassageRequest {
     //Identificação do Validador.
     string device_id = 1;
     //Identificação da operadora de transportes.
@@ -37,14 +37,16 @@ message RegisterPassage {
     int32 bin_parameters_version = 13;
     //Request: Versão da lista de exceção disponível no validador.
     int32 restriction_list_version = 14;
+    //Request: Versão da lista de exceção disponível no validador.
+    int32 acceptance_list_version = 15;
     //Valor da transação (presente se disponível)
-    int32 transaction_value = 15;
+    int32 transaction_value = 16;
     //Identificação da linha/viagem (presente se disponível no momento do registro).
-    string line_id = 16;
+    string line_id = 17;
     //Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
-    string vehicle_id = 17;
+    string vehicle_id = 18;
     //Geolocalização do validador no momento da geração da passagem
-    string geolocation = 18;
+    string geolocation = 19;
 }
 
 message RegisterPassageResponse {
@@ -62,6 +64,6 @@ message RegisterPassageResponse {
     string device_suid = 6;
 }
 
-service Transactions {
-    rpc MakeTransaction (RegisterPassage) returns (RegisterPassageResponse);
+service RegisterPassageService {
+    rpc MakeTransaction (RegisterPassageRequest) returns (RegisterPassageResponse);
 }

@@ -10,18 +10,19 @@ import android.util.Log;
 import com.axismobfintech.gpb.transactions.AcceptedBin;
 import com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass;
 import com.axismobfintech.gpb.transactions.CapkTable;
-import com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass;
 import com.axismobfintech.gpb.transactions.DeviceParameters;
-import com.axismobfintech.gpb.transactions.DevicesParametersGrpc;
-import com.axismobfintech.gpb.transactions.DevicesManagerGrpc;
+import com.axismobfintech.gpb.transactions.DeviceParametersServiceGrpc;
+import com.axismobfintech.gpb.transactions.DeviceRegister;
+import com.axismobfintech.gpb.transactions.DeviceRegisterServiceGrpc;
 import com.axismobfintech.gpb.transactions.PassageRegister;
-import com.axismobfintech.gpb.transactions.TransactionsGrpc;
+import com.axismobfintech.gpb.transactions.RegisterPassageServiceGrpc;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber;
 
 import com.google.protobuf.ByteString;
 //import static com.google.protobuf.util.Timestamps.fromMillis;
 import static com.idtechproducts.device.Common.getHexStringFromBytes;
+import static com.idtechproducts.device.Common.hexStringToByteArray;
 import static java.lang.System.currentTimeMillis;
 
 import com.google.protobuf.Timestamp;
@@ -37,16 +38,24 @@ import com.idtechproducts.device.ResDataStruct;
 import com.idtechproducts.device.StructConfigParameters;
 import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.Instant;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.SSLSocketFactory;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -58,15 +67,20 @@ import br.com.setis.axisdemoapp.room.Pan;
 import br.com.setis.axisdemoapp.room.ValidadorDatabase;
 import br.com.setis.axisdemoapp.room.ValidadorInfo;
 
+import io.grpc.ChannelCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.netty.GrpcSslContexts;
+import io.grpc.StatusRuntimeException;
+import io.grpc.netty.shaded.io.grpc.netty.GrpcSslContexts;
+import io.grpc.netty.shaded.io.grpc.netty.NettyChannelBuilder;
+import io.grpc.netty.shaded.io.netty.handler.ssl.SslContext;
 import io.grpc.okhttp.OkHttpChannelBuilder;
-import io.grpc.stub.StreamObserver;
+import io.grpc.okhttp.SslSocketFactoryChannelCredentials;
 
 import static br.com.setis.axisdemoapp.data.Util.getTimestamp;
 import static br.com.setis.axisdemoapp.data.Util.getValueByTag;
 import static com.idtechproducts.device.Common.isFileExist;
+
 
 
 public class ValidadorViewModel extends ViewModel {
@@ -78,10 +92,15 @@ public class ValidadorViewModel extends ViewModel {
 
     private MutableLiveData<String> simulData;
 
-    private String idValidador = "0123456789ABCDE"; //A15
+    private String idValidador = "8b0f254e-8dea-4ee3-bfd2-02f7b80a40e6"; //A15
     private byte[] codRegistro = "0123456789".getBytes(); //B20
 
-    private final String axisProd = "4ioiybj5xk.execute-api.sa-east-1.amazonaws.com";
+    //private final String axisProd = "4ioiybj5xk.execute-api.sa-east-1.amazonaws.com";
+    //private final String axisProd = "transaction.axis-mobfintech.com";
+    //private final String axisProd = "54.213.234.140";
+    private final String axisProd = "transaction-dev.axis-mobfintech.com";
+
+    private final int axisPort = 5001;
 
     private Context context;
     private ValidadorDatabase db;
@@ -196,6 +215,12 @@ public class ValidadorViewModel extends ViewModel {
                         boolean parAvailable = false;
                         boolean hashAvailable = false;
 
+
+                        String resultDatStr = Common.getHexStringFromBytes(idtmsrData.cardData);
+                        String parsedTags = Util.getTransactionRegisterTags(resultDatStr);
+                        Log.d(mTAG, "Parsed:"+parsedTags);
+                        byte[] cardDataParsed = Common.hexStringToByteArray(parsedTags);
+
                         ValidadorInfo info = db.validadorInfoDAO().getInfo();
                         displayLog("Cartão lido com sucesso.");
 
@@ -268,7 +293,7 @@ public class ValidadorViewModel extends ViewModel {
 
 
                         //Passo 3: Validação do hashPAN
-                        ///*
+                        /*
                         //todo comentado para demonstração.
                         if (panHash != null) {
                             String strHashPan = Common.bytesToHex(panHash).substring(0, 24);
@@ -312,7 +337,7 @@ public class ValidadorViewModel extends ViewModel {
                                 //return;
                             }
                         }
-                        //*/
+                        */
 
                         //Todo validar passo 5: Conferir data de validade
                         /*
@@ -331,7 +356,8 @@ public class ValidadorViewModel extends ViewModel {
                         displayLog("Validação finalizada.");
 
                         //monta o objeto para envio ao Axis baseado na leitura dos dados do cartão.
-                        final PassageRegister.RegisterPassage request = PassageRegister.RegisterPassage.newBuilder()
+                        final PassageRegister.RegisterPassageRequest request = PassageRegister.RegisterPassageRequest.newBuilder()
+                                /*
                                 .setDeviceId(info.idValidador)
                                 .setOperatorId(info.idOperador)
                                 .setReaderSerialNumber(info.nsLeitor)
@@ -350,50 +376,88 @@ public class ValidadorViewModel extends ViewModel {
                                 .setLineId(info.idLinha)
                                 .setVehicleId(info.idVeiculo)
                                 .setGeolocation("23.563,-46.186")
+                                */
+
+                                .setDeviceId("8b0f254e-8dea-4ee3-bfd2-02f7b80a40e6")
+                                .setVehicleId("1")
+                                .setLineId("1")
+                                .setRestrictionListVersion(0)
+                                .setTransactionDate(getTimestamp())
+                                .setRegisterCode(0)
+                                .setAcceptanceListVersion(0)
+                                .setBinParametersVersion(0)
+                                .setTransactionValue(430)
+                                //.setDeviceSerialNumber("fe014e4d433034474104240f6e52e7")
+                                .setDeviceSerialNumber("1234567890")
+                                //.setTransactionData(ByteString.copyFrom(idtmsrData.cardData))
+                                .setTransactionData(ByteString.copyFrom(cardDataParsed))
+                                .setOperatorId("1436a561-0a2f-426d-9541-fc69c1b0db08")
+                                .setReaderSerialNumber("1")
+                                .setPanHash(ByteString.copyFrom(panHash))
+                                .setPassageDate(getTimestamp())
                                 .build();
 
                         PassageRegister.RegisterPassageResponse response;
+                        SslContext sslContext;
+                        ManagedChannel channel;
                         try {
-                            io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
-                            TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
+                            sslContext = GrpcSslContexts.forClient().trustManager(context.getResources().openRawResource(R.raw.setis_edited)).build();
+                            channel = NettyChannelBuilder.forAddress(axisProd, axisPort)
+                                    .sslContext(sslContext)
+                                    .build();
+                        } catch (IOException e) {
+                            displayLog("Erro certificado invalido.");
+                            //liveData.postValue("Erro certificado invalido.");
+                            sendTransactionStatus("RECUSADA: certificado invalido." );
+                            return;
+                        }
 
+                        try {
+                            RegisterPassageServiceGrpc.RegisterPassageServiceBlockingStub stub = RegisterPassageServiceGrpc.newBlockingStub(channel);
                             response = stub.makeTransaction(request);
 
-                        } catch (io.grpc.StatusRuntimeException e) {
-                            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
-                            liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
-                            return;
-                        }
-
-                        if (response.getResponseCode() != 0) {
-                            sendTransactionStatus("Erro no Registro da Passagem:" + response.getResponseCode());
-                            return;
-                        }
-
-                        displayLog("Versão da Tabela de BIN:" + response.getBinParametersVersion());
-                        displayLog("Versão da Tabela EMV:" + response.getEmvParametersVersion());
-                        displayLog("Versão da lista de restrição:" + response.getRestrictionListVersion());
-                        displayLog("NSU do validador:" + response.getDeviceSuid());
-                        displayLog("NSU do gateway:" + response.getGatewayUid());
-
-                        sendTransactionStatus("Registro da Passagem Aprovado!");
-
-                        db.validadorInfoDAO().updateNsu(info.nsuValidador + 1);
-                        //executa som ao aprovar um cartão mastercard.
-                        aux = getValueByTag(idtmsrData, "9f06");
-                        if (aux != null) {
-                            //rid master
-                            if (aux.contains("A000000004") || aux.contains("A000000861")) {
-                                mastercardSound.start();
+                            channel.shutdown();
+                            displayLog("Resposta do servidor Grpc recebida.");
+                            //servidor enviou resposta
+                            if (response.getResponseCode() != 0) {
+                                sendTransactionStatus("RECUSADA:" + response.getResponseCode());
+                                displayLog(String.format("Servidor retornou codigo de resposta [%d]", response.getResponseCode()));
+                                return;
                             }
-                        }
 
-                        db.validadorInfoDAO().updateNsu(info.nsuValidador+1);
-                        db.validadorInfoDAO().updateLastPanHash(Common.bytesToHex(panHash).substring(0, 24));
+                            displayLog("Versão da Tabela de BIN:" + response.getBinParametersVersion());
+                            displayLog("Versão da Tabela EMV:" + response.getEmvParametersVersion());
+                            displayLog("Versão da lista de restrição:" + response.getRestrictionListVersion());
+                            displayLog("NSU do validador:" + response.getDeviceSuid());
+                            displayLog("NSU do gateway:" + response.getGatewayUid());
+
+                            sendTransactionStatus("APROVADA");
+                            //sendTransactionStatus("Registro da Passagem Aprovado!");
+
+                            db.validadorInfoDAO().updateNsu(info.nsuValidador + 1);
+                            //executa som ao aprovar um cartão mastercard.
+                            aux = getValueByTag(idtmsrData, "9f06");
+                            if (aux != null) {
+                                //rid master
+                                if (aux.contains("A000000004") || aux.contains("A000000861")) {
+                                    mastercardSound.start();
+                                }
+                            }
+
+                            db.validadorInfoDAO().updateNsu(info.nsuValidador+1);
+                            db.validadorInfoDAO().updateLastPanHash(Common.bytesToHex(panHash).substring(0, 24));
+
+                        } catch (io.grpc.StatusRuntimeException e) {
+                            e.printStackTrace();
+                            channel.shutdown();
+                            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                            //liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                            sendTransactionStatus("RECUSADA: erro durante envio de dados ao servidor.");
+                            return;
+                        }
+                        Log.d(mTAG, "fim do processo transacional.");
                     }
                 });
-
-
             }
 
             @Override
@@ -559,10 +623,10 @@ public class ValidadorViewModel extends ViewModel {
 
                 //TODO obter dados do leitor / usuário
                 ValidadorInfo info = new ValidadorInfo();
-                info.idValidador = "1";
-                info.idOperador = "1";
+                info.idValidador = "8b0f254e-8dea-4ee3-bfd2-02f7b80a40e6";
+                info.idOperador = "1436a561-0a2f-426d-9541-fc69c1b0db08";
                 info.nsLeitor = "1";
-                info.nsValidador = "1";
+                info.nsValidador = "1234567890";
                 info.idLinha = "1";
                 info.idVeiculo = "1";
                 info.codRegistro = "01020304050607080900";
@@ -571,42 +635,60 @@ public class ValidadorViewModel extends ViewModel {
 
                 db.validadorInfoDAO().insertBaseValues(info);
 
-                final DeviceRegisterOuterClass.DeviceRegister request = DeviceRegisterOuterClass.DeviceRegister.newBuilder()
-                        .setOperatorId(info.idOperador)
-                        .setReaderSerialNumber(info.nsLeitor)
-                        .setVehicleId(info.idVeiculo)
-                        .setDeviceSerialNumber("123456")
-                        .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("1234"))
+                long millis = System.currentTimeMillis();
+                Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000).setNanos((int) ((millis % 1000) * 1000000)).build();
+
+                final DeviceRegister.DeviceRegisterRequest request = DeviceRegister.DeviceRegisterRequest.newBuilder()
+                        .setOperatorId("1436a561-0a2f-426d-9541-fc69c1b0db08")
+                        .setReaderSerialNumber("1")
+                        .setVehicleId("1")
+                        //.setDeviceSerialNumber("fe014e4d433034474104240f6e52e7")
+                        .setDeviceSerialNumber("1234567890")
+                        .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("0000000000"))
                         .setLineId("123456")
-                        //.setRegisterDate(fromMillis(currentTimeMillis()))
+                        .setRegisterDate(timestamp)
                         .build();
 
-                DeviceRegisterOuterClass.DeviceRegisterResponse response;
-                try {
-                    io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
-                    DevicesManagerGrpc.DevicesManagerBlockingStub stub = DevicesManagerGrpc.newBlockingStub(channel);
+                DeviceRegister.DeviceRegisterResponse response;
 
+                SslContext sslContext;
+                ManagedChannel channel;
+                try {
+                    sslContext = GrpcSslContexts.forClient().trustManager(context.getResources().openRawResource(R.raw.setis_edited)).build();
+                    channel = NettyChannelBuilder.forAddress(axisProd, axisPort)
+                            .sslContext(sslContext)
+                            .build();
+                } catch (IOException e) {
+                    displayLog("Erro: certificado invalido.");
+                    liveData.postValue("Erro: certificado invalido.");
+                    return;
+                }
+
+                try {
+                    DeviceRegisterServiceGrpc.DeviceRegisterServiceBlockingStub stub = DeviceRegisterServiceGrpc.newBlockingStub(channel);
                     response = stub.registerDevice(request);
 
+                    channel.shutdown();
+                    if (response.getResponseCode() != 0) {
+                        sendTransactionStatus("Erro no Registro da Passagem:" + response.getResponseCode());
+                        displayLog(String.format("Servidor retornou codigo de resposta [%d]", response.getResponseCode()));
+                        return;
+                    }
+
+                    displayLog("ID do Dispositivo:" + response.getDeviceId());
+                    displayLog("Código de registro:" + response.getRegisterCode());
+                    displayLog("Data de registro:" + response.getRegisterDate());
+
+                    sendTransactionStatus("Registro do Dispositivo Aprovado!");
+
+                    liveData.postValue("Registro OK");
                 } catch (io.grpc.StatusRuntimeException e) {
+                    e.printStackTrace();
+                    channel.shutdown();
                     displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
                     liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
                     return;
                 }
-
-                if (response.getResponseCode() != 0) {
-                    liveData.postValue("Erro no Registro do Validador:" + response.getResponseCode());
-                    return;
-                }
-
-                displayLog("ID do Dispositivo:" + response.getDeviceId());
-                displayLog("Código de registro:" + response.getRegisterCode());
-                displayLog("Data de registro:" + response.getRegisterDate());
-
-                sendTransactionStatus("Registro do Dispositivo Aprovado!");
-
-                liveData.postValue("Registro OK");
-                
             }
         });
     }
@@ -726,42 +808,6 @@ public class ValidadorViewModel extends ViewModel {
                         displayLog("Utilizando configurações padrão do leitor.");
                     }
 
-                    final DeviceParameters.Parameters request = DeviceParameters.Parameters.newBuilder()
-                            .setBinParametersVersion(info.vrsPrmBIN)
-                            .setEmvParametersVersion(info.vrsPrmEMV)
-                            .setDeviceId(info.idValidador)
-                            .setOperatorId(info.idOperador)
-                            .setDeviceSerialNumber(info.nsValidador)
-                            .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("1234"))
-                            .setLineId(info.idLinha)
-                            .setReaderSerialNumber(info.nsLeitor)
-                            .setRegisterCode(12345)
-                            .setRegisterDate(getTimestamp())
-                            .setVehicleId(info.idVeiculo)
-                            .build();
-
-                    DeviceParameters.ParametersResponse response;
-                    try {
-                        io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
-                        DevicesParametersGrpc.DevicesParametersBlockingStub stub = DevicesParametersGrpc.newBlockingStub(channel);
-
-                        response = stub.getDeviceParameters(request);
-
-                    } catch (io.grpc.StatusRuntimeException e) {
-                        displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
-                        liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
-                        return;
-                    }
-
-                    if (response.getResponseCode() != 0) {
-                        sendTransactionStatus("Erro na Requisição de Parâmetros:" + response.getResponseCode());
-                        return;
-                    }
-
-                    logDeviceParameters(response);
-
-                    //TODO salvar os parâmetros recebidos do Servidor AXIS!
-
                     //Configuração de BIN
                     displayLog("Removendo BIN's cadastrados.");
                     db.binDAO().deleteAll();
@@ -779,10 +825,57 @@ public class ValidadorViewModel extends ViewModel {
 
                     displayLog("Tabela de BINs atualizada. Versão 1.");
 
+                    DeviceParameters.ParametersRequest request = DeviceParameters.ParametersRequest.newBuilder()
+                            .setBinParametersVersion(info.vrsPrmBIN)
+                            .setEmvParametersVersion(info.vrsPrmEMV)
+                            .setDeviceId(info.idValidador)
+                            .setOperatorId(info.idOperador)
+                            .setDeviceSerialNumber(info.nsValidador)
+                            .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("1234"))
+                            .setLineId(info.idLinha)
+                            .setReaderSerialNumber(info.nsLeitor)
+                            .setRegisterCode(12345)
+                            .setRegisterDate(getTimestamp())
+                            .setVehicleId(info.idVeiculo)
+                            .build();
+
+                    DeviceParameters.ParametersResponse response;
+                    SslContext sslContext;
+                    ManagedChannel channel;
+
+                    try {
+                        sslContext = GrpcSslContexts.forClient().trustManager(context.getResources().openRawResource(R.raw.setis_edited)).build();
+                        channel = NettyChannelBuilder.forAddress(axisProd, axisPort)
+                                .sslContext(sslContext)
+                                .build();
+                    } catch (IOException e) {
+                        displayLog("Erro: certificado invalido.");
+                        liveData.postValue("Erro: certificado invalido.");
+                        return;
+                    }
+
+                    try {
+                        DeviceParametersServiceGrpc.DeviceParametersServiceBlockingStub stub = DeviceParametersServiceGrpc.newBlockingStub(channel);
+                        response = stub.getDeviceParameters(request);
+
+                        channel.shutdown();
+                        if (response.getResponseCode() != 0) {
+                            sendTransactionStatus("Erro no Registro da Passagem:" + response.getResponseCode());
+                            displayLog(String.format("Servidor retornou codigo de resposta [%d]", response.getResponseCode()));
+                            return;
+                        }
+                        logDeviceParameters(response);
+                    } catch (io.grpc.StatusRuntimeException e) {
+                        e.printStackTrace();
+                        channel.shutdown();
+                        displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+                        liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+                        return;
+                    }
                 }
             });
         } else {
-            displayLog("Erro: Leitor não encontrado.");
+            displayLog("Erro: Leitor nao encontrado.");
         }
     }
 
@@ -841,7 +934,13 @@ public class ValidadorViewModel extends ViewModel {
      * passagem.
      * */
     public void registrarPassagem() {
+        Log.d(mTAG, "metodo registrar passagem chamado.");
         resetLog();
+        if (device == null) {
+            Log.d(mTAG, "reconectando ao leitor.");
+            reconectarLeitor();
+        }
+
         if (device != null && device.device_pingDevice() == ErrorCode.SUCCESS) {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(new Runnable() {
@@ -861,7 +960,8 @@ public class ValidadorViewModel extends ViewModel {
                 }
             });
         } else {
-            displayLog("Erro: Leitor não encontrado.");
+
+            displayLog("Erro: Leitor nao encontrado.");
         }
     }
 
@@ -914,7 +1014,7 @@ public class ValidadorViewModel extends ViewModel {
             checkAid();
             //deleteAllAid();
         } else {
-            displayLog("Erro: Leitor não encontrado.");
+            displayLog("Erro: Leitor nao encontrado.");
         }
     }
 
@@ -964,6 +1064,9 @@ public class ValidadorViewModel extends ViewModel {
         handler.post(new Runnable() {
             @Override
             public void run() {
+                if (transactionLiveData == null) {
+                    transactionLiveData = new MutableLiveData<String>();
+                }
                 transactionLiveData.setValue(status);
             }
         });
@@ -1008,80 +1111,81 @@ public class ValidadorViewModel extends ViewModel {
         byte[] panHash = {(byte)0xe2, (byte)0x23, (byte)0xa7, 0x67, 0x75, 0x71, 0x54, (byte)0x9b,
                 0x39, 0x56, 0x00};
 
-        byte[] transactionData = {(byte)0x9f, 0x06, 0x00, 0x07, (byte)0xa0,
-                0x00, 0x00, 0x00, 0x04, 0x10, 0x10};
+        //byte[] resData = hexStringToByteArray("5669564f746563683200020a01b7c1ffee120a629949009900042000fbffee1f0455900009500c56495341204352454449544f57a113415275cccccc1117d2411201cccccccccccccc57c118dfa65220cb98aafb58c7459fa8968f98a898cac8fb6d8d3e5aa108415275cccccc11175ac1103dfab28878512b777632bac52dc4c1268407a00000000310105f24032411305f2a0209865f34010082022000950500000000009a032107199c01009f02060000000001009f0607a00000000310109f0702ff009f090200029f0e052010a800009f0f05986854f8009f100706010a03a028009f1a0200769f21031442299f260827603745205709149f2701809f360200259f3704a85ed1d79f5d060000000000009f3901079f6c0228405f2d0870746573656e66729f1101019f120c56495341204352454449544f9f03060000000000009f3501259f33030008e89f400560000030009f34033f0001ffee010cdf520100df300100df5b0108dfef7f01009f6604218040009f1e0838333654303835315f280200769f410400000345dfed4b206eb357f9602e1cac7efaa6b10f25248f11102b342815f8c1ed022e051780bba4dfed5d0a415275be7a8777101117dfee2601c17582");
 
-        final PassageRegister.RegisterPassage request = PassageRegister.RegisterPassage.newBuilder()
-                .setDeviceId("1")
-                .setOperatorId("1")
-                .setReaderSerialNumber("1")
-                .setDeviceSerialNumber("1")
-                .setRegisterCode(12345)
-                .setPassageDate(getTimestamp())
-                .setTransactionDate(getTimestamp())
-                .setDeviceSuid(Integer.toString(1))
-                .setPanHash(ByteString.copyFrom(panHash))
-                //.setParCard()
-                .setTransactionData(ByteString.copyFrom(transactionData))
-                .setEmvParametersVersion(1)
-                .setBinParametersVersion(1)
-                .setRestrictionListVersion(1)
-                .setTransactionValue(400)
-                .setLineId("1")
+        String resultDatStr = "5669564F7465636832000223027FC1FFEE120A629949009900042000F19F3901078E0E000000000000000002031E031F035F25032104125F280200765F2D067074656E65739F0607A00000086110109F0D05B4508400049F0E0500000000009F0F05B4708480049F21031341089F420209869F6D0200019F6E0700760000303000DFEE7605000000000EDF830701029F40052000000001DF8116161E040000007074656E65730000000000000000000000DF81290830F0F000B0F0FF00FF810628DF8115060000000000FF9F42020986DF810B0100DF810E0100DF810F01009F6E0700760000303000FF81058201069F02060000000004309F03060000000000009F26089661B8CCEAA287EE5F2403270430820219815004415849535AA108250045CCCCCC95005AC1106F927B891CE0EB7F82264BBF8B1D77415F3401009F1204415849539F3602002B9F0702FF009F090200028407A00000086110109F1E0830303030303030309F1101019F2701809F34031F03029F10120110A04001220000000000000000000000FF9F33030008089F1A0200769F3501259505000000000E57A113250045CCCCCC9500D2704201CCCCCCCCCCCCCC57C118B7333D472BE5ACA3CF96369D7547C1C06D08C9C9395E0C649F5301585F2A0209869A032107169C01009F3704AA42729EDF830602003D9F15024131DF8116161B000000007074656E657300000000000000000000009F420209865F280200769F410400000323DFED4B20CA47911725281961235835EBB6825851B839BCE0B9A76860E48154F78CE42961DFED5D0A250045A367E00B809500DFEE2601C1DFEF4C06002700000000DFEF4D28C973D699DCDBDEDBEB509D4514119FE612458FB181A507C032E701F67FD50A7DD7D5C2D4CEDA9DBF0706";
+        byte[] resData = hexStringToByteArray(resultDatStr);
+
+        String ff = Util.getTransactionRegisterTags(resultDatStr);
+        Log.d(mTAG, "res:"+ff);
+
+        byte[] transactionData2 = hexStringToByteArray(ff);
+
+/*
+        IDTMSRData ddt = new IDTMSRData();
+        Common.parseCardData3in1(resData, ddt);
+        String res2 = Common.getHexStringFromBytes(ddt.cardData);
+        */
+
+
+        final PassageRegister.RegisterPassageRequest request = PassageRegister.RegisterPassageRequest.newBuilder()
+                .setDeviceId("8b0f254e-8dea-4ee3-bfd2-02f7b80a40e6")
                 .setVehicleId("1")
-                .setGeolocation("23.563,-46.186")
+                .setLineId("1")
+                .setRestrictionListVersion(0)
+                .setTransactionDate(getTimestamp())
+                .setRegisterCode(0)
+                .setAcceptanceListVersion(0)
+                .setBinParametersVersion(0)
+                .setTransactionValue(430)
+                //.setDeviceSerialNumber("fe014e4d433034474104240f6e52e7")
+                .setDeviceSerialNumber("1234567890")
+                .setTransactionData(ByteString.copyFrom(transactionData2))
+                .setOperatorId("1436a561-0a2f-426d-9541-fc69c1b0db08")
+                .setReaderSerialNumber("1")
+                .setPassageDate(getTimestamp())
+                //.setDeviceSuid(Integer.toString(1))
+                //.setPanHash(ByteString.copyFrom(panHash))
+                //.setParCard()
+                //.setEmvParametersVersion(1)
+                //.setBinParametersVersion(1)
+                //.setGeolocation("23.563,-46.186")
                 .build();
 
         PassageRegister.RegisterPassageResponse response;
+
+        SslContext sslContext;
+        ManagedChannel channel;
+
         try {
-            io.grpc.Channel channel = ManagedChannelBuilder.forAddress(axisProd, 443).build();
-            TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
-
-            response = stub.makeTransaction(request);
-
-        } catch (io.grpc.StatusRuntimeException e) {
-            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
-            liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+            sslContext = GrpcSslContexts.forClient().trustManager(context.getResources().openRawResource(R.raw.setis_edited)).build();
+            channel = NettyChannelBuilder.forAddress(axisProd, axisPort)
+                    .sslContext(sslContext)
+                    .build();
+        } catch (IOException e) {
+            displayLog("Erro: não conseguiu carregar o arquivo .pem");
             return;
         }
 
-        /*
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-                executor.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            //With Server authentication
-                            //ManagedChannel channel = ManagedChannelBuilder.forAddress("transaction.axis-mobfintech.com", 443).build();
-                            simulData.postValue("Processando...");
-                            final CountDownLatch latch = new CountDownLatch(1);
-                            ExecutorService executor = Executors.newSingleThreadExecutor();
-                            executor.execute(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        ManagedChannel channel = ManagedChannelBuilder.forAddress("transaction.axis-mobfintech.com", 5001).build();
-                                        TransactionsGrpc.TransactionsBlockingStub stub = TransactionsGrpc.newBlockingStub(channel);
-                                        PassageRegister.RegisterPassageResponse response = stub.makeTransaction(request);
-                                        int ret = response.getResponseCode();
-                                        simulData.postValue("Retorno do host: " + ret);
-                                        latch.countDown();
-                                    } catch (Exception ex) {
-                                        ex.printStackTrace();
-                                    }
-                                }
-                            });
-                            latch.await(10, TimeUnit.SECONDS);
-                            executor.shutdown();
-                            if (latch.getCount() == 1) {
-                                simulData.postValue("Erro: O host nao retornou nenhuma resposta.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-         */
+        try {
+            RegisterPassageServiceGrpc.RegisterPassageServiceBlockingStub stub = RegisterPassageServiceGrpc.newBlockingStub(channel);
+            response = stub.makeTransaction(request);
+            channel.shutdown();
+            if (response.getResponseCode() != 0) {
+                sendTransactionStatus("Erro no Registro da Passagem:" + response.getResponseCode());
+                displayLog(String.format("Servidor retornou codigo de resposta [%d]", response.getResponseCode()));
+                return;
+            }
+            liveData.setValue(String.format("Teste Ok [%d]", response.getResponseCode()));
+            return;
+        } catch (StatusRuntimeException e) {
+            e.printStackTrace();
+            displayLog("Erro gRPC [" + e.getStatus().getCode() + "] (" + e.getStatus().getDescription() + ")");
+            liveData.postValue("Erro gRPC: " + e.getStatus().getCode());
+            channel.shutdown();
+            return;
+        }
+
     }
 
 }

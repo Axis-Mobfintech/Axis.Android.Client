@@ -20,11 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.33.1)",
     comments = "Source: restriction_list.proto")
-public final class RestrictionListsGrpc {
+public final class RestrictionListServiceGrpc {
 
-  private RestrictionListsGrpc() {}
+  private RestrictionListServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "axis.transactions.RestrictionLists";
+  public static final String SERVICE_NAME = "axis.transactions.RestrictionListService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListRequest,
@@ -38,10 +38,10 @@ public final class RestrictionListsGrpc {
   public static io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListRequest,
       com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListResponse> getGetRestrictionListMethod() {
     io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListRequest, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListResponse> getGetRestrictionListMethod;
-    if ((getGetRestrictionListMethod = RestrictionListsGrpc.getGetRestrictionListMethod) == null) {
-      synchronized (RestrictionListsGrpc.class) {
-        if ((getGetRestrictionListMethod = RestrictionListsGrpc.getGetRestrictionListMethod) == null) {
-          RestrictionListsGrpc.getGetRestrictionListMethod = getGetRestrictionListMethod =
+    if ((getGetRestrictionListMethod = RestrictionListServiceGrpc.getGetRestrictionListMethod) == null) {
+      synchronized (RestrictionListServiceGrpc.class) {
+        if ((getGetRestrictionListMethod = RestrictionListServiceGrpc.getGetRestrictionListMethod) == null) {
+          RestrictionListServiceGrpc.getGetRestrictionListMethod = getGetRestrictionListMethod =
               io.grpc.MethodDescriptor.<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListRequest, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetRestrictionList"))
@@ -60,50 +60,50 @@ public final class RestrictionListsGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static RestrictionListsStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<RestrictionListsStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<RestrictionListsStub>() {
+  public static RestrictionListServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<RestrictionListServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RestrictionListServiceStub>() {
         @java.lang.Override
-        public RestrictionListsStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new RestrictionListsStub(channel, callOptions);
+        public RestrictionListServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RestrictionListServiceStub(channel, callOptions);
         }
       };
-    return RestrictionListsStub.newStub(factory, channel);
+    return RestrictionListServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static RestrictionListsBlockingStub newBlockingStub(
+  public static RestrictionListServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<RestrictionListsBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<RestrictionListsBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<RestrictionListServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RestrictionListServiceBlockingStub>() {
         @java.lang.Override
-        public RestrictionListsBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new RestrictionListsBlockingStub(channel, callOptions);
+        public RestrictionListServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RestrictionListServiceBlockingStub(channel, callOptions);
         }
       };
-    return RestrictionListsBlockingStub.newStub(factory, channel);
+    return RestrictionListServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static RestrictionListsFutureStub newFutureStub(
+  public static RestrictionListServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<RestrictionListsFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<RestrictionListsFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<RestrictionListServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RestrictionListServiceFutureStub>() {
         @java.lang.Override
-        public RestrictionListsFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new RestrictionListsFutureStub(channel, callOptions);
+        public RestrictionListServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RestrictionListServiceFutureStub(channel, callOptions);
         }
       };
-    return RestrictionListsFutureStub.newStub(factory, channel);
+    return RestrictionListServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class RestrictionListsImplBase implements io.grpc.BindableService {
+  public static abstract class RestrictionListServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -127,16 +127,16 @@ public final class RestrictionListsGrpc {
 
   /**
    */
-  public static final class RestrictionListsStub extends io.grpc.stub.AbstractAsyncStub<RestrictionListsStub> {
-    private RestrictionListsStub(
+  public static final class RestrictionListServiceStub extends io.grpc.stub.AbstractAsyncStub<RestrictionListServiceStub> {
+    private RestrictionListServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected RestrictionListsStub build(
+    protected RestrictionListServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new RestrictionListsStub(channel, callOptions);
+      return new RestrictionListServiceStub(channel, callOptions);
     }
 
     /**
@@ -150,16 +150,16 @@ public final class RestrictionListsGrpc {
 
   /**
    */
-  public static final class RestrictionListsBlockingStub extends io.grpc.stub.AbstractBlockingStub<RestrictionListsBlockingStub> {
-    private RestrictionListsBlockingStub(
+  public static final class RestrictionListServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<RestrictionListServiceBlockingStub> {
+    private RestrictionListServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected RestrictionListsBlockingStub build(
+    protected RestrictionListServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new RestrictionListsBlockingStub(channel, callOptions);
+      return new RestrictionListServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -172,16 +172,16 @@ public final class RestrictionListsGrpc {
 
   /**
    */
-  public static final class RestrictionListsFutureStub extends io.grpc.stub.AbstractFutureStub<RestrictionListsFutureStub> {
-    private RestrictionListsFutureStub(
+  public static final class RestrictionListServiceFutureStub extends io.grpc.stub.AbstractFutureStub<RestrictionListServiceFutureStub> {
+    private RestrictionListServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected RestrictionListsFutureStub build(
+    protected RestrictionListServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new RestrictionListsFutureStub(channel, callOptions);
+      return new RestrictionListServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -200,10 +200,10 @@ public final class RestrictionListsGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final RestrictionListsImplBase serviceImpl;
+    private final RestrictionListServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(RestrictionListsImplBase serviceImpl, int methodId) {
+    MethodHandlers(RestrictionListServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -237,7 +237,7 @@ public final class RestrictionListsGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (RestrictionListsGrpc.class) {
+      synchronized (RestrictionListServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

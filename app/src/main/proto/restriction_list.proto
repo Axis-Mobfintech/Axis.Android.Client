@@ -55,6 +55,6 @@ message RestrictionListCardInformation {
     CardAction action = 3;
 }
 
-service RestrictionLists {
+service RestrictionListService {
     rpc GetRestrictionList (RestrictionListRequest) returns (RestrictionListResponse);
 }

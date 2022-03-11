@@ -9,15 +9,15 @@ option csharp_namespace = "Axis.GPB.Transactions";
 import "Protos/card_action.proto";
 
 message AcceptedBankIdentificationNumber {
-    //√çndice do registro na tabela (0001 - 9999)
+    //Õndice do registro na tabela (0001 - 9999)
     int32 index = 2;
-    //C√≥digo de identifica√ß√£o do emissor.
+    //CÛdigo de identificaÁ„o do emissor.
     int32 issuer_code = 3;
-    //N√∫mero inicial da faixa
+    //N˙mero inicial da faixa
     uint64 initial_range = 4;
-    //N√∫mero final da faixa
+    //N˙mero final da faixa
     uint64 final_range = 5;
-    //Quantidade de transa√ß√µes sequenciais (com o mesmo hash do PAN e PAN Sequence Number ou mesmo PAR) permitidas
+    //Quantidade de transaÁıes sequenciais (com o mesmo hash do PAN e PAN Sequence Number ou mesmo PAR) permitidas
     uint32 total_sequential_transactions_allowed = 6;
     //Action
     CardAction card_action = 7;

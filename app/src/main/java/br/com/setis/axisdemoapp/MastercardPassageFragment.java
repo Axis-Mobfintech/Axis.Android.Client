@@ -154,12 +154,14 @@ public class MastercardPassageFragment extends Fragment {
     }
 
     private void showIdle() {
+        Log.d("AxisLog", "show idle.");
         idle.setVisibility(View.VISIBLE);
         success.setVisibility(View.GONE);
         failed.setVisibility(View.GONE);
     }
 
     private void showSucess() {
+        Log.d("AxisLog", "ShowSuccess");
         idle.setVisibility(View.GONE);
         success.setVisibility(View.VISIBLE);
         failed.setVisibility(View.GONE);
@@ -168,6 +170,7 @@ public class MastercardPassageFragment extends Fragment {
     }
 
     private void showFailed(String what) {
+        Log.d("AxisLog", "showFailed.");
         idle.setVisibility(View.GONE);
         success.setVisibility(View.GONE);
         failed.setVisibility(View.VISIBLE);
@@ -176,6 +179,7 @@ public class MastercardPassageFragment extends Fragment {
     }
 
     private void restart() {
+        Log.d("AxisLog", "restarting.");
         handler.post(new Runnable() {
             @Override
             public void run() {

@@ -3,18 +3,18 @@
 
 package com.axismobfintech.gpb.transactions;
 
-public final class DeviceRegisterOuterClass {
-  private DeviceRegisterOuterClass() {}
+public final class DeviceRegister {
+  private DeviceRegister() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
-  public interface DeviceRegisterOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:axis.transactions.DeviceRegister)
+  public interface DeviceRegisterRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:axis.transactions.DeviceRegisterRequest)
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -23,7 +23,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getOperatorId();
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -34,7 +34,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -43,7 +43,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getReaderSerialNumber();
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -54,7 +54,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -63,7 +63,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getDeviceSerialNumber();
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -74,7 +74,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -84,7 +84,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -93,7 +93,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getLineId();
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -104,7 +104,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -113,7 +113,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getVehicleId();
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -124,7 +124,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -133,7 +133,7 @@ public final class DeviceRegisterOuterClass {
     boolean hasRegisterDate();
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -142,14 +142,14 @@ public final class DeviceRegisterOuterClass {
     com.google.protobuf.Timestamp getRegisterDate();
   }
   /**
-   * Protobuf type {@code axis.transactions.DeviceRegister}
+   * Protobuf type {@code axis.transactions.DeviceRegisterRequest}
    */
-  public  static final class DeviceRegister extends
+  public  static final class DeviceRegisterRequest extends
       com.google.protobuf.GeneratedMessageLite<
-          DeviceRegister, DeviceRegister.Builder> implements
-      // @@protoc_insertion_point(message_implements:axis.transactions.DeviceRegister)
-      DeviceRegisterOrBuilder {
-    private DeviceRegister() {
+          DeviceRegisterRequest, DeviceRegisterRequest.Builder> implements
+      // @@protoc_insertion_point(message_implements:axis.transactions.DeviceRegisterRequest)
+      DeviceRegisterRequestOrBuilder {
+    private DeviceRegisterRequest() {
       operatorId_ = "";
       readerSerialNumber_ = "";
       deviceSerialNumber_ = "";
@@ -161,7 +161,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String operatorId_;
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -173,7 +173,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -186,7 +186,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -200,7 +200,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -211,7 +211,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da operadora de transportes.
+     *Identificação da operadora de transportes.
      * </pre>
      *
      * <code>string operator_id = 1;</code>
@@ -228,7 +228,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String readerSerialNumber_;
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -240,7 +240,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -253,7 +253,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -267,7 +267,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -278,7 +278,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do leitor.
+     *Número de série do leitor.
      * </pre>
      *
      * <code>string reader_serial_number = 2;</code>
@@ -295,7 +295,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String deviceSerialNumber_;
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -307,7 +307,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -320,7 +320,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -334,7 +334,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -345,7 +345,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *NÃºmero de sÃ©rie do Validador.
+     *Número de série do Validador.
      * </pre>
      *
      * <code>string device_serial_number = 3;</code>
@@ -362,7 +362,7 @@ public final class DeviceRegisterOuterClass {
     private com.google.protobuf.ByteString ksnData_;
     /**
      * <pre>
-     *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -374,7 +374,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -387,7 +387,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+     *KSN – Key Serial Number – do leitor de cartões.
      * </pre>
      *
      * <code>bytes ksn_data = 4;</code>
@@ -401,7 +401,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String lineId_;
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -413,7 +413,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -426,7 +426,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -440,7 +440,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -451,7 +451,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+     *Identificação da linha/viagem (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string line_id = 5;</code>
@@ -468,7 +468,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String vehicleId_;
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -480,7 +480,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -493,7 +493,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -507,7 +507,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -518,7 +518,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+     *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
      * </pre>
      *
      * <code>string vehicle_id = 6;</code>
@@ -535,7 +535,7 @@ public final class DeviceRegisterOuterClass {
     private com.google.protobuf.Timestamp registerDate_;
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -546,7 +546,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -557,7 +557,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -569,7 +569,7 @@ public final class DeviceRegisterOuterClass {
       }
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -588,7 +588,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *Data e hora de envio da transaÃ§Ã£o ao Gateway
+     *Data e hora de envio da transação ao Gateway
      * </pre>
      *
      * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -597,73 +597,73 @@ public final class DeviceRegisterOuterClass {
       
     }
 
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(byte[] data)
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseDelimitedFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseDelimitedFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -674,19 +674,19 @@ public final class DeviceRegisterOuterClass {
     public static Builder newBuilder() {
       return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
-    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister prototype) {
+    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest prototype) {
       return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
-     * Protobuf type {@code axis.transactions.DeviceRegister}
+     * Protobuf type {@code axis.transactions.DeviceRegisterRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
-          com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister, Builder> implements
-        // @@protoc_insertion_point(builder_implements:axis.transactions.DeviceRegister)
-        com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterOrBuilder {
-      // Construct using com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister.newBuilder()
+          com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest, Builder> implements
+        // @@protoc_insertion_point(builder_implements:axis.transactions.DeviceRegisterRequest)
+        com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequestOrBuilder {
+      // Construct using com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest.newBuilder()
       private Builder() {
         super(DEFAULT_INSTANCE);
       }
@@ -694,7 +694,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da operadora de transportes.
+       *Identificação da operadora de transportes.
        * </pre>
        *
        * <code>string operator_id = 1;</code>
@@ -706,7 +706,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da operadora de transportes.
+       *Identificação da operadora de transportes.
        * </pre>
        *
        * <code>string operator_id = 1;</code>
@@ -719,7 +719,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da operadora de transportes.
+       *Identificação da operadora de transportes.
        * </pre>
        *
        * <code>string operator_id = 1;</code>
@@ -734,7 +734,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da operadora de transportes.
+       *Identificação da operadora de transportes.
        * </pre>
        *
        * <code>string operator_id = 1;</code>
@@ -747,7 +747,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da operadora de transportes.
+       *Identificação da operadora de transportes.
        * </pre>
        *
        * <code>string operator_id = 1;</code>
@@ -763,7 +763,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do leitor.
+       *Número de série do leitor.
        * </pre>
        *
        * <code>string reader_serial_number = 2;</code>
@@ -775,7 +775,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do leitor.
+       *Número de série do leitor.
        * </pre>
        *
        * <code>string reader_serial_number = 2;</code>
@@ -788,7 +788,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do leitor.
+       *Número de série do leitor.
        * </pre>
        *
        * <code>string reader_serial_number = 2;</code>
@@ -803,7 +803,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do leitor.
+       *Número de série do leitor.
        * </pre>
        *
        * <code>string reader_serial_number = 2;</code>
@@ -816,7 +816,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do leitor.
+       *Número de série do leitor.
        * </pre>
        *
        * <code>string reader_serial_number = 2;</code>
@@ -832,7 +832,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do Validador.
+       *Número de série do Validador.
        * </pre>
        *
        * <code>string device_serial_number = 3;</code>
@@ -844,7 +844,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do Validador.
+       *Número de série do Validador.
        * </pre>
        *
        * <code>string device_serial_number = 3;</code>
@@ -857,7 +857,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do Validador.
+       *Número de série do Validador.
        * </pre>
        *
        * <code>string device_serial_number = 3;</code>
@@ -872,7 +872,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do Validador.
+       *Número de série do Validador.
        * </pre>
        *
        * <code>string device_serial_number = 3;</code>
@@ -885,7 +885,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *NÃºmero de sÃ©rie do Validador.
+       *Número de série do Validador.
        * </pre>
        *
        * <code>string device_serial_number = 3;</code>
@@ -901,7 +901,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+       *KSN – Key Serial Number – do leitor de cartões.
        * </pre>
        *
        * <code>bytes ksn_data = 4;</code>
@@ -913,7 +913,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+       *KSN – Key Serial Number – do leitor de cartões.
        * </pre>
        *
        * <code>bytes ksn_data = 4;</code>
@@ -927,7 +927,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *KSN â€“ Key Serial Number â€“ do leitor de cartÃµes.
+       *KSN – Key Serial Number – do leitor de cartões.
        * </pre>
        *
        * <code>bytes ksn_data = 4;</code>
@@ -941,7 +941,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+       *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string line_id = 5;</code>
@@ -953,7 +953,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+       *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string line_id = 5;</code>
@@ -966,7 +966,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+       *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string line_id = 5;</code>
@@ -981,7 +981,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+       *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string line_id = 5;</code>
@@ -994,7 +994,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o da linha/viagem (presente se disponÃ­vel no momento do registro).
+       *Identificação da linha/viagem (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string line_id = 5;</code>
@@ -1010,7 +1010,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+       *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string vehicle_id = 6;</code>
@@ -1022,7 +1022,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+       *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string vehicle_id = 6;</code>
@@ -1035,7 +1035,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+       *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string vehicle_id = 6;</code>
@@ -1050,7 +1050,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+       *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string vehicle_id = 6;</code>
@@ -1063,7 +1063,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Identificador do veÃ­culo em que a transaÃ§Ã£o foi realizada (presente se disponÃ­vel no momento do registro).
+       *Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro).
        * </pre>
        *
        * <code>string vehicle_id = 6;</code>
@@ -1079,7 +1079,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *Data e hora de envio da transaÃ§Ã£o ao Gateway
+       *Data e hora de envio da transação ao Gateway
        * </pre>
        *
        * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -1090,7 +1090,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Data e hora de envio da transaÃ§Ã£o ao Gateway
+       *Data e hora de envio da transação ao Gateway
        * </pre>
        *
        * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -1101,7 +1101,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Data e hora de envio da transaÃ§Ã£o ao Gateway
+       *Data e hora de envio da transação ao Gateway
        * </pre>
        *
        * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -1113,7 +1113,7 @@ public final class DeviceRegisterOuterClass {
         }
       /**
        * <pre>
-       *Data e hora de envio da transaÃ§Ã£o ao Gateway
+       *Data e hora de envio da transação ao Gateway
        * </pre>
        *
        * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -1126,7 +1126,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Data e hora de envio da transaÃ§Ã£o ao Gateway
+       *Data e hora de envio da transação ao Gateway
        * </pre>
        *
        * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -1138,7 +1138,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *Data e hora de envio da transaÃ§Ã£o ao Gateway
+       *Data e hora de envio da transação ao Gateway
        * </pre>
        *
        * <code>.google.protobuf.Timestamp register_date = 7;</code>
@@ -1148,7 +1148,7 @@ public final class DeviceRegisterOuterClass {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:axis.transactions.DeviceRegister)
+      // @@protoc_insertion_point(builder_scope:axis.transactions.DeviceRegisterRequest)
     }
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -1157,7 +1157,7 @@ public final class DeviceRegisterOuterClass {
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
-          return new com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister();
+          return new com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest();
         }
         case NEW_BUILDER: {
           return new Builder();
@@ -1182,13 +1182,13 @@ public final class DeviceRegisterOuterClass {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister> parser = PARSER;
+          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest> parser = PARSER;
           if (parser == null) {
-            synchronized (com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister.class) {
+            synchronized (com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest.class) {
               parser = PARSER;
               if (parser == null) {
                 parser =
-                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister>(
+                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest>(
                         DEFAULT_INSTANCE);
                 PARSER = parser;
               }
@@ -1207,24 +1207,24 @@ public final class DeviceRegisterOuterClass {
     }
 
 
-    // @@protoc_insertion_point(class_scope:axis.transactions.DeviceRegister)
-    private static final com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:axis.transactions.DeviceRegisterRequest)
+    private static final com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest DEFAULT_INSTANCE;
     static {
-      DeviceRegister defaultInstance = new DeviceRegister();
+      DeviceRegisterRequest defaultInstance = new DeviceRegisterRequest();
       // New instances are implicitly immutable so no need to make
       // immutable.
       DEFAULT_INSTANCE = defaultInstance;
       com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        DeviceRegister.class, defaultInstance);
+        DeviceRegisterRequest.class, defaultInstance);
     }
 
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegister getDefaultInstance() {
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static volatile com.google.protobuf.Parser<DeviceRegister> PARSER;
+    private static volatile com.google.protobuf.Parser<DeviceRegisterRequest> PARSER;
 
-    public static com.google.protobuf.Parser<DeviceRegister> parser() {
+    public static com.google.protobuf.Parser<DeviceRegisterRequest> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -1235,7 +1235,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *CÃ³digo de resposta da solicitaÃ§Ã£o
+     *Código de resposta da solicitação
      * </pre>
      *
      * <code>int32 response_code = 1;</code>
@@ -1245,7 +1245,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1254,7 +1254,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getRegisterCode();
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1265,7 +1265,7 @@ public final class DeviceRegisterOuterClass {
 
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1274,7 +1274,7 @@ public final class DeviceRegisterOuterClass {
     java.lang.String getDeviceId();
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1318,7 +1318,7 @@ public final class DeviceRegisterOuterClass {
     private int responseCode_;
     /**
      * <pre>
-     *CÃ³digo de resposta da solicitaÃ§Ã£o
+     *Código de resposta da solicitação
      * </pre>
      *
      * <code>int32 response_code = 1;</code>
@@ -1330,7 +1330,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *CÃ³digo de resposta da solicitaÃ§Ã£o
+     *Código de resposta da solicitação
      * </pre>
      *
      * <code>int32 response_code = 1;</code>
@@ -1342,7 +1342,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *CÃ³digo de resposta da solicitaÃ§Ã£o
+     *Código de resposta da solicitação
      * </pre>
      *
      * <code>int32 response_code = 1;</code>
@@ -1356,7 +1356,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String registerCode_;
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1368,7 +1368,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1381,7 +1381,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1395,7 +1395,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1406,7 +1406,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *CÃ³digo de autorizaÃ§Ã£o de registro
+     *Código de autorização de registro
      * </pre>
      *
      * <code>string register_code = 2;</code>
@@ -1423,7 +1423,7 @@ public final class DeviceRegisterOuterClass {
     private java.lang.String deviceId_;
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1435,7 +1435,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1448,7 +1448,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1462,7 +1462,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1473,7 +1473,7 @@ public final class DeviceRegisterOuterClass {
     }
     /**
      * <pre>
-     *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+     *Identificação do Validador (presente se a solicitação de registro foi autorizada).
      * </pre>
      *
      * <code>string device_id = 3;</code>
@@ -1552,73 +1552,73 @@ public final class DeviceRegisterOuterClass {
       
     }
 
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(byte[] data)
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseDelimitedFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse parseFrom(
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1629,7 +1629,7 @@ public final class DeviceRegisterOuterClass {
     public static Builder newBuilder() {
       return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
-    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse prototype) {
+    public static Builder newBuilder(com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse prototype) {
       return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
@@ -1638,10 +1638,10 @@ public final class DeviceRegisterOuterClass {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
-          com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse, Builder> implements
+          com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse, Builder> implements
         // @@protoc_insertion_point(builder_implements:axis.transactions.DeviceRegisterResponse)
-        com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponseOrBuilder {
-      // Construct using com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse.newBuilder()
+        com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponseOrBuilder {
+      // Construct using com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse.newBuilder()
       private Builder() {
         super(DEFAULT_INSTANCE);
       }
@@ -1649,7 +1649,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *CÃ³digo de resposta da solicitaÃ§Ã£o
+       *Código de resposta da solicitação
        * </pre>
        *
        * <code>int32 response_code = 1;</code>
@@ -1661,7 +1661,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *CÃ³digo de resposta da solicitaÃ§Ã£o
+       *Código de resposta da solicitação
        * </pre>
        *
        * <code>int32 response_code = 1;</code>
@@ -1675,7 +1675,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *CÃ³digo de resposta da solicitaÃ§Ã£o
+       *Código de resposta da solicitação
        * </pre>
        *
        * <code>int32 response_code = 1;</code>
@@ -1689,7 +1689,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *CÃ³digo de autorizaÃ§Ã£o de registro
+       *Código de autorização de registro
        * </pre>
        *
        * <code>string register_code = 2;</code>
@@ -1701,7 +1701,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *CÃ³digo de autorizaÃ§Ã£o de registro
+       *Código de autorização de registro
        * </pre>
        *
        * <code>string register_code = 2;</code>
@@ -1714,7 +1714,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *CÃ³digo de autorizaÃ§Ã£o de registro
+       *Código de autorização de registro
        * </pre>
        *
        * <code>string register_code = 2;</code>
@@ -1729,7 +1729,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *CÃ³digo de autorizaÃ§Ã£o de registro
+       *Código de autorização de registro
        * </pre>
        *
        * <code>string register_code = 2;</code>
@@ -1742,7 +1742,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *CÃ³digo de autorizaÃ§Ã£o de registro
+       *Código de autorização de registro
        * </pre>
        *
        * <code>string register_code = 2;</code>
@@ -1758,7 +1758,7 @@ public final class DeviceRegisterOuterClass {
 
       /**
        * <pre>
-       *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+       *Identificação do Validador (presente se a solicitação de registro foi autorizada).
        * </pre>
        *
        * <code>string device_id = 3;</code>
@@ -1770,7 +1770,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+       *Identificação do Validador (presente se a solicitação de registro foi autorizada).
        * </pre>
        *
        * <code>string device_id = 3;</code>
@@ -1783,7 +1783,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+       *Identificação do Validador (presente se a solicitação de registro foi autorizada).
        * </pre>
        *
        * <code>string device_id = 3;</code>
@@ -1798,7 +1798,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+       *Identificação do Validador (presente se a solicitação de registro foi autorizada).
        * </pre>
        *
        * <code>string device_id = 3;</code>
@@ -1811,7 +1811,7 @@ public final class DeviceRegisterOuterClass {
       }
       /**
        * <pre>
-       *IdentificaÃ§Ã£o do Validador (presente se a solicitaÃ§Ã£o de registro foi autorizada).
+       *Identificação do Validador (presente se a solicitação de registro foi autorizada).
        * </pre>
        *
        * <code>string device_id = 3;</code>
@@ -1905,7 +1905,7 @@ public final class DeviceRegisterOuterClass {
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
-          return new com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse();
+          return new com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse();
         }
         case NEW_BUILDER: {
           return new Builder();
@@ -1927,13 +1927,13 @@ public final class DeviceRegisterOuterClass {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse> parser = PARSER;
+          com.google.protobuf.Parser<com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse> parser = PARSER;
           if (parser == null) {
-            synchronized (com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse.class) {
+            synchronized (com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse.class) {
               parser = PARSER;
               if (parser == null) {
                 parser =
-                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse>(
+                    new DefaultInstanceBasedParser<com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse>(
                         DEFAULT_INSTANCE);
                 PARSER = parser;
               }
@@ -1953,7 +1953,7 @@ public final class DeviceRegisterOuterClass {
 
 
     // @@protoc_insertion_point(class_scope:axis.transactions.DeviceRegisterResponse)
-    private static final com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse DEFAULT_INSTANCE;
+    private static final com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse DEFAULT_INSTANCE;
     static {
       DeviceRegisterResponse defaultInstance = new DeviceRegisterResponse();
       // New instances are implicitly immutable so no need to make
@@ -1963,7 +1963,7 @@ public final class DeviceRegisterOuterClass {
         DeviceRegisterResponse.class, defaultInstance);
     }
 
-    public static com.axismobfintech.gpb.transactions.DeviceRegisterOuterClass.DeviceRegisterResponse getDefaultInstance() {
+    public static com.axismobfintech.gpb.transactions.DeviceRegister.DeviceRegisterResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 

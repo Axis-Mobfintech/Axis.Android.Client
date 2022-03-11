@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-
 package axis.transactions;
 
 option go_package = "axistransactionspb";
@@ -16,13 +15,13 @@ message ApplicationIdentifier {
     bytes application_identifier = 2;
     //Flags gerais (8 bits - ver tabela a seguir).
     GeneralFlags general_flags = 3;
-    //Valor padrão a ser usado para a transação (Amount, Authorized - Numeric)
+    //Valor padr�o a ser usado para a transa��o (Amount, Authorized - Numeric)
     uint64 authorized_amount = 4;
-    //Código do país (Terminal Country Code)
+    //C�digo do pa�s (Terminal Country Code)
     uint32 country_code = 5;
-    //Código da moeda (Transaction Currency Code)
+    //C�digo da moeda (Transaction Currency Code)
     uint32 currency_code = 6;
-    //Número de casas decimais do valor (Transaction Currency Exponent)
+    //N�mero de casas decimais do valor (Transaction Currency Exponent)
     uint32 currency_exponent = 7;
     //Tipo de terminal (Terminal Type)
     uint32 terminal_type = 8;
@@ -32,7 +31,7 @@ message ApplicationIdentifier {
     bytes terminal_transaction_qualifiers = 10;
     //Reader/Terminal Contactless Floor Limit
     uint64 contactless_floor_limit = 11;
-    //Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, porém em formato binário (32 bits).
+    //Terminal Floor Limit, de 00000000h a FFFFFFFFh (4294967295), sendo o mesmo valor do objeto DF8123h, por�m em formato bin�rio (32 bits).
     bytes reader_floor_limit = 12;
     //Reader/Terminal Contactless Transaction Limit (No On-device CVM)
     uint64 limit_no_on_device = 13;
@@ -48,17 +47,17 @@ message ApplicationIdentifier {
     bytes application_version_number = 18;
     //Card Data Input Capability
     bytes card_data_input_capability = 19;
-    //CVM Capability – CVM Required
+    //CVM Capability � CVM Required
     bytes cvm_capability_required = 20;
-    //CVM Capability – No CVM Required
+    //CVM Capability � No CVM Required
     bytes cvm_capability_not_required = 21;
     //Security Capability 
     bytes security_capability = 22;
-    //Terminal Action Code – Default
+    //Terminal Action Code � Default
     bytes terminal_action_code_default = 23;
-    //Terminal Action Code – Denial
+    //Terminal Action Code � Denial
     bytes terminal_action_code_denial = 24;
-    //Terminal Action Code – Online
+    //Terminal Action Code � Online
     bytes terminal_action_code_online = 25;
     //Terminal Risk Management Data
     bytes risk_management_data = 26;
@@ -71,7 +70,7 @@ message ApplicationIdentifier {
 message GeneralFlags {
     //Flags gerais (objeto DFFF01h)
     FlagType kernel_ctls = 1;
-    //Deve ser conferida a data de validade do cartão
+    //Deve ser conferida a data de validade do cart�o
     bool validate_card_date = 2;
 }
 

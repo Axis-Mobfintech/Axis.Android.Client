@@ -9,11 +9,11 @@ option csharp_namespace = "Axis.GPB.Transactions";
 import "google/protobuf/timestamp.proto";
 
 message PrimaryAccountReferenceBlackList {
-    //√çndice do registro na tabela (0001 - 9999)
+    //Õndice do registro na tabela (0001 - 9999)
     int32 index = 1;
-    //Motivo da inclus√£o do cart√£o na lista
+    //Motivo da inclus„o do cart„o na lista
     int32 reason = 2;
-    //Data da inclus√£o
+    //Data da inclus„o
     google.protobuf.Timestamp register_date = 3;
     //Payment Account Reference (PAR)
     string payment_account_reference = 4;

@@ -3,6 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/libs/Universal_SDK_1.00.091.jar" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/raw" charset="windows-1252" />
-    <file url="PROJECT" charset="UTF-8" />
+    <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

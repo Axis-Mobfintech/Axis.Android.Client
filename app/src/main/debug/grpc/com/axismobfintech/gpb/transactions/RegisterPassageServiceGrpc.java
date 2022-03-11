@@ -20,34 +20,34 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.33.1)",
     comments = "Source: passage_register.proto")
-public final class TransactionsGrpc {
+public final class RegisterPassageServiceGrpc {
 
-  private TransactionsGrpc() {}
+  private RegisterPassageServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "axis.transactions.Transactions";
+  public static final String SERVICE_NAME = "axis.transactions.RegisterPassageService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage,
+  private static volatile io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest,
       com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> getMakeTransactionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "MakeTransaction",
-      requestType = com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage.class,
+      requestType = com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest.class,
       responseType = com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage,
+  public static io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest,
       com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> getMakeTransactionMethod() {
-    io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage, com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> getMakeTransactionMethod;
-    if ((getMakeTransactionMethod = TransactionsGrpc.getMakeTransactionMethod) == null) {
-      synchronized (TransactionsGrpc.class) {
-        if ((getMakeTransactionMethod = TransactionsGrpc.getMakeTransactionMethod) == null) {
-          TransactionsGrpc.getMakeTransactionMethod = getMakeTransactionMethod =
-              io.grpc.MethodDescriptor.<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage, com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse>newBuilder()
+    io.grpc.MethodDescriptor<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest, com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> getMakeTransactionMethod;
+    if ((getMakeTransactionMethod = RegisterPassageServiceGrpc.getMakeTransactionMethod) == null) {
+      synchronized (RegisterPassageServiceGrpc.class) {
+        if ((getMakeTransactionMethod = RegisterPassageServiceGrpc.getMakeTransactionMethod) == null) {
+          RegisterPassageServiceGrpc.getMakeTransactionMethod = getMakeTransactionMethod =
+              io.grpc.MethodDescriptor.<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest, com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "MakeTransaction"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-                  com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage.getDefaultInstance()))
+                  com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
                   com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse.getDefaultInstance()))
               .build();
@@ -60,54 +60,54 @@ public final class TransactionsGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static TransactionsStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<TransactionsStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<TransactionsStub>() {
+  public static RegisterPassageServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<RegisterPassageServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RegisterPassageServiceStub>() {
         @java.lang.Override
-        public TransactionsStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new TransactionsStub(channel, callOptions);
+        public RegisterPassageServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RegisterPassageServiceStub(channel, callOptions);
         }
       };
-    return TransactionsStub.newStub(factory, channel);
+    return RegisterPassageServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static TransactionsBlockingStub newBlockingStub(
+  public static RegisterPassageServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<TransactionsBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<TransactionsBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<RegisterPassageServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RegisterPassageServiceBlockingStub>() {
         @java.lang.Override
-        public TransactionsBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new TransactionsBlockingStub(channel, callOptions);
+        public RegisterPassageServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RegisterPassageServiceBlockingStub(channel, callOptions);
         }
       };
-    return TransactionsBlockingStub.newStub(factory, channel);
+    return RegisterPassageServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static TransactionsFutureStub newFutureStub(
+  public static RegisterPassageServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<TransactionsFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<TransactionsFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<RegisterPassageServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RegisterPassageServiceFutureStub>() {
         @java.lang.Override
-        public TransactionsFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new TransactionsFutureStub(channel, callOptions);
+        public RegisterPassageServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RegisterPassageServiceFutureStub(channel, callOptions);
         }
       };
-    return TransactionsFutureStub.newStub(factory, channel);
+    return RegisterPassageServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class TransactionsImplBase implements io.grpc.BindableService {
+  public static abstract class RegisterPassageServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
-    public void makeTransaction(com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage request,
+    public void makeTransaction(com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest request,
         io.grpc.stub.StreamObserver<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getMakeTransactionMethod(), responseObserver);
     }
@@ -118,7 +118,7 @@ public final class TransactionsGrpc {
             getMakeTransactionMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage,
+                com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest,
                 com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse>(
                   this, METHODID_MAKE_TRANSACTION)))
           .build();
@@ -127,21 +127,21 @@ public final class TransactionsGrpc {
 
   /**
    */
-  public static final class TransactionsStub extends io.grpc.stub.AbstractAsyncStub<TransactionsStub> {
-    private TransactionsStub(
+  public static final class RegisterPassageServiceStub extends io.grpc.stub.AbstractAsyncStub<RegisterPassageServiceStub> {
+    private RegisterPassageServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected TransactionsStub build(
+    protected RegisterPassageServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new TransactionsStub(channel, callOptions);
+      return new RegisterPassageServiceStub(channel, callOptions);
     }
 
     /**
      */
-    public void makeTransaction(com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage request,
+    public void makeTransaction(com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest request,
         io.grpc.stub.StreamObserver<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getMakeTransactionMethod(), getCallOptions()), request, responseObserver);
@@ -150,21 +150,21 @@ public final class TransactionsGrpc {
 
   /**
    */
-  public static final class TransactionsBlockingStub extends io.grpc.stub.AbstractBlockingStub<TransactionsBlockingStub> {
-    private TransactionsBlockingStub(
+  public static final class RegisterPassageServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<RegisterPassageServiceBlockingStub> {
+    private RegisterPassageServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected TransactionsBlockingStub build(
+    protected RegisterPassageServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new TransactionsBlockingStub(channel, callOptions);
+      return new RegisterPassageServiceBlockingStub(channel, callOptions);
     }
 
     /**
      */
-    public com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse makeTransaction(com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage request) {
+    public com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse makeTransaction(com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest request) {
       return blockingUnaryCall(
           getChannel(), getMakeTransactionMethod(), getCallOptions(), request);
     }
@@ -172,22 +172,22 @@ public final class TransactionsGrpc {
 
   /**
    */
-  public static final class TransactionsFutureStub extends io.grpc.stub.AbstractFutureStub<TransactionsFutureStub> {
-    private TransactionsFutureStub(
+  public static final class RegisterPassageServiceFutureStub extends io.grpc.stub.AbstractFutureStub<RegisterPassageServiceFutureStub> {
+    private RegisterPassageServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected TransactionsFutureStub build(
+    protected RegisterPassageServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new TransactionsFutureStub(channel, callOptions);
+      return new RegisterPassageServiceFutureStub(channel, callOptions);
     }
 
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse> makeTransaction(
-        com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage request) {
+        com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getMakeTransactionMethod(), getCallOptions()), request);
     }
@@ -200,10 +200,10 @@ public final class TransactionsGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final TransactionsImplBase serviceImpl;
+    private final RegisterPassageServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(TransactionsImplBase serviceImpl, int methodId) {
+    MethodHandlers(RegisterPassageServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -213,7 +213,7 @@ public final class TransactionsGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_MAKE_TRANSACTION:
-          serviceImpl.makeTransaction((com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassage) request,
+          serviceImpl.makeTransaction((com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest) request,
               (io.grpc.stub.StreamObserver<com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageResponse>) responseObserver);
           break;
         default:
@@ -237,7 +237,7 @@ public final class TransactionsGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (TransactionsGrpc.class) {
+      synchronized (RegisterPassageServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)

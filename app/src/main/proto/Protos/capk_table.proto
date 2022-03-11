@@ -9,14 +9,14 @@ option csharp_namespace = "Axis.GPB.Transactions";
 import "Protos/card_action.proto";
 
 message CertificateAuthorityPublicKeyTable {
-    //√çndice do registro na tabela (0001 - 9999)
+    //Õndice do registro na tabela (0001 - 9999)
     int32 index = 1;
     //Dados da CAPK
-    //RID (Registered Identifier) e √≠ndice da chave
+    //RID (Registered Identifier) e Ìndice da chave
     bytes registered_identifier = 2;
-    //CAPK Modulus - m√≥dulo da chave RSA
+    //CAPK Modulus - mÛdulo da chave RSA
     bytes rsa_key_modulus = 3;
-    //CAPK Exponent - expoente p√∫blico da chave RSA
+    //CAPK Exponent - expoente p˙blico da chave RSA
     bytes rsa_key_exponent = 4;
     //Checksum - SHA-1 dos valores acima (sem tags nem tamanhos)
     bytes checksum = 5;
