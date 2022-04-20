@@ -55,6 +55,6 @@ message AcceptanceListCardInformation {
     CardAction action = 3;
 }
 
-service AcceptanceLists {
+service AcceptanceListService {
     rpc GetAcceptanceList (AcceptanceListRequest) returns (AcceptanceListResponse);
 }
