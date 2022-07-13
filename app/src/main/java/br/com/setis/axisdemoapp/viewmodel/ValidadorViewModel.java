@@ -8,25 +8,17 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.axismobfintech.gpb.transactions.AcceptedBin;
-import com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass;
 import com.axismobfintech.gpb.transactions.CapkTable;
 import com.axismobfintech.gpb.transactions.DeviceParameters;
 import com.axismobfintech.gpb.transactions.DeviceParametersServiceGrpc;
 import com.axismobfintech.gpb.transactions.DeviceRegister;
 import com.axismobfintech.gpb.transactions.DeviceRegisterServiceGrpc;
+import com.axismobfintech.gpb.transactions.EmvParametersOuterClass;
 import com.axismobfintech.gpb.transactions.PassageRegister;
 import com.axismobfintech.gpb.transactions.RegisterPassageServiceGrpc;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber;
-
 import com.google.protobuf.ByteString;
-//import static com.google.protobuf.util.Timestamps.fromMillis;
-import static com.idtechproducts.device.Common.getHexStringFromBytes;
-import static com.idtechproducts.device.Common.hexStringToByteArray;
-import static java.lang.System.currentTimeMillis;
-
 import com.google.protobuf.Timestamp;
-
 import com.idtechproducts.device.Common;
 import com.idtechproducts.device.ErrorCode;
 import com.idtechproducts.device.IDTEMVData;
@@ -38,24 +30,12 @@ import com.idtechproducts.device.ResDataStruct;
 import com.idtechproducts.device.StructConfigParameters;
 import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.time.Instant;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
-import javax.net.ssl.SSLSocketFactory;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -66,19 +46,16 @@ import br.com.setis.axisdemoapp.room.Bin;
 import br.com.setis.axisdemoapp.room.Pan;
 import br.com.setis.axisdemoapp.room.ValidadorDatabase;
 import br.com.setis.axisdemoapp.room.ValidadorInfo;
-
-import io.grpc.ChannelCredentials;
 import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import io.grpc.netty.shaded.io.grpc.netty.GrpcSslContexts;
 import io.grpc.netty.shaded.io.grpc.netty.NettyChannelBuilder;
 import io.grpc.netty.shaded.io.netty.handler.ssl.SslContext;
-import io.grpc.okhttp.OkHttpChannelBuilder;
-import io.grpc.okhttp.SslSocketFactoryChannelCredentials;
 
 import static br.com.setis.axisdemoapp.data.Util.getTimestamp;
 import static br.com.setis.axisdemoapp.data.Util.getValueByTag;
+import static com.idtechproducts.device.Common.getHexStringFromBytes;
+import static com.idtechproducts.device.Common.hexStringToByteArray;
 import static com.idtechproducts.device.Common.isFileExist;
 
 
@@ -132,12 +109,12 @@ public class ValidadorViewModel extends ViewModel {
     private void logDeviceParameters(DeviceParameters.ParametersResponse response) {
         int i;
 
-        displayLog("Date:" + response.getResponseDate());
+        displayLog("Date:" + response.getTransactionDate());
 
         displayLog("Versão das Tabelas EMV:" + response.getEmvParametersVersion());
 
-        for (i = 0; i < response.getAidTableCount(); i++) {
-            ApplicationIdentifierOuterClass.ApplicationIdentifier emv = response.getAidTable(i);
+        for (i = 0; i < response.getEmvParametersCount(); i++) {
+            EmvParametersOuterClass.EmvParameters emv = response.getEmvParameters(i);
 
             displayLog(" Index:" + emv.getIndex());
             displayLog(" Action:" + emv.getCardAction());
@@ -646,7 +623,7 @@ public class ValidadorViewModel extends ViewModel {
                         .setDeviceSerialNumber("1234567890")
                         .setKsnData(com.google.protobuf.ByteString.copyFromUtf8("0000000000"))
                         .setLineId("123456")
-                        .setRegisterDate(timestamp)
+                        .setTransactionDate(timestamp)
                         .build();
 
                 DeviceRegister.DeviceRegisterResponse response;
@@ -677,7 +654,7 @@ public class ValidadorViewModel extends ViewModel {
 
                     displayLog("ID do Dispositivo:" + response.getDeviceId());
                     displayLog("Código de registro:" + response.getRegisterCode());
-                    displayLog("Data de registro:" + response.getRegisterDate());
+                    displayLog("Data de registro:" + response.getTransactionDate());
 
                     sendTransactionStatus("Registro do Dispositivo Aprovado!");
 
@@ -835,7 +812,7 @@ public class ValidadorViewModel extends ViewModel {
                             .setLineId(info.idLinha)
                             .setReaderSerialNumber(info.nsLeitor)
                             .setRegisterCode(12345)
-                            .setRegisterDate(getTimestamp())
+                            .setTransactionDate(getTimestamp())
                             .setVehicleId(info.idVeiculo)
                             .build();
 

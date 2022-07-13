@@ -157,19 +157,19 @@ public final class RestrictionList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
 
     /**
      * <pre>
@@ -677,40 +677,40 @@ public final class RestrictionList {
       
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 9;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 9;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -718,17 +718,17 @@ public final class RestrictionList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -737,9 +737,9 @@ public final class RestrictionList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -1375,33 +1375,33 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -1409,12 +1409,12 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -1422,11 +1422,11 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -1434,10 +1434,10 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -1505,7 +1505,7 @@ public final class RestrictionList {
               "registerCode_",
               "lineId_",
               "vehicleId_",
-              "registerDate_",
+              "transactionDate_",
               "restrictionListVersion_",
             };
             java.lang.String info =
@@ -1591,48 +1591,48 @@ public final class RestrictionList {
 
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
     java.util.List<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> 
-        getCardInformationList();
+        getRestrictionListList();
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation getCardInformation(int index);
+    com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation getRestrictionList(int index);
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    int getCardInformationCount();
+    int getRestrictionListCount();
 
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
   }
   /**
    * Protobuf type {@code axis.transactions.RestrictionListResponse}
@@ -1643,7 +1643,7 @@ public final class RestrictionList {
       // @@protoc_insertion_point(message_implements:axis.transactions.RestrictionListResponse)
       RestrictionListResponseOrBuilder {
     private RestrictionListResponse() {
-      cardInformation_ = emptyProtobufList();
+      restrictionList_ = emptyProtobufList();
     }
     public static final int RESPONSE_CODE_FIELD_NUMBER = 1;
     private int responseCode_;
@@ -1721,178 +1721,178 @@ public final class RestrictionList {
       restrictionListVersion_ = 0;
     }
 
-    public static final int CARD_INFORMATION_FIELD_NUMBER = 3;
-    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> cardInformation_;
+    public static final int RESTRICTION_LIST_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> restrictionList_;
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> getCardInformationList() {
-      return cardInformation_;
+    public java.util.List<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> getRestrictionListList() {
+      return restrictionList_;
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
     public java.util.List<? extends com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformationOrBuilder> 
-        getCardInformationOrBuilderList() {
-      return cardInformation_;
+        getRestrictionListOrBuilderList() {
+      return restrictionList_;
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
     @java.lang.Override
-    public int getCardInformationCount() {
-      return cardInformation_.size();
+    public int getRestrictionListCount() {
+      return restrictionList_.size();
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
     @java.lang.Override
-    public com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation getCardInformation(int index) {
-      return cardInformation_.get(index);
+    public com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation getRestrictionList(int index) {
+      return restrictionList_.get(index);
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    public com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformationOrBuilder getCardInformationOrBuilder(
+    public com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformationOrBuilder getRestrictionListOrBuilder(
         int index) {
-      return cardInformation_.get(index);
+      return restrictionList_.get(index);
     }
-    private void ensureCardInformationIsMutable() {
-      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> tmp = cardInformation_;
+    private void ensureRestrictionListIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> tmp = restrictionList_;
       if (!tmp.isModifiable()) {
-        cardInformation_ =
+        restrictionList_ =
             com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
        }
     }
 
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    private void setCardInformation(
+    private void setRestrictionList(
         int index, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
       value.getClass();
-  ensureCardInformationIsMutable();
-      cardInformation_.set(index, value);
+  ensureRestrictionListIsMutable();
+      restrictionList_.set(index, value);
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    private void addCardInformation(com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
+    private void addRestrictionList(com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
       value.getClass();
-  ensureCardInformationIsMutable();
-      cardInformation_.add(value);
+  ensureRestrictionListIsMutable();
+      restrictionList_.add(value);
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    private void addCardInformation(
+    private void addRestrictionList(
         int index, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
       value.getClass();
-  ensureCardInformationIsMutable();
-      cardInformation_.add(index, value);
+  ensureRestrictionListIsMutable();
+      restrictionList_.add(index, value);
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    private void addAllCardInformation(
+    private void addAllRestrictionList(
         java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> values) {
-      ensureCardInformationIsMutable();
+      ensureRestrictionListIsMutable();
       com.google.protobuf.AbstractMessageLite.addAll(
-          values, cardInformation_);
+          values, restrictionList_);
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    private void clearCardInformation() {
-      cardInformation_ = emptyProtobufList();
+    private void clearRestrictionList() {
+      restrictionList_ = emptyProtobufList();
     }
     /**
      * <pre>
-     * informação do cartão
+     *Lista de PAN e PARS que não devem ser aceitos
      * </pre>
      *
-     * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
      */
-    private void removeCardInformation(int index) {
-      ensureCardInformationIsMutable();
-      cardInformation_.remove(index);
+    private void removeRestrictionList(int index) {
+      ensureRestrictionListIsMutable();
+      restrictionList_.remove(index);
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 4;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -1900,17 +1900,17 @@ public final class RestrictionList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -1919,9 +1919,9 @@ public final class RestrictionList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -2102,151 +2102,151 @@ public final class RestrictionList {
 
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
       @java.lang.Override
-      public java.util.List<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> getCardInformationList() {
+      public java.util.List<com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> getRestrictionListList() {
         return java.util.Collections.unmodifiableList(
-            instance.getCardInformationList());
+            instance.getRestrictionListList());
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
       @java.lang.Override
-      public int getCardInformationCount() {
-        return instance.getCardInformationCount();
+      public int getRestrictionListCount() {
+        return instance.getRestrictionListCount();
       }/**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
       @java.lang.Override
-      public com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation getCardInformation(int index) {
-        return instance.getCardInformation(index);
+      public com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation getRestrictionList(int index) {
+        return instance.getRestrictionList(index);
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder setCardInformation(
+      public Builder setRestrictionList(
           int index, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
         copyOnWrite();
-        instance.setCardInformation(index, value);
+        instance.setRestrictionList(index, value);
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder setCardInformation(
+      public Builder setRestrictionList(
           int index, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation.Builder builderForValue) {
         copyOnWrite();
-        instance.setCardInformation(index,
+        instance.setRestrictionList(index,
             builderForValue.build());
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder addCardInformation(com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
+      public Builder addRestrictionList(com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
         copyOnWrite();
-        instance.addCardInformation(value);
+        instance.addRestrictionList(value);
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder addCardInformation(
+      public Builder addRestrictionList(
           int index, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation value) {
         copyOnWrite();
-        instance.addCardInformation(index, value);
+        instance.addRestrictionList(index, value);
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder addCardInformation(
+      public Builder addRestrictionList(
           com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation.Builder builderForValue) {
         copyOnWrite();
-        instance.addCardInformation(builderForValue.build());
+        instance.addRestrictionList(builderForValue.build());
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder addCardInformation(
+      public Builder addRestrictionList(
           int index, com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation.Builder builderForValue) {
         copyOnWrite();
-        instance.addCardInformation(index,
+        instance.addRestrictionList(index,
             builderForValue.build());
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder addAllCardInformation(
+      public Builder addAllRestrictionList(
           java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation> values) {
         copyOnWrite();
-        instance.addAllCardInformation(values);
+        instance.addAllRestrictionList(values);
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder clearCardInformation() {
+      public Builder clearRestrictionList() {
         copyOnWrite();
-        instance.clearCardInformation();
+        instance.clearRestrictionList();
         return this;
       }
       /**
        * <pre>
-       * informação do cartão
+       *Lista de PAN e PARS que não devem ser aceitos
        * </pre>
        *
-       * <code>repeated .axis.transactions.RestrictionListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.RestrictionListCardInformation restriction_list = 3;</code>
        */
-      public Builder removeCardInformation(int index) {
+      public Builder removeRestrictionList(int index) {
         copyOnWrite();
-        instance.removeCardInformation(index);
+        instance.removeRestrictionList(index);
         return this;
       }
 
@@ -2255,33 +2255,33 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -2289,12 +2289,12 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -2302,11 +2302,11 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -2314,10 +2314,10 @@ public final class RestrictionList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -2339,9 +2339,9 @@ public final class RestrictionList {
             java.lang.Object[] objects = new java.lang.Object[] {
               "responseCode_",
               "restrictionListVersion_",
-              "cardInformation_",
+              "restrictionList_",
               com.axismobfintech.gpb.transactions.RestrictionList.RestrictionListCardInformation.class,
-              "registerDate_",
+              "transactionDate_",
             };
             java.lang.String info =
                 "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0001\u0000\u0001\u0004\u0002\u0004" +

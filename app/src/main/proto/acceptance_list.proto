@@ -30,7 +30,7 @@ message AcceptanceListRequest {
     //Identificador do veículo em que a transação foi realizada (presente se disponível no momento do registro.
     string vehicle_id = 8;
     //Data e hora de envio da transação ao Gateway 
-    google.protobuf.Timestamp register_date = 9;
+    google.protobuf.Timestamp transaction_date = 9;
     //Versão da lista de PANs e PARs disponíveis no validador 
     int32 acceptance_list_version = 10;
 }
@@ -40,9 +40,9 @@ message AcceptanceListResponse {
     int32 response_code = 1;
     //Versão atual da lista de PANs e PARs.
     int32 acceptance_list_version = 2;
-    repeated AcceptanceListCardInformation card_information = 3;
+    repeated AcceptanceListCardInformation acceptance_list = 3;
     //Data e hora de envio da transação ao Gateway 
-    google.protobuf.Timestamp register_date = 4;
+    google.protobuf.Timestamp transaction_date = 4;
 }
 
 

@@ -127,19 +127,19 @@ public final class DeviceRegister {
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
   }
   /**
    * Protobuf type {@code axis.transactions.DeviceRegisterRequest}
@@ -531,40 +531,40 @@ public final class DeviceRegister {
       
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 7;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -572,17 +572,17 @@ public final class DeviceRegister {
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -591,9 +591,9 @@ public final class DeviceRegister {
      *Data e hora de envio da transação ao Gateway
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -1082,33 +1082,33 @@ public final class DeviceRegister {
        *Data e hora de envio da transação ao Gateway
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -1116,12 +1116,12 @@ public final class DeviceRegister {
        *Data e hora de envio da transação ao Gateway
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -1129,11 +1129,11 @@ public final class DeviceRegister {
        *Data e hora de envio da transação ao Gateway
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -1141,10 +1141,10 @@ public final class DeviceRegister {
        *Data e hora de envio da transação ao Gateway
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -1170,7 +1170,7 @@ public final class DeviceRegister {
               "ksnData_",
               "lineId_",
               "vehicleId_",
-              "registerDate_",
+              "transactionDate_",
             };
             java.lang.String info =
                 "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
@@ -1288,19 +1288,19 @@ public final class DeviceRegister {
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
   }
   /**
    * Protobuf type {@code axis.transactions.DeviceRegisterResponse}
@@ -1486,40 +1486,40 @@ public final class DeviceRegister {
       
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 4;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -1527,17 +1527,17 @@ public final class DeviceRegister {
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -1546,9 +1546,9 @@ public final class DeviceRegister {
      *Data e hora de processamento da mensagem
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -1830,33 +1830,33 @@ public final class DeviceRegister {
        *Data e hora de processamento da mensagem
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de processamento da mensagem
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de processamento da mensagem
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -1864,12 +1864,12 @@ public final class DeviceRegister {
        *Data e hora de processamento da mensagem
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -1877,11 +1877,11 @@ public final class DeviceRegister {
        *Data e hora de processamento da mensagem
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -1889,10 +1889,10 @@ public final class DeviceRegister {
        *Data e hora de processamento da mensagem
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -1915,7 +1915,7 @@ public final class DeviceRegister {
               "responseCode_",
               "registerCode_",
               "deviceId_",
-              "registerDate_",
+              "transactionDate_",
             };
             java.lang.String info =
                 "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u0004\u0002\u0208" +

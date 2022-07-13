@@ -56,10 +56,20 @@ public final class ParAcceptanceList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>int32 payment_account_reference = 4;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @return The paymentAccountReference.
      */
-    int getPaymentAccountReference();
+    java.lang.String getPaymentAccountReference();
+    /**
+     * <pre>
+     *Payment Account Reference (PAR)
+     * </pre>
+     *
+     * <code>string payment_account_reference = 4;</code>
+     * @return The bytes for paymentAccountReference.
+     */
+    com.google.protobuf.ByteString
+        getPaymentAccountReferenceBytes();
   }
   /**
    * Protobuf type {@code axis.transactions.PrimaryAccountReferenceWhiteList}
@@ -70,6 +80,7 @@ public final class ParAcceptanceList {
       // @@protoc_insertion_point(message_implements:axis.transactions.PrimaryAccountReferenceWhiteList)
       PrimaryAccountReferenceWhiteListOrBuilder {
     private PrimaryAccountReferenceWhiteList() {
+      paymentAccountReference_ = "";
     }
     public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
@@ -214,17 +225,17 @@ public final class ParAcceptanceList {
     }
 
     public static final int PAYMENT_ACCOUNT_REFERENCE_FIELD_NUMBER = 4;
-    private int paymentAccountReference_;
+    private java.lang.String paymentAccountReference_;
     /**
      * <pre>
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>int32 payment_account_reference = 4;</code>
+     * <code>string payment_account_reference = 4;</code>
      * @return The paymentAccountReference.
      */
     @java.lang.Override
-    public int getPaymentAccountReference() {
+    public java.lang.String getPaymentAccountReference() {
       return paymentAccountReference_;
     }
     /**
@@ -232,11 +243,26 @@ public final class ParAcceptanceList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>int32 payment_account_reference = 4;</code>
+     * <code>string payment_account_reference = 4;</code>
+     * @return The bytes for paymentAccountReference.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPaymentAccountReferenceBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(paymentAccountReference_);
+    }
+    /**
+     * <pre>
+     *Payment Account Reference (PAR)
+     * </pre>
+     *
+     * <code>string payment_account_reference = 4;</code>
      * @param value The paymentAccountReference to set.
      */
-    private void setPaymentAccountReference(int value) {
-      
+    private void setPaymentAccountReference(
+        java.lang.String value) {
+      value.getClass();
+  
       paymentAccountReference_ = value;
     }
     /**
@@ -244,11 +270,25 @@ public final class ParAcceptanceList {
      *Payment Account Reference (PAR)
      * </pre>
      *
-     * <code>int32 payment_account_reference = 4;</code>
+     * <code>string payment_account_reference = 4;</code>
      */
     private void clearPaymentAccountReference() {
       
-      paymentAccountReference_ = 0;
+      paymentAccountReference_ = getDefaultInstance().getPaymentAccountReference();
+    }
+    /**
+     * <pre>
+     *Payment Account Reference (PAR)
+     * </pre>
+     *
+     * <code>string payment_account_reference = 4;</code>
+     * @param value The bytes for paymentAccountReference to set.
+     */
+    private void setPaymentAccountReferenceBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      paymentAccountReference_ = value.toStringUtf8();
+      
     }
 
     public static com.axismobfintech.gpb.transactions.ParAcceptanceList.PrimaryAccountReferenceWhiteList parseFrom(
@@ -502,11 +542,11 @@ public final class ParAcceptanceList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>int32 payment_account_reference = 4;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @return The paymentAccountReference.
        */
       @java.lang.Override
-      public int getPaymentAccountReference() {
+      public java.lang.String getPaymentAccountReference() {
         return instance.getPaymentAccountReference();
       }
       /**
@@ -514,11 +554,25 @@ public final class ParAcceptanceList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>int32 payment_account_reference = 4;</code>
+       * <code>string payment_account_reference = 4;</code>
+       * @return The bytes for paymentAccountReference.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getPaymentAccountReferenceBytes() {
+        return instance.getPaymentAccountReferenceBytes();
+      }
+      /**
+       * <pre>
+       *Payment Account Reference (PAR)
+       * </pre>
+       *
+       * <code>string payment_account_reference = 4;</code>
        * @param value The paymentAccountReference to set.
        * @return This builder for chaining.
        */
-      public Builder setPaymentAccountReference(int value) {
+      public Builder setPaymentAccountReference(
+          java.lang.String value) {
         copyOnWrite();
         instance.setPaymentAccountReference(value);
         return this;
@@ -528,12 +582,27 @@ public final class ParAcceptanceList {
        *Payment Account Reference (PAR)
        * </pre>
        *
-       * <code>int32 payment_account_reference = 4;</code>
+       * <code>string payment_account_reference = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPaymentAccountReference() {
         copyOnWrite();
         instance.clearPaymentAccountReference();
+        return this;
+      }
+      /**
+       * <pre>
+       *Payment Account Reference (PAR)
+       * </pre>
+       *
+       * <code>string payment_account_reference = 4;</code>
+       * @param value The bytes for paymentAccountReference to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPaymentAccountReferenceBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setPaymentAccountReferenceBytes(value);
         return this;
       }
 
@@ -560,7 +629,7 @@ public final class ParAcceptanceList {
             };
             java.lang.String info =
                 "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
-                "\u0003\t\u0004\u0004";
+                "\u0003\t\u0004\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

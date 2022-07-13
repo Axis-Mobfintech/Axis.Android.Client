@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package axis.transactions;
+
+option go_package = "axistransactionspb";
+option java_package = "com.axismobfintech.gpb.transactions";
+option csharp_namespace = "Axis.GPB.Transactions";
+
+import "google/protobuf/timestamp.proto";
+
+message MonitorStatisticsRequest {
+    //Identificação do Validador.
+    string device_id = 1;
+    //Identificação da operadora de transportes.
+    string reader_serial_number = 2;
+    //Número de série do Validador.
+    string device_serial_number = 3;
+    //Geolocalização do validador no momento da geração da passagem
+    string geolocation = 4;
+    //Data e hora de envio da transação ao Gateway
+    google.protobuf.Timestamp transaction_date = 5;
+    //Data do evento de estatística
+    google.protobuf.Timestamp ev_timestamp = 6;
+    //Versão do FW do leitor
+    string reader_fw_version = 7;
+    //Identificador único da mensagem de monitoramento
+    uint32 statistic_uid = 8;
+    //Timestamp da última transação realizada.
+    google.protobuf.Timestamp last_transaction_date = 9;
+    //Total de passagens EMV não concluídas com sucesso por tempo de leitura esgotado.
+    uint32 amt_trans_emv_failed_to = 10;
+    //Total de passagens EMV não concluídas com sucesso por erro na validação offline do cartão (ODA).
+    uint32 amt_trans_emv_failed_oda = 11;
+    //Total de passagens EMV não concluídas com sucesso pelo cartão ter negado a transação offline (AAC).
+    uint32 amt_trans_emv_failed_aac = 12;
+    //Total de passagens EMV concluídas com sucesso,
+    uint32 amt_trans_emv_sucess = 13;
+    //Total de passagens EMV concluídas com sucesso mas negadas por cartão EMV na lista de exceção.
+    uint32 amt_trans_emv_sucess_denial_list = 14;
+    //Total de passagens EMV concluídas com sucesso mas negadas por cartão expirado.
+    uint32 amt_trans_emv_sucess_expired_card = 15;
+    //Total de passagens EMV concluídas por erro de conexão com leitor.
+    uint32 amt_trans_emv_failed_reader_error = 16;
+    //Total de tentativas de passagens EMV (concluídas e não concluídas).
+    uint32 amt_trans_emv_total = 17;
+    //Total de tentativas de passagens com QRCode (concluídas e não concluídas).
+    uint32 amt_qrcode_total = 18;
+    //Total de tentativas de passagens com QRCode negadas devido ao código estar expirado.
+    uint32 amt_qrcode_expired = 19;
+    //Total de tentativas de passagens com QRCode que falharam por outros motivos.
+    uint32 amt_qrcode_failed = 20;
+    //Total de passagens com QRCode concluídas com sucesso
+    uint32 amt_qrcode_sucess = 21;
+}
+
+message MonitorStatisticsResponse {
+    //Código de resposta da solicitação.
+    int32 response_code = 1;
+}
+
+service MonitorStatisticsService {
+    rpc MonitorStatistics (MonitorStatisticsRequest) returns (MonitorStatisticsResponse);
+}

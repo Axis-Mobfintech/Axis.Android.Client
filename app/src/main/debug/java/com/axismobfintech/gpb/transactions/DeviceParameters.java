@@ -157,19 +157,19 @@ public final class DeviceParameters {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
 
     /**
      * <pre>
@@ -697,40 +697,40 @@ public final class DeviceParameters {
       
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 9;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 9;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -738,17 +738,17 @@ public final class DeviceParameters {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -757,9 +757,9 @@ public final class DeviceParameters {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -1471,33 +1471,33 @@ public final class DeviceParameters {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -1505,12 +1505,12 @@ public final class DeviceParameters {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -1518,11 +1518,11 @@ public final class DeviceParameters {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -1530,10 +1530,10 @@ public final class DeviceParameters {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -1681,7 +1681,7 @@ public final class DeviceParameters {
               "registerCode_",
               "lineId_",
               "vehicleId_",
-              "registerDate_",
+              "transactionDate_",
               "emvParametersVersion_",
               "binParametersVersion_",
               "capkParametersVersion_",
@@ -1779,26 +1779,26 @@ public final class DeviceParameters {
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> 
-        getAidTableList();
+    java.util.List<com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> 
+        getEmvParametersList();
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getAidTable(int index);
+    com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters getEmvParameters(int index);
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    int getAidTableCount();
+    int getEmvParametersCount();
 
     /**
      * <pre>
@@ -1854,22 +1854,32 @@ public final class DeviceParameters {
 
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
-     * @return Whether the responseDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasResponseDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
-     * @return The responseDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getResponseDate();
+    com.google.protobuf.Timestamp getTransactionDate();
+
+    /**
+     * <pre>
+     *versão do validador da tabela de CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 8;</code>
+     * @return The capkParametersVersion.
+     */
+    int getCapkParametersVersion();
   }
   /**
    * Protobuf type {@code axis.transactions.ParametersResponse}
@@ -1880,7 +1890,7 @@ public final class DeviceParameters {
       // @@protoc_insertion_point(message_implements:axis.transactions.ParametersResponse)
       ParametersResponseOrBuilder {
     private ParametersResponse() {
-      aidTable_ = emptyProtobufList();
+      emvParameters_ = emptyProtobufList();
       binTable_ = emptyProtobufList();
       capkTable_ = emptyProtobufList();
     }
@@ -1986,67 +1996,67 @@ public final class DeviceParameters {
       binParametersVersion_ = 0;
     }
 
-    public static final int AID_TABLE_FIELD_NUMBER = 4;
-    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> aidTable_;
+    public static final int EMV_PARAMETERS_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> emvParameters_;
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
     @java.lang.Override
-    public java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> getAidTableList() {
-      return aidTable_;
+    public java.util.List<com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> getEmvParametersList() {
+      return emvParameters_;
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    public java.util.List<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifierOrBuilder> 
-        getAidTableOrBuilderList() {
-      return aidTable_;
+    public java.util.List<? extends com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParametersOrBuilder> 
+        getEmvParametersOrBuilderList() {
+      return emvParameters_;
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
-     */
-    @java.lang.Override
-    public int getAidTableCount() {
-      return aidTable_.size();
-    }
-    /**
-     * <pre>
-     *EMV parameters table
-     * </pre>
-     *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
     @java.lang.Override
-    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getAidTable(int index) {
-      return aidTable_.get(index);
+    public int getEmvParametersCount() {
+      return emvParameters_.size();
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifierOrBuilder getAidTableOrBuilder(
+    @java.lang.Override
+    public com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters getEmvParameters(int index) {
+      return emvParameters_.get(index);
+    }
+    /**
+     * <pre>
+     *EMV parameters table
+     * </pre>
+     *
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
+     */
+    public com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParametersOrBuilder getEmvParametersOrBuilder(
         int index) {
-      return aidTable_.get(index);
+      return emvParameters_.get(index);
     }
-    private void ensureAidTableIsMutable() {
-      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> tmp = aidTable_;
+    private void ensureEmvParametersIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> tmp = emvParameters_;
       if (!tmp.isModifiable()) {
-        aidTable_ =
+        emvParameters_ =
             com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
        }
     }
@@ -2056,72 +2066,72 @@ public final class DeviceParameters {
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    private void setAidTable(
-        int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
+    private void setEmvParameters(
+        int index, com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters value) {
       value.getClass();
-  ensureAidTableIsMutable();
-      aidTable_.set(index, value);
+  ensureEmvParametersIsMutable();
+      emvParameters_.set(index, value);
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    private void addAidTable(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
+    private void addEmvParameters(com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters value) {
       value.getClass();
-  ensureAidTableIsMutable();
-      aidTable_.add(value);
+  ensureEmvParametersIsMutable();
+      emvParameters_.add(value);
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    private void addAidTable(
-        int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
+    private void addEmvParameters(
+        int index, com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters value) {
       value.getClass();
-  ensureAidTableIsMutable();
-      aidTable_.add(index, value);
+  ensureEmvParametersIsMutable();
+      emvParameters_.add(index, value);
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    private void addAllAidTable(
-        java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> values) {
-      ensureAidTableIsMutable();
+    private void addAllEmvParameters(
+        java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> values) {
+      ensureEmvParametersIsMutable();
       com.google.protobuf.AbstractMessageLite.addAll(
-          values, aidTable_);
+          values, emvParameters_);
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    private void clearAidTable() {
-      aidTable_ = emptyProtobufList();
+    private void clearEmvParameters() {
+      emvParameters_ = emptyProtobufList();
     }
     /**
      * <pre>
      *EMV parameters table
      * </pre>
      *
-     * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+     * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
      */
-    private void removeAidTable(int index) {
-      ensureAidTableIsMutable();
-      aidTable_.remove(index);
+    private void removeEmvParameters(int index) {
+      ensureEmvParametersIsMutable();
+      emvParameters_.remove(index);
     }
 
     public static final int BIN_TABLE_FIELD_NUMBER = 5;
@@ -2400,70 +2410,108 @@ public final class DeviceParameters {
       capkTable_.remove(index);
     }
 
-    public static final int RESPONSE_DATE_FIELD_NUMBER = 7;
-    private com.google.protobuf.Timestamp responseDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
     @java.lang.Override
-    public boolean hasResponseDate() {
-      return responseDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getResponseDate() {
-      return responseDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : responseDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
-    private void setResponseDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  responseDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeResponseDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (responseDate_ != null &&
-          responseDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        responseDate_ =
-          com.google.protobuf.Timestamp.newBuilder(responseDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        responseDate_ = value;
+        transactionDate_ = value;
       }
       
     }
     /**
      * <pre>
-     *Response Date Time
+     *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp response_date = 7;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
      */
-    private void clearResponseDate() {  responseDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
+    }
+
+    public static final int CAPK_PARAMETERS_VERSION_FIELD_NUMBER = 8;
+    private int capkParametersVersion_;
+    /**
+     * <pre>
+     *versão do validador da tabela de CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 8;</code>
+     * @return The capkParametersVersion.
+     */
+    @java.lang.Override
+    public int getCapkParametersVersion() {
+      return capkParametersVersion_;
+    }
+    /**
+     * <pre>
+     *versão do validador da tabela de CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 8;</code>
+     * @param value The capkParametersVersion to set.
+     */
+    private void setCapkParametersVersion(int value) {
+      
+      capkParametersVersion_ = value;
+    }
+    /**
+     * <pre>
+     *versão do validador da tabela de CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 8;</code>
+     */
+    private void clearCapkParametersVersion() {
+      
+      capkParametersVersion_ = 0;
     }
 
     public static com.axismobfintech.gpb.transactions.DeviceParameters.ParametersResponse parseFrom(
@@ -2674,45 +2722,45 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
       @java.lang.Override
-      public java.util.List<com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> getAidTableList() {
+      public java.util.List<com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> getEmvParametersList() {
         return java.util.Collections.unmodifiableList(
-            instance.getAidTableList());
+            instance.getEmvParametersList());
       }
       /**
        * <pre>
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
       @java.lang.Override
-      public int getAidTableCount() {
-        return instance.getAidTableCount();
+      public int getEmvParametersCount() {
+        return instance.getEmvParametersCount();
       }/**
        * <pre>
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
       @java.lang.Override
-      public com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier getAidTable(int index) {
-        return instance.getAidTable(index);
+      public com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters getEmvParameters(int index) {
+        return instance.getEmvParameters(index);
       }
       /**
        * <pre>
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder setAidTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
+      public Builder setEmvParameters(
+          int index, com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters value) {
         copyOnWrite();
-        instance.setAidTable(index, value);
+        instance.setEmvParameters(index, value);
         return this;
       }
       /**
@@ -2720,12 +2768,12 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder setAidTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
+      public Builder setEmvParameters(
+          int index, com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters.Builder builderForValue) {
         copyOnWrite();
-        instance.setAidTable(index,
+        instance.setEmvParameters(index,
             builderForValue.build());
         return this;
       }
@@ -2734,11 +2782,11 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder addAidTable(com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
+      public Builder addEmvParameters(com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters value) {
         copyOnWrite();
-        instance.addAidTable(value);
+        instance.addEmvParameters(value);
         return this;
       }
       /**
@@ -2746,12 +2794,12 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder addAidTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier value) {
+      public Builder addEmvParameters(
+          int index, com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters value) {
         copyOnWrite();
-        instance.addAidTable(index, value);
+        instance.addEmvParameters(index, value);
         return this;
       }
       /**
@@ -2759,12 +2807,12 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder addAidTable(
-          com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
+      public Builder addEmvParameters(
+          com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters.Builder builderForValue) {
         copyOnWrite();
-        instance.addAidTable(builderForValue.build());
+        instance.addEmvParameters(builderForValue.build());
         return this;
       }
       /**
@@ -2772,12 +2820,12 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder addAidTable(
-          int index, com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.Builder builderForValue) {
+      public Builder addEmvParameters(
+          int index, com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters.Builder builderForValue) {
         copyOnWrite();
-        instance.addAidTable(index,
+        instance.addEmvParameters(index,
             builderForValue.build());
         return this;
       }
@@ -2786,12 +2834,12 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder addAllAidTable(
-          java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier> values) {
+      public Builder addAllEmvParameters(
+          java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters> values) {
         copyOnWrite();
-        instance.addAllAidTable(values);
+        instance.addAllEmvParameters(values);
         return this;
       }
       /**
@@ -2799,11 +2847,11 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder clearAidTable() {
+      public Builder clearEmvParameters() {
         copyOnWrite();
-        instance.clearAidTable();
+        instance.clearEmvParameters();
         return this;
       }
       /**
@@ -2811,11 +2859,11 @@ public final class DeviceParameters {
        *EMV parameters table
        * </pre>
        *
-       * <code>repeated .axis.transactions.ApplicationIdentifier aid_table = 4;</code>
+       * <code>repeated .axis.transactions.EmvParameters emv_parameters = 4;</code>
        */
-      public Builder removeAidTable(int index) {
+      public Builder removeEmvParameters(int index) {
         copyOnWrite();
-        instance.removeAidTable(index);
+        instance.removeEmvParameters(index);
         return this;
       }
 
@@ -3121,72 +3169,112 @@ public final class DeviceParameters {
 
       /**
        * <pre>
-       *Response Date Time
+       *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
       @java.lang.Override
-      public boolean hasResponseDate() {
-        return instance.hasResponseDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
-       *Response Date Time
+       *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getResponseDate() {
-        return instance.getResponseDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
-       *Response Date Time
+       *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder setResponseDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setResponseDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
        * <pre>
-       *Response Date Time
+       *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder setResponseDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setResponseDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
        * <pre>
-       *Response Date Time
+       *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder mergeResponseDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeResponseDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
        * <pre>
-       *Response Date Time
+       *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp response_date = 7;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 7;</code>
        */
-      public Builder clearResponseDate() {  copyOnWrite();
-        instance.clearResponseDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *versão do validador da tabela de CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 8;</code>
+       * @return The capkParametersVersion.
+       */
+      @java.lang.Override
+      public int getCapkParametersVersion() {
+        return instance.getCapkParametersVersion();
+      }
+      /**
+       * <pre>
+       *versão do validador da tabela de CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 8;</code>
+       * @param value The capkParametersVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCapkParametersVersion(int value) {
+        copyOnWrite();
+        instance.setCapkParametersVersion(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *versão do validador da tabela de CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCapkParametersVersion() {
+        copyOnWrite();
+        instance.clearCapkParametersVersion();
         return this;
       }
 
@@ -3209,17 +3297,18 @@ public final class DeviceParameters {
               "responseCode_",
               "emvParametersVersion_",
               "binParametersVersion_",
-              "aidTable_",
-              com.axismobfintech.gpb.transactions.ApplicationIdentifierOuterClass.ApplicationIdentifier.class,
+              "emvParameters_",
+              com.axismobfintech.gpb.transactions.EmvParametersOuterClass.EmvParameters.class,
               "binTable_",
               com.axismobfintech.gpb.transactions.AcceptedBin.AcceptedBankIdentificationNumber.class,
               "capkTable_",
               com.axismobfintech.gpb.transactions.CapkTable.CertificateAuthorityPublicKeyTable.class,
-              "responseDate_",
+              "transactionDate_",
+              "capkParametersVersion_",
             };
             java.lang.String info =
-                "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0003\u0000\u0001\u0004\u0002\u0004" +
-                "\u0003\u0004\u0004\u001b\u0005\u001b\u0006\u001b\u0007\t";
+                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0003\u0000\u0001\u0004\u0002\u0004\u0003\u0004" +
+                "\u0004\u001b\u0005\u001b\u0006\u001b\u0007\t\b\u0004";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

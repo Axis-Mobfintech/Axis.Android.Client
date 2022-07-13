@@ -18,5 +18,5 @@ message PrimaryAccountNumberWhiteList {
     //Parte inicial do SHA-256 do PAN do cartão
     bytes initial_pan_crypt = 4;
     //PAN Sequence Number (objeto de tag 5F34h)
-    string pan_sequence_number = 5;
+    int32 pan_sequence_number = 5;
 }

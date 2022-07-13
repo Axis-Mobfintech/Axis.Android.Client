@@ -47,6 +47,8 @@ message DebitRecoveryRequest {
     string vehicle_id = 18;
     //Geolocalização do validador no momento da geração da passagem
     string geolocation = 19;
+    //Request: Versão da lista CAPK
+    int32 capk_parameters_version = 20;
 }
 
 message DebitRecoveryResponse {
@@ -60,8 +62,12 @@ message DebitRecoveryResponse {
     int32 bin_parameters_version = 4;
     //Response: Versão atual da lista de exceção.
     int32 restriction_list_version = 5;
+    //Response: Versão atual da lista de exceção.
+    int32 acceptance_list_version = 6;
+    //Response: Versão da lista CAPK
+    int32 capk_parameters_version = 7;
     //Número sequencial único da transação no Validador
-    string device_suid = 6;
+    string device_suid = 8;
 }
 
 service RecoverDebitService {

@@ -309,6 +309,16 @@ public final class PassageRegister {
      */
     com.google.protobuf.ByteString
         getGeolocationBytes();
+
+    /**
+     * <pre>
+     *Request: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 20;</code>
+     * @return The capkParametersVersion.
+     */
+    int getCapkParametersVersion();
   }
   /**
    * Protobuf type {@code axis.transactions.RegisterPassageRequest}
@@ -1370,6 +1380,44 @@ public final class PassageRegister {
       checkByteStringIsUtf8(value);
       geolocation_ = value.toStringUtf8();
       
+    }
+
+    public static final int CAPK_PARAMETERS_VERSION_FIELD_NUMBER = 20;
+    private int capkParametersVersion_;
+    /**
+     * <pre>
+     *Request: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 20;</code>
+     * @return The capkParametersVersion.
+     */
+    @java.lang.Override
+    public int getCapkParametersVersion() {
+      return capkParametersVersion_;
+    }
+    /**
+     * <pre>
+     *Request: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 20;</code>
+     * @param value The capkParametersVersion to set.
+     */
+    private void setCapkParametersVersion(int value) {
+      
+      capkParametersVersion_ = value;
+    }
+    /**
+     * <pre>
+     *Request: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 20;</code>
+     */
+    private void clearCapkParametersVersion() {
+      
+      capkParametersVersion_ = 0;
     }
 
     public static com.axismobfintech.gpb.transactions.PassageRegister.RegisterPassageRequest parseFrom(
@@ -2550,6 +2598,46 @@ public final class PassageRegister {
         return this;
       }
 
+      /**
+       * <pre>
+       *Request: Versão da lista CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 20;</code>
+       * @return The capkParametersVersion.
+       */
+      @java.lang.Override
+      public int getCapkParametersVersion() {
+        return instance.getCapkParametersVersion();
+      }
+      /**
+       * <pre>
+       *Request: Versão da lista CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 20;</code>
+       * @param value The capkParametersVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCapkParametersVersion(int value) {
+        copyOnWrite();
+        instance.setCapkParametersVersion(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Request: Versão da lista CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 20;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCapkParametersVersion() {
+        copyOnWrite();
+        instance.clearCapkParametersVersion();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:axis.transactions.RegisterPassageRequest)
     }
     @java.lang.Override
@@ -2585,12 +2673,13 @@ public final class PassageRegister {
               "lineId_",
               "vehicleId_",
               "geolocation_",
+              "capkParametersVersion_",
             };
             java.lang.String info =
-                "\u0000\u0013\u0000\u0000\u0001\u0013\u0013\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
+                "\u0000\u0014\u0000\u0000\u0001\u0014\u0014\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
                 "\u0003\u0208\u0004\u0208\u0005\u0004\u0006\t\u0007\t\b\u0208\t\n\n\u0208\u000b\n" +
                 "\f\u0004\r\u0004\u000e\u0004\u000f\u0004\u0010\u0004\u0011\u0208\u0012\u0208\u0013" +
-                "\u0208";
+                "\u0208\u0014\u0004";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2711,10 +2800,30 @@ public final class PassageRegister {
 
     /**
      * <pre>
+     *Request: Versão atual da lista de exceção.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 6;</code>
+     * @return The acceptanceListVersion.
+     */
+    int getAcceptanceListVersion();
+
+    /**
+     * <pre>
+     *Response: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 7;</code>
+     * @return The capkParametersVersion.
+     */
+    int getCapkParametersVersion();
+
+    /**
+     * <pre>
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      * @return The deviceSuid.
      */
     java.lang.String getDeviceSuid();
@@ -2723,7 +2832,7 @@ public final class PassageRegister {
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      * @return The bytes for deviceSuid.
      */
     com.google.protobuf.ByteString
@@ -2960,14 +3069,90 @@ public final class PassageRegister {
       restrictionListVersion_ = 0;
     }
 
-    public static final int DEVICE_SUID_FIELD_NUMBER = 6;
+    public static final int ACCEPTANCE_LIST_VERSION_FIELD_NUMBER = 6;
+    private int acceptanceListVersion_;
+    /**
+     * <pre>
+     *Request: Versão atual da lista de exceção.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 6;</code>
+     * @return The acceptanceListVersion.
+     */
+    @java.lang.Override
+    public int getAcceptanceListVersion() {
+      return acceptanceListVersion_;
+    }
+    /**
+     * <pre>
+     *Request: Versão atual da lista de exceção.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 6;</code>
+     * @param value The acceptanceListVersion to set.
+     */
+    private void setAcceptanceListVersion(int value) {
+      
+      acceptanceListVersion_ = value;
+    }
+    /**
+     * <pre>
+     *Request: Versão atual da lista de exceção.
+     * </pre>
+     *
+     * <code>int32 acceptance_list_version = 6;</code>
+     */
+    private void clearAcceptanceListVersion() {
+      
+      acceptanceListVersion_ = 0;
+    }
+
+    public static final int CAPK_PARAMETERS_VERSION_FIELD_NUMBER = 7;
+    private int capkParametersVersion_;
+    /**
+     * <pre>
+     *Response: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 7;</code>
+     * @return The capkParametersVersion.
+     */
+    @java.lang.Override
+    public int getCapkParametersVersion() {
+      return capkParametersVersion_;
+    }
+    /**
+     * <pre>
+     *Response: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 7;</code>
+     * @param value The capkParametersVersion to set.
+     */
+    private void setCapkParametersVersion(int value) {
+      
+      capkParametersVersion_ = value;
+    }
+    /**
+     * <pre>
+     *Response: Versão da lista CAPK
+     * </pre>
+     *
+     * <code>int32 capk_parameters_version = 7;</code>
+     */
+    private void clearCapkParametersVersion() {
+      
+      capkParametersVersion_ = 0;
+    }
+
+    public static final int DEVICE_SUID_FIELD_NUMBER = 8;
     private java.lang.String deviceSuid_;
     /**
      * <pre>
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      * @return The deviceSuid.
      */
     @java.lang.Override
@@ -2979,7 +3164,7 @@ public final class PassageRegister {
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      * @return The bytes for deviceSuid.
      */
     @java.lang.Override
@@ -2992,7 +3177,7 @@ public final class PassageRegister {
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      * @param value The deviceSuid to set.
      */
     private void setDeviceSuid(
@@ -3006,7 +3191,7 @@ public final class PassageRegister {
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      */
     private void clearDeviceSuid() {
       
@@ -3017,7 +3202,7 @@ public final class PassageRegister {
      *Número sequencial único da transação no Validador
      * </pre>
      *
-     * <code>string device_suid = 6;</code>
+     * <code>string device_suid = 8;</code>
      * @param value The bytes for deviceSuid to set.
      */
     private void setDeviceSuidBytes(
@@ -3353,10 +3538,90 @@ public final class PassageRegister {
 
       /**
        * <pre>
+       *Request: Versão atual da lista de exceção.
+       * </pre>
+       *
+       * <code>int32 acceptance_list_version = 6;</code>
+       * @return The acceptanceListVersion.
+       */
+      @java.lang.Override
+      public int getAcceptanceListVersion() {
+        return instance.getAcceptanceListVersion();
+      }
+      /**
+       * <pre>
+       *Request: Versão atual da lista de exceção.
+       * </pre>
+       *
+       * <code>int32 acceptance_list_version = 6;</code>
+       * @param value The acceptanceListVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAcceptanceListVersion(int value) {
+        copyOnWrite();
+        instance.setAcceptanceListVersion(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Request: Versão atual da lista de exceção.
+       * </pre>
+       *
+       * <code>int32 acceptance_list_version = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAcceptanceListVersion() {
+        copyOnWrite();
+        instance.clearAcceptanceListVersion();
+        return this;
+      }
+
+      /**
+       * <pre>
+       *Response: Versão da lista CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 7;</code>
+       * @return The capkParametersVersion.
+       */
+      @java.lang.Override
+      public int getCapkParametersVersion() {
+        return instance.getCapkParametersVersion();
+      }
+      /**
+       * <pre>
+       *Response: Versão da lista CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 7;</code>
+       * @param value The capkParametersVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCapkParametersVersion(int value) {
+        copyOnWrite();
+        instance.setCapkParametersVersion(value);
+        return this;
+      }
+      /**
+       * <pre>
+       *Response: Versão da lista CAPK
+       * </pre>
+       *
+       * <code>int32 capk_parameters_version = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCapkParametersVersion() {
+        copyOnWrite();
+        instance.clearCapkParametersVersion();
+        return this;
+      }
+
+      /**
+       * <pre>
        *Número sequencial único da transação no Validador
        * </pre>
        *
-       * <code>string device_suid = 6;</code>
+       * <code>string device_suid = 8;</code>
        * @return The deviceSuid.
        */
       @java.lang.Override
@@ -3368,7 +3633,7 @@ public final class PassageRegister {
        *Número sequencial único da transação no Validador
        * </pre>
        *
-       * <code>string device_suid = 6;</code>
+       * <code>string device_suid = 8;</code>
        * @return The bytes for deviceSuid.
        */
       @java.lang.Override
@@ -3381,7 +3646,7 @@ public final class PassageRegister {
        *Número sequencial único da transação no Validador
        * </pre>
        *
-       * <code>string device_suid = 6;</code>
+       * <code>string device_suid = 8;</code>
        * @param value The deviceSuid to set.
        * @return This builder for chaining.
        */
@@ -3396,7 +3661,7 @@ public final class PassageRegister {
        *Número sequencial único da transação no Validador
        * </pre>
        *
-       * <code>string device_suid = 6;</code>
+       * <code>string device_suid = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearDeviceSuid() {
@@ -3409,7 +3674,7 @@ public final class PassageRegister {
        *Número sequencial único da transação no Validador
        * </pre>
        *
-       * <code>string device_suid = 6;</code>
+       * <code>string device_suid = 8;</code>
        * @param value The bytes for deviceSuid to set.
        * @return This builder for chaining.
        */
@@ -3441,11 +3706,13 @@ public final class PassageRegister {
               "emvParametersVersion_",
               "binParametersVersion_",
               "restrictionListVersion_",
+              "acceptanceListVersion_",
+              "capkParametersVersion_",
               "deviceSuid_",
             };
             java.lang.String info =
-                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0004\u0002\u0208" +
-                "\u0003\u0004\u0004\u0004\u0005\u0004\u0006\u0208";
+                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0000\u0000\u0001\u0004\u0002\u0208\u0003\u0004" +
+                "\u0004\u0004\u0005\u0004\u0006\u0004\u0007\u0004\b\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

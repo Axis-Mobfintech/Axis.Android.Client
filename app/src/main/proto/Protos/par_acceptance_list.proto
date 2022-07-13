@@ -16,5 +16,5 @@ message PrimaryAccountReferenceWhiteList {
     //Data da inclusão
     google.protobuf.Timestamp register_date = 3;
     //Payment Account Reference (PAR)
-    int32 payment_account_reference = 4;
+    string payment_account_reference = 4;
 }

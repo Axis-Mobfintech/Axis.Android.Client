@@ -66,20 +66,10 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 5;</code>
+     * <code>int32 pan_sequence_number = 5;</code>
      * @return The panSequenceNumber.
      */
-    java.lang.String getPanSequenceNumber();
-    /**
-     * <pre>
-     *PAN Sequence Number (objeto de tag 5F34h)
-     * </pre>
-     *
-     * <code>string pan_sequence_number = 5;</code>
-     * @return The bytes for panSequenceNumber.
-     */
-    com.google.protobuf.ByteString
-        getPanSequenceNumberBytes();
+    int getPanSequenceNumber();
   }
   /**
    * Protobuf type {@code axis.transactions.PrimaryAccountNumberWhiteList}
@@ -91,7 +81,6 @@ public final class PanAcceptanceList {
       PrimaryAccountNumberWhiteListOrBuilder {
     private PrimaryAccountNumberWhiteList() {
       initialPanCrypt_ = com.google.protobuf.ByteString.EMPTY;
-      panSequenceNumber_ = "";
     }
     public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
@@ -275,17 +264,17 @@ public final class PanAcceptanceList {
     }
 
     public static final int PAN_SEQUENCE_NUMBER_FIELD_NUMBER = 5;
-    private java.lang.String panSequenceNumber_;
+    private int panSequenceNumber_;
     /**
      * <pre>
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 5;</code>
+     * <code>int32 pan_sequence_number = 5;</code>
      * @return The panSequenceNumber.
      */
     @java.lang.Override
-    public java.lang.String getPanSequenceNumber() {
+    public int getPanSequenceNumber() {
       return panSequenceNumber_;
     }
     /**
@@ -293,26 +282,11 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 5;</code>
-     * @return The bytes for panSequenceNumber.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPanSequenceNumberBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(panSequenceNumber_);
-    }
-    /**
-     * <pre>
-     *PAN Sequence Number (objeto de tag 5F34h)
-     * </pre>
-     *
-     * <code>string pan_sequence_number = 5;</code>
+     * <code>int32 pan_sequence_number = 5;</code>
      * @param value The panSequenceNumber to set.
      */
-    private void setPanSequenceNumber(
-        java.lang.String value) {
-      value.getClass();
-  
+    private void setPanSequenceNumber(int value) {
+      
       panSequenceNumber_ = value;
     }
     /**
@@ -320,25 +294,11 @@ public final class PanAcceptanceList {
      *PAN Sequence Number (objeto de tag 5F34h)
      * </pre>
      *
-     * <code>string pan_sequence_number = 5;</code>
+     * <code>int32 pan_sequence_number = 5;</code>
      */
     private void clearPanSequenceNumber() {
       
-      panSequenceNumber_ = getDefaultInstance().getPanSequenceNumber();
-    }
-    /**
-     * <pre>
-     *PAN Sequence Number (objeto de tag 5F34h)
-     * </pre>
-     *
-     * <code>string pan_sequence_number = 5;</code>
-     * @param value The bytes for panSequenceNumber to set.
-     */
-    private void setPanSequenceNumberBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      panSequenceNumber_ = value.toStringUtf8();
-      
+      panSequenceNumber_ = 0;
     }
 
     public static com.axismobfintech.gpb.transactions.PanAcceptanceList.PrimaryAccountNumberWhiteList parseFrom(
@@ -632,11 +592,11 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 5;</code>
+       * <code>int32 pan_sequence_number = 5;</code>
        * @return The panSequenceNumber.
        */
       @java.lang.Override
-      public java.lang.String getPanSequenceNumber() {
+      public int getPanSequenceNumber() {
         return instance.getPanSequenceNumber();
       }
       /**
@@ -644,25 +604,11 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 5;</code>
-       * @return The bytes for panSequenceNumber.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getPanSequenceNumberBytes() {
-        return instance.getPanSequenceNumberBytes();
-      }
-      /**
-       * <pre>
-       *PAN Sequence Number (objeto de tag 5F34h)
-       * </pre>
-       *
-       * <code>string pan_sequence_number = 5;</code>
+       * <code>int32 pan_sequence_number = 5;</code>
        * @param value The panSequenceNumber to set.
        * @return This builder for chaining.
        */
-      public Builder setPanSequenceNumber(
-          java.lang.String value) {
+      public Builder setPanSequenceNumber(int value) {
         copyOnWrite();
         instance.setPanSequenceNumber(value);
         return this;
@@ -672,27 +618,12 @@ public final class PanAcceptanceList {
        *PAN Sequence Number (objeto de tag 5F34h)
        * </pre>
        *
-       * <code>string pan_sequence_number = 5;</code>
+       * <code>int32 pan_sequence_number = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearPanSequenceNumber() {
         copyOnWrite();
         instance.clearPanSequenceNumber();
-        return this;
-      }
-      /**
-       * <pre>
-       *PAN Sequence Number (objeto de tag 5F34h)
-       * </pre>
-       *
-       * <code>string pan_sequence_number = 5;</code>
-       * @param value The bytes for panSequenceNumber to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPanSequenceNumberBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setPanSequenceNumberBytes(value);
         return this;
       }
 
@@ -720,7 +651,7 @@ public final class PanAcceptanceList {
             };
             java.lang.String info =
                 "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
-                "\u0003\t\u0004\n\u0005\u0208";
+                "\u0003\t\u0004\n\u0005\u0004";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

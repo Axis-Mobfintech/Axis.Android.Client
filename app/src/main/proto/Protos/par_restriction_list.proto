@@ -17,5 +17,4 @@ message PrimaryAccountReferenceBlackList {
     google.protobuf.Timestamp register_date = 3;
     //Payment Account Reference (PAR)
     string payment_account_reference = 4;
-
 }

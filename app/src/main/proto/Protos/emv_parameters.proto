@@ -8,7 +8,7 @@ option csharp_namespace = "Axis.GPB.Transactions";
 
 import "Protos/card_action.proto";
 
-message ApplicationIdentifier {
+message EmvParameters {
     // Index
     uint32 index = 1;
     //AID - Application Identifier

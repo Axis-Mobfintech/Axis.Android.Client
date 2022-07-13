@@ -19,5 +19,4 @@ message PrimaryAccountNumberBlackList {
     bytes initial_pan_crypt = 4;
     //PAN Sequence Number (objeto de tag 5F34h)
     int32 pan_sequence_number = 5;
-
 }

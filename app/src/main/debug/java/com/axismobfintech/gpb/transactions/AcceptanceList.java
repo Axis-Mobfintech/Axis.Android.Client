@@ -157,19 +157,19 @@ public final class AcceptanceList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
 
     /**
      * <pre>
@@ -677,40 +677,40 @@ public final class AcceptanceList {
       
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 9;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 9;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -718,17 +718,17 @@ public final class AcceptanceList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -737,9 +737,9 @@ public final class AcceptanceList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 9;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -1375,33 +1375,33 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -1409,12 +1409,12 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -1422,11 +1422,11 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -1434,10 +1434,10 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 9;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 9;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -1505,7 +1505,7 @@ public final class AcceptanceList {
               "registerCode_",
               "lineId_",
               "vehicleId_",
-              "registerDate_",
+              "transactionDate_",
               "acceptanceListVersion_",
             };
             java.lang.String info =
@@ -1590,37 +1590,37 @@ public final class AcceptanceList {
     int getAcceptanceListVersion();
 
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
     java.util.List<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> 
-        getCardInformationList();
+        getAcceptanceListList();
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation getCardInformation(int index);
+    com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation getAcceptanceList(int index);
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    int getCardInformationCount();
+    int getAcceptanceListCount();
 
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
-     * @return Whether the registerDate field is set.
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
+     * @return Whether the transactionDate field is set.
      */
-    boolean hasRegisterDate();
+    boolean hasTransactionDate();
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
-     * @return The registerDate.
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
+     * @return The transactionDate.
      */
-    com.google.protobuf.Timestamp getRegisterDate();
+    com.google.protobuf.Timestamp getTransactionDate();
   }
   /**
    * Protobuf type {@code axis.transactions.AcceptanceListResponse}
@@ -1631,7 +1631,7 @@ public final class AcceptanceList {
       // @@protoc_insertion_point(message_implements:axis.transactions.AcceptanceListResponse)
       AcceptanceListResponseOrBuilder {
     private AcceptanceListResponse() {
-      cardInformation_ = emptyProtobufList();
+      acceptanceList_ = emptyProtobufList();
     }
     public static final int RESPONSE_CODE_FIELD_NUMBER = 1;
     private int responseCode_;
@@ -1709,134 +1709,134 @@ public final class AcceptanceList {
       acceptanceListVersion_ = 0;
     }
 
-    public static final int CARD_INFORMATION_FIELD_NUMBER = 3;
-    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> cardInformation_;
+    public static final int ACCEPTANCE_LIST_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> acceptanceList_;
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
     @java.lang.Override
-    public java.util.List<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> getCardInformationList() {
-      return cardInformation_;
+    public java.util.List<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> getAcceptanceListList() {
+      return acceptanceList_;
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
     public java.util.List<? extends com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformationOrBuilder> 
-        getCardInformationOrBuilderList() {
-      return cardInformation_;
+        getAcceptanceListOrBuilderList() {
+      return acceptanceList_;
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
     @java.lang.Override
-    public int getCardInformationCount() {
-      return cardInformation_.size();
+    public int getAcceptanceListCount() {
+      return acceptanceList_.size();
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
     @java.lang.Override
-    public com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation getCardInformation(int index) {
-      return cardInformation_.get(index);
+    public com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation getAcceptanceList(int index) {
+      return acceptanceList_.get(index);
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    public com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformationOrBuilder getCardInformationOrBuilder(
+    public com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformationOrBuilder getAcceptanceListOrBuilder(
         int index) {
-      return cardInformation_.get(index);
+      return acceptanceList_.get(index);
     }
-    private void ensureCardInformationIsMutable() {
-      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> tmp = cardInformation_;
+    private void ensureAcceptanceListIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> tmp = acceptanceList_;
       if (!tmp.isModifiable()) {
-        cardInformation_ =
+        acceptanceList_ =
             com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
        }
     }
 
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    private void setCardInformation(
+    private void setAcceptanceList(
         int index, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
       value.getClass();
-  ensureCardInformationIsMutable();
-      cardInformation_.set(index, value);
+  ensureAcceptanceListIsMutable();
+      acceptanceList_.set(index, value);
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    private void addCardInformation(com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
+    private void addAcceptanceList(com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
       value.getClass();
-  ensureCardInformationIsMutable();
-      cardInformation_.add(value);
+  ensureAcceptanceListIsMutable();
+      acceptanceList_.add(value);
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    private void addCardInformation(
+    private void addAcceptanceList(
         int index, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
       value.getClass();
-  ensureCardInformationIsMutable();
-      cardInformation_.add(index, value);
+  ensureAcceptanceListIsMutable();
+      acceptanceList_.add(index, value);
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    private void addAllCardInformation(
+    private void addAllAcceptanceList(
         java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> values) {
-      ensureCardInformationIsMutable();
+      ensureAcceptanceListIsMutable();
       com.google.protobuf.AbstractMessageLite.addAll(
-          values, cardInformation_);
+          values, acceptanceList_);
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    private void clearCardInformation() {
-      cardInformation_ = emptyProtobufList();
+    private void clearAcceptanceList() {
+      acceptanceList_ = emptyProtobufList();
     }
     /**
-     * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+     * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
      */
-    private void removeCardInformation(int index) {
-      ensureCardInformationIsMutable();
-      cardInformation_.remove(index);
+    private void removeAcceptanceList(int index) {
+      ensureAcceptanceListIsMutable();
+      acceptanceList_.remove(index);
     }
 
-    public static final int REGISTER_DATE_FIELD_NUMBER = 4;
-    private com.google.protobuf.Timestamp registerDate_;
+    public static final int TRANSACTION_DATE_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp transactionDate_;
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.Override
-    public boolean hasRegisterDate() {
-      return registerDate_ != null;
+    public boolean hasTransactionDate() {
+      return transactionDate_ != null;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.Timestamp getRegisterDate() {
-      return registerDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registerDate_;
+    public com.google.protobuf.Timestamp getTransactionDate() {
+      return transactionDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : transactionDate_;
     }
     /**
      * <pre>
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
-    private void setRegisterDate(com.google.protobuf.Timestamp value) {
+    private void setTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  registerDate_ = value;
+  transactionDate_ = value;
       
       }
     /**
@@ -1844,17 +1844,17 @@ public final class AcceptanceList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
     @java.lang.SuppressWarnings({"ReferenceEquality"})
-    private void mergeRegisterDate(com.google.protobuf.Timestamp value) {
+    private void mergeTransactionDate(com.google.protobuf.Timestamp value) {
       value.getClass();
-  if (registerDate_ != null &&
-          registerDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-        registerDate_ =
-          com.google.protobuf.Timestamp.newBuilder(registerDate_).mergeFrom(value).buildPartial();
+  if (transactionDate_ != null &&
+          transactionDate_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+        transactionDate_ =
+          com.google.protobuf.Timestamp.newBuilder(transactionDate_).mergeFrom(value).buildPartial();
       } else {
-        registerDate_ = value;
+        transactionDate_ = value;
       }
       
     }
@@ -1863,9 +1863,9 @@ public final class AcceptanceList {
      *Data e hora de envio da transação ao Gateway 
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp register_date = 4;</code>
+     * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
      */
-    private void clearRegisterDate() {  registerDate_ = null;
+    private void clearTransactionDate() {  transactionDate_ = null;
       
     }
 
@@ -2045,104 +2045,104 @@ public final class AcceptanceList {
       }
 
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
       @java.lang.Override
-      public java.util.List<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> getCardInformationList() {
+      public java.util.List<com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> getAcceptanceListList() {
         return java.util.Collections.unmodifiableList(
-            instance.getCardInformationList());
+            instance.getAcceptanceListList());
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
       @java.lang.Override
-      public int getCardInformationCount() {
-        return instance.getCardInformationCount();
+      public int getAcceptanceListCount() {
+        return instance.getAcceptanceListCount();
       }/**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
       @java.lang.Override
-      public com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation getCardInformation(int index) {
-        return instance.getCardInformation(index);
+      public com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation getAcceptanceList(int index) {
+        return instance.getAcceptanceList(index);
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder setCardInformation(
+      public Builder setAcceptanceList(
           int index, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
         copyOnWrite();
-        instance.setCardInformation(index, value);
+        instance.setAcceptanceList(index, value);
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder setCardInformation(
+      public Builder setAcceptanceList(
           int index, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation.Builder builderForValue) {
         copyOnWrite();
-        instance.setCardInformation(index,
+        instance.setAcceptanceList(index,
             builderForValue.build());
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder addCardInformation(com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
+      public Builder addAcceptanceList(com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
         copyOnWrite();
-        instance.addCardInformation(value);
+        instance.addAcceptanceList(value);
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder addCardInformation(
+      public Builder addAcceptanceList(
           int index, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation value) {
         copyOnWrite();
-        instance.addCardInformation(index, value);
+        instance.addAcceptanceList(index, value);
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder addCardInformation(
+      public Builder addAcceptanceList(
           com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation.Builder builderForValue) {
         copyOnWrite();
-        instance.addCardInformation(builderForValue.build());
+        instance.addAcceptanceList(builderForValue.build());
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder addCardInformation(
+      public Builder addAcceptanceList(
           int index, com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation.Builder builderForValue) {
         copyOnWrite();
-        instance.addCardInformation(index,
+        instance.addAcceptanceList(index,
             builderForValue.build());
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder addAllCardInformation(
+      public Builder addAllAcceptanceList(
           java.lang.Iterable<? extends com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation> values) {
         copyOnWrite();
-        instance.addAllCardInformation(values);
+        instance.addAllAcceptanceList(values);
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder clearCardInformation() {
+      public Builder clearAcceptanceList() {
         copyOnWrite();
-        instance.clearCardInformation();
+        instance.clearAcceptanceList();
         return this;
       }
       /**
-       * <code>repeated .axis.transactions.AcceptanceListCardInformation card_information = 3;</code>
+       * <code>repeated .axis.transactions.AcceptanceListCardInformation acceptance_list = 3;</code>
        */
-      public Builder removeCardInformation(int index) {
+      public Builder removeAcceptanceList(int index) {
         copyOnWrite();
-        instance.removeCardInformation(index);
+        instance.removeAcceptanceList(index);
         return this;
       }
 
@@ -2151,33 +2151,33 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
       @java.lang.Override
-      public boolean hasRegisterDate() {
-        return instance.hasRegisterDate();
+      public boolean hasTransactionDate() {
+        return instance.hasTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.Timestamp getRegisterDate() {
-        return instance.getRegisterDate();
+      public com.google.protobuf.Timestamp getTransactionDate() {
+        return instance.getTransactionDate();
       }
       /**
        * <pre>
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder setRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder setTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.setRegisterDate(value);
+        instance.setTransactionDate(value);
         return this;
         }
       /**
@@ -2185,12 +2185,12 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder setRegisterDate(
+      public Builder setTransactionDate(
           com.google.protobuf.Timestamp.Builder builderForValue) {
         copyOnWrite();
-        instance.setRegisterDate(builderForValue.build());
+        instance.setTransactionDate(builderForValue.build());
         return this;
       }
       /**
@@ -2198,11 +2198,11 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder mergeRegisterDate(com.google.protobuf.Timestamp value) {
+      public Builder mergeTransactionDate(com.google.protobuf.Timestamp value) {
         copyOnWrite();
-        instance.mergeRegisterDate(value);
+        instance.mergeTransactionDate(value);
         return this;
       }
       /**
@@ -2210,10 +2210,10 @@ public final class AcceptanceList {
        *Data e hora de envio da transação ao Gateway 
        * </pre>
        *
-       * <code>.google.protobuf.Timestamp register_date = 4;</code>
+       * <code>.google.protobuf.Timestamp transaction_date = 4;</code>
        */
-      public Builder clearRegisterDate() {  copyOnWrite();
-        instance.clearRegisterDate();
+      public Builder clearTransactionDate() {  copyOnWrite();
+        instance.clearTransactionDate();
         return this;
       }
 
@@ -2235,9 +2235,9 @@ public final class AcceptanceList {
             java.lang.Object[] objects = new java.lang.Object[] {
               "responseCode_",
               "acceptanceListVersion_",
-              "cardInformation_",
+              "acceptanceList_",
               com.axismobfintech.gpb.transactions.AcceptanceList.AcceptanceListCardInformation.class,
-              "registerDate_",
+              "transactionDate_",
             };
             java.lang.String info =
                 "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0001\u0000\u0001\u0004\u0002\u0004" +
