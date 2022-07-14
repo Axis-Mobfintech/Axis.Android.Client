@@ -119,6 +119,8 @@ public class Util {
         addToken(input, "5F3401", 1, sb);
         addToken(input, "9F10", 0, sb);
         addToken(input, "9F06", 0, sb);
+        addToken(input, "DFED5D0A", 10, sb);
+        addToken(input, "9F6E", 0, sb);
         //9F24 - sem PAR, por enquanto.
         return sb.toString();
     }

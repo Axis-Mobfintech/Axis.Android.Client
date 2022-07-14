@@ -1,7 +1,6 @@
 package br.com.setis.axisdemoapp;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -167,7 +166,7 @@ public class MenuFragment extends Fragment {
                 Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
             }
         };
-        validadorViewModel.getSimulData().observe(getViewLifecycleOwner(), obs1);
+        validadorViewModel.getSimulaData().observe(getViewLifecycleOwner(), obs1);
 
         view.setFocusableInTouchMode(true);
         view.requestFocus();

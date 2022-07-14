@@ -50,4 +50,7 @@ public class ValidadorInfo {
     @ColumnInfo(name = "panHashUlt")
     public String panHashUlt;
 
+    @ColumnInfo(name = "ksn")
+    public String ksn;
+
 }
