@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,6 +27,7 @@ public class MenuFragment extends Fragment {
 
     private ValidadorViewModel validadorViewModel;
 
+    private LinearLayout editBtn;
     private LinearLayout registroBtn;
     private LinearLayout obterParamBtn;
     private LinearLayout obterListaExcBtn;
@@ -43,6 +45,7 @@ public class MenuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.menu_fragment, container, false);
 
+        editBtn = view.findViewById(R.id.editBtn);
         registroBtn = view.findViewById(R.id.registrarBtn);
         obterParamBtn = view.findViewById(R.id.paramBtn);
         obterListaExcBtn = view.findViewById(R.id.listaExcBtn);
@@ -65,6 +68,20 @@ public class MenuFragment extends Fragment {
         if (validadorViewModel.obterStatusLeitor()) {
             statusTv.setText("Status do Leitor: Conectado.");
         }
+
+        editBtn.setOnClickListener(view1 -> {
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
+                FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                EditFragment edit = new EditFragment();
+                transaction.replace(R.id.fragment_container, edit);
+
+                transaction.addToBackStack("menu");
+                transaction.commit();
+            });
+        });
 
         registroBtn.setOnClickListener(new View.OnClickListener() {
             @Override

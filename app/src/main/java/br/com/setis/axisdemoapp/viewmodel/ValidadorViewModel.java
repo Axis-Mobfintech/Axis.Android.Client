@@ -62,19 +62,18 @@ import static com.idtechproducts.device.Common.isFileExist;
 public class ValidadorViewModel extends ViewModel {
 
     public static final String mTAG = "AxisLog";
+    public static final String IdOperador = "1436a561-0a2f-426d-9541-fc69c1b0db08";
+    public static final String NsValidador = "1234567890";
 
     public final Boolean DEFAULT_TABS = false; //utiliza as tabelas default do terminal.
-    private final String idValidador = "8b0f254e-8dea-4ee3-bfd2-02f7b80a40e6"; //A15
-    private final byte[] codRegistro = "0123456789".getBytes(); //B20
+
     private final Context context;
     private final Handler handler;
     private final MediaPlayer mastercardSound;
 
     //private final String axisHost = "4ioiybj5xk.execute-api.sa-east-1.amazonaws.com";
     //private final String axisHost = "54.213.234.140";
-
-    // Development environment
-    private final String axisHost = "transaction-dev.axis-mobfintech.com";
+    private final String axisHost = "transaction-dev.axis-mobfintech.com"; // Development environment
     private final int axisPort = 5001;
 
     private IDT_KioskIII device;
@@ -569,13 +568,17 @@ public class ValidadorViewModel extends ViewModel {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
 
+            ValidadorInfo info = db.validadorInfoDAO().getInfo();
+            if (info == null) {
+                info = new ValidadorInfo();
+
+                info.idOperador = IdOperador;
+                info.nsValidador = NsValidador;
+            }
+
             db.validadorInfoDAO().deleteAll();
 
-            //TODO obter dados do leitor / usuário
-            ValidadorInfo info = new ValidadorInfo();
-            info.idOperador = "1436a561-0a2f-426d-9541-fc69c1b0db08";
             info.nsLeitor = "041H101073";
-            info.nsValidador = "1234567890";
             info.idLinha = "11111";
             info.idVeiculo = "11111";
             info.codRegistro = "01020304050607080900";
@@ -626,7 +629,7 @@ public class ValidadorViewModel extends ViewModel {
                 displayLog("Data de registro:" + response.getTransactionDate());
 
                 info.idValidador = response.getDeviceId();
-                info.nsuValidador = 1;
+                info.nsuValidador = (int) timestamp.getSeconds();
                 db.validadorInfoDAO().insertBaseValues(info);
 
                 sendTransactionStatus("Registro do Dispositivo Aprovado!");
@@ -651,7 +654,7 @@ public class ValidadorViewModel extends ViewModel {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
                 ValidadorInfo info = db.validadorInfoDAO().getInfo();
-                if (info == null) {
+                if (info == null || info.idValidador == null) {
                     displayLog("Erro: Realize o registro do validador.");
                     return;
                 }
@@ -837,7 +840,7 @@ public class ValidadorViewModel extends ViewModel {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             ValidadorInfo info = db.validadorInfoDAO().getInfo();
-            if (info == null) {
+            if (info == null || info.idValidador == null) {
                 displayLog("Erro: Realize o registro do validador.");
                 return;
             }
@@ -886,7 +889,7 @@ public class ValidadorViewModel extends ViewModel {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
                 ValidadorInfo info = db.validadorInfoDAO().getInfo();
-                if (info == null) {
+                if (info == null || info.idValidador == null) {
                     displayLog("Erro: Realize o registro do validador.");
                     return;
                 }
@@ -957,7 +960,7 @@ public class ValidadorViewModel extends ViewModel {
 
     public boolean verificaRegistro() {
         ValidadorInfo info = db.validadorInfoDAO().getInfo();
-        if (info == null) {
+        if (info == null || info.idValidador == null) {
             displayLog("Erro: Realize o registro do validador.");
             return false;
         }

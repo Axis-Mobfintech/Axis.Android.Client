@@ -53,7 +53,7 @@
                 android:background="@drawable/border"
                 android:orientation="vertical">
                 <ImageView
-                    android:src="@drawable/ic_baseline_edit_24"
+                    android:src="@drawable/ic_baseline_add_circle_24"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_gravity="center_horizontal"
@@ -97,6 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="100dp"
+                android:layout_marginEnd="6dp"
                 android:padding="6dp"
                 android:gravity="center"
                 android:background="@drawable/border"
@@ -114,6 +115,29 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:text="OBTER LISTA DE EXCEÇÃO"
+                    />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/editBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:padding="6dp"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_edit_24"
+                    android:layout_height="36dp"
+                    android:layout_width="36dp"
+                    android:layout_marginBottom="2dp"
+                    android:contentDescription="@string/edit_description" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="@string/edit_data"
                     />
             </LinearLayout>
         </TableRow>

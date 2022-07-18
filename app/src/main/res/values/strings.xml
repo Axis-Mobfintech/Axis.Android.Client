@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AxisDemoApp</string>
+    <string name="save">Salvar</string>
+    <string name="enterprise_id">Identificador da empresa</string>
+    <string name="device_serial_number">Número Serial do Validador</string>
+    <string name="edit_data">EDITAR DADOS</string>
+    <string name="edit_description">Botão com ícone de lápis para edição de dados</string>
+    <string name="menu_description">Botão para acesso ao menu</string>
 </resources>
