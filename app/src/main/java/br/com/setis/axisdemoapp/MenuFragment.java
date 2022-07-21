@@ -75,7 +75,7 @@ public class MenuFragment extends Fragment {
                 FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-                EditFragment edit = new EditFragment();
+                DeviceEditFragment edit = new DeviceEditFragment();
                 transaction.replace(R.id.fragment_container, edit);
 
                 transaction.addToBackStack("menu");

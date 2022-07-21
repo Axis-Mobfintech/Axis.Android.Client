@@ -31,6 +31,7 @@ import com.idtechproducts.device.StructConfigParameters;
 import com.idtechproducts.device.audiojack.tools.FirmwareUpdateTool;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.SynchronousQueue;
@@ -64,6 +65,10 @@ public class ValidadorViewModel extends ViewModel {
     public static final String mTAG = "AxisLog";
     public static final String IdOperador = "1436a561-0a2f-426d-9541-fc69c1b0db08";
     public static final String NsValidador = "1234567890";
+    public static final String IdLinha = "11111";
+    public static final String IdVeiculo = "11111";
+    public static final int Valor = 430;
+    public static final String Geolocalizacao = "23.563,-46.186";
 
     public final Boolean DEFAULT_TABS = false; //utiliza as tabelas default do terminal.
 
@@ -203,9 +208,9 @@ public class ValidadorViewModel extends ViewModel {
 
                         displayLog("Iniciando processo de validação.");
 
-                        int valorTrn = 100;
+                        int valorTrn = info.valor;
                         String aux = Util.getValueByTag(idtmsrData, "9f02");
-                        if (aux != null) valorTrn = Integer.valueOf(aux);
+                        if (aux != null) valorTrn = Integer.parseInt(aux);
 
 
                         byte[] panHash = null;
@@ -347,7 +352,7 @@ public class ValidadorViewModel extends ViewModel {
                                 .setTransactionValue(valorTrn)
                                 .setLineId(info.idLinha)
                                 .setVehicleId(info.idVeiculo)
-                                .setGeolocation("23.563,-46.186") // TODO get device geolocation
+                                .setGeolocation(info.geoValidador)
                                 .build();
 
                         PassageRegister.RegisterPassageResponse response;
@@ -574,13 +579,15 @@ public class ValidadorViewModel extends ViewModel {
 
                 info.idOperador = IdOperador;
                 info.nsValidador = NsValidador;
+                info.idLinha = IdLinha;
+                info.idVeiculo = IdVeiculo;
+                info.valor = Valor;
+                info.geoValidador = Geolocalizacao;
             }
 
             db.validadorInfoDAO().deleteAll();
 
             info.nsLeitor = "041H101073";
-            info.idLinha = "11111";
-            info.idVeiculo = "11111";
             info.codRegistro = "01020304050607080900";
             info.panHashUlt = "E223A727677571549B395600";
             info.ksn = "1234567890";
@@ -896,7 +903,8 @@ public class ValidadorViewModel extends ViewModel {
 
                 displayLog("Aproxime um cartão CTLS.");
                 byte[] tags = null;
-                int res = device.ctls_startTransaction(4.30, 0.00, 0, 255, tags);
+                double amount = info.valor/100d;
+                int res = device.ctls_startTransaction(amount, 0.00, 0, 255, tags);
 
                 Log.d(mTAG, "Iniciando transação:" + device.device_getResponseCodeString(res));
             });
@@ -1019,12 +1027,21 @@ public class ValidadorViewModel extends ViewModel {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
+
+            ValidadorInfo info = db.validadorInfoDAO().getInfo();
+            if (info == null || info.idValidador == null) {
+                displayLog("Erro: Realize o registro do validador.");
+                return;
+            }
+
             byte[] panHash = {(byte) 0xe2, (byte) 0x23, (byte) 0xa7, 0x67, 0x75, 0x71, 0x54, (byte) 0x9b,
                     0x39, 0x56, 0x00};
 
             //byte[] resData = hexStringToByteArray("5669564f746563683200020a01b7c1ffee120a629949009900042000fbffee1f0455900009500c56495341204352454449544f57a113415275cccccc1117d2411201cccccccccccccc57c118dfa65220cb98aafb58c7459fa8968f98a898cac8fb6d8d3e5aa108415275cccccc11175ac1103dfab28878512b777632bac52dc4c1268407a00000000310105f24032411305f2a0209865f34010082022000950500000000009a032107199c01009f02060000000001009f0607a00000000310109f0702ff009f090200029f0e052010a800009f0f05986854f8009f100706010a03a028009f1a0200769f21031442299f260827603745205709149f2701809f360200259f3704a85ed1d79f5d060000000000009f3901079f6c0228405f2d0870746573656e66729f1101019f120c56495341204352454449544f9f03060000000000009f3501259f33030008e89f400560000030009f34033f0001ffee010cdf520100df300100df5b0108dfef7f01009f6604218040009f1e0838333654303835315f280200769f410400000345dfed4b206eb357f9602e1cac7efaa6b10f25248f11102b342815f8c1ed022e051780bba4dfed5d0a415275be7a8777101117dfee2601c17582");
 
-            String resultDatStr = "5669564F7465636832000223027FC1FFEE120A629949009900042000F19F3901078E0E000000000000000002031E031F035F25032104125F280200765F2D067074656E65739F0607A00000086110109F0D05B4508400049F0E0500000000009F0F05B4708480049F21031341089F420209869F6D0200019F6E0700760000303000DFEE7605000000000EDF830701029F40052000000001DF8116161E040000007074656E65730000000000000000000000DF81290830F0F000B0F0FF00FF810628DF8115060000000000FF9F42020986DF810B0100DF810E0100DF810F01009F6E0700760000303000FF81058201069F02060000000004309F03060000000000009F26089661B8CCEAA287EE5F2403270430820219815004415849535AA108250045CCCCCC95005AC1106F927B891CE0EB7F82264BBF8B1D77415F3401009F1204415849539F3602002B9F0702FF009F090200028407A00000086110109F1E0830303030303030309F1101019F2701809F34031F03029F10120110A04001220000000000000000000000FF9F33030008089F1A0200769F3501259505000000000E57A113250045CCCCCC9500D2704201CCCCCCCCCCCCCC57C118B7333D472BE5ACA3CF96369D7547C1C06D08C9C9395E0C649F5301585F2A0209869A032107169C01009F3704AA42729EDF830602003D9F15024131DF8116161B000000007074656E657300000000000000000000009F420209865F280200769F410400000323DFED4B20CA47911725281961235835EBB6825851B839BCE0B9A76860E48154F78CE42961DFED5D0A605547A367E00B809500DFEE2601C1DFEF4C06002700000000DFEF4D28C973D699DCDBDEDBEB509D4514119FE612458FB181A507C032E701F67FD50A7DD7D5C2D4CEDA9DBF0706";
+            String resultDatStr = "5669564F7465636832000223027FC1FFEE120A629949009900042000F19F3901078E0E000000000000000002031E031F035F25032104125F280200765F2D067074656E65739F0607A00000086110109F0D05B4508400049F0E0500000000009F0F05B4708480049F21031341089F420209869F6D0200019F6E0700760000303000DFEE7605000000000EDF830701029F40052000000001DF8116161E040000007074656E65730000000000000000000000DF81290830F0F000B0F0FF00FF810628DF8115060000000000FF9F42020986DF810B0100DF810E0100DF810F01009F6E0700760000303000FF8105820106" +
+                    "9F0206" + String.format(Locale.getDefault(), "%012d", info.valor) +
+                    "9F03060000000000009F26089661B8CCEAA287EE5F2403270430820219815004415849535AA108250045CCCCCC95005AC1106F927B891CE0EB7F82264BBF8B1D77415F3401009F1204415849539F3602002B9F0702FF009F090200028407A00000086110109F1E0830303030303030309F1101019F2701809F34031F03029F10120110A04001220000000000000000000000FF9F33030008089F1A0200769F3501259505000000000E57A113250045CCCCCC9500D2704201CCCCCCCCCCCCCC57C118B7333D472BE5ACA3CF96369D7547C1C06D08C9C9395E0C649F5301585F2A0209869A032107169C01009F3704AA42729EDF830602003D9F15024131DF8116161B000000007074656E657300000000000000000000009F420209865F280200769F410400000323DFED4B20CA47911725281961235835EBB6825851B839BCE0B9A76860E48154F78CE42961DFED5D0A605547A367E00B809500DFEE2601C1DFEF4C06002700000000DFEF4D28C973D699DCDBDEDBEB509D4514119FE612458FB181A507C032E701F67FD50A7DD7D5C2D4CEDA9DBF0706";
             byte[] resData = hexStringToByteArray(resultDatStr);
 
             String ff = Util.getTransactionRegisterTags(resultDatStr);
@@ -1032,7 +1049,6 @@ public class ValidadorViewModel extends ViewModel {
 
             byte[] transactionData2 = hexStringToByteArray(ff);
 
-            ValidadorInfo info = db.validadorInfoDAO().getInfo();
             db.validadorInfoDAO().updateNsu(++info.nsuValidador);
 
 /*
@@ -1050,7 +1066,7 @@ public class ValidadorViewModel extends ViewModel {
                     .setRegisterCode(0)
                     .setAcceptanceListVersion(info.vrsListaExc)
                     .setBinParametersVersion(info.vrsPrmBIN)
-                    .setTransactionValue(430)
+                    .setTransactionValue(info.valor)
                     .setDeviceSerialNumber(info.nsValidador)
                     .setTransactionData(ByteString.copyFrom(transactionData2))
                     .setOperatorId(info.idOperador)
@@ -1059,8 +1075,8 @@ public class ValidadorViewModel extends ViewModel {
                     .setDeviceSuid(Integer.toString(info.nsuValidador))
                     //.setPanHash(ByteString.copyFrom(panHash))
                     //.setParCard()
-                    //.setEmvParametersVersion(1)
-                    .setGeolocation("23.563,-46.186")
+                    .setEmvParametersVersion(info.vrsPrmEMV)
+                    .setGeolocation(info.geoValidador)
                     .build();
 
             PassageRegister.RegisterPassageResponse response;

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +26,15 @@
                 android:layout_gravity="start"
                 android:src="@drawable/ic_baseline_menu_24"
                 android:contentDescription="@string/menu_description" />
+
+            <TextView
+                android:text="@string/transaction_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                app:autoSizeTextType="uniform"/>
         </LinearLayout>
 
         <ScrollView
@@ -40,32 +50,32 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:text="@string/enterprise_id"
+                    android:text="@string/ticket_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:paddingTop="10dp"/>
 
                 <EditText
-                    android:id="@+id/enterprise_id"
+                    android:id="@+id/ticket_amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/enterprise_id"
+                    android:hint="@string/ticket_amount"
                     android:inputType="text"
                     android:importantForAutofill="no" />
 
                 <TextView
-                    android:text="@string/device_serial_number"
+                    android:text="@string/geolocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:paddingTop="10dp"/>
 
                 <EditText
-                    android:id="@+id/device_sn"
+                    android:id="@+id/geolocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/device_serial_number"
+                    android:hint="@string/geolocation"
                     android:inputType="text"
                     android:importantForAutofill="no" />
 

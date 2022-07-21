@@ -53,4 +53,7 @@ public class ValidadorInfo {
     @ColumnInfo(name = "ksn")
     public String ksn;
 
+    @ColumnInfo(name = "valor")
+    public int valor;
+
 }

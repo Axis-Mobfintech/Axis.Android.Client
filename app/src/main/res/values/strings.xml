@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">AxisDemoApp</string>
-    <string name="save">Salvar</string>
+    <string name="save">Salvar dados</string>
     <string name="enterprise_id">Identificador da empresa</string>
-    <string name="device_serial_number">Número Serial do Validador</string>
+    <string name="device_serial_number">Número Serial do validador</string>
     <string name="edit_data">EDITAR DADOS</string>
     <string name="edit_description">Botão com ícone de lápis para edição de dados</string>
     <string name="menu_description">Botão para acesso ao menu</string>
+    <string name="device_data">Dados do Validador</string>
+    <string name="transaction_data">Dados da Transação</string>
+    <string name="next">Próximo</string>
+    <string name="ticket_amount">Valor da passagem</string>
+    <string name="line_id">Identificador da linha</string>
+    <string name="vehicle_id">Identificador do veículo</string>
+    <string name="geolocation">Geolocalização</string>
 </resources>
